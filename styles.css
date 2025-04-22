@@ -789,4 +789,51 @@ body {
     .stats-grid {
         grid-template-columns: 1fr;
     }
+}
+
+/* Future Plan Section Styles */
+.future-plan {
+    padding: 6rem 2rem;
+    background: var(--gradient-background);
+}
+
+.future-plan-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.future-plan h2 {
+    text-align: center;
+    margin-bottom: 3rem;
+    font-size: 2.5rem;
+    color: var(--text-color);
+}
+
+.future-plan-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.plan-item {
+    background: var(--glass-background);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow-secondary);
+    transition: transform 0.3s ease;
+}
+
+.plan-item:hover {
+    transform: translateY(-5px);
+}
+
+.plan-item h3 {
+    color: var(--secondary-color);
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.plan-item p {
+    color: var(--text-secondary);
+    line-height: 1.6;
 } 
