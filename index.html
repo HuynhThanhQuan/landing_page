@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Curious Machine - Data Science & AI Solutions</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
@@ -12,19 +15,18 @@
     <header class="header">
         <nav class="nav-container">
             <div class="logo">
-                <a href="#home">Curious Machine</a>
+                <a href="#home">
+                    <img src="images/logo.png" alt="Curious Machine Logo" class="logo-img">
+                    <span>Curious Machine</span>
+                </a>
             </div>
             <div class="nav-links">
                 <a href="#services">Services</a>
-                <a href="#portfolio">Portfolio</a>
-                <a href="#courses">Courses</a>
-                <a href="#blog">Blog</a>
                 <a href="#about">About</a>
                 <a href="#contact">Contact</a>
             </div>
             <div class="nav-cta">
                 <a href="#book" class="cta-primary">Book Consultation</a>
-                <a href="#courses" class="cta-secondary">View Courses</a>
             </div>
         </nav>
     </header>
@@ -36,7 +38,34 @@
             <p>Enterprise consulting, digital transformation, and expert-led data science education</p>
             <div class="hero-cta">
                 <a href="#book" class="cta-primary">Schedule Free Consultation</a>
-                <a href="#courses" class="cta-secondary">Explore Our Courses</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Section -->
+    <section class="main-section">
+        <div class="main-container">
+            <div class="main-content">
+                <h2>Empowering Businesses with Data Science</h2>
+                <p>We help organizations leverage the power of data science and AI to drive innovation, optimize operations, and create new opportunities for growth.</p>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <h3>100+</h3>
+                        <p>Projects Completed</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>50+</h3>
+                        <p>Enterprise Clients</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>95%</h3>
+                        <p>Client Satisfaction</p>
+                    </div>
+                </div>
+            </div>
+            <div class="main-image">
+                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Data Science and AI Visualization - Replace with your own image">
+                <div class="image-caption">Visual representation of data science and AI solutions</div>
             </div>
         </div>
     </section>
@@ -56,172 +85,136 @@
             <div class="service-card">
                 <h3>Education</h3>
                 <ul>
-                    <li>Data Science in Fintech Course</li>
                     <li>Custom Training Programs</li>
+                    <li>Workshops & Seminars</li>
                 </ul>
             </div>
         </div>
     </section>
 
-    <!-- Featured Course Section -->
-    <section id="courses" class="featured-course">
-        <div class="course-container">
-            <div class="course-header">
-                <h2>Data Science in Fintech</h2>
-                <p class="course-subtitle">Master the intersection of finance and data science</p>
-            </div>
-            
-            <div class="course-content">
-                <div class="course-info">
-                    <div class="course-overview">
-                        <h3>Transform Your Career in Financial Technology</h3>
-                        <p class="course-description">
-                            Learn how to leverage data science and machine learning to solve real-world financial challenges. 
-                            This comprehensive program is designed for professionals looking to advance their career in the 
-                            rapidly evolving fintech industry.
-                        </p>
-                        <div class="course-stats">
-                            <div class="stat-item">
-                                <i class="fas fa-clock"></i>
-                                <div class="stat-details">
-                                    <h4>Duration</h4>
-                                    <p>12 Weeks</p>
-                                </div>
-                            </div>
-                            <div class="stat-item">
-                                <i class="fas fa-users"></i>
-                                <div class="stat-details">
-                                    <h4>Class Size</h4>
-                                    <p>Max 20 Students</p>
-                                </div>
-                            </div>
-                            <div class="stat-item">
-                                <i class="fas fa-signal"></i>
-                                <div class="stat-details">
-                                    <h4>Level</h4>
-                                    <p>Intermediate</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="course-features">
-                        <h3>What You'll Learn</h3>
-                        <div class="features-grid">
-                            <div class="feature-item">
-                                <i class="fas fa-chart-line"></i>
-                                <h4>Financial Analysis</h4>
-                                <p>Master data-driven financial decision making</p>
-                            </div>
-                            <div class="feature-item">
-                                <i class="fas fa-robot"></i>
-                                <h4>Machine Learning</h4>
-                                <p>Build predictive models for financial markets</p>
-                            </div>
-                            <div class="feature-item">
-                                <i class="fas fa-database"></i>
-                                <h4>Big Data</h4>
-                                <p>Handle large-scale financial datasets</p>
-                            </div>
-                            <div class="feature-item">
-                                <i class="fas fa-shield-alt"></i>
-                                <h4>Risk Management</h4>
-                                <p>Implement data-driven risk strategies</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="course-cta">
-                        <div class="price-box">
-                            <div class="price">
-                                <span class="currency">$</span>
-                                <span class="amount">1,999</span>
-                            </div>
-                            <p class="price-note">Early bird discount available</p>
-                        </div>
-                        <div class="cta-buttons">
-                            <a href="#enroll" class="cta-primary">Enroll Now</a>
-                            <a href="#syllabus" class="cta-secondary">Download Syllabus</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Portfolio Section -->
-    <section id="portfolio" class="portfolio">
-        <h2>Our Work</h2>
-        <div class="portfolio-grid">
-            <!-- Portfolio items will be added dynamically via JavaScript -->
-        </div>
-    </section>
-
-    <!-- Blog Section -->
-    <section id="blog" class="blog">
-        <h2>Latest Insights</h2>
-        <div class="blog-carousel">
-            <!-- Blog posts will be added dynamically via JavaScript -->
-        </div>
-        <div class="view-all-container">
-            <a href="#all-blogs" class="cta-secondary">View All Blogs</a>
-        </div>
-    </section>
-
     <!-- Contact Section -->
     <section id="contact" class="contact">
-        <h2>Get in Touch</h2>
         <div class="contact-container">
-            <form class="contact-form">
-                <input type="text" placeholder="Name" required>
-                <input type="email" placeholder="Email" required>
-                <input type="text" placeholder="Company">
-                <select required>
-                    <option value="">Select Service</option>
-                    <option value="consulting">Consulting</option>
-                    <option value="course">Course Inquiry</option>
-                    <option value="other">Other</option>
-                </select>
-                <textarea placeholder="Message" required></textarea>
-                <button type="submit" class="cta-primary">Send Message</button>
-            </form>
             <div class="contact-info">
-                <div class="social-links">
-                    <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
-                    <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
-                </div>
+                <h2>Let's Connect</h2>
+                <p class="contact-subtitle">We're here to help you transform your business with data science and AI solutions.</p>
                 <div class="contact-details">
-                    <p><i class="fas fa-envelope"></i> contact@curiousmachine.com</p>
-                    <p><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h3>Email Us</h3>
+                            <p>contact@curiousmachine.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h3>Call Us</h3>
+                            <p>+1 (555) 123-4567</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h3>Visit Us</h3>
+                            <p>123 Data Science Ave, Tech City</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="social-links">
+                    <a href="#" target="_blank" class="social-link">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="#" target="_blank" class="social-link">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" target="_blank" class="social-link">
+                        <i class="fab fa-github"></i>
+                    </a>
                 </div>
             </div>
+            <form class="contact-form">
+                <h3>Send us a Message</h3>
+                <div class="form-group">
+                    <input type="text" placeholder="Your Name" required>
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="form-group">
+                    <input type="email" placeholder="Your Email" required>
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <div class="form-group">
+                    <input type="text" placeholder="Company Name">
+                    <i class="fas fa-building"></i>
+                </div>
+                <div class="form-group">
+                    <select required>
+                        <option value="">Select Service</option>
+                        <option value="consulting">Consulting</option>
+                        <option value="training">Training</option>
+                        <option value="other">Other</option>
+                    </select>
+                    <i class="fas fa-caret-down"></i>
+                </div>
+                <div class="form-group">
+                    <textarea placeholder="Your Message" required></textarea>
+                    <i class="fas fa-comment"></i>
+                </div>
+                <button type="submit" class="cta-primary">
+                    <span>Send Message</span>
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </form>
         </div>
     </section>
 
     <!-- Footer -->
     <footer class="footer">
         <div class="footer-content">
-            <div class="footer-logo">
-                <h3>Curious Machine</h3>
-                <p>Transforming businesses through data science and AI</p>
-            </div>
-            <div class="footer-links">
-                <div class="footer-section">
-                    <h4>Quick Links</h4>
-                    <a href="#services">Services</a>
-                    <a href="#portfolio">Portfolio</a>
-                    <a href="#courses">Courses</a>
-                    <a href="#blog">Blog</a>
+            <div class="footer-main">
+                <div class="footer-brand">
+                    <h3>Curious Machine</h3>
+                    <p>Transforming businesses through innovative data science and AI solutions.</p>
+                    <div class="footer-social">
+                        <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+                    </div>
                 </div>
-                <div class="footer-section">
-                    <h4>Contact</h4>
-                    <p>Email: contact@curiousmachine.com</p>
-                    <p>Phone: +1 (555) 123-4567</p>
+                <div class="footer-links">
+                    <div class="footer-section">
+                        <h4>Services</h4>
+                        <ul>
+                            <li><a href="#services">Enterprise Consulting</a></li>
+                            <li><a href="#services">Education</a></li>
+                            <li><a href="#services">Digital Transformation</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Company</h4>
+                        <ul>
+                            <li><a href="#about">About Us</a></li>
+                            <li><a href="#contact">Contact</a></li>
+                            <li><a href="#careers">Careers</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Resources</h4>
+                        <ul>
+                            <li><a href="#blog">Blog</a></li>
+                            <li><a href="#case-studies">Case Studies</a></li>
+                            <li><a href="#whitepapers">Whitepapers</a></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2024 Curious Machine. All rights reserved.</p>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Curious Machine. All rights reserved.</p>
+                <div class="footer-legal">
+                    <a href="#privacy">Privacy Policy</a>
+                    <a href="#terms">Terms of Service</a>
+                </div>
+            </div>
         </div>
     </footer>
 
