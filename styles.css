@@ -1,6 +1,6 @@
 :root {
     --primary-color: #fdfdfd;
-    --secondary-color: #050C9C;
+    --secondary-color: #0f2ba9;
     --tertiary-color: #3572EF;
     --quaternary-color: #3ABEF9;
     --quinary-color: #A7E6FF;
@@ -11,10 +11,10 @@
     --gradient-primary: linear-gradient(135deg, #3ABEF9 0%, #050C9C 100%);
     --gradient-secondary: linear-gradient(135deg, #f2f2f2 0%, #005af6 100%);
     --gradient-background: linear-gradient(135deg, #f9f9f9 0%, #E9ECEF 100%);
-    --glass-background: rgba(255, 255, 255, 0.8);
-    --glass-border: rgba(255, 255, 255, 0.2);
-    --shadow-primary: 0 8px 32px rgba(255, 77, 77, 0.15);
-    --shadow-secondary: 0 4px 16px rgba(0, 245, 255, 0.1);
+    --glass-background: rgba(255, 255, 255, 0.881);
+    --glass-border: rgba(29, 212, 163, 0.829);
+    --shadow-primary: 0 8px 32px rgba(77, 193, 255, 0.725);
+    --shadow-secondary: 0 4px 16px rgba(0, 247, 255, 0.233);
     --font-heading: 'Space Grotesk', sans-serif;
     --font-body: 'Outfit', sans-serif;
 }
@@ -196,7 +196,7 @@ body {
     font-size: 4rem;
     font-weight: 800;
     margin-bottom: 1.5rem;
-    background: linear-gradient(135deg, var(--secondary-color) 0%, var(--tertiary-color) 100%);
+    background: linear-gradient(135deg, #005af6 0%, var(--tertiary-color) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     animation: fadeInUp 2s ease-out;
@@ -822,11 +822,12 @@ body {
 .future-plan h2 {
     text-align: center;
     margin-bottom: 3rem;
-    font-size: 2.5rem;
+    font-size: 3rem;
     color: var(--text-color);
 }
 
 .future-plan-content {
+    font-family: var(--font-heading);
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
@@ -834,10 +835,10 @@ body {
 
 .plan-item {
     background: var(--glass-background);
-    padding: 2rem;
+    padding: 2.5rem;
     border-radius: 12px;
     box-shadow: var(--shadow-secondary);
-    transition: transform 0.3s ease;
+    transition: transform 0.5s ease;
 }
 
 .plan-item:hover {
@@ -847,12 +848,13 @@ body {
 .plan-item h3 {
     color: var(--secondary-color);
     margin-bottom: 1rem;
-    font-size: 1.5rem;
+    font-size: 2rem;
 }
 
 .plan-item p {
     color: var(--text-secondary);
     line-height: 1.6;
+    font-size: 1.3rem;
 }
 
 /* About Section Styles */
