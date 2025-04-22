@@ -54,21 +54,36 @@ body {
 }
 
 .logo a {
-    font-family: var(--font-heading);
-    color: var(--secondary-color);
-    font-size: 1.8rem;
-    font-weight: 700;
-    text-decoration: none;
-    letter-spacing: -0.5px;
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 1rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
 }
 
 .logo-img {
     height: 40px;
-    width: auto;
-    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.logo span {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-color);
+    transition: all 0.3s ease;
+}
+
+.logo:hover .logo-img {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.logo:hover span {
+    color: var(--secondary-color);
+    transform: translateX(5px);
+}
+
+.logo:hover {
+    transform: scale(1.05);
 }
 
 .nav-links {
@@ -836,4 +851,99 @@ body {
 .plan-item p {
     color: var(--text-secondary);
     line-height: 1.6;
+}
+
+/* About Section Styles */
+.about {
+    padding: 6rem 2rem;
+    background: var(--primary-color);
+}
+
+.about-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.about h2 {
+    text-align: center;
+    margin-bottom: 3rem;
+    font-size: 2.5rem;
+    color: var(--text-color);
+}
+
+.about-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.about-text {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.about-text p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text-secondary);
+}
+
+.about-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.about-stats .stat-item {
+    text-align: center;
+    padding: 1.5rem;
+    background: var(--glass-background);
+    border-radius: 12px;
+    transition: transform 0.3s ease;
+}
+
+.about-stats .stat-item:hover {
+    transform: translateY(-5px);
+}
+
+.about-stats h3 {
+    font-size: 2rem;
+    color: var(--secondary-color);
+    margin-bottom: 0.5rem;
+}
+
+.about-stats p {
+    font-size: 1rem;
+    color: var(--text-secondary);
+}
+
+.about-image {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow-primary);
+}
+
+.about-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.about-image:hover img {
+    transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+    .about-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .about-stats {
+        grid-template-columns: 1fr;
+    }
 } 
