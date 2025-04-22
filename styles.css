@@ -163,6 +163,7 @@ body {
     overflow: hidden;
     background: url('./images/hero-bg.jpg') no-repeat center center;
     background-size: cover;
+    margin-top: 60px;
 }
 
 .hero::before {
@@ -319,7 +320,7 @@ body {
 
 /* Contact Section */
 .contact {
-    padding: 6rem 2rem;
+    padding: 12rem 2rem;
     background: var(--primary-color);
     position: relative;
     overflow: hidden;
@@ -876,37 +877,129 @@ body {
 }
 
 .about-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    align-items: center;
-}
-
-.about-text {
     display: flex;
     flex-direction: column;
+    gap: 4rem;
+}
+
+/* Profile Card Styles */
+.about-profile {
+    display: flex;
+    justify-content: center;
+}
+
+.profile-card {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    background: var(--glass-background);
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: var(--shadow-primary);
+    max-width: 800px;
+    width: 100%;
+}
+
+.profile-image {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4px solid var(--glass-border);
+}
+
+.profile-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.profile-image:hover img {
+    transform: scale(1.1);
+}
+
+.profile-info {
+    flex: 1;
+}
+
+.profile-info h3 {
+    font-size: 2rem;
+    color: var(--text-color);
+    margin-bottom: 0.5rem;
+}
+
+.profile-info .role {
+    font-size: 1.2rem;
+    color: var(--secondary-color);
+    margin-bottom: 1rem;
+}
+
+.profile-info .description {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+/* Team Grid Styles */
+.about-team {
+    margin-top: 2rem;
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 2rem;
 }
 
-.about-text p {
-    font-size: 1.1rem;
-    line-height: 1.8;
-    color: var(--text-secondary);
+.team-item {
+    background: var(--glass-background);
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+    transition: transform 0.3s ease;
+    box-shadow: var(--shadow-secondary);
 }
 
+.team-item:hover {
+    transform: translateY(-10px);
+}
+
+.team-item img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1.5rem;
+    border: 3px solid var(--glass-border);
+}
+
+.team-item h4 {
+    font-size: 1.5rem;
+    color: var(--text-color);
+    margin-bottom: 0.5rem;
+}
+
+.team-item p {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+}
+
+/* Stats Section Styles */
 .about-stats {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
-    margin-top: 2rem;
+    margin-top: 4rem;
 }
 
 .about-stats .stat-item {
     text-align: center;
-    padding: 1.5rem;
+    padding: 2rem;
     background: var(--glass-background);
-    border-radius: 12px;
+    border-radius: 15px;
     transition: transform 0.3s ease;
+    box-shadow: var(--shadow-secondary);
 }
 
 .about-stats .stat-item:hover {
@@ -920,34 +1013,98 @@ body {
 }
 
 .about-stats p {
-    font-size: 1rem;
+    font-size: 1.1rem;
     color: var(--text-secondary);
 }
 
-.about-image {
-    position: relative;
-    border-radius: 12px;
-    overflow: hidden;
+@media (max-width: 768px) {
+    .profile-card {
+        flex-direction: column;
+        text-align: center;
+        gap: 2rem;
+    }
+
+    .profile-image {
+        width: 150px;
+        height: 150px;
+    }
+
+    .team-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .about-stats {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Notification Banner Styles */
+.notification-banner {
+    background: var(--gradient-primary);
+    color: white;
+    padding: 1rem 2rem;
+    position: fixed;
+    top: 80px;
+    left: 0;
+    right: 0;
+    z-index: 999;
     box-shadow: var(--shadow-primary);
+    animation: slideDown 0.5s ease-out;
 }
 
-.about-image img {
-    width: 100%;
-    height: auto;
-    display: block;
-    transition: transform 0.3s ease;
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+    }
+    to {
+        transform: translateY(0);
+    }
 }
 
-.about-image:hover img {
-    transform: scale(1.05);
+.notification-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+}
+
+.notification-content p {
+    font-size: 1.1rem;
+    margin: 0;
+    flex: 1;
+    font-weight: 500;
+}
+
+.notification-cta {
+    background: white;
+    color: black;
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.notification-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 @media (max-width: 768px) {
-    .about-content {
-        grid-template-columns: 1fr;
+    .notification-banner {
+        padding: 0.8rem 1rem;
     }
     
-    .about-stats {
-        grid-template-columns: 1fr;
+    .notification-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+    
+    .notification-content p {
+        font-size: 1rem;
     }
 } 
