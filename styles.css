@@ -4,8 +4,8 @@
     --tertiary-color: #3572EF;
     --quaternary-color: #3ABEF9;
     --quinary-color: #A7E6FF;
-    --text-color: #000000;
-    --text-secondary: #030a36;
+    --text-color: #020f31;
+    --text-secondary: #161616;
     --background-color: #ffffff;
     --card-background: #A7E6FF;
     --gradient-primary: linear-gradient(135deg, #3ABEF9 0%, #050C9C 100%);
@@ -155,7 +155,7 @@ body {
 
 /* Hero Section */
 .hero {
-    min-height: 100vh;
+    min-height: 75vh;
     display: flex;
     align-items: center;
     padding: 10rem 2rem;
@@ -184,7 +184,7 @@ body {
 }
 
 .hero-content {
-    max-width: 1000px;
+    max-width: 1200px;
     margin: 0 auto;
     text-align: center;
     position: relative;
@@ -194,9 +194,9 @@ body {
 .hero h1 {
     font-family: var(--font-heading);
     font-size: 4rem;
-    font-weight: 700;
+    font-weight: 800;
     margin-bottom: 1.5rem;
-    background: linear-gradient(180deg, #024ce0 0%, #020ddf 100%);
+    background: linear-gradient(135deg, var(--secondary-color) 0%, var(--tertiary-color) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     animation: fadeInUp 2s ease-out;
@@ -216,11 +216,11 @@ body {
 }
 
 .hero p {
-    font-size: 1.4rem;
+    font-size: 1.8rem;
     color: var(--primary-color);
     margin-bottom: 2rem;
     font-weight: 300;
-    max-width: 800px;
+    max-width: 1000px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -233,8 +233,8 @@ body {
 
 /* Services Section */
 .services {
-    padding: 6rem 2rem;
-    background-color: var(--primary-color);
+    padding: 5rem 2rem;
+    background-color: var(--gradient-background);
 }
 
 .services h2 {
@@ -243,7 +243,7 @@ body {
     margin-bottom: 3rem;
     font-size: 3rem;
     font-weight: 700;
-    background: var(--gradient-secondary);
+    background: var(--text-color);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -320,7 +320,7 @@ body {
 /* Contact Section */
 .contact {
     padding: 6rem 2rem;
-    background: var(--gradient-background);
+    background: var(--primary-color);
     position: relative;
     overflow: hidden;
 }
@@ -511,7 +511,7 @@ body {
 
 /* Footer */
 .footer {
-    background: var(--gradient-background);
+    background: var(--quinary-color);
     padding: 6rem 2rem 2rem;
     position: relative;
     overflow: hidden;
@@ -811,7 +811,7 @@ body {
 /* Future Plan Section Styles */
 .future-plan {
     padding: 6rem 2rem;
-    background: var(--gradient-background);
+    background: var(--background-color);
 }
 
 .future-plan-container {
@@ -858,7 +858,7 @@ body {
 /* About Section Styles */
 .about {
     padding: 6rem 2rem;
-    background: var(--primary-color);
+    background: var(--gradient-background);
 }
 
 .about-container {
