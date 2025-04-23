@@ -382,7 +382,7 @@ body {
 /* Contact Section */
 .contact {
     padding: 12rem 2rem;
-    background: var(--primary-color);
+    background: var(--gradient-background);
     position: relative;
     overflow: hidden;
 }
@@ -873,7 +873,7 @@ body {
 /* About Section Styles */
 .about {
     padding: 6rem 2rem;
-    background: var(--gradient-background);
+    background: var(--primary-color);
 }
 
 .about-container {
