@@ -90,11 +90,12 @@ function profileImageOptimization() {
 }
 
 // Language switching functionality
-let currentLanguage = 'vi';
+let currentLanguage = localStorage.getItem('preferredLanguage') || 'vi';
 
 // Function to update the language
 function updateLanguage(lang) {
     currentLanguage = lang;
+    localStorage.setItem('preferredLanguage', lang);
     
     // Update all elements with data-translate attribute
     document.querySelectorAll('[data-translate]').forEach(element => {
@@ -128,8 +129,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Set initial language to Vietnamese
-    updateLanguage('vi');
+    // Set initial language from localStorage or default to Vietnamese
+    updateLanguage(currentLanguage);
 });
 
 // Counter Animation
