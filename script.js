@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     setupFormValidation();
     profileImageOptimization();
     initCounters();
+    initCarousel();
     updateLanguage('vi');
 });
 
@@ -173,5 +174,52 @@ function initCounters() {
 
     counterElements.forEach(element => {
         observer.observe(element);
+    });
+}
+
+// Carousel functionality
+function initCarousel() {
+    const slides = document.querySelectorAll('.carousel-slide');
+    const dots = document.querySelectorAll('.dot');
+    let currentSlide = 0;
+    const interval = 5000; // Change slide every 5 seconds
+
+    function showSlide(index) {
+        // Remove active class from all slides and dots
+        slides.forEach(slide => slide.classList.remove('active'));
+        dots.forEach(dot => dot.classList.remove('active'));
+        
+        // Add active class to current slide and dot
+        slides[index].classList.add('active');
+        dots[index].classList.add('active');
+        
+        currentSlide = index;
+    }
+
+    function nextSlide() {
+        currentSlide = (currentSlide + 1) % slides.length;
+        showSlide(currentSlide);
+    }
+
+    // Set up automatic sliding
+    let slideInterval = setInterval(nextSlide, interval);
+
+    // Add click handlers to dots
+    dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+            clearInterval(slideInterval); // Reset interval on manual navigation
+            showSlide(index);
+            slideInterval = setInterval(nextSlide, interval); // Restart interval
+        });
+    });
+
+    // Pause on hover
+    const carouselContainer = document.querySelector('.carousel-container');
+    carouselContainer.addEventListener('mouseenter', () => {
+        clearInterval(slideInterval);
+    });
+
+    carouselContainer.addEventListener('mouseleave', () => {
+        slideInterval = setInterval(nextSlide, interval);
     });
 } 
