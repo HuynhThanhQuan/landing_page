@@ -821,6 +821,7 @@ body {
 }
 
 .future-plan h2 {
+    font-family: var(--font-heading);
     text-align: center;
     margin-bottom: 3rem;
     font-size: 3rem;
@@ -870,6 +871,7 @@ body {
 }
 
 .about h2 {
+    font-family: var(--font-heading);
     text-align: center;
     margin-bottom: 3rem;
     font-size: 2.5rem;
@@ -877,6 +879,7 @@ body {
 }
 
 .about-content {
+    font-family: var(--font-heading);
     display: flex;
     flex-direction: column;
     gap: 4rem;
@@ -1159,5 +1162,82 @@ body {
     
     .notification-content p {
         font-size: 1rem;
+    }
+}
+
+/* Language Switcher Styles */
+.language-switcher {
+    margin-left: 2rem;
+}
+
+.language-container {
+    display: flex;
+    background: var(--glass-background);
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    padding: 4px;
+    gap: 4px;
+    box-shadow: var(--shadow-secondary);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.language-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: transparent;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: var(--font-heading);
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+.language-btn.active {
+    background: var(--gradient-primary);
+    color: white;
+    box-shadow: var(--shadow-secondary);
+    border: 1px solid var(--glass-border);
+}
+
+.language-btn:not(.active):hover {
+    background: var(--gradient-background);
+    box-shadow: var(--shadow-primary);
+    transform: scale(1.2);
+}
+
+.language-flag {
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
+}
+
+.language-text {
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.language-btn:hover .language-flag {
+    transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+    .language-switcher {
+        margin-left: 1rem;
+    }
+    
+    .language-btn {
+        padding: 0.4rem 0.8rem;
+    }
+    
+    .language-flag {
+        font-size: 1rem;
+    }
+    
+    .language-text {
+        font-size: 0.8rem;
     }
 } 

@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     setupSmoothScroll();
     setupFormValidation();
     profileImageOptimization();
+    updateLanguage('vi');
 });
 
 // Setup smooth scrolling for navigation links
@@ -84,4 +85,47 @@ function profileImageOptimization() {
         console.warn('Profile image failed to load');
         container.style.opacity = '1';
     };
-} 
+}
+
+// Language switching functionality
+let currentLanguage = 'vi';
+
+// Function to update the language
+function updateLanguage(lang) {
+    currentLanguage = lang;
+    
+    // Update all elements with data-translate attribute
+    document.querySelectorAll('[data-translate]').forEach(element => {
+        const key = element.getAttribute('data-translate');
+        if (translations[lang] && translations[lang][key]) {
+            if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                element.placeholder = translations[lang][key];
+            } else {
+                element.textContent = translations[lang][key];
+            }
+        }
+    });
+
+    // Update language switcher UI
+    document.querySelectorAll('.language-btn').forEach(btn => {
+        btn.classList.remove('active');
+        if (btn.getAttribute('data-lang') === lang) {
+            btn.classList.add('active');
+        }
+    });
+}
+
+// Initialize language switcher
+document.addEventListener('DOMContentLoaded', () => {
+    const languageBtns = document.querySelectorAll('.language-btn');
+    
+    languageBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const lang = btn.getAttribute('data-lang');
+            updateLanguage(lang);
+        });
+    });
+
+    // Set initial language to Vietnamese
+    updateLanguage('vi');
+}); 
