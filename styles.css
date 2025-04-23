@@ -12,7 +12,7 @@
     --gradient-secondary: linear-gradient(135deg, #f2f2f2 0%, #005af6 100%);
     --gradient-background: linear-gradient(135deg, #f9f9f9 0%, #E9ECEF 100%);
     --glass-background: rgba(255, 255, 255, 0.881);
-    --glass-border: rgba(29, 212, 163, 0.829);
+    --glass-border: rgba(29, 178, 212, 0.829);
     --shadow-primary: 0 8px 32px rgba(77, 193, 255, 0.725);
     --shadow-secondary: 0 4px 16px rgba(0, 247, 255, 0.233);
     --font-heading: 'Space Grotesk', sans-serif;
@@ -1033,6 +1033,13 @@ body {
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     height: 100%;
+    transition: all 0.3s ease;
+}
+
+.profile-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-secondary);
+    background: rgba(255, 255, 255, 0.95);
 }
 
 .profile-image {
@@ -1040,7 +1047,7 @@ body {
     height: 200px;
     border-radius: 50%;
     overflow: hidden;
-    border: 4px solid var(--glass-border);
+    border: 1px solid var(--glass-border);
     box-shadow: var(--shadow-primary);
     position: relative;
     isolation: isolate;
@@ -1048,6 +1055,11 @@ body {
     -webkit-transform: translateZ(0);
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
+    transition: all 0.4s ease;
+}
+
+.profile-card:hover .profile-image {
+    transform: scale(1.05);
 }
 
 .profile-image::after {
@@ -1072,12 +1084,12 @@ body {
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     image-rendering: -webkit-optimize-contrast;
     -webkit-interpolation-mode: bicubic;
-    transform: scale(1.01) translateZ(0);
+    transform: scale(1.05) translateZ(0);
     will-change: transform;
 }
 
 .profile-image:hover img {
-    transform: scale(1.08) translateZ(0);
+    transform: scale(1.05) translateZ(0);
 }
 
 /* Enhanced profile info styles */
@@ -1091,6 +1103,11 @@ body {
     margin-bottom: 0.5rem;
     font-weight: 700;
     letter-spacing: -0.02em;
+    transition: color 0.3s ease;
+}
+
+.profile-card:hover .profile-info h3 {
+    color: var(--secondary-color);
 }
 
 .profile-info .role {
@@ -1099,6 +1116,12 @@ body {
     margin-bottom: 1rem;
     font-weight: 500;
     opacity: 0.9;
+    transition: all 0.3s ease;
+}
+
+.profile-card:hover .profile-info .role {
+    color: var(--tertiary-color);
+    transform: translateX(5px);
 }
 
 .profile-info .description {
@@ -1109,22 +1132,14 @@ body {
 }
 
 @media (max-width: 768px) {
-    .about-left {
-        height: auto;
-    }
-    
     .profile-card {
-        height: auto;
+        flex-direction: column;
+        text-align: center;
+        gap: 2rem;
     }
 
-    .profile-image {
-        width: 180px;
-        height: 180px;
-        margin: 0 auto;
-    }
-
-    .profile-info .description {
-        max-width: 100%;
+    .profile-card:hover .profile-info .role {
+        transform: translateX(0) translateY(-5px);
     }
 }
 
