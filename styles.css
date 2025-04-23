@@ -1471,4 +1471,209 @@ body {
     .carousel-container {
         height: 300px;
     }
+}
+
+/* Education Page Styles */
+.education-hero {
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    padding: 10rem 2rem 5rem;
+    position: relative;
+    overflow: hidden;
+    background: url('./images/education-bg.jpg') no-repeat center center;
+    background-size: cover;
+    margin-top: 60px;
+}
+
+.education-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.education-hero-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    color: white;
+}
+
+.education-hero h1 {
+    font-family: var(--font-heading);
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+}
+
+.education-hero p {
+    font-size: 1.5rem;
+    max-width: 800px;
+    margin: 0 auto;
+    opacity: 0.9;
+}
+
+/* Courses Section */
+.courses-section {
+    padding: 5rem 2rem;
+    background: var(--gradient-background);
+}
+
+.courses-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.courses-container h2 {
+    font-family: var(--font-heading);
+    text-align: center;
+    margin-bottom: 3rem;
+    font-size: 2.5rem;
+    color: var(--text-color);
+}
+
+.courses-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+}
+
+.course-card {
+    background: var(--glass-background);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: var(--shadow-secondary);
+    transition: transform 0.3s ease;
+}
+
+.course-card:hover {
+    transform: translateY(-10px);
+}
+
+.course-image {
+    height: 200px;
+    overflow: hidden;
+}
+
+.course-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.course-card:hover .course-image img {
+    transform: scale(1.1);
+}
+
+.course-content {
+    padding: 2rem;
+}
+
+.course-content h3 {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--text-color);
+}
+
+.course-content p {
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.course-features {
+    list-style: none;
+    margin-bottom: 1.5rem;
+}
+
+.course-features li {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-secondary);
+}
+
+.course-features i {
+    color: var(--secondary-color);
+}
+
+/* Registration Section */
+.registration-section {
+    padding: 5rem 2rem;
+    background: var(--gradient-primary);
+    color: white;
+}
+
+.registration-container {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.registration-container h2 {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+}
+
+.registration-form {
+    background: var(--glass-background);
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: var(--shadow-primary);
+}
+
+.registration-form .form-group {
+    margin-bottom: 1.5rem;
+}
+
+.registration-form select {
+    width: 100%;
+    padding: 1rem 1rem 1rem 3rem;
+    background: white;
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    appearance: none;
+    cursor: pointer;
+}
+
+.registration-form select:focus {
+    outline: none;
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 0 3px rgba(0, 245, 255, 0.1);
+}
+
+.registration-form button {
+    width: 100%;
+    margin-top: 1rem;
+}
+
+@media (max-width: 768px) {
+    .education-hero h1 {
+        font-size: 2.5rem;
+    }
+    
+    .education-hero p {
+        font-size: 1.2rem;
+    }
+    
+    .courses-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .registration-container {
+        padding: 0 1rem;
+    }
 } 
