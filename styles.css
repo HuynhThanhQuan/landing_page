@@ -899,6 +899,7 @@ body {
 .about-left {
     display: flex;
     justify-content: center;
+    height: 100%;
 }
 
 .about-right {
@@ -968,10 +969,12 @@ body {
         gap: 2rem;
     }
 
+    .about-left {
+        height: auto;
+    }
+    
     .profile-card {
-        flex-direction: column;
-        text-align: center;
-        gap: 2rem;
+        height: auto;
     }
 
     .profile-image {
@@ -1026,10 +1029,10 @@ body {
     padding: 2rem;
     border-radius: 20px;
     box-shadow: var(--shadow-primary);
-    max-width: 800px;
-    width: 100%;
+    max-width: 100%;
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
+    height: 100%;
 }
 
 .profile-image {
@@ -1106,10 +1109,12 @@ body {
 }
 
 @media (max-width: 768px) {
+    .about-left {
+        height: auto;
+    }
+    
     .profile-card {
-        flex-direction: column;
-        text-align: center;
-        gap: 2rem;
+        height: auto;
     }
 
     .profile-image {
