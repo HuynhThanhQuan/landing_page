@@ -2,6 +2,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     setupSmoothScroll();
     setupFormValidation();
+    profileImageOptimization();
 });
 
 // Setup smooth scrolling for navigation links
@@ -56,4 +57,31 @@ window.addEventListener('scroll', () => {
             element.classList.add('animate');
         }
     });
-}); 
+});
+
+// Profile image optimization
+function profileImageOptimization() {
+    const profileImage = document.querySelector('.profile-image img');
+    if (!profileImage) return;
+
+    // Add loading animation
+    const container = profileImage.closest('.profile-image');
+    container.style.opacity = '0.8';
+    
+    // Handle image loading
+    profileImage.onload = function() {
+        container.style.opacity = '1';
+        container.style.transition = 'opacity 0.3s ease';
+        
+        // Apply subtle animation
+        requestAnimationFrame(() => {
+            profileImage.style.transform = 'scale(1.01) translateZ(0)';
+        });
+    };
+
+    // Handle image loading error
+    profileImage.onerror = function() {
+        console.warn('Profile image failed to load');
+        container.style.opacity = '1';
+    };
+} 

@@ -131,10 +131,19 @@
                 <div class="about-profile">
                     <div class="profile-card">
                         <div class="profile-image">
-                            <img src="images/hero-bg.jpg" alt="Profile Picture">
+                            <picture>
+                                <source srcset="images/profile/quan.webp" type="image/webp">
+                                <source srcset="images/profile/quan_small.png" type="image/png">
+                                <img 
+                                    src="images/profile/quan.webp" 
+                                    alt="Huỳnh Thanh Quan - Founder & CEO Curious Machine"
+                                    loading="lazy"
+                                    decoding="async"
+                                >
+                            </picture>
                         </div>
                         <div class="profile-info">
-                            <h3>Huỳnh Thanh Quan</h3>
+                            <h3>Huỳnh Thanh Quan</h3>
                             <p class="role">Founder & CEO Curious Machine</p>
                             <p class="description">10+ years of experience in Data Science and AI in Finance and Banking</p>
                         </div>

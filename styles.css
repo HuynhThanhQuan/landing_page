@@ -898,6 +898,8 @@ body {
     box-shadow: var(--shadow-primary);
     max-width: 800px;
     width: 100%;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
 }
 
 .profile-image {
@@ -906,39 +908,90 @@ body {
     border-radius: 50%;
     overflow: hidden;
     border: 4px solid var(--glass-border);
+    box-shadow: var(--shadow-primary);
+    position: relative;
+    isolation: isolate;
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+.profile-image::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: linear-gradient(
+        45deg,
+        rgba(255, 255, 255, 0.1),
+        rgba(255, 255, 255, 0.05)
+    );
+    z-index: 1;
+    pointer-events: none;
 }
 
 .profile-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.3s ease;
+    transform-origin: center;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    image-rendering: -webkit-optimize-contrast;
+    -webkit-interpolation-mode: bicubic;
+    transform: scale(1.01) translateZ(0);
+    will-change: transform;
 }
 
 .profile-image:hover img {
-    transform: scale(1.1);
+    transform: scale(1.08) translateZ(0);
 }
 
+/* Enhanced profile info styles */
 .profile-info {
     flex: 1;
 }
 
 .profile-info h3 {
-    font-size: 2rem;
+    font-size: 2.2rem;
     color: var(--text-color);
     margin-bottom: 0.5rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
 }
 
 .profile-info .role {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     color: var(--secondary-color);
     margin-bottom: 1rem;
+    font-weight: 500;
+    opacity: 0.9;
 }
 
 .profile-info .description {
     font-size: 1.1rem;
     color: var(--text-secondary);
     line-height: 1.6;
+    max-width: 90%;
+}
+
+@media (max-width: 768px) {
+    .profile-card {
+        flex-direction: column;
+        text-align: center;
+        gap: 2rem;
+        padding: 1.5rem;
+    }
+
+    .profile-image {
+        width: 180px;
+        height: 180px;
+        margin: 0 auto;
+    }
+
+    .profile-info .description {
+        max-width: 100%;
+    }
 }
 
 /* Team Grid Styles */
