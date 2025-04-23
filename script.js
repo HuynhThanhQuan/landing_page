@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     setupSmoothScroll();
     setupFormValidation();
     profileImageOptimization();
+    initCounters();
     updateLanguage('vi');
 });
 
@@ -128,4 +129,49 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Set initial language to Vietnamese
     updateLanguage('vi');
-}); 
+});
+
+// Counter Animation
+function animateCounter(element) {
+    const target = parseInt(element.getAttribute('data-counter'));
+    const suffix = element.getAttribute('data-suffix') || '';
+    const duration = 2000; // Animation duration in milliseconds
+    const steps = 60; // Number of steps in the animation
+    const stepDuration = duration / steps;
+    let current = 0;
+    
+    const increment = target / steps;
+    const counter = setInterval(() => {
+        current += increment;
+        if (current >= target) {
+            element.textContent = target + suffix;
+            clearInterval(counter);
+        } else {
+            element.textContent = Math.floor(current) + suffix;
+        }
+    }, stepDuration);
+}
+
+// Initialize counter animations when elements are in view
+function initCounters() {
+    const counterElements = document.querySelectorAll('[data-counter]');
+    const options = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.5
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting && !entry.target.hasAttribute('data-counted')) {
+                animateCounter(entry.target);
+                entry.target.setAttribute('data-counted', 'true');
+                observer.unobserve(entry.target); // Stop observing once animation starts
+            }
+        });
+    }, options);
+
+    counterElements.forEach(element => {
+        observer.observe(element);
+    });
+} 
