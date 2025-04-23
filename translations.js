@@ -16,9 +16,9 @@ const translations = {
         consulting: 'Consulting',
         consultingDesc: 'We offer consulting services to help you leverage data science and utilize the power of AI to improve your business.',
         education: 'Education',
-        educationDesc: 'We offer a range of courses to help you learn data science and AI, especially in Finance and Banking.',
+        educationDesc: 'Join our comprehensive courses and workshops',
         community: 'Community',
-        communityDesc: 'We create a community to help you learn and grow together. Join us to get the inspiration and motivation to learn and grow together.',
+        communityDesc: 'Connect with like-minded professionals',
         futurePlanTitle: 'Our Future Plans',
         coffeeShop: 'Coffee Shop',
         coffeeShopDesc: 'We are planning to open a coffee shop for the community to learn and share knowledge together.',
@@ -104,7 +104,8 @@ const translations = {
         facebookGroup: "Facebook Group",
         linkedinGroup: "LinkedIn Group",
         discordServer: "Discord Server",
-        mar: "Mar"
+        mar: "Mar",
+        exploreMore: "Explore More Services"
     },
     vi: {
         home: 'Trang chủ',
@@ -121,11 +122,11 @@ const translations = {
         recommendations: 'Đề xuất',
         servicesTitle: 'Dịch vụ',
         consulting: 'Tư vấn',
-        consultingDesc: 'Chúng tôi cung cấp dịch vụ tư vấn giúp bạn tận dụng khoa học dữ liệu và sức mạnh của AI để cải thiện doanh nghiệp.',
+        consultingDesc: 'Nhận tư vấn chuyên gia cho doanh nghiệp của bạn',
         education: 'Giáo dục',
-        educationDesc: 'Chúng tôi cung cấp nhiều khóa học giúp bạn học khoa học dữ liệu và AI, đặc biệt trong lĩnh vực Tài chính và Ngân hàng.',
+        educationDesc: 'Tham gia các khóa học và hội thảo toàn diện của chúng tôi',
         community: 'Cộng đồng',
-        communityDesc: 'Chúng tôi tạo ra một cộng đồng để giúp bạn học tập và phát triển cùng nhau. Hãy tham gia để có thêm cảm hứng và động lực học tập.',
+        communityDesc: 'Kết nối với các chuyên gia cùng chí hướng',
         futurePlanTitle: 'Kế hoạch tương lai',
         coffeeShop: 'Quán cà phê',
         coffeeShopDesc: 'Chúng tôi đang lên kế hoạch mở một quán cà phê để cộng đồng có thể học tập và chia sẻ kiến thức cùng nhau.',
@@ -211,6 +212,7 @@ const translations = {
         facebookGroup: "Nhóm Facebook",
         linkedinGroup: "Nhóm LinkedIn",
         discordServer: "Máy Chủ Discord",
-        mar: "Tháng 3"
+        mar: "Tháng 3",
+        exploreMore: "Khám Phá Thêm Dịch Vụ"
     }
 }; 
