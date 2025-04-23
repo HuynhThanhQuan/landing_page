@@ -40,7 +40,19 @@ const translations = {
         learnMore: 'Learn More',
         joinUs: 'Join Us',
         founderTitle: 'Founder & CEO Curious Machine',
-        founderDesc: '10+ years of experience in Data Science and AI in Finance and Banking'
+        founderDesc: '10+ years of experience in Data Science and AI in Finance and Banking',
+        consultingTitle: 'Data Science & AI Consulting',
+        consultingHeroDesc: 'Transform your business with our expert data science and AI consulting services. We help you leverage the power of data to make informed decisions and drive growth.',
+        dataStrategy: 'Data Strategy',
+        dataStrategyDesc: 'Develop a comprehensive data strategy that aligns with your business goals and objectives.',
+        aiSolutions: 'AI Solutions',
+        aiSolutionsDesc: 'Implement cutting-edge AI solutions to automate processes and enhance decision-making.',
+        dataAnalytics: 'Data Analytics',
+        dataAnalyticsDesc: 'Gain valuable insights from your data through advanced analytics and visualization.',
+        getInTouch: 'Get in Touch',
+        consultantContactDesc: 'Ready to transform your business with data science and AI? Contact us today for a free consultation.',
+        companyName: 'Company Name',
+        projectDetails: 'Tell us about your project'
     },
     vi: {
         home: 'Trang chủ',
@@ -83,6 +95,18 @@ const translations = {
         learnMore: 'Tìm hiểu thêm',
         joinUs: 'Tham gia',
         founderTitle: 'Founder & CEO Curious Machine',
-        founderDesc: 'Hơn 10 năm kinh nghiệm trong lĩnh vực Khoa học Dữ liệu và AI trong Tài chính và Ngân hàng'
+        founderDesc: 'Hơn 10 năm kinh nghiệm trong lĩnh vực Khoa học Dữ liệu và AI trong Tài chính và Ngân hàng',
+        consultingTitle: 'Tư vấn Khoa học Dữ liệu & AI',
+        consultingHeroDesc: 'Chuyển đổi doanh nghiệp của bạn với dịch vụ tư vấn chuyên gia về khoa học dữ liệu và AI. Chúng tôi giúp bạn tận dụng sức mạnh của dữ liệu để đưa ra quyết định sáng suốt và thúc đẩy tăng trưởng.',
+        dataStrategy: 'Chiến lược Dữ liệu',
+        dataStrategyDesc: 'Phát triển chiến lược dữ liệu toàn diện phù hợp với mục tiêu và mục đích kinh doanh của bạn.',
+        aiSolutions: 'Giải pháp AI',
+        aiSolutionsDesc: 'Triển khai các giải pháp AI tiên tiến để tự động hóa quy trình và nâng cao khả năng ra quyết định.',
+        dataAnalytics: 'Phân tích Dữ liệu',
+        dataAnalyticsDesc: 'Thu thập thông tin chi tiết có giá trị từ dữ liệu của bạn thông qua phân tích và trực quan hóa nâng cao.',
+        getInTouch: 'Liên hệ với chúng tôi',
+        consultantContactDesc: 'Sẵn sàng chuyển đổi doanh nghiệp của bạn với khoa học dữ liệu và AI? Liên hệ với chúng tôi ngay hôm nay để được tư vấn miễn phí.',
+        companyName: 'Tên công ty',
+        projectDetails: 'Hãy cho chúng tôi biết về dự án của bạn'
     }
 }; 

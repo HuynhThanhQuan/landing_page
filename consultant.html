@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consulting Services - Curious Machine</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="consultant.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav-container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="images/logo.png" alt="Curious Machine Logo" class="logo-img">
+                    <span>Curious Machine</span>
+                </a>
+            </div>
+            <div class="nav-links">
+                <a href="index.html#home" data-translate="home">Home</a>
+                <a href="index.html#services" data-translate="services">Services</a>
+                <a href="index.html#future-plan" data-translate="futurePlan">Future Plan</a>
+                <a href="index.html#about" data-translate="about">About</a>
+                <a href="index.html#contact" data-translate="contact">Contact</a>
+            </div>
+            <div class="language-switcher">
+                <div class="language-container">
+                    <button class="language-btn active" data-lang="vi">
+                        <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/72x72/1f1fb-1f1f3.png" alt="Vietnam Flag" width="24px" height="24px">
+                    </button>
+                    <button class="language-btn" data-lang="en">
+                        <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/72x72/1f1fa-1f1f8.png" alt="US Flag" width="24px" height="24px">
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Consultant Hero Section -->
+    <section class="consultant-hero">
+        <div class="consultant-hero-content">
+            <h1 data-translate="consultingTitle">Data Science & AI Consulting</h1>
+            <p data-translate="consultingHeroDesc">Transform your business with our expert data science and AI consulting services. We help you leverage the power of data to make informed decisions and drive growth.</p>
+        </div>
+    </section>
+
+    <!-- Consulting Services Section -->
+    <section class="consulting-services">
+        <div class="services-container">
+            <div class="service-card">
+                <i class="fas fa-chart-line"></i>
+                <h3 data-translate="dataStrategy">Data Strategy</h3>
+                <p data-translate="dataStrategyDesc">Develop a comprehensive data strategy that aligns with your business goals and objectives.</p>
+                <ul class="service-features">
+                    <li>Data Governance Framework</li>
+                    <li>Data Quality Assessment</li>
+                    <li>Data Architecture Design</li>
+                    <li>Implementation Roadmap</li>
+                </ul>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-robot"></i>
+                <h3 data-translate="aiSolutions">AI Solutions</h3>
+                <p data-translate="aiSolutionsDesc">Implement cutting-edge AI solutions to automate processes and enhance decision-making.</p>
+                <ul class="service-features">
+                    <li>Machine Learning Models</li>
+                    <li>Natural Language Processing</li>
+                    <li>Computer Vision Solutions</li>
+                    <li>AI Integration Services</li>
+                </ul>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-database"></i>
+                <h3 data-translate="dataAnalytics">Data Analytics</h3>
+                <p data-translate="dataAnalyticsDesc">Gain valuable insights from your data through advanced analytics and visualization.</p>
+                <ul class="service-features">
+                    <li>Predictive Analytics</li>
+                    <li>Business Intelligence</li>
+                    <li>Data Visualization</li>
+                    <li>Performance Dashboards</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section class="consultant-contact">
+        <div class="contact-container">
+            <h2 data-translate="getInTouch">Get in Touch</h2>
+            <p data-translate="consultantContactDesc">Ready to transform your business with data science and AI? Contact us today for a free consultation.</p>
+            <form class="contact-form">
+                <div class="form-group">
+                    <input type="text" placeholder="Your Name" data-translate="yourName" required>
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="form-group">
+                    <input type="email" placeholder="Your Email" data-translate="yourEmail" required>
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <div class="form-group">
+                    <input type="text" placeholder="Company Name" data-translate="companyName" required>
+                    <i class="fas fa-building"></i>
+                </div>
+                <div class="form-group">
+                    <textarea placeholder="Tell us about your project" data-translate="projectDetails" required></textarea>
+                    <i class="fas fa-comment"></i>
+                </div>
+                <button type="submit" class="cta-primary">
+                    <span data-translate="sendMessage">Send Message</span>
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-main">
+                <div class="footer-brand">
+                    <h3>Curious Machine</h3>
+                    <p>A community to fuel your AI's passion</p>
+                    <div class="footer-social">
+                        <a href="https://www.facebook.com/thecuriousmachine" target="_blank"><i class="fab fa-facebook"></i></a>
+                        <a href="https://www.linkedin.com/company/curiousmachine/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://www.curiousmachine.vn" target="_blank"><i class="fas fa-robot"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-section">
+                        <h4 data-translate="services">Services</h4>
+                        <ul>
+                            <li><a href="index.html#services" data-translate="consulting">Consulting</a></li>
+                            <li><a href="index.html#services" data-translate="education">Education</a></li>
+                            <li><a href="index.html#services" data-translate="community">Community</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Company</h4>
+                        <ul>
+                            <li><a href="index.html#about" data-translate="about">About Us</a></li>
+                            <li><a href="index.html#contact" data-translate="contact">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Curious Machine. <span data-translate="allRightsReserved">All rights reserved.</span></p>
+                <div class="footer-legal">
+                    <a href="#privacy" data-translate="privacyPolicy">Privacy Policy</a>
+                    <a href="#terms" data-translate="termsOfService">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="translations.js"></script>
+    <script src="script.js"></script>
+</body>
+</html> 
