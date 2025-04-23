@@ -379,6 +379,31 @@ body {
     }
 }
 
+.service-card-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    height: 100%;
+}
+
+.service-card-link:hover .service-card-inner {
+    transform: rotateY(180deg);
+}
+
+.service-card-link .card-cta {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background: white;
+    color: #4a6cf7;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.service-card-link:hover .card-cta {
+    background: white;
+}
+
 /* Contact Section */
 .contact {
     padding: 12rem 2rem;
