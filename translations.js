@@ -38,7 +38,9 @@ const translations = {
         termsOfService: 'Terms of Service',
         getStarted: 'Get Started',
         learnMore: 'Learn More',
-        joinUs: 'Join Us'
+        joinUs: 'Join Us',
+        founderTitle: 'Founder & CEO Curious Machine',
+        founderDesc: '10+ years of experience in Data Science and AI in Finance and Banking'
     },
     vi: {
         home: 'Trang chủ',
@@ -79,6 +81,8 @@ const translations = {
         termsOfService: 'Điều khoản dịch vụ',
         getStarted: 'Bắt đầu',
         learnMore: 'Tìm hiểu thêm',
-        joinUs: 'Tham gia'
+        joinUs: 'Tham gia',
+        founderTitle: 'Founder & CEO Curious Machine',
+        founderDesc: 'Hơn 10 năm kinh nghiệm trong lĩnh vực Khoa học Dữ liệu và AI trong Tài chính và Ngân hàng'
     }
 }; 
