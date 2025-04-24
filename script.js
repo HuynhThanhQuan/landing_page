@@ -236,7 +236,13 @@ function loadMemberLogos() {
         'bosch-logo': memberLogos.bosch,
         'google-logo': memberLogos.google,
         'microsoft-logo': memberLogos.microsoft,
-        'ibm-logo': memberLogos.ibm
+        'ibm-logo': memberLogos.ibm,
+        'grab-logo': memberLogos.grab,
+        'worldquant-logo': memberLogos.worldquant,
+        'viettel-logo': memberLogos.viettel,
+        'vietcombank-logo': memberLogos.vietcombank,
+        'acb-logo': memberLogos.acb,
+        'jpmorgan-logo': memberLogos.jpmorgan
     };
 
     for (const [id, url] of Object.entries(logoElements)) {
@@ -256,7 +262,7 @@ const memberSwiper = new Swiper('.member-swiper', {
         delay: 1,
         disableOnInteraction: false,
     },
-    speed: 8000,
+    speed: 1000,
     navigation: {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
