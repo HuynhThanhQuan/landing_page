@@ -262,7 +262,7 @@ const memberSwiper = new Swiper('.member-swiper', {
         delay: 1,
         disableOnInteraction: false,
     },
-    speed: 1000,
+    speed: 7000,
     navigation: {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
