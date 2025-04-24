@@ -244,18 +244,19 @@ body {
 /* Services Section */
 .services {
     padding: 5rem 2rem;
-    background-color: var(--gradient-background);
+    background-color: var(--primary-color);
 }
 
 .services h2 {
     font-family: var(--font-heading);
-    text-align: center;
-    margin-bottom: 3rem;
-    font-size: 3rem;
+    font-size: 2.5rem;
     font-weight: 700;
-    background: var(--text-color);
+    margin-bottom: 2rem;
+    text-align: center;
+    background: var(--gradient-primary);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    line-height: 1.2;
 }
 
 .services-grid {
@@ -407,7 +408,7 @@ body {
 /* Contact Section */
 .contact {
     padding: 12rem 2rem;
-    background: var(--gradient-background);
+    background-color: var(--primary-color);
     position: relative;
     overflow: hidden;
 }
@@ -440,11 +441,14 @@ body {
 
 .contact-info h2 {
     font-family: var(--font-heading);
-    font-size: 3rem;
-    margin-bottom: 1.5rem;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    text-align: center;
     background: var(--gradient-primary);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    line-height: 1.2;
 }
 
 .contact-subtitle {
@@ -898,7 +902,7 @@ body {
 /* About Section Styles */
 .about {
     padding: 6rem 2rem;
-    background: var(--primary-color);
+    background: var(--gradient-background);
 }
 
 .about-container {
@@ -908,10 +912,14 @@ body {
 
 .about h2 {
     font-family: var(--font-heading);
-    text-align: center;
-    margin-bottom: 3rem;
     font-size: 2.5rem;
-    color: var(--text-color);
+    font-weight: 700;
+    margin-bottom: 2rem;
+    text-align: center;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    line-height: 1.2;
 }
 
 .about-content {
@@ -1533,10 +1541,14 @@ body {
 
 .courses-container h2 {
     font-family: var(--font-heading);
-    text-align: center;
-    margin-bottom: 3rem;
     font-size: 2.5rem;
-    color: var(--text-color);
+    font-weight: 700;
+    margin-bottom: 2rem;
+    text-align: center;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    line-height: 1.2;
 }
 
 .courses-grid {
@@ -1610,8 +1622,7 @@ body {
 /* Registration Section */
 .registration-section {
     padding: 5rem 2rem;
-    background: var(--gradient-primary);
-    color: white;
+    background-color: var(--primary-color);
 }
 
 .registration-container {
@@ -1681,7 +1692,7 @@ body {
 /* Explore More Services Section */
 .explore-services {
     padding: 4rem 2rem;
-    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    background: var(--gradient-background);
 }
 
 .explore-container {
@@ -1757,14 +1768,20 @@ body {
 /* Member Section */
 .member-section {
     padding: 2rem 2rem;
-    background-color: var(--background-color);
+    background: var(--gradient-background);
     text-align: center;
 }
 
 .member-section h2 {
-    color: var(--text-color);
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    font-weight: 700;
     margin-bottom: 2rem;
-    font-size: 2rem;
+    text-align: center;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    line-height: 1.2;
 }
 
 .member-swiper {
@@ -1784,7 +1801,7 @@ body {
 
 .member-item {
     padding: 1rem;
-    background: white;
+    background: transparent;
     transition: transform 0.5s ease;
     height: 100%;
     display: flex;
