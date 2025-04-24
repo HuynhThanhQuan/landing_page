@@ -1752,4 +1752,86 @@ body {
     font-size: 1rem;
     color: #718096;
     margin: 0;
+}
+
+/* Member Section */
+.member-section {
+    padding: 2rem 2rem;
+    background-color: var(--background-color);
+    text-align: center;
+}
+
+.member-section h2 {
+    color: var(--text-color);
+    margin-bottom: 2rem;
+    font-size: 2rem;
+}
+
+.member-swiper {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem 0;
+}
+
+.member-swiper .swiper-slide {
+    width: auto;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.member-item {
+    padding: 1rem;
+    background: white;
+    transition: transform 0.5s ease;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.member-item:hover {
+    transform: translateY(-3px);
+}
+
+.member-item img {
+    max-width: 100px;
+    max-height: 60px;
+    object-fit: contain;
+    filter: grayscale(100%);
+    transition: filter 0.3s ease;
+}
+
+.member-item:hover img {
+    filter: grayscale(0%);
+}
+
+/* Swiper Navigation */
+.member-swiper .swiper-button-next,
+.member-swiper .swiper-button-prev {
+    color: var(--primary-color);
+    background: var(--card-background);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.member-swiper .swiper-button-next:after,
+.member-swiper .swiper-button-prev:after {
+    font-size: 1.2rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .member-swiper .swiper-slide {
+        height: 80px;
+    }
+
+    .member-item img {
+        max-width: 120px;
+        max-height: 50px;
+    }
 } 

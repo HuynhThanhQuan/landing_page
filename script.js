@@ -6,6 +6,8 @@ document.addEventListener('DOMContentLoaded', () => {
     initCounters();
     initCarousel();
     updateLanguage('vi');
+    loadMemberLogos();
+    initMemberSwiper();
 });
 
 // Setup smooth scrolling for navigation links
@@ -223,4 +225,58 @@ function initCarousel() {
     carouselContainer.addEventListener('mouseleave', () => {
         slideInterval = setInterval(nextSlide, interval);
     });
-} 
+}
+
+// Load member logos
+function loadMemberLogos() {
+    const logoElements = {
+        'techcombank-logo': memberLogos.techcombank,
+        'onemount-logo': memberLogos.onemount,
+        'katalon-logo': memberLogos.katalon,
+        'bosch-logo': memberLogos.bosch,
+        'google-logo': memberLogos.google,
+        'microsoft-logo': memberLogos.microsoft,
+        'ibm-logo': memberLogos.ibm
+    };
+
+    for (const [id, url] of Object.entries(logoElements)) {
+        const element = document.getElementById(id);
+        if (element) {
+            element.src = url;
+        }
+    }
+}
+
+// Initialize Member Swiper
+const memberSwiper = new Swiper('.member-swiper', {
+    slidesPerView: 'auto',
+    spaceBetween: 5,
+    loop: true,
+    autoplay: {
+        delay: 1,
+        disableOnInteraction: false,
+    },
+    speed: 8000,
+    navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+    },
+    breakpoints: {
+        320: {
+            slidesPerView: 2,
+            spaceBetween: 2
+        },
+        480: {
+            slidesPerView: 3,
+            spaceBetween: 3
+        },
+        768: {
+            slidesPerView: 4,
+            spaceBetween: 4
+        },
+        1024: {
+            slidesPerView: 5,
+            spaceBetween: 5
+        }
+    }
+}); 

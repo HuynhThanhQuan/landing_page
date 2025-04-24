@@ -105,7 +105,8 @@ const translations = {
         linkedinGroup: "LinkedIn Group",
         discordServer: "Discord Server",
         mar: "Mar",
-        exploreMore: "Explore More Services"
+        exploreMore: "Explore More Services",
+        memberTitle: 'Our Members'
     },
     vi: {
         home: 'Trang chủ',
@@ -213,6 +214,7 @@ const translations = {
         linkedinGroup: "Nhóm LinkedIn",
         discordServer: "Máy Chủ Discord",
         mar: "Tháng 3",
-        exploreMore: "Khám Phá Thêm Dịch Vụ"
+        exploreMore: "Khám Phá Thêm Dịch Vụ",
+        memberTitle: 'Thành Viên Của Chúng Tôi'
     }
 }; 
