@@ -13,14 +13,14 @@
 }
 
 .consultant-hero h1 {
-    font-size: 3rem;
+    font-size: var(--font-size-5xl);
     margin-bottom: 1.5rem;
-    font-weight: 700;
+    font-weight: var(--font-weight-bold);
 }
 
 .consultant-hero p {
-    font-size: 1.2rem;
-    line-height: 1.6;
+    font-size: var(--font-size-lg);
+    line-height: var(--line-height-relaxed);
     opacity: 0.9;
 }
 
@@ -60,14 +60,16 @@
 }
 
 .service-card h3 {
-    font-size: 1.5rem;
+    font-size: var(--font-size-2xl);
     margin-bottom: 15px;
     color: #1a1a1a;
+    font-weight: var(--font-weight-semibold);
 }
 
 .service-card p {
     color: #666;
-    line-height: 1.6;
+    line-height: var(--line-height-relaxed);
+    font-size: var(--font-size-base);
 }
 
 .service-features {
@@ -82,7 +84,8 @@
     padding-left: 25px;
     margin-bottom: 10px;
     color: #666;
-    font-size: 0.95rem;
+    font-size: var(--font-size-sm);
+    line-height: var(--line-height-normal);
 }
 
 .service-features li:before {
@@ -90,7 +93,7 @@
     position: absolute;
     left: 0;
     color: #4a6cf7;
-    font-weight: bold;
+    font-weight: var(--font-weight-bold);
 }
 
 /* Success Stories Section */
@@ -108,14 +111,15 @@
 .stories-container h2 {
     text-align: center;
     margin-bottom: 40px;
-    font-size: 2.5rem;
+    font-size: var(--font-size-4xl);
     color: #2c3e50;
+    font-weight: var(--font-weight-bold);
 }
 
 .stories-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
 .story-card {
@@ -146,14 +150,15 @@
 
 .client-info h3 {
     margin: 0;
-    font-size: 1.2rem;
+    font-size: var(--font-size-xl);
     color: #2c3e50;
+    font-weight: var(--font-weight-semibold);
 }
 
 .client-name {
     margin: 5px 0 0;
     color: #666;
-    font-size: 0.9rem;
+    font-size: var(--font-size-sm);
 }
 
 .story-content ul {
@@ -166,6 +171,8 @@
     margin-bottom: 10px;
     padding-left: 20px;
     position: relative;
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-normal);
 }
 
 .story-content li:before {
@@ -190,8 +197,9 @@
 .workflow-container h2 {
     text-align: center;
     margin-bottom: 40px;
-    font-size: 2.5rem;
+    font-size: var(--font-size-4xl);
     color: #2c3e50;
+    font-weight: var(--font-weight-bold);
 }
 
 .workflow-steps {
@@ -222,8 +230,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.2rem;
-    font-weight: bold;
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-bold);
     margin-right: 20px;
     flex-shrink: 0;
 }
@@ -231,13 +239,15 @@
 .step-content h3 {
     margin: 0 0 10px;
     color: #2c3e50;
-    font-size: 1.2rem;
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-semibold);
 }
 
 .step-content p {
     margin: 0;
     color: #666;
-    line-height: 1.6;
+    line-height: var(--line-height-normal);
+    font-size: var(--font-size-base);
 }
 
 /* FAQ Section */
@@ -255,8 +265,9 @@
 .faq-container h2 {
     text-align: center;
     margin-bottom: 40px;
-    font-size: 2.5rem;
+    font-size: var(--font-size-4xl);
     color: #2c3e50;
+    font-weight: var(--font-weight-bold);
 }
 
 .faq-grid {
@@ -289,7 +300,8 @@
 .faq-question h3 {
     margin: 0;
     color: #2c3e50;
-    font-size: 1.2rem;
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-semibold);
     flex: 1;
     padding-right: 20px;
 }
@@ -324,7 +336,8 @@
     margin: 0;
     padding: 0 25px 25px;
     color: #666;
-    line-height: 1.6;
+    line-height: var(--line-height-normal);
+    font-size: var(--font-size-base);
 }
 
 /* Responsive Design */
@@ -334,11 +347,11 @@
     }
 
     .consultant-hero h1 {
-        font-size: 2.5rem;
+        font-size: var(--font-size-4xl);
     }
 
     .consultant-hero p {
-        font-size: 1rem;
+        font-size: var(--font-size-base);
     }
 
     .services-container {
@@ -369,27 +382,11 @@
     .step-number {
         margin: 0 0 15px;
     }
-
-    .faq-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .faq-question {
-        padding: 20px;
-    }
-    
-    .faq-question h3 {
-        font-size: 1.1rem;
-    }
-    
-    .faq-answer p {
-        padding: 0 20px 20px;
-    }
 }
 
 @media (max-width: 480px) {
     .consultant-hero h1 {
-        font-size: 2rem;
+        font-size: var(--font-size-3xl);
     }
 
     .service-card {
