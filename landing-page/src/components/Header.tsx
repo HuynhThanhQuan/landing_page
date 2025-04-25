@@ -61,7 +61,7 @@ export const Header = () => {
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+        <div className="flex justify-between items-center h-24">
           {/* Logo */}
           <motion.div 
             className="flex-shrink-0"
@@ -69,18 +69,25 @@ export const Header = () => {
             whileTap={{ scale: 0.95 }}
           >
             <a href="#" className="flex items-center">
-              <Image
-                src="/images/logo.png"
-                alt="Logo"
-                width={40}
-                height={40}
-                className="mr-2"
-                priority
-              />
+              <motion.div
+                whileHover={{ rotate: 10 }}
+                transition={{ duration: 0.3, ease: "easeInOut" }}
+              >
+                <Image
+                  src="/images/logo.png"
+                  alt="Logo"
+                  width={50}
+                  height={50}
+                  className="mr-2"
+                  priority
+                />
+              </motion.div>
               <motion.span 
-                className="text-2xl font-bold text-blue-600"
+                className="text-2xl font-bold text-blue-500"
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
+                whileHover={{ color: "#1d4ed8" }}
+                transition={{ duration: 0.2 }}
               >
                 Curious Machine
               </motion.span>
@@ -111,7 +118,7 @@ export const Header = () => {
           </nav>
 
           {/* Language Switcher */}
-          <div className="hidden md:flex items-center space-x-2 bg-gray-100 rounded-lg p-1">
+          <div className="hidden md:flex items-center space-x-2 bg-gray-100 rounded-lg p-2">
             <motion.button
               onClick={() => setLanguage('vi')}
               className={`p-2 rounded-md transition-all ${
@@ -125,7 +132,7 @@ export const Header = () => {
               <Image
                 src={flags.vi}
                 alt="Tiếng Việt"
-                width={24}
+                width={36}
                 height={24}
                 className={`rounded-sm transition-all ${
                   language !== 'vi' ? 'grayscale' : ''
@@ -145,7 +152,7 @@ export const Header = () => {
               <Image
                 src={flags.en}
                 alt="English"
-                width={24}
+                width={36}
                 height={24}
                 className={`rounded-sm transition-all ${
                   language !== 'en' ? 'grayscale' : ''

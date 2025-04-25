@@ -14,7 +14,7 @@ export const NotificationBanner = () => {
           initial={{ height: 0, opacity: 0 }}
           animate={{ height: 'auto', opacity: 1 }}
           exit={{ height: 0, opacity: 0 }}
-          className="relative bg-gradient-to-r from-blue-600 to-blue-700 text-white mt-16"
+          className="relative bg-gradient-to-r from-blue-600 to-blue-700 text-white mt-24"
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
             <div className="flex items-center justify-between">
