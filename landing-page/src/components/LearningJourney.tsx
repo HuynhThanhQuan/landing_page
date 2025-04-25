@@ -4,11 +4,13 @@ import { motion } from 'framer-motion';
 
 export const LearningJourney = () => {
   return (
-    <section className="relative py-24 overflow-hidden">
+    <section className="relative py-24 overflow-hidden bg-gradient-to-b from-white to-blue-50">
       {/* Background gradient */}
       <div 
-        className="absolute inset-0 -z-10" 
-        style={{ background: 'var(--gradient-background)' }}
+        className="absolute inset-0 -z-10 opacity-50" 
+        style={{ 
+          background: 'linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(224,242,254,0.5) 100%)'
+        }}
       />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -20,18 +22,16 @@ export const LearningJourney = () => {
           transition={{ duration: 0.6 }}
         >
           <motion.h2 
-            className="text-4xl md:text-5xl font-bold mb-4"
+            className="text-4xl md:text-5xl font-bold mb-4 bg-clip-text text-transparent"
             style={{ 
               fontFamily: 'var(--font-heading)',
-              background: 'var(--gradient-primary)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
+              backgroundImage: 'linear-gradient(to right, #2563eb, #3b82f6)'
             }}
           >
             Learning Journey
           </motion.h2>
           <motion.p 
-            className="text-xl md:text-2xl text-gray-600"
+            className="text-xl md:text-2xl text-gray-700"
             style={{ fontFamily: 'var(--font-body)' }}
           >
             Your journey to mastery starts here
@@ -48,12 +48,16 @@ export const LearningJourney = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             whileHover={{ translateY: -5 }}
             style={{ 
-              background: 'var(--glass-background)',
-              border: '1px solid var(--glass-border)',
+              background: 'rgba(255, 255, 255, 0.9)',
+              border: '1px solid rgba(226, 232, 240, 0.8)',
+              boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)'
             }}
           >
             <div className="h-16 w-16 rounded-full mb-6 flex items-center justify-center"
-              style={{ background: 'var(--gradient-primary)' }}
+              style={{ 
+                background: 'linear-gradient(135deg, #2563eb 0%, #3b82f6 100%)',
+                boxShadow: '0 4px 6px -1px rgba(37, 99, 235, 0.2)'
+              }}
             >
               <svg 
                 className="w-8 h-8 text-white"
@@ -70,12 +74,11 @@ export const LearningJourney = () => {
               </svg>
             </div>
             <h3 
-              className="text-2xl font-bold mb-4"
-              style={{ color: 'var(--text-color)' }}
+              className="text-2xl font-bold mb-4 text-gray-900"
             >
               Learning
             </h3>
-            <ul className="space-y-4">
+            <ul className="space-y-4 text-gray-700">
               <li className="flex items-start">
                 <svg 
                   className="w-6 h-6 mr-3 mt-1 text-blue-500" 
@@ -135,12 +138,16 @@ export const LearningJourney = () => {
             transition={{ duration: 0.6, delay: 0.4 }}
             whileHover={{ translateY: -5 }}
             style={{ 
-              background: 'var(--glass-background)',
-              border: '1px solid var(--glass-border)',
+              background: 'rgba(255, 255, 255, 0.9)',
+              border: '1px solid rgba(226, 232, 240, 0.8)',
+              boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)'
             }}
           >
             <div className="h-16 w-16 rounded-full mb-6 flex items-center justify-center"
-              style={{ background: 'var(--gradient-secondary)' }}
+              style={{ 
+                background: 'linear-gradient(135deg, #3b82f6 0%, #60a5fa 100%)',
+                boxShadow: '0 4px 6px -1px rgba(59, 130, 246, 0.2)'
+              }}
             >
               <svg 
                 className="w-8 h-8 text-white"
@@ -157,12 +164,11 @@ export const LearningJourney = () => {
               </svg>
             </div>
             <h3 
-              className="text-2xl font-bold mb-4"
-              style={{ color: 'var(--text-color)' }}
+              className="text-2xl font-bold mb-4 text-gray-900"
             >
               Community
             </h3>
-            <ul className="space-y-4">
+            <ul className="space-y-4 text-gray-700">
               <li className="flex items-start">
                 <svg 
                   className="w-6 h-6 mr-3 mt-1 text-blue-500" 

@@ -6,8 +6,8 @@ import { text } from 'stream/consumers';
 
 export const Hero = () => {
   return (
-    // Main hero section with full height and center alignment
-    <section id="home" className="relative min-h-screen flex items-start justify-center pt-32 pb-20">
+    // Main hero section with adjusted height and center alignment
+    <section id="home" className="relative h-[75vh] flex items-start justify-center pt-20 pb-0">
       {/* Background gradient layer */}
       <div 
         className="absolute inset-1 -z-10" 
@@ -15,7 +15,7 @@ export const Hero = () => {
       />
       
       {/* Main content wrapper with max width and padding */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-3 w-full">
         {/* Two-column grid layout on large screens */}
         <div className="grid lg:grid-cols-2 gap-12 items-start">
           
