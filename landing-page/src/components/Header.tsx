@@ -100,19 +100,29 @@ export const Header = () => {
               <motion.a
                 key={link.href}
                 href={link.href}
-                className={`relative text-gray-600 hover:text-blue-600 transition-colors ${
-                  activeSection === link.href.replace('#', '') ? 'text-blue-600' : ''
-                }`}
-                whileHover={{ y: -2 }}
-                whileTap={{ y: 0 }}
+                className="relative text-[var(--text-color)] hover:text-[var(--secondary-color)] font-[var(--font-heading)] font-medium transition-all"
+                style={{
+                  transition: 'all 0.3s ease',
+                  color: activeSection === link.href.replace('#', '') 
+                    ? 'var(--secondary-color)' 
+                    : 'var(--text-color)'
+                }}
+                whileHover="hover"
               >
                 {link.label}
-                {activeSection === link.href.replace('#', '') && (
-                  <motion.div
-                    layoutId="underline"
-                    className="absolute left-0 top-full h-0.5 w-full bg-blue-600"
-                  />
-                )}
+                <motion.div
+                  variants={{
+                    hover: {
+                      width: '100%',
+                      transition: { duration: 0.1, ease: 'easeInOut' }
+                    }
+                  }}
+                  className="absolute bottom-[-5px] left-0 h-[2px] w-0"
+                  style={{ 
+                    background: 'var(--gradient-secondary)',
+                    transition: 'width 0.3s ease'
+                  }}
+                />
               </motion.a>
             ))}
           </nav>
@@ -125,7 +135,6 @@ export const Header = () => {
                 borderRadius: '12px',
                 padding: '4px',
                 gap: '4px',
-                boxShadow: 'var(--shadow-primary)', 
                 backdropFilter: 'blur(10px)', 
                 WebkitBackdropFilter: 'blur(10px)' 
             }}>
@@ -137,6 +146,10 @@ export const Header = () => {
                   : 'hover:bg-gray-200'
               }`}
               style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '0.5rem',
+                padding: '0.5rem 1rem',
                 background: language === 'vi' 
                   ? 'var(--gradient-primary)' 
                   : 'transparent',
@@ -159,7 +172,7 @@ export const Header = () => {
               <Image
                 src={flags.vi}
                 alt="Tiếng Việt"
-                width={36}
+                width={24}
                 height={24}
                 className="rounded-sm transition-all"
               />
@@ -172,6 +185,10 @@ export const Header = () => {
                   : 'hover:bg-gray-200'
               }`}
               style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '0.5rem',
+                padding: '0.5rem 1rem',
                 background: language === 'en' 
                   ? 'var(--gradient-primary)' 
                   : 'transparent',
@@ -194,7 +211,7 @@ export const Header = () => {
               <Image
                 src={flags.en}
                 alt="English"
-                width={36}
+                width={24}
                 height={24}
                 className="rounded-sm transition-all"
               />

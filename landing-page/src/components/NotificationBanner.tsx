@@ -50,13 +50,15 @@ export const NotificationBanner = () => {
                   href="#contact"
                   className={`
                     text-sm 
-                    bg-white/10 
+                    bg-white/90
                     hover:bg-white/20 
-                    text-white 
+                    text-black
                     px-4 
                     py-1.5 
-                    rounded-full 
+                    rounded-full
                     transition-colors
+                    font-bold
+                    align-middle
                   `}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
