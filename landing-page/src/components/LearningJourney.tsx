@@ -1,8 +1,12 @@
 "use client";
 
 import { motion } from 'framer-motion';
+import { useState } from 'react';
 
 export const LearningJourney = () => {
+  const [isLearningHovered, setIsLearningHovered] = useState(false);
+  const [isCommunityHovered, setIsCommunityHovered] = useState(false);
+
   return (
     <section className="relative py-24 overflow-hidden bg-gradient-to-b from-white to-blue-50">
       {/* Background gradient */}
@@ -19,7 +23,7 @@ export const LearningJourney = () => {
           className="text-center mb-16"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.5 }}
         >
           <motion.h2 
             className="text-4xl md:text-5xl font-bold mb-4 bg-clip-text text-transparent"
@@ -42,21 +46,31 @@ export const LearningJourney = () => {
         <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
           {/* Learning Section */}
           <motion.div
-            className="bg-white rounded-2xl p-8 shadow-lg"
+            className="relative rounded-2xl p-8"
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            whileHover={{ translateY: -5 }}
-            style={{ 
+            transition={{ duration: 0.5 }}
+            onMouseEnter={() => setIsLearningHovered(true)}
+            onMouseLeave={() => setIsLearningHovered(false)}
+            style={{
               background: 'rgba(255, 255, 255, 0.9)',
-              border: '1px solid rgba(226, 232, 240, 0.8)',
-              boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)'
+              boxShadow: isLearningHovered 
+                ? '0 25px 35px -12px rgba(37, 99, 235, 0.25), 0 15px 25px -12px rgba(0, 0, 0, 0.15), 0 0 8px 2px rgba(37, 99, 235, 0.1)'
+                : '0 4px 6px -1px rgba(0, 0, 0, 0.05)',
+              transition: 'all 0.5s cubic-bezier(0.4, 0, 0.2, 1)',
+              transform: isLearningHovered ? 'translateY(-12px) scale(1.02)' : 'translateY(0) scale(1)'
             }}
           >
-            <div className="h-16 w-16 rounded-full mb-6 flex items-center justify-center"
+            {/* Icon */}
+            <div 
+              className="h-16 w-16 rounded-full mb-6 flex items-center justify-center"
               style={{ 
                 background: 'linear-gradient(135deg, #2563eb 0%, #3b82f6 100%)',
-                boxShadow: '0 4px 6px -1px rgba(37, 99, 235, 0.2)'
+                transition: 'all 0.5s cubic-bezier(0.4, 0, 0.2, 1)',
+                transform: isLearningHovered ? 'scale(1.1)' : 'scale(1)',
+                boxShadow: isLearningHovered 
+                  ? '0 12px 20px -6px rgba(37, 99, 235, 0.4)'
+                  : '0 4px 6px -1px rgba(37, 99, 235, 0.1)'
               }}
             >
               <svg 
@@ -73,80 +87,73 @@ export const LearningJourney = () => {
                 />
               </svg>
             </div>
+
+            {/* Content */}
             <h3 
               className="text-2xl font-bold mb-4 text-gray-900"
+              style={{
+                transition: 'transform 0.3s ease-in-out',
+                transform: isLearningHovered ? 'translateY(-2px)' : 'translateY(0)'
+              }}
             >
               Learning
             </h3>
             <ul className="space-y-4 text-gray-700">
-              <li className="flex items-start">
-                <svg 
-                  className="w-6 h-6 mr-3 mt-1 text-blue-500" 
-                  fill="none" 
-                  stroke="currentColor" 
-                  viewBox="0 0 24 24"
+              {['Structured learning paths for all skill levels',
+                'Hands-on projects and real-world applications',
+                'Expert-led workshops and tutorials'].map((text, index) => (
+                <li 
+                  key={index}
+                  className="flex items-start"
                 >
-                  <path 
-                    strokeLinecap="round" 
-                    strokeLinejoin="round" 
-                    strokeWidth={2} 
-                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                  />
-                </svg>
-                <span>Structured learning paths for all skill levels</span>
-              </li>
-              <li className="flex items-start">
-                <svg 
-                  className="w-6 h-6 mr-3 mt-1 text-blue-500" 
-                  fill="none" 
-                  stroke="currentColor" 
-                  viewBox="0 0 24 24"
-                >
-                  <path 
-                    strokeLinecap="round" 
-                    strokeLinejoin="round" 
-                    strokeWidth={2} 
-                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                  />
-                </svg>
-                <span>Hands-on projects and real-world applications</span>
-              </li>
-              <li className="flex items-start">
-                <svg 
-                  className="w-6 h-6 mr-3 mt-1 text-blue-500" 
-                  fill="none" 
-                  stroke="currentColor" 
-                  viewBox="0 0 24 24"
-                >
-                  <path 
-                    strokeLinecap="round" 
-                    strokeLinejoin="round" 
-                    strokeWidth={2} 
-                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                  />
-                </svg>
-                <span>Expert-led workshops and tutorials</span>
-              </li>
+                  <svg 
+                    className="w-6 h-6 mr-3 mt-1 text-blue-500" 
+                    fill="none" 
+                    stroke="currentColor" 
+                    viewBox="0 0 24 24"
+                  >
+                    <path 
+                      strokeLinecap="round" 
+                      strokeLinejoin="round" 
+                      strokeWidth={2} 
+                      d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                    />
+                  </svg>
+                  <span className="transition-colors duration-200 hover:text-blue-600">
+                    {text}
+                  </span>
+                </li>
+              ))}
             </ul>
           </motion.div>
 
           {/* Community Section */}
           <motion.div
-            className="bg-white rounded-2xl p-8 shadow-lg"
+            className="relative rounded-2xl p-8"
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            whileHover={{ translateY: -5 }}
-            style={{ 
+            transition={{ duration: 0.5 }}
+            onMouseEnter={() => setIsCommunityHovered(true)}
+            onMouseLeave={() => setIsCommunityHovered(false)}
+            style={{
               background: 'rgba(255, 255, 255, 0.9)',
-              border: '1px solid rgba(226, 232, 240, 0.8)',
-              boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)'
+              boxShadow: isCommunityHovered 
+                ? '0 25px 35px -12px rgba(59, 130, 246, 0.25), 0 15px 25px -12px rgba(0, 0, 0, 0.15), 0 0 8px 2px rgba(59, 130, 246, 0.1)'
+                : '0 4px 6px -1px rgba(0, 0, 0, 0.05)',
+              transition: 'all 0.5s cubic-bezier(0.4, 0, 0.2, 1)',
+              transform: isCommunityHovered ? 'translateY(-12px) scale(1.02)' : 'translateY(0) scale(1)'
             }}
           >
-            <div className="h-16 w-16 rounded-full mb-6 flex items-center justify-center"
+            {/* Icon */}
+            <div 
+              className="h-16 w-16 rounded-full mb-6 flex items-center justify-center"
               style={{ 
                 background: 'linear-gradient(135deg, #3b82f6 0%, #60a5fa 100%)',
-                boxShadow: '0 4px 6px -1px rgba(59, 130, 246, 0.2)'
+                transition: 'all 0.5s cubic-bezier(0.4, 0, 0.2, 1)',
+                transform: isCommunityHovered ? 'scale(1.1)' : 'scale(1)',
+                boxShadow: isCommunityHovered 
+                  ? '0 12px 20px -6px rgba(59, 130, 246, 0.4)'
+                  : '0 4px 6px -1px rgba(59, 130, 246, 0.1)'
               }}
             >
               <svg 
@@ -163,60 +170,43 @@ export const LearningJourney = () => {
                 />
               </svg>
             </div>
+
+            {/* Content */}
             <h3 
               className="text-2xl font-bold mb-4 text-gray-900"
+              style={{
+                transition: 'transform 0.3s ease-in-out',
+                transform: isCommunityHovered ? 'translateY(-2px)' : 'translateY(0)'
+              }}
             >
               Community
             </h3>
             <ul className="space-y-4 text-gray-700">
-              <li className="flex items-start">
-                <svg 
-                  className="w-6 h-6 mr-3 mt-1 text-blue-500" 
-                  fill="none" 
-                  stroke="currentColor" 
-                  viewBox="0 0 24 24"
+              {['Connect with like-minded learners',
+                'Collaborative projects and study groups',
+                'Mentorship and networking opportunities'].map((text, index) => (
+                <li 
+                  key={index}
+                  className="flex items-start"
                 >
-                  <path 
-                    strokeLinecap="round" 
-                    strokeLinejoin="round" 
-                    strokeWidth={2} 
-                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                  />
-                </svg>
-                <span>Connect with like-minded learners</span>
-              </li>
-              <li className="flex items-start">
-                <svg 
-                  className="w-6 h-6 mr-3 mt-1 text-blue-500" 
-                  fill="none" 
-                  stroke="currentColor" 
-                  viewBox="0 0 24 24"
-                >
-                  <path 
-                    strokeLinecap="round" 
-                    strokeLinejoin="round" 
-                    strokeWidth={2} 
-                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                  />
-                </svg>
-                <span>Collaborative projects and study groups</span>
-              </li>
-              <li className="flex items-start">
-                <svg 
-                  className="w-6 h-6 mr-3 mt-1 text-blue-500" 
-                  fill="none" 
-                  stroke="currentColor" 
-                  viewBox="0 0 24 24"
-                >
-                  <path 
-                    strokeLinecap="round" 
-                    strokeLinejoin="round" 
-                    strokeWidth={2} 
-                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                  />
-                </svg>
-                <span>Mentorship and networking opportunities</span>
-              </li>
+                  <svg 
+                    className="w-6 h-6 mr-3 mt-1 text-blue-500" 
+                    fill="none" 
+                    stroke="currentColor" 
+                    viewBox="0 0 24 24"
+                  >
+                    <path 
+                      strokeLinecap="round" 
+                      strokeLinejoin="round" 
+                      strokeWidth={2} 
+                      d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                    />
+                  </svg>
+                  <span className="transition-colors duration-200 hover:text-blue-600">
+                    {text}
+                  </span>
+                </li>
+              ))}
             </ul>
           </motion.div>
         </div>
