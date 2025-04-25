@@ -118,7 +118,17 @@ export const Header = () => {
           </nav>
 
           {/* Language Switcher */}
-          <div className="hidden md:flex items-center space-x-2 bg-gray-100 rounded-lg p-2">
+          <div className="" style={{
+                display: 'flex',
+                background: 'var(--glass-background)', 
+                border: '1px solid var(--glass-border)',
+                borderRadius: '12px',
+                padding: '4px',
+                gap: '4px',
+                boxShadow: 'var(--shadow-primary)', 
+                backdropFilter: 'blur(10px)', 
+                WebkitBackdropFilter: 'blur(10px)' 
+            }}>
             <motion.button
               onClick={() => setLanguage('vi')}
               className={`p-2 rounded-md transition-all ${
@@ -126,17 +136,32 @@ export const Header = () => {
                   ? 'bg-white shadow-sm' 
                   : 'hover:bg-gray-200'
               }`}
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
+              style={{
+                background: language === 'vi' 
+                  ? 'var(--gradient-primary)' 
+                  : 'transparent',
+                border: language === 'vi' 
+                  ? '1px solid var(--glass-border)' 
+                  : '1px solid transparent',
+                boxShadow: language === 'vi' 
+                  ? 'var(--shadow-secondary)' 
+                  : 'none',
+                backdropFilter: 'blur(8px)',
+                WebkitBackdropFilter: 'blur(8px)',
+                transition: 'all 0.3s ease'
+              }}
+              whileHover={{ 
+                scale: 1.05,
+                boxShadow: 'var(--shadow-primary)'
+              }}
+              whileTap={{ scale: 0.95 }}
             >
               <Image
                 src={flags.vi}
                 alt="Tiếng Việt"
                 width={36}
                 height={24}
-                className={`rounded-sm transition-all ${
-                  language !== 'vi' ? 'grayscale' : ''
-                }`}
+                className="rounded-sm transition-all"
               />
             </motion.button>
             <motion.button
@@ -146,17 +171,32 @@ export const Header = () => {
                   ? 'bg-white shadow-sm'
                   : 'hover:bg-gray-200'
               }`}
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
+              style={{
+                background: language === 'en' 
+                  ? 'var(--gradient-primary)' 
+                  : 'transparent',
+                border: language === 'en' 
+                  ? '1px solid var(--glass-border)' 
+                  : '1px solid transparent',
+                boxShadow: language === 'en' 
+                  ? 'var(--shadow-secondary)' 
+                  : 'none',
+                backdropFilter: 'blur(8px)',
+                WebkitBackdropFilter: 'blur(8px)',
+                transition: 'all 0.3s ease'
+              }}
+              whileHover={{ 
+                scale: 1.05,
+                boxShadow: 'var(--shadow-primary)'
+              }}
+              whileTap={{ scale: 0.95 }}
             >
               <Image
                 src={flags.en}
                 alt="English"
                 width={36}
                 height={24}
-                className={`rounded-sm transition-all ${
-                  language !== 'en' ? 'grayscale' : ''
-                }`}
+                className="rounded-sm transition-all"
               />
             </motion.button>
           </div>
@@ -230,17 +270,32 @@ export const Header = () => {
                           ? 'bg-white shadow-sm'
                           : 'hover:bg-gray-200'
                       }`}
-                      whileHover={{ scale: 1.1 }}
-                      whileTap={{ scale: 0.9 }}
+                      style={{
+                        background: language === 'vi' 
+                          ? 'var(--gradient-primary)' 
+                          : 'transparent',
+                        border: language === 'vi' 
+                          ? '1px solid var(--glass-border)' 
+                          : '1px solid transparent',
+                        boxShadow: language === 'vi' 
+                          ? 'var(--shadow-secondary)' 
+                          : 'none',
+                        backdropFilter: 'blur(8px)',
+                        WebkitBackdropFilter: 'blur(8px)',
+                        transition: 'all 0.3s ease'
+                      }}
+                      whileHover={{ 
+                        scale: 1.05,
+                        boxShadow: 'var(--shadow-primary)'
+                      }}
+                      whileTap={{ scale: 0.95 }}
                     >
                       <Image
                         src={flags.vi}
                         alt="Tiếng Việt"
                         width={24}
                         height={24}
-                        className={`rounded-sm transition-all ${
-                          language !== 'vi' ? 'grayscale' : ''
-                        }`}
+                        className="rounded-sm transition-all"
                       />
                     </motion.button>
                     <motion.button
@@ -250,17 +305,32 @@ export const Header = () => {
                           ? 'bg-white shadow-sm'
                           : 'hover:bg-gray-200'
                       }`}
-                      whileHover={{ scale: 1.1 }}
-                      whileTap={{ scale: 0.9 }}
+                      style={{
+                        background: language === 'en' 
+                          ? 'var(--gradient-primary)' 
+                          : 'transparent',
+                        border: language === 'en' 
+                          ? '1px solid var(--glass-border)' 
+                          : '1px solid transparent',
+                        boxShadow: language === 'en' 
+                          ? 'var(--shadow-secondary)' 
+                          : 'none',
+                        backdropFilter: 'blur(8px)',
+                        WebkitBackdropFilter: 'blur(8px)',
+                        transition: 'all 0.3s ease'
+                      }}
+                      whileHover={{ 
+                        scale: 1.05,
+                        boxShadow: 'var(--shadow-primary)'
+                      }}
+                      whileTap={{ scale: 0.95 }}
                     >
                       <Image
                         src={flags.en}
                         alt="English"
                         width={24}
                         height={24}
-                        className={`rounded-sm transition-all ${
-                          language !== 'en' ? 'grayscale' : ''
-                        }`}
+                        className="rounded-sm transition-all"
                       />
                     </motion.button>
                   </div>

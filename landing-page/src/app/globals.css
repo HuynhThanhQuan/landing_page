@@ -3,6 +3,22 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --primary-color: #fdfdfd;
+  --secondary-color: #0f2ba9;
+  --tertiary-color: #3572EF;
+  --quaternary-color: #3ABEF9;
+  --quinary-color: #A7E6FF;
+  --text-color: #020f31;
+  --text-secondary: #161616;
+  --gradient-primary: linear-gradient(135deg, #3ABEF9 0%, #050C9C 100%);
+  --gradient-secondary: linear-gradient(135deg, #f2f2f2 0%, #005af6 100%);
+  --gradient-background: linear-gradient(135deg, #f9f9f9 0%, #E9ECEF 100%);
+  --glass-background: rgba(255, 255, 255, 0.881);
+  --glass-border: rgba(29, 178, 212, 0.829);
+  --shadow-primary: 0 8px 32px rgba(77, 193, 255, 0.725);
+  --shadow-secondary: 0 4px 16px rgba(0, 247, 255, 0.233);
+  --font-heading: 'Space Grotesk', sans-serif;
+  --font-body: 'Outfit', sans-serif;
 }
 
 @theme inline {
@@ -22,5 +38,13 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Outfit', 'Space Grotesk', sans-serif;
+}
+
+.banner-gradient-primary {
+  background: var(--gradient-primary);
+}
+
+.banner-gradient-secondary {
+  background: var(--gradient-secondary);
 }
