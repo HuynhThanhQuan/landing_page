@@ -1,7 +1,9 @@
 "use client";
 
-import { motion } from 'framer-motion';
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { FaUserCircle } from 'react-icons/fa';
+import { IoMdClose } from 'react-icons/io';
 import Image from 'next/image';
 
 // Placeholder type for feedback data
@@ -19,6 +21,7 @@ const feedbackImages = [
   "/images/feedback/feedback3.PNG",
   "/images/feedback/feedback4.PNG",
   "/images/feedback/feedback5.PNG",
+  "/images/feedback/feedback2.PNG",
 ];
 
 // Placeholder data - will be replaced with real data
@@ -74,9 +77,11 @@ const placeholderFeedbacks: FeedbackItem[] = [
 ];
 
 export const Feedback = () => {
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+
   return (
     <section id="feedback" className="py-20 bg-gradient-to-b from-white to-gray-50">
-      <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Heading and Subtitle */}
         <div className="text-center mb-16">
           <motion.h2 
@@ -109,23 +114,27 @@ export const Feedback = () => {
               {feedbackImages.map((image, index) => (
                 <motion.div
                   key={index}
-                  className="absolute w-[400px] bg-white rounded-xl overflow-hidden shadow-xl"
+                  className="absolute w-[340px] bg-white rounded-xl overflow-hidden shadow-xl cursor-pointer"
                   style={{
                     top: index === 0 ? '0px' : 
-                         index === 1 ? '200px' : 
-                         index === 2 ? '400px' :
+                         index === 1 ? '150px' : 
+                         index === 2 ? '300px' :
+                         index === 3 ? '450px' :
                          '600px',
-                    left: index === 0 ? '30%' : 
+                    left: index === 0 ? '15%' : 
                           index === 1 ? '50%' : 
-                          index === 2 ? '35%' :
-                          '45%',
-                    zIndex: index === 0 ? 4 :
-                           index === 1 ? 3 :
-                           index === 2 ? 2 : 1,
+                          index === 2 ? '15%' :
+                          index === 3 ? '45%' :
+                          '30%',
+                    zIndex: index === 0 ? 5 :
+                           index === 1 ? 4 :
+                           index === 2 ? 3 :
+                           index === 3 ? 2 : 1,
                     transform: `rotate(${index === 0 ? -2 : 
                                        index === 1 ? 2 : 
                                        index === 2 ? -2 :
-                                       2}deg)`,
+                                       index === 3 ? 2 :
+                                       -2}deg)`,
                   }}
                   initial={{ opacity: 0, y: 50 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -137,6 +146,7 @@ export const Feedback = () => {
                     zIndex: 10,
                     transition: { duration: 0.3 }
                   }}
+                  onClick={() => setSelectedImage(image)}
                 >
                   <div className="relative w-full" style={{ aspectRatio: '4/3' }}>
                     <Image
@@ -160,7 +170,7 @@ export const Feedback = () => {
             {placeholderFeedbacks.map((feedback, index) => (
               <motion.div
                 key={feedback.id}
-                className="break-inside-avoid mb-8 bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300"
+                className="break-inside-avoid mb-8 bg-white rounded-xl p-4 shadow-lg hover:shadow-xl transition-all duration-300"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -202,6 +212,47 @@ export const Feedback = () => {
             ))}
           </div>
         </div>
+
+        {/* Modal for zoomed image */}
+        <AnimatePresence>
+          {selectedImage && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 z-50 flex items-center justify-center bg-black/80"
+              onClick={() => setSelectedImage(null)}
+            >
+              <motion.div
+                initial={{ scale: 0.5, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                exit={{ scale: 0.5, opacity: 0 }}
+                transition={{ type: "spring", damping: 20 }}
+                className="relative max-w-[90vw] max-h-[90vh] bg-white rounded-xl overflow-hidden"
+                onClick={e => e.stopPropagation()}
+              >
+                {/* Close button */}
+                <button
+                  className="absolute top-4 right-4 z-10 p-2 bg-white/10 backdrop-blur-sm rounded-full text-white hover:bg-white/20 transition-colors"
+                  onClick={() => setSelectedImage(null)}
+                >
+                  <IoMdClose size={24} />
+                </button>
+
+                {/* Zoomed image */}
+                <div className="relative w-full h-full min-h-[80vh]" style={{ aspectRatio: '4/3' }}>
+                  <Image
+                    src={selectedImage}
+                    alt="Zoomed feedback"
+                    fill
+                    style={{ objectFit: 'contain' }}
+                    className="p-4"
+                  />
+                </div>
+              </motion.div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </section>
   );
