@@ -6,6 +6,8 @@ import { CoreValues } from '@/components/CoreValues';
 import { Feedback } from '@/components/Feedback';
 import { Roadmap } from '@/components/Roadmap';
 import { AboutUs } from '@/components/AboutUs';
+import { FAQContact } from '@/components/FAQContact';
+import { Footer } from '@/components/Footer';
 
 export default function Home() {
   return (
@@ -22,6 +24,8 @@ export default function Home() {
       <Feedback />
       <Roadmap />
       <AboutUs />
+      <FAQContact />
+      <Footer />
     </main>
   );
 }
