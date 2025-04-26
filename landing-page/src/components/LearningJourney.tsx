@@ -35,7 +35,7 @@ export const LearningJourney = () => {
             Learning Journey
           </motion.h2>
           <motion.p 
-            className="text-xl md:text-2xl text-gray-700"
+            className="text-xl md:text-xl text-gray-500"
             style={{ fontFamily: 'var(--font-body)' }}
           >
             Your journey to mastery starts here
