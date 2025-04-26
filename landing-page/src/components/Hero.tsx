@@ -97,7 +97,7 @@ export const Hero = () => {
               
               {/* Animated underline effect */}
               <motion.div
-                className="relative -left-12 -right-4 h-2 rounded-full"
+                className="relative -left-0 -right-4 h-2 rounded-full"
                 style={{ 
                   background: 'var(--gradient-secondary)',
                   bottom: '-10px',

@@ -9,8 +9,18 @@ export const LearningJourney = () => {
   const [isCommunityHovered, setIsCommunityHovered] = useState(false);
   const { t } = useLanguage();
 
-  const learningFeatures = t('learning.learning.features').split(',');
-  const communityFeatures = t('learning.community.features').split(',');
+  // Define features directly
+  const learningFeatures = [
+    t('learning.learning.features.0'),
+    t('learning.learning.features.1'),
+    t('learning.learning.features.2')
+  ];
+
+  const communityFeatures = [
+    t('learning.community.features.0'),
+    t('learning.community.features.1'),
+    t('learning.community.features.2')
+  ];
 
   return (
     <section id="learning" className="relative py-24 overflow-hidden bg-gradient-to-b from-white to-blue-50">
