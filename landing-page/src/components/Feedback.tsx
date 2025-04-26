@@ -81,7 +81,7 @@ export const Feedback = () => {
 
   return (
     <section id="feedback" className="py-20 bg-gradient-to-b from-white to-gray-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-30">
         {/* Heading and Subtitle */}
         <div className="text-center mb-16">
           <motion.h2 
@@ -107,7 +107,63 @@ export const Feedback = () => {
         </div>
 
         {/* Two Column Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 relative">
+          {/* Decorative elements between columns */}
+          <div className="hidden lg:block absolute left-1/2 top-0 -translate-x-1/2 h-full w-px">
+            {/* Vertical line with gradient */}
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-blue-200/50 to-transparent" />
+            
+            {/* Animated dots */}
+            {[0, 1, 2, 3, 4].map((index) => (
+              <motion.div
+                key={index}
+                className="absolute left-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-blue-400/50 backdrop-blur-sm"
+                style={{
+                  top: `${20 + index * 20}%`,
+                }}
+                animate={{
+                  scale: [1, 1.2, 1],
+                  opacity: [0.5, 1, 0.5],
+                }}
+                transition={{
+                  duration: 2,
+                  repeat: Infinity,
+                  delay: index * 0.4,
+                }}
+              />
+            ))}
+
+            {/* Floating shapes */}
+            <motion.div
+              className="absolute left-1/2 top-[30%] -translate-x-1/2 w-8 h-8 rounded-full bg-gradient-to-r from-blue-300/20 to-cyan-300/20 backdrop-blur-sm"
+              animate={{
+                y: [-10, 10, -10],
+                rotate: [0, 180, 360],
+              }}
+              transition={{
+                duration: 4,
+                repeat: Infinity,
+                ease: "linear"
+              }}
+            />
+            <motion.div
+              className="absolute left-1/2 top-[60%] -translate-x-1/2 w-12 h-12"
+              style={{
+                background: 'var(--glass-background)',
+                clipPath: 'polygon(50% 0%, 0% 100%, 100% 100%)',
+              }}
+              animate={{
+                y: [10, -10, 10],
+                rotate: [0, -180, -360],
+              }}
+              transition={{
+                duration: 5,
+                repeat: Infinity,
+                ease: "linear"
+              }}
+            />
+          </div>
+
           {/* Left Column - Stacked Images */}
           <div className="relative h-[800px] hidden lg:flex items-start pt-8">
             <div className="relative w-full h-full">
@@ -166,7 +222,7 @@ export const Feedback = () => {
           </div>
 
           {/* Right Column - Text Feedback */}
-          <div className="columns-1 md:columns-2 gap-8">
+          <div className="columns-1 md:columns-2 gap-8 max-w-7xl mx-auto px-10 sm:px-6 lg:px-10">
             {placeholderFeedbacks.map((feedback, index) => (
               <motion.div
                 key={feedback.id}

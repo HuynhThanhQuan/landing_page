@@ -5,6 +5,7 @@ import { Members } from '@/components/Members';
 import { CoreValues } from '@/components/CoreValues';
 import { Feedback } from '@/components/Feedback';
 import { Roadmap } from '@/components/Roadmap';
+import { AboutUs } from '@/components/AboutUs';
 
 export default function Home() {
   return (
@@ -20,6 +21,7 @@ export default function Home() {
       <CoreValues />
       <Feedback />
       <Roadmap />
+      <AboutUs />
     </main>
   );
 }

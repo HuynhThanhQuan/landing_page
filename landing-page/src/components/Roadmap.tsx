@@ -51,16 +51,28 @@ export const Roadmap = () => {
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         {/* Heading */}
-        <motion.h2 
-          className="text-4xl md:text-5xl font-bold text-center mb-16"
-          style={{ fontFamily: 'var(--font-heading)' }}
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-        >
-          Our Future Ecosystem
-        </motion.h2>
+        <div className="text-center mb-16">
+          <motion.h2 
+            className="text-4xl md:text-5xl font-bold mb-4"
+            style={{ fontFamily: 'var(--font-heading)' }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+          >
+            Our Future Ecosystem
+          </motion.h2>
+          <motion.p
+            className="text-xl text-gray-400 max-w-3xl mx-auto font-light"
+            style={{ fontFamily: 'var(--font-body)' }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          >
+            Empowering the next generation of data scientists through innovative learning pathways
+          </motion.p>
+        </div>
 
         {/* Two Column Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-stretch">
