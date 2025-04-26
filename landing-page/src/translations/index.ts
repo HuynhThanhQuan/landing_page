@@ -10,8 +10,8 @@ export const translations = {
     },
     notification: {
       emoji: '🎉',
-      message: 'Join our community and start your learning journey today!',
-      cta: 'Get Started'
+      message: 'We\'re seeking cooperation to build the future of AI together',
+      cta: 'Get in touch'
     },
     hero: {
       title: 'Empowering Data Science Education',
@@ -31,11 +31,15 @@ export const translations = {
       subtitle: 'Personalized paths to data science mastery',
       learning: {
         title: 'Learning Experience',
-        features: 'Personalized learning paths,Interactive workshops and exercises,Real-time progress tracking,AI-powered recommendations,Expert mentorship and guidance',
+        feature1: 'Structured learning paths for all skill levels',
+        feature2: 'Hands-on projects and real-world applications',
+        feature3: 'Expert-led workshops and tutorials',
       },
       community: {
         title: 'Community Support',
-        features: 'Collaborative study groups,Peer learning networks,Industry expert connections,Regular meetups and events,Knowledge sharing platform',
+        feature1: 'Connect with like-minded learners',
+        feature2: 'Collaborative projects and study groups',
+        feature3: 'Mentorship and networking opportunities',
       },
     },
     feedback: {
@@ -162,6 +166,35 @@ export const translations = {
       },
       submit: 'Send Message',
     },
+    footer: {
+      company: {
+        title: 'Curious Machine',
+        description: 'A community to fuel your AI\'s passion'
+      },
+      links: {
+        title: 'Services',
+        about: 'About Us',
+        services: 'Services',
+        contact: 'Contact'
+      },
+      contact: {
+        title: 'Contact',
+        email: 'contact@curiousmachine.vn',
+        phone: '+84 123 456 789',
+        address: 'Hanoi, Vietnam'
+      },
+      social: {
+        title: 'Follow Us',
+        linkedin: 'LinkedIn',
+        twitter: 'Twitter',
+        facebook: 'Facebook'
+      },
+      copyright: '© {year} Curious Machine. All rights reserved.',
+      legal: {
+        privacy: 'Privacy Policy',
+        terms: 'Terms of Service'
+      }
+    }
   },
   vi: {
     nav: {
@@ -174,8 +207,8 @@ export const translations = {
     },
     notification: {
       emoji: '🎉',
-      message: 'Tham gia cộng đồng của chúng tôi và bắt đầu hành trình học tập ngay hôm nay!',
-      cta: 'Bắt đầu ngay'
+      message: 'Chúng tôi tìm kiếm những đối tác đồng hành nhằm xây dựng cộng đồng học tập',
+      cta: 'Kết nối với chúng tôi'
     },
     hero: {
       title: 'Nâng tầm Giáo dục Khoa học Dữ liệu',
@@ -195,11 +228,15 @@ export const translations = {
       subtitle: 'Lộ trình cá nhân hóa để làm chủ khoa học dữ liệu',
       learning: {
         title: 'Trải nghiệm Học tập',
-        features: 'Lộ trình học tập cá nhân hóa,Hội thảo và bài tập tương tác,Theo dõi tiến độ thời gian thực,Gợi ý từ AI,Cố vấn và hướng dẫn từ chuyên gia',
+        feature1: 'Lộ trình học tập có cấu trúc cho mọi trình độ',
+        feature2: 'Dự án thực tế và ứng dụng thực tiễn',
+        feature3: 'Workshop và hướng dẫn từ chuyên gia'
       },
       community: {
         title: 'Hỗ trợ Cộng đồng',
-        features: 'Nhóm học tập cộng tác,Mạng lưới học tập đồng đẳng,Kết nối chuyên gia ngành,Gặp gỡ và sự kiện thường xuyên,Nền tảng chia sẻ kiến thức',
+        feature1: 'Kết nối với những người học cùng chí hướng',
+        feature2: 'Dự án hợp tác và nhóm học tập',
+        feature3: 'Cơ hội mentoring và networking',
       },
     },
     feedback: {
@@ -326,5 +363,34 @@ export const translations = {
       },
       submit: 'Gửi tin nhắn',
     },
+    footer: {
+      company: {
+        title: 'Curious Machine',
+        description: 'Cộng đồng thúc đẩy đam mê AI của bạn'
+      },
+      links: {
+        title: 'Dịch vụ',
+        about: 'Giới thiệu',
+        services: 'Dịch vụ',
+        contact: 'Liên hệ'
+      },
+      contact: {
+        title: 'Liên hệ',
+        email: 'contact@curiousmachine.vn',
+        phone: '+84 123 456 789',
+        address: 'Hà Nội, Việt Nam'
+      },
+      social: {
+        title: 'Theo dõi Chúng tôi',
+        linkedin: 'LinkedIn',
+        twitter: 'Twitter',
+        facebook: 'Facebook'
+      },
+      copyright: '© {year} Curious Machine. Bảo lưu mọi quyền.',
+      legal: {
+        privacy: 'Chính sách Bảo mật',
+        terms: 'Điều khoản Dịch vụ'
+      }
+    }
   },
 }; 
