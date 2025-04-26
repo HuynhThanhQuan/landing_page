@@ -2,24 +2,26 @@
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import { text } from 'stream/consumers';
-
-const statistics = [
-  {
-    value: "5000+",
-    label: "Members"
-  },
-  {
-    value: "100+",
-    label: "Hours"
-  },
-  {
-    value: "95%",
-    label: "Recommendation"
-  }
-];
+import { useLanguage } from '@/contexts/LanguageContext';
 
 export const Hero = () => {
+  const { t } = useLanguage();
+
+  const statistics = [
+    {
+      value: "5000+",
+      label: t('hero.stats.members')
+    },
+    {
+      value: "100+",
+      label: t('hero.stats.hours')
+    },
+    {
+      value: "95%",
+      label: t('hero.stats.recommendation')
+    }
+  ];
+
   return (
     // Main hero section with adjusted height and center alignment
     <section id="hero" className="relative h-[75vh] flex items-start justify-center pt-20 pb-0">
@@ -119,8 +121,7 @@ export const Hero = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.6 }}
             >
-              Learn Data Science and AI with others who share your curiosity, 
-              ambition, and passion for making a difference.
+              {t('hero.description')}
             </motion.p>
 
             {/* Statistics Section */}
@@ -199,7 +200,7 @@ export const Hero = () => {
                 }}
                 whileTap={{ scale: 0.95 }}
               >
-                Get Started
+                {t('hero.cta.primary')}
               </motion.a>
               
               {/* Secondary CTA button with glass effect */}
@@ -217,7 +218,7 @@ export const Hero = () => {
                 }}
                 whileTap={{ scale: 0.95 }}
               >
-                Learn More
+                {t('hero.cta.secondary')}
               </motion.a>
             </div>
           </motion.div>

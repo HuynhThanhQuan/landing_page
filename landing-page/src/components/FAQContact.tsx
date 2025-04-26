@@ -2,24 +2,26 @@
 
 import { motion } from 'framer-motion';
 import { useState } from 'react';
-
-const faqs = [
-  {
-    question: "What services do you offer?",
-    answer: "We offer comprehensive data science education and training programs, including courses, workshops, and personalized mentoring."
-  },
-  {
-    question: "How can I get started?",
-    answer: "You can get started by exploring our courses, signing up for a free consultation, or contacting us directly through our contact form."
-  },
-  {
-    question: "Do you offer corporate training?",
-    answer: "Yes, we provide customized corporate training programs tailored to your organization's specific needs and goals."
-  }
-];
+import { useLanguage } from '@/contexts/LanguageContext';
 
 export const FAQContact = () => {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  const { t } = useLanguage();
+
+  const faqs = [
+    {
+      question: t('faq.questions.0.question'),
+      answer: t('faq.questions.0.answer')
+    },
+    {
+      question: t('faq.questions.1.question'),
+      answer: t('faq.questions.1.answer')
+    },
+    {
+      question: t('faq.questions.2.question'),
+      answer: t('faq.questions.2.answer')
+    }
+  ];
 
   return (
     <section id="faq-contact" className="py-16 relative">
@@ -44,7 +46,7 @@ export const FAQContact = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              Frequently Asked Questions
+              {t('faq.title')}
             </motion.h2>
             
             <div className="space-y-4">
@@ -85,7 +87,7 @@ export const FAQContact = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              Contact Us
+              {t('contact.title')}
             </motion.h2>
 
             <motion.form
@@ -96,37 +98,37 @@ export const FAQContact = () => {
             >
               <div>
                 <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
-                  Name
+                  {t('contact.form.name')}
                 </label>
                 <input
                   type="text"
                   id="name"
                   className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                  placeholder="Your name"
+                  placeholder={t('contact.form.name')}
                 />
               </div>
 
               <div>
                 <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
-                  Email
+                  {t('contact.form.email')}
                 </label>
                 <input
                   type="email"
                   id="email"
                   className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                  placeholder="your.email@example.com"
+                  placeholder={t('contact.form.email')}
                 />
               </div>
 
               <div>
                 <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
-                  Message
+                  {t('contact.form.message')}
                 </label>
                 <textarea
                   id="message"
                   rows={4}
                   className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                  placeholder="Your message"
+                  placeholder={t('contact.form.message')}
                 />
               </div>
 
@@ -134,7 +136,7 @@ export const FAQContact = () => {
                 type="submit"
                 className="w-full bg-blue-600 text-white py-3 px-6 rounded-md hover:bg-blue-700 transition-colors"
               >
-                Send Message
+                {t('contact.form.submit')}
               </button>
             </motion.form>
           </div>

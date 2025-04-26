@@ -3,12 +3,13 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/Header";
 import { NotificationBanner } from "@/components/NotificationBanner";
+import { LanguageProvider } from '@/contexts/LanguageContext';
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Curious Machine",
-  description: "Building the future of AI together",
+  title: "Data Science Education",
+  description: "Learn Data Science and AI with others who share your curiosity",
 };
 
 export default function RootLayout({
@@ -19,9 +20,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Header />
-        <NotificationBanner />
-        {children}
+        <LanguageProvider>
+          <Header />
+          <NotificationBanner />
+          {children}
+        </LanguageProvider>
       </body>
     </html>
   );

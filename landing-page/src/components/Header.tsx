@@ -5,14 +5,15 @@ import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
 import { RiMenu3Line, RiCloseLine } from 'react-icons/ri';
 import Link from 'next/link';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const navLinks = [
-  { href: '#hero', label: 'Home' },
-  { href: '#learning', label: 'Learning' },
-  { href: '#feedback', label: 'Feedback' },
-  { href: '#roadmap', label: 'Ecosystem' },
-  { href: '#about', label: 'About' },
-  { href: '#faq-contact', label: 'Contact' }
+  { href: '#hero', label: 'nav.home' },
+  { href: '#learning', label: 'nav.learning' },
+  { href: '#feedback', label: 'nav.feedback' },
+  { href: '#roadmap', label: 'nav.ecosystem' },
+  { href: '#about', label: 'nav.about' },
+  { href: '#faq-contact', label: 'nav.contact' }
 ];
 
 const flags = {
@@ -22,9 +23,9 @@ const flags = {
 
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [language, setLanguage] = useState<'vi' | 'en'>('vi');
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('hero');
+  const { language, setLanguage, t } = useLanguage();
 
   // Handle scroll effect
   useEffect(() => {
@@ -134,7 +135,7 @@ export const Header = () => {
                 }}
                 whileHover="hover"
               >
-                {link.label}
+                {t(link.label)}
                 <motion.div
                   variants={{
                     hover: {
@@ -300,7 +301,7 @@ export const Header = () => {
                     whileHover={{ x: 4 }}
                     whileTap={{ scale: 0.98 }}
                   >
-                    {link.label}
+                    {t(link.label)}
                   </motion.a>
                 ))}
                 {/* Mobile Language Switcher */}

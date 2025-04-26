@@ -2,10 +2,15 @@
 
 import { motion } from 'framer-motion';
 import { useState } from 'react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 export const LearningJourney = () => {
   const [isLearningHovered, setIsLearningHovered] = useState(false);
   const [isCommunityHovered, setIsCommunityHovered] = useState(false);
+  const { t } = useLanguage();
+
+  const learningFeatures = t('learning.learning.features').split(',');
+  const communityFeatures = t('learning.community.features').split(',');
 
   return (
     <section id="learning" className="relative py-24 overflow-hidden bg-gradient-to-b from-white to-blue-50">
@@ -32,13 +37,13 @@ export const LearningJourney = () => {
               backgroundImage: 'linear-gradient(to right, #2563eb, #3b82f6)'
             }}
           >
-            Learning Journey
+            {t('learning.title')}
           </motion.h2>
           <motion.p 
             className="text-xl md:text-1xl text-gray-500"
             style={{ fontFamily: 'var(--font-body)' }}
           >
-            Your journey to mastery starts here
+            {t('learning.subtitle')}
           </motion.p>
         </motion.div>
 
@@ -96,12 +101,10 @@ export const LearningJourney = () => {
                 transform: isLearningHovered ? 'translateY(-2px)' : 'translateY(0)'
               }}
             >
-              Learning
+              {t('learning.learning.title')}
             </h3>
             <ul className="space-y-4 text-gray-700">
-              {['Structured learning paths for all skill levels',
-                'Hands-on projects and real-world applications',
-                'Expert-led workshops and tutorials'].map((text, index) => (
+              {learningFeatures.map((text, index) => (
                 <li 
                   key={index}
                   className="flex items-start"
@@ -179,12 +182,10 @@ export const LearningJourney = () => {
                 transform: isCommunityHovered ? 'translateY(-2px)' : 'translateY(0)'
               }}
             >
-              Community
+              {t('learning.community.title')}
             </h3>
             <ul className="space-y-4 text-gray-700">
-              {['Connect with like-minded learners',
-                'Collaborative projects and study groups',
-                'Mentorship and networking opportunities'].map((text, index) => (
+              {communityFeatures.map((text, index) => (
                 <li 
                   key={index}
                   className="flex items-start"

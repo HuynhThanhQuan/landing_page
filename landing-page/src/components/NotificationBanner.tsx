@@ -4,10 +4,12 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
 import { RiCloseLine } from 'react-icons/ri';
 import clsx from 'clsx';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 export const NotificationBanner = () => {
   const [isVisible, setIsVisible] = useState(true);
   const [useSecondaryGradient, setUseSecondaryGradient] = useState(false);
+  const { t } = useLanguage();
 
   // Example of different className combinations
   const bannerClasses = clsx(
@@ -37,12 +39,10 @@ export const NotificationBanner = () => {
               <div className="flex items-center">
                 <span className="text-2xl mr-2">🚀</span>
                 <p className={clsx(
-                  'text-sm sm:text-base',
-                  'font-medium',
+                  'text-sm sm:text-base font-medium transition-opacity duration-300',
                   {'opacity-90': !useSecondaryGradient}
                 )}>
-                  We're seeking cooperation to build the future of AI together.
-                  (Click banner to toggle gradient)
+                  {t('notification.message')}
                 </p>
               </div>
               <div className="flex items-center space-x-4">
@@ -63,7 +63,7 @@ export const NotificationBanner = () => {
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
-                  Get in Touch
+                  {t('notification.cta')}
                 </motion.a>
                 <motion.button
                   onClick={(e) => {

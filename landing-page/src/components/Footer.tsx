@@ -2,8 +2,11 @@
 
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 export const Footer = () => {
+  const { t } = useLanguage();
+
   return (
     <footer className="bg-gray-900 text-white py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -11,32 +14,32 @@ export const Footer = () => {
           {/* Company Info */}
           <div className="space-y-4">
             <h3 className="text-xl font-bold" style={{ fontFamily: 'var(--font-heading)' }}>
-              Data Science Education
+              {t('footer.company.title')}
             </h3>
             <p className="text-gray-400">
-              Empowering the next generation of data scientists through comprehensive education and training.
+              {t('footer.company.description')}
             </p>
           </div>
 
           {/* Quick Links */}
           <div>
             <h4 className="text-lg font-semibold mb-4" style={{ fontFamily: 'var(--font-heading)' }}>
-              Quick Links
+              {t('footer.links.title')}
             </h4>
             <ul className="space-y-2">
               <li>
                 <Link href="#about" className="text-gray-400 hover:text-white transition-colors">
-                  About Us
+                  {t('footer.links.about')}
                 </Link>
               </li>
               <li>
                 <Link href="#services" className="text-gray-400 hover:text-white transition-colors">
-                  Services
+                  {t('footer.links.services')}
                 </Link>
               </li>
               <li>
                 <Link href="#faq-contact" className="text-gray-400 hover:text-white transition-colors">
-                  FAQ & Contact
+                  {t('footer.links.contact')}
                 </Link>
               </li>
             </ul>
@@ -45,19 +48,19 @@ export const Footer = () => {
           {/* Contact Info */}
           <div>
             <h4 className="text-lg font-semibold mb-4" style={{ fontFamily: 'var(--font-heading)' }}>
-              Contact Info
+              {t('footer.contact.title')}
             </h4>
             <ul className="space-y-2 text-gray-400">
-              <li>Email: contact@datascience.edu</li>
-              <li>Phone: +1 (555) 123-4567</li>
-              <li>Address: 123 Education St, City, Country</li>
+              <li>{t('footer.contact.email')}</li>
+              <li>{t('footer.contact.phone')}</li>
+              <li>{t('footer.contact.address')}</li>
             </ul>
           </div>
 
           {/* Social Links */}
           <div>
             <h4 className="text-lg font-semibold mb-4" style={{ fontFamily: 'var(--font-heading)' }}>
-              Follow Us
+              {t('footer.social.title')}
             </h4>
             <div className="flex space-x-4">
               <a href="#" className="text-gray-400 hover:text-white transition-colors">
@@ -75,7 +78,7 @@ export const Footer = () => {
 
         {/* Copyright */}
         <div className="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
-          <p>&copy; {new Date().getFullYear()} Data Science Education. All rights reserved.</p>
+          <p>{t('footer.copyright').replace('{year}', new Date().getFullYear().toString())}</p>
         </div>
       </div>
     </footer>
