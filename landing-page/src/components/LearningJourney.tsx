@@ -26,7 +26,7 @@ export const LearningJourney = () => {
           transition={{ duration: 0.5 }}
         >
           <motion.h2 
-            className="text-4xl md:text-5xl font-bold mb-4 bg-clip-text text-transparent"
+            className="text-4xl md:text-4xl font-bold mb-4 bg-clip-text text-transparent"
             style={{ 
               fontFamily: 'var(--font-heading)',
               backgroundImage: 'linear-gradient(to right, #2563eb, #3b82f6)'
@@ -35,7 +35,7 @@ export const LearningJourney = () => {
             Learning Journey
           </motion.h2>
           <motion.p 
-            className="text-xl md:text-xl text-gray-500"
+            className="text-xl md:text-1xl text-gray-500"
             style={{ fontFamily: 'var(--font-body)' }}
           >
             Your journey to mastery starts here

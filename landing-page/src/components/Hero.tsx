@@ -4,6 +4,21 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { text } from 'stream/consumers';
 
+const statistics = [
+  {
+    value: "5000+",
+    label: "Members"
+  },
+  {
+    value: "100+",
+    label: "Hours"
+  },
+  {
+    value: "95%",
+    label: "Recommendation"
+  }
+];
+
 export const Hero = () => {
   return (
     // Main hero section with adjusted height and center alignment
@@ -25,7 +40,7 @@ export const Hero = () => {
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
-            className="lg:pt-0" // Remove extra padding on mobile
+            className="lg:pt-0 flex flex-col items-center text-center lg:items-start lg:text-left"
           >
             {/* Heading container with underline effect */}
             <motion.div className="relative">
@@ -108,8 +123,71 @@ export const Hero = () => {
               ambition, and passion for making a difference.
             </motion.p>
 
+            {/* Statistics Section */}
+            <motion.div 
+              className="grid grid-cols-3 gap-8 max-w-1xl mb-12"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.8 }}
+            >
+              {statistics.map((stat, index) => (
+                <motion.div
+                  key={index}
+                  className="text-center relative group cursor-pointer p-4"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.8 + index * 0.1 }}
+                >
+                  {/* Stat content */}
+                  <div className="relative z-10">
+                    <motion.h3 
+                      className="text-3xl lg:text-4xl font-bold mb-2"
+                      style={{ 
+                        fontFamily: 'var(--font-heading)',
+                        background: 'var(--gradient-primary)',
+                        WebkitBackgroundClip: 'text',
+                        WebkitTextFillColor: 'transparent',
+                        textShadow: '0px 0px 0px rgba(58, 190, 249, 0)',
+                      }}
+                      whileHover={{ 
+                        y: -4,
+                        textShadow: [
+                          '0px 4px 8px rgba(58, 190, 249, 0.3)',
+                          '0px 8px 16px rgba(58, 190, 249, 0.3)'
+                        ],
+                        transition: { 
+                          duration: 0.3,
+                          textShadow: { 
+                            repeat: Infinity,
+                            repeatType: "reverse",
+                            duration: 1
+                          }
+                        }
+                      }}
+                    >
+                      {stat.value}
+                    </motion.h3>
+                    <motion.p 
+                      className="text-sm lg:text-base text-gray-600"
+                      style={{ 
+                        fontFamily: 'var(--font-body)',
+                        textShadow: '0px 0px 0px rgba(58, 188, 249, 0.65)',
+                      }}
+                      whileHover={{ 
+                        y: -4,
+                        textShadow: '0px 4px 8px rgba(26, 148, 205, 0.7)',
+                        transition: { duration: 0.1 }
+                      }}
+                    >
+                      {stat.label}
+                    </motion.p>
+                  </div>
+                </motion.div>
+              ))}
+            </motion.div>
+
             {/* CTA Buttons container */}
-            <div className="flex flex-wrap gap-4">
+            <div className="flex flex-wrap gap-4 mb-16 w-full">
               {/* Primary CTA button with hover effect */}
               <motion.a
                 href="#contact"
