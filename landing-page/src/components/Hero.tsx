@@ -22,7 +22,7 @@ const statistics = [
 export const Hero = () => {
   return (
     // Main hero section with adjusted height and center alignment
-    <section id="home" className="relative h-[75vh] flex items-start justify-center pt-20 pb-0">
+    <section id="hero" className="relative h-[75vh] flex items-start justify-center pt-20 pb-0">
       {/* Background gradient layer */}
       <div 
         className="absolute inset-1 -z-10" 

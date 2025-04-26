@@ -8,7 +8,7 @@ export const LearningJourney = () => {
   const [isCommunityHovered, setIsCommunityHovered] = useState(false);
 
   return (
-    <section className="relative py-24 overflow-hidden bg-gradient-to-b from-white to-blue-50">
+    <section id="learning" className="relative py-24 overflow-hidden bg-gradient-to-b from-white to-blue-50">
       {/* Background gradient */}
       <div 
         className="absolute inset-0 -z-10 opacity-50" 

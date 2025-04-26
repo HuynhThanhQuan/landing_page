@@ -4,12 +4,15 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
 import { RiMenu3Line, RiCloseLine } from 'react-icons/ri';
+import Link from 'next/link';
 
 const navLinks = [
-  { href: '#home', label: 'Home' },
-  { href: '#services', label: 'Services' },
+  { href: '#hero', label: 'Home' },
+  { href: '#learning', label: 'Learning' },
+  { href: '#feedback', label: 'Feedback' },
+  { href: '#roadmap', label: 'Ecosystem' },
   { href: '#about', label: 'About' },
-  { href: '#contact', label: 'Contact' },
+  { href: '#faq-contact', label: 'Contact' }
 ];
 
 const flags = {
@@ -21,7 +24,7 @@ export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [language, setLanguage] = useState<'vi' | 'en'>('vi');
   const [scrolled, setScrolled] = useState(false);
-  const [activeSection, setActiveSection] = useState('home');
+  const [activeSection, setActiveSection] = useState('hero');
 
   // Handle scroll effect
   useEffect(() => {
@@ -31,6 +34,27 @@ export const Header = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // Handle smooth scroll to sections
+  const handleScrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    const targetId = href.replace('#', '');
+    const targetElement = document.getElementById(targetId);
+    
+    if (targetElement) {
+      const headerOffset = 80;
+      const elementPosition = targetElement.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+      
+      setActiveSection(targetId);
+      setIsMenuOpen(false);
+    }
+  };
 
   // Handle section highlighting
   useEffect(() => {
@@ -68,7 +92,7 @@ export const Header = () => {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            <a href="#" className="flex items-center">
+            <a href="#hero" className="flex items-center" onClick={(e) => handleScrollToSection(e, '#hero')}>
               <motion.div
                 whileHover={{ rotate: 10 }}
                 transition={{ duration: 0.3, ease: "easeInOut" }}
@@ -100,6 +124,7 @@ export const Header = () => {
               <motion.a
                 key={link.href}
                 href={link.href}
+                onClick={(e) => handleScrollToSection(e, link.href)}
                 className="relative text-[var(--text-color)] hover:text-[var(--secondary-color)] font-[var(--font-heading)] font-medium transition-all"
                 style={{
                   transition: 'all 0.3s ease',
@@ -266,6 +291,7 @@ export const Header = () => {
                   <motion.a
                     key={link.href}
                     href={link.href}
+                    onClick={(e) => handleScrollToSection(e, link.href)}
                     className={`block px-3 py-2 rounded-md transition-colors ${
                       activeSection === link.href.replace('#', '')
                         ? 'bg-blue-50 text-blue-600'
