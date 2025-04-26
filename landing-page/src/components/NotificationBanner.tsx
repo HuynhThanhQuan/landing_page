@@ -36,8 +36,8 @@ export const NotificationBanner = () => {
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
             <div className="flex items-center justify-between">
-              <div className="flex items-center">
-                <span className="text-2xl mr-2">🚀</span>
+              <div className="flex items-center justify-center">
+                <span className="mr-2">{t('notification.emoji')}</span>
                 <p className={clsx(
                   'text-sm sm:text-base font-medium transition-opacity duration-300',
                   {'opacity-90': !useSecondaryGradient}

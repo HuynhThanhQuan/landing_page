@@ -64,13 +64,13 @@ export const Footer = () => {
             </h4>
             <div className="flex space-x-4">
               <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                LinkedIn
+                {t('footer.social.linkedin')}
               </a>
               <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                Twitter
+                {t('footer.social.twitter')}
               </a>
               <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                Facebook
+                {t('footer.social.facebook')}
               </a>
             </div>
           </div>

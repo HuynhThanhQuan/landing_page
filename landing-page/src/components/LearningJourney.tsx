@@ -9,17 +9,16 @@ export const LearningJourney = () => {
   const [isCommunityHovered, setIsCommunityHovered] = useState(false);
   const { t } = useLanguage();
 
-  // Define features directly
   const learningFeatures = [
-    t('learning.learning.features.0'),
-    t('learning.learning.features.1'),
-    t('learning.learning.features.2')
+    t('learning.learning.feature1'),
+    t('learning.learning.feature2'),
+    t('learning.learning.feature3')
   ];
 
   const communityFeatures = [
-    t('learning.community.features.0'),
-    t('learning.community.features.1'),
-    t('learning.community.features.2')
+    t('learning.community.feature1'),
+    t('learning.community.feature2'),
+    t('learning.community.feature3')
   ];
 
   return (

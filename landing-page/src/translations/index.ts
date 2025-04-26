@@ -95,6 +95,28 @@ export const translations = {
     notification: {
       message: 'Chúng tôi đang tìm kiếm sự hợp tác để cùng xây dựng tương lai AI',
       cta: 'Liên hệ ngay'
+    },
+    coreValues: {
+      title: 'Giá trị cốt lõi',
+      subtitle: 'Những nguyên tắc định hướng hành trình của chúng tôi trong giáo dục AI & Khoa học Dữ liệu',
+      values: [
+        {
+          title: 'Sự xuất sắc được dẫn dắt bởi sự tò mò',
+          description: 'Chúng tôi khơi dậy và nuôi dưỡng tinh thần khám phá không ngừng để mở rộng ranh giới trong AI & Khoa học Dữ liệu, liên tục tìm kiếm những biên giới mới của kiến thức và đổi mới.'
+        },
+        {
+          title: 'Tác động thông qua trí tuệ',
+          description: 'Chúng tôi đào tạo các chuyên gia làm chủ cả chuyên môn kỹ thuật và kiến thức kinh doanh – chuyển đổi dữ liệu thành những hiểu biết có thể hành động tạo ra giá trị thực tế.'
+        },
+        {
+          title: 'Cộng đồng phát triển',
+          description: 'Chúng tôi thúc đẩy một hệ sinh thái bền vững về học tập, chia sẻ và phát triển cho những người đam mê AI & Dữ liệu, tạo ra môi trường hỗ trợ cho sự phát triển liên tục.'
+        },
+        {
+          title: 'Chính trực trong tư vấn & học tập',
+          description: 'Chúng tôi duy trì các tiêu chuẩn cao nhất về tính minh bạch, trung thực và trách nhiệm trong cả giáo dục và tư vấn kinh doanh, xây dựng niềm tin thông qua các thực hành đạo đức.'
+        }
+      ]
     }
   },
   en: {
@@ -193,6 +215,28 @@ export const translations = {
     notification: {
       message: 'We\'re seeking cooperation to build the future of AI together',
       cta: 'Get in Touch'
+    },
+    coreValues: {
+      title: 'Our Core Values',
+      subtitle: 'The principles that guide our journey in AI & Data Science education',
+      values: [
+        {
+          title: 'Curiosity-Driven Excellence',
+          description: 'We ignite and nurture an unending spirit of exploration to push boundaries in AI & Data Science, constantly seeking new frontiers of knowledge and innovation.'
+        },
+        {
+          title: 'Impact through Intelligence',
+          description: 'We cultivate professionals who master both technical expertise and business acumen – transforming data into actionable insights that drive real-world value.'
+        },
+        {
+          title: 'Community of Growth',
+          description: 'We foster a sustainable ecosystem of learning, sharing, and development for AI & Data enthusiasts, creating a supportive environment for continuous growth.'
+        },
+        {
+          title: 'Integrity in Consulting & Learning',
+          description: 'We uphold the highest standards of transparency, honesty, and responsibility in both education and business consulting, building trust through ethical practices.'
+        }
+      ]
     }
   }
 }; 

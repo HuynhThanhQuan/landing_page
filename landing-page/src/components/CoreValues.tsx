@@ -3,6 +3,14 @@
 import { motion } from 'framer-motion';
 import { Brain, Users, Lightbulb, Shield } from 'lucide-react';
 import Image from 'next/image';
+import { useLanguage } from '@/contexts/LanguageContext';
+
+interface CoreValue {
+  title: string;
+  description: string;
+  icon: any; // We'll keep the icon type as any since it's a component
+  image: string;
+}
 
 const coreValues = [
   {
@@ -32,6 +40,40 @@ const coreValues = [
 ];
 
 export const CoreValues = () => {
+  const { t } = useLanguage();
+  
+  const icons = {
+    'Curiosity-Driven Excellence': Brain,
+    'Impact through Intelligence': Lightbulb,
+    'Community of Growth': Users,
+    'Integrity in Consulting & Learning': Shield
+  };
+
+  const defaultValues = [
+    {
+      title: t('coreValues.values.0.title'),
+      description: t('coreValues.values.0.description')
+    },
+    {
+      title: t('coreValues.values.1.title'),
+      description: t('coreValues.values.1.description')
+    },
+    {
+      title: t('coreValues.values.2.title'),
+      description: t('coreValues.values.2.description')
+    },
+    {
+      title: t('coreValues.values.3.title'),
+      description: t('coreValues.values.3.description')
+    }
+  ];
+
+  const coreValuesWithIcons = defaultValues.map((value, index) => ({
+    ...value,
+    icon: Object.values(icons)[index],
+    image: `/images/corevalues/placeholder${index + 1}.png`
+  }));
+
   return (
     <section id="core-values" className="relative h-screen w-full flex items-center justify-center bg-gradient-to-b from-blue-50 to-white">
       {/* Content */}
@@ -45,16 +87,16 @@ export const CoreValues = () => {
           className="text-center mb-12"
         >
           <h2 className="text-3xl font-bold mb-4" style={{ fontFamily: 'var(--font-heading)' }}>
-            Our Core Values
+            {t('coreValues.title')}
           </h2>
           <p className="text-lg text-[var(--text-secondary)] max-w-2xl mx-auto text-gray-500" style={{ fontFamily: 'var(--font-body)' }}>
-            The principles that guide our journey in AI & Data Science education
+            {t('coreValues.subtitle')}
           </p>
         </motion.div>
 
         {/* Core Values Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-          {coreValues.map((value, index) => {
+          {coreValuesWithIcons.map((value, index) => {
             const Icon = value.icon;
             return (
               <motion.div
@@ -121,4 +163,4 @@ export const CoreValues = () => {
       </div>
     </section>
   );
-}; 
+} 

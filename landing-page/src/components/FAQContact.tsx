@@ -10,16 +10,16 @@ export const FAQContact = () => {
 
   const faqs = [
     {
-      question: t('faq.questions.0.question'),
-      answer: t('faq.questions.0.answer')
+      question: t('faq.question1'),
+      answer: t('faq.answer1')
     },
     {
-      question: t('faq.questions.1.question'),
-      answer: t('faq.questions.1.answer')
+      question: t('faq.question2'),
+      answer: t('faq.answer2')
     },
     {
-      question: t('faq.questions.2.question'),
-      answer: t('faq.questions.2.answer')
+      question: t('faq.question3'),
+      answer: t('faq.answer3')
     }
   ];
 
