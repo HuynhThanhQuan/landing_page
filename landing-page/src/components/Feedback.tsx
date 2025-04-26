@@ -5,14 +5,13 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { FaUserCircle } from 'react-icons/fa';
 import { IoMdClose } from 'react-icons/io';
 import Image from 'next/image';
+import { useLanguage } from '@/contexts/LanguageContext';
 
-// Placeholder type for feedback data
+// Feedback data type
 type FeedbackItem = {
-  id: number;
   name: string;
-  avatar?: string;
   feedback: string;
-  role?: string;
+  role: string;
 };
 
 // Placeholder data for feedback images
@@ -24,60 +23,53 @@ const feedbackImages = [
   "/images/feedback/feedback2.PNG",
 ];
 
-// Placeholder data - will be replaced with real data
-const placeholderFeedbacks: FeedbackItem[] = [
-  {
-    id: 1,
-    name: "John Doe",
-    feedback: "The personalized learning approach helped me transition from marketing to data science smoothly. The structured curriculum and hands-on projects made complex concepts accessible.",
-    role: "Marketing Professional"
-  },
-  {
-    id: 2,
-    name: "Jane Smith",
-    feedback: "Despite my non-technical background, the structured curriculum made machine learning concepts accessible.",
-    role: "Business Analyst"
-  },
-  {
-    id: 3,
-    name: "Alex Johnson",
-    feedback: "The community support and practical projects were invaluable in my learning journey. I never felt alone in this journey.",
-    role: "Software Engineer"
-  },
-  {
-    id: 4,
-    name: "Sarah Wilson",
-    feedback: "The flexibility of the learning platform allowed me to balance my studies with my full-time job. The bite-sized lessons and practical exercises were perfect for my schedule.",
-    role: "Product Manager"
-  },
-  {
-    id: 5,
-    name: "Michael Chen",
-    feedback: "As someone from a finance background, I appreciated how the course connected data science concepts to real-world business applications.",
-    role: "Financial Analyst"
-  },
-  {
-    id: 6,
-    name: "Emily Rodriguez",
-    feedback: "The AI projects and real-world case studies helped me develop practical skills that I could immediately apply in my current role. The mentorship program was particularly valuable.",
-    role: "Data Analyst"
-  },
-  {
-    id: 7,
-    name: "David Kim",
-    feedback: "The collaborative learning environment and peer review system helped me gain different perspectives on problem-solving approaches. It's amazing how much you can learn from fellow students.",
-    role: "Research Scientist"
-  },
-  {
-    id: 8,
-    name: "Lisa Thompson",
-    feedback: "The course's focus on ethical AI and responsible data practices gave me a comprehensive understanding of not just the technical aspects, but also the societal impact of our work.",
-    role: "AI Ethics Consultant"
-  }
-];
-
 export const Feedback = () => {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const { t } = useLanguage();
+
+  // Get individual feedbacks directly
+  const feedbacks = [
+    {
+      name: t('feedback.feedbacks.0.name'),
+      feedback: t('feedback.feedbacks.0.feedback'),
+      role: t('feedback.feedbacks.0.role')
+    },
+    {
+      name: t('feedback.feedbacks.1.name'),
+      feedback: t('feedback.feedbacks.1.feedback'),
+      role: t('feedback.feedbacks.1.role')
+    },
+    {
+      name: t('feedback.feedbacks.2.name'),
+      feedback: t('feedback.feedbacks.2.feedback'),
+      role: t('feedback.feedbacks.2.role')
+    },
+    {
+      name: t('feedback.feedbacks.3.name'),
+      feedback: t('feedback.feedbacks.3.feedback'),
+      role: t('feedback.feedbacks.3.role')
+    },
+    {
+      name: t('feedback.feedbacks.4.name'),
+      feedback: t('feedback.feedbacks.4.feedback'),
+      role: t('feedback.feedbacks.4.role')
+    },
+    {
+      name: t('feedback.feedbacks.5.name'),
+      feedback: t('feedback.feedbacks.5.feedback'),
+      role: t('feedback.feedbacks.5.role')
+    },
+    {
+      name: t('feedback.feedbacks.6.name'),
+      feedback: t('feedback.feedbacks.6.feedback'),
+      role: t('feedback.feedbacks.6.role')
+    },
+    {
+      name: t('feedback.feedbacks.7.name'),
+      feedback: t('feedback.feedbacks.7.feedback'),
+      role: t('feedback.feedbacks.7.role')
+    }
+  ];
 
   return (
     <section id="feedback" className="py-20 bg-gradient-to-b from-white to-gray-50">
@@ -92,7 +84,7 @@ export const Feedback = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            Every Story Shapes Our Learning Community
+            {t('feedback.title')}
           </motion.h2>
           <motion.p 
             className="text-xl text-gray-400 max-w-3xl mx-auto"
@@ -102,12 +94,12 @@ export const Feedback = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            Transforming diverse backgrounds into data science expertise through personalized learning paths
+            {t('feedback.subtitle')}
           </motion.p>
         </div>
 
         {/* Two Column Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 relative">
+        <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
           {/* Decorative elements between columns */}
           <div className="hidden lg:block absolute left-1/2 top-0 -translate-x-1/2 h-full w-px">
             {/* Vertical line with gradient */}
@@ -146,6 +138,7 @@ export const Feedback = () => {
                 ease: "linear"
               }}
             />
+            
             <motion.div
               className="absolute left-1/2 top-[60%] -translate-x-1/2 w-12 h-12"
               style={{
@@ -222,10 +215,10 @@ export const Feedback = () => {
           </div>
 
           {/* Right Column - Text Feedback */}
-          <div className="columns-1 md:columns-2 gap-8 max-w-7xl mx-auto px-10 sm:px-6 lg:px-10">
-            {placeholderFeedbacks.map((feedback, index) => (
+          <div className="columns-1 lg:columns-2 gap-6">
+            {feedbacks.map((feedback, index) => (
               <motion.div
-                key={feedback.id}
+                key={index}
                 className="break-inside-avoid mb-8 bg-white rounded-xl p-4 shadow-lg hover:shadow-xl transition-all duration-300"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -235,25 +228,15 @@ export const Feedback = () => {
                 {/* User Info */}
                 <div className="flex items-start space-x-4 mb-4">
                   <div className="flex-shrink-0">
-                    {feedback.avatar ? (
-                      <img 
-                        src={feedback.avatar} 
-                        alt={feedback.name}
-                        className="w-12 h-12 rounded-full"
-                      />
-                    ) : (
-                      <FaUserCircle className="w-12 h-12 text-gray-400" />
-                    )}
+                    <FaUserCircle className="w-12 h-12 text-gray-400" />
                   </div>
                   <div className="flex-1 min-w-0">
                     <h3 className="font-bold mb-1" style={{ fontFamily: 'var(--font-heading)' }}>
                       {feedback.name}
                     </h3>
-                    {feedback.role && (
-                      <p className="text-sm text-gray-600" style={{ fontFamily: 'var(--font-body)' }}>
-                        {feedback.role}
-                      </p>
-                    )}
+                    <p className="text-sm text-gray-600" style={{ fontFamily: 'var(--font-body)' }}>
+                      {feedback.role}
+                    </p>
                   </div>
                 </div>
                 
