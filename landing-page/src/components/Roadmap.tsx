@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 type RoadmapItem = {
   id: string;
@@ -12,32 +13,38 @@ type RoadmapItem = {
   image: string;
 };
 
-const roadmapData: RoadmapItem[] = [
-  {
-    id: 'learning',
-    title: 'Learning Ecosystem',
-    description: 'An integrated platform combining AI-driven personalized learning paths, interactive content, and real-time collaboration tools.',
-    caption: 'Transform your learning journey with our adaptive AI-powered platform that evolves with your progress. Experience personalized curriculum, interactive workshops, and real-time mentorship.',
-    image: '/images/roadmap/learning.png'
-  },
-  {
-    id: 'consultant',
-    title: 'Consultant Enterprise',
-    description: 'Professional consulting services bridging academic knowledge with industry applications through expert guidance.',
-    caption: 'Connect with industry experts and receive tailored guidance for your organizations data science and AI initiatives. Get strategic insights and implementation support.',
-    image: '/images/roadmap/consultant.png'
-  },
-  {
-    id: 'innovation',
-    title: 'Innovation Hub',
-    description: 'A collaborative space for research, experimentation, and development of cutting-edge AI solutions.',
-    caption: 'Join our innovation ecosystem where ideas transform into impactful solutions. Access state-of-the-art tools, participate in research projects, and contribute to the future of AI.',
-    image: '/images/roadmap/innovation.png'
-  }
-];
-
 export const Roadmap = () => {
-  const [activeItem, setActiveItem] = useState<RoadmapItem>(roadmapData[0]);
+  const [activeItem, setActiveItem] = useState<RoadmapItem | null>(null);
+  const { t } = useLanguage();
+
+  const roadmapData: RoadmapItem[] = [
+    {
+      id: 'learning',
+      title: t('ecosystem.learning.title'),
+      description: t('ecosystem.learning.description'),
+      caption: t('ecosystem.learning.caption'),
+      image: '/images/roadmap/learning.png'
+    },
+    {
+      id: 'consultant',
+      title: t('ecosystem.consultant.title'),
+      description: t('ecosystem.consultant.description'),
+      caption: t('ecosystem.consultant.caption'),
+      image: '/images/roadmap/consultant.png'
+    },
+    {
+      id: 'innovation',
+      title: t('ecosystem.innovation.title'),
+      description: t('ecosystem.innovation.description'),
+      caption: t('ecosystem.innovation.caption'),
+      image: '/images/roadmap/innovation.png'
+    }
+  ];
+
+  // Set initial active item
+  if (!activeItem && roadmapData.length > 0) {
+    setActiveItem(roadmapData[0]);
+  }
 
   return (
     <section id="roadmap" className="py-20 relative">
@@ -60,7 +67,7 @@ export const Roadmap = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            Our Future Ecosystem
+            {t('ecosystem.title')}
           </motion.h2>
           <motion.p
             className="text-xl text-gray-400 max-w-3xl mx-auto font-light"
@@ -70,19 +77,19 @@ export const Roadmap = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            Empowering the next generation of data scientists through innovative learning pathways
+            {t('ecosystem.subtitle')}
           </motion.p>
         </div>
 
         {/* Two Column Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-stretch">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
           {/* Left Column - Interactive Containers */}
           <div className="h-[700px] flex flex-col justify-between">
             {roadmapData.map((item, index) => (
               <motion.div
                 key={item.id}
                 className={`p-8 rounded-2xl cursor-pointer transition-all duration-300 h-[200px] flex flex-col justify-center ${
-                  activeItem.id === item.id 
+                  activeItem?.id === item.id 
                     ? 'bg-gradient-to-r from-blue-500 to-cyan-400 text-white shadow-lg'
                     : 'bg-white shadow-md hover:shadow-xl'
                 }`}
@@ -104,7 +111,7 @@ export const Roadmap = () => {
                 </h3>
                 <p 
                   className={`${
-                    activeItem.id === item.id ? 'text-white/90' : 'text-gray-500'
+                    activeItem?.id === item.id ? 'text-white/90' : 'text-gray-500'
                   } italic font-light`}
                   style={{ fontFamily: 'var(--font-body)' }}
                 >
@@ -115,9 +122,9 @@ export const Roadmap = () => {
           </div>
 
           {/* Right Column - Dynamic Content */}
-          <div className="h-[700px]">
-            <div className="bg-white rounded-2xl p-8 shadow-xl h-full flex flex-col">
-              <AnimatePresence mode="wait">
+          <div className="bg-white rounded-2xl p-8 shadow-xl h-full flex flex-col">
+            <AnimatePresence mode="wait">
+              {activeItem && (
                 <motion.div
                   key={activeItem.id}
                   className="flex flex-col h-full"
@@ -147,8 +154,8 @@ export const Roadmap = () => {
                     />
                   </div>
                 </motion.div>
-              </AnimatePresence>
-            </div>
+              )}
+            </AnimatePresence>
           </div>
         </div>
       </div>
