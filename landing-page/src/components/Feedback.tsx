@@ -18,6 +18,7 @@ const feedbackImages = [
   "/images/feedback/feedback1.PNG",
   "/images/feedback/feedback3.PNG",
   "/images/feedback/feedback4.PNG",
+  "/images/feedback/feedback5.PNG",
 ];
 
 // Placeholder data - will be replaced with real data
@@ -51,6 +52,24 @@ const placeholderFeedbacks: FeedbackItem[] = [
     name: "Michael Chen",
     feedback: "As someone from a finance background, I appreciated how the course connected data science concepts to real-world business applications.",
     role: "Financial Analyst"
+  },
+  {
+    id: 6,
+    name: "Emily Rodriguez",
+    feedback: "The AI projects and real-world case studies helped me develop practical skills that I could immediately apply in my current role. The mentorship program was particularly valuable.",
+    role: "Data Analyst"
+  },
+  {
+    id: 7,
+    name: "David Kim",
+    feedback: "The collaborative learning environment and peer review system helped me gain different perspectives on problem-solving approaches. It's amazing how much you can learn from fellow students.",
+    role: "Research Scientist"
+  },
+  {
+    id: 8,
+    name: "Lisa Thompson",
+    feedback: "The course's focus on ethical AI and responsible data practices gave me a comprehensive understanding of not just the technical aspects, but also the societal impact of our work.",
+    role: "AI Ethics Consultant"
   }
 ];
 
@@ -93,13 +112,20 @@ export const Feedback = () => {
                   className="absolute w-[400px] bg-white rounded-xl overflow-hidden shadow-xl"
                   style={{
                     top: index === 0 ? '0px' : 
-                         index === 1 ? '250px' : '450px',
+                         index === 1 ? '200px' : 
+                         index === 2 ? '400px' :
+                         '600px',
                     left: index === 0 ? '30%' : 
-                          index === 1 ? '50%' : '35%',
-                    zIndex: index === 0 ? 3 :
-                           index === 1 ? 2 : 1,
+                          index === 1 ? '50%' : 
+                          index === 2 ? '35%' :
+                          '45%',
+                    zIndex: index === 0 ? 4 :
+                           index === 1 ? 3 :
+                           index === 2 ? 2 : 1,
                     transform: `rotate(${index === 0 ? -2 : 
-                                       index === 1 ? 2 : -2}deg)`,
+                                       index === 1 ? 2 : 
+                                       index === 2 ? -2 :
+                                       2}deg)`,
                   }}
                   initial={{ opacity: 0, y: 50 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -154,7 +180,7 @@ export const Feedback = () => {
                     )}
                   </div>
                   <div className="flex-1 min-w-0">
-                    <h3 className="font-bold text-lg mb-1" style={{ fontFamily: 'var(--font-heading)' }}>
+                    <h3 className="font-bold mb-1" style={{ fontFamily: 'var(--font-heading)' }}>
                       {feedback.name}
                     </h3>
                     {feedback.role && (
@@ -167,7 +193,7 @@ export const Feedback = () => {
                 
                 {/* Feedback Content */}
                 <p 
-                  className="text-gray-700 leading-relaxed"
+                  className="text-gray-700 leading-relaxed text-sm"
                   style={{ fontFamily: 'var(--font-body)' }}
                 >
                   {feedback.feedback}
