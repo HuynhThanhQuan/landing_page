@@ -29,18 +29,20 @@ export const translations = {
     learning: {
       title: 'Your Learning Journey',
       subtitle: 'Personalized paths to data science mastery',
-      learning: {
-        title: 'Learning Experience',
-        feature1: 'Structured learning paths for all skill levels',
-        feature2: 'Hands-on projects and real-world applications',
-        feature3: 'Expert-led workshops and tutorials',
+      education: {
+        title: 'Education',
+        description: 'Empower your learning journey with comprehensive education and expert guidance.',
+        keyword1: 'Data Science',
+        keyword2: 'Machine Learning',
+        keyword3: 'AI Development'
       },
       community: {
-        title: 'Community Support',
-        feature1: 'Connect with like-minded learners',
-        feature2: 'Collaborative projects and study groups',
-        feature3: 'Mentorship and networking opportunities',
-      },
+        title: 'Community Hub',
+        description: 'Connect and collaborate with creative minds in our vibrant community space.',
+        keyword1: 'Peer Learning',
+        keyword2: 'Collaboration',
+        keyword3: 'Networking'
+      }
     },
     feedback: {
       title: 'Every Story Shapes Our Learning Community',
@@ -224,20 +226,22 @@ export const translations = {
       }
     },
     learning: {
-      title: 'Hành trình Học tập của Bạn',
-      subtitle: 'Lộ trình cá nhân hóa để làm chủ khoa học dữ liệu',
-      learning: {
-        title: 'Trải nghiệm Học tập',
-        feature1: 'Lộ trình học tập có cấu trúc cho mọi trình độ',
-        feature2: 'Dự án thực tế và ứng dụng thực tiễn',
-        feature3: 'Workshop và hướng dẫn từ chuyên gia'
+      title: 'Hành Trình Học Tập',
+      subtitle: 'Lộ trình cá nhân hóa để thành thạo khoa học dữ liệu',
+      education: {
+        title: 'Giáo Dục',
+        description: 'Nâng cao hành trình học tập của bạn với chương trình giáo dục toàn diện và hướng dẫn chuyên gia.',
+        keyword1: 'Data Science',
+        keyword2: 'Machine Learning',
+        keyword3: 'Artificial Intelligence'
       },
       community: {
-        title: 'Hỗ trợ Cộng đồng',
-        feature1: 'Kết nối với những người học cùng chí hướng',
-        feature2: 'Dự án hợp tác và nhóm học tập',
-        feature3: 'Cơ hội mentoring và networking',
-      },
+        title: 'Trung tâm Cộng đồng',
+        description: 'Kết nối và hợp tác với những người sáng tạo trong không gian cộng đồng sôi động của chúng tôi.',
+        keyword1: 'Học Nhóm',
+        keyword2: 'Hợp tác',
+        keyword3: 'Kết nối'
+      }
     },
     feedback: {
       title: 'Mỗi câu chuyện góp phần xây dựng cộng đồng học tập của chúng tôi',

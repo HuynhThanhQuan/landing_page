@@ -64,11 +64,11 @@ export const LearningJourney = () => {
             <div className="relative z-10">
               <div className="bg-emerald-600 text-white px-6 py-2 rounded-lg inline-block mb-4">
                 <h3 className="text-3xl font-bold">
-                  Education
+                  {t('learning.education.title')}
                 </h3>
               </div>
               <p className="text-gray-600 text-lg mb-8">
-                Empower your learning journey with comprehensive education and expert guidance.
+                {t('learning.education.description')}
               </p>
             </div>
 
@@ -200,7 +200,7 @@ export const LearningJourney = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 }}
               >
-                Data Science
+                {t('learning.education.keyword1')}
               </motion.span>
               <motion.span 
                 className="px-3 py-1 bg-emerald-100 text-emerald-700 rounded-full text-sm font-medium"
@@ -208,7 +208,7 @@ export const LearningJourney = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 }}
               >
-                Machine Learning
+                {t('learning.education.keyword2')}
               </motion.span>
               <motion.span 
                 className="px-3 py-1 bg-emerald-100 text-emerald-700 rounded-full text-sm font-medium"
@@ -216,7 +216,7 @@ export const LearningJourney = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 }}
               >
-                AI Development
+                {t('learning.education.keyword3')}
               </motion.span>
             </div>
 
@@ -244,11 +244,11 @@ export const LearningJourney = () => {
             <div className="relative z-10">
               <div className="bg-violet-600 text-white px-6 py-2 rounded-lg inline-block mb-4">
                 <h3 className="text-3xl font-bold">
-                  Community Hub
+                  {t('learning.community.title')}
                 </h3>
               </div>
               <p className="text-gray-600 text-lg mb-8">
-                Connect and collaborate with creative minds in our vibrant community space.
+                {t('learning.community.description')}
               </p>
             </div>
 
@@ -415,7 +415,7 @@ export const LearningJourney = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 }}
               >
-                Peer Learning
+                {t('learning.community.keyword1')}
               </motion.span>
               <motion.span 
                 className="px-3 py-1 bg-violet-100 text-violet-700 rounded-full text-sm font-medium"
@@ -423,7 +423,7 @@ export const LearningJourney = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 }}
               >
-                Collaboration
+                {t('learning.community.keyword2')}
               </motion.span>
               <motion.span 
                 className="px-3 py-1 bg-violet-100 text-violet-700 rounded-full text-sm font-medium"
@@ -431,7 +431,7 @@ export const LearningJourney = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 }}
               >
-                Networking
+                {t('learning.community.keyword3')}
               </motion.span>
             </div>
 
