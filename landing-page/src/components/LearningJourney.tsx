@@ -81,65 +81,114 @@ export const LearningJourney = () => {
                 }}
                 transition={{ duration: 0.5 }}
               >
-                {/* Book and Pages Animation */}
-                <motion.div
-                  className="relative w-48 h-48"
-                  animate={{ rotate: 360 }}
-                  transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                >
-                  {/* Rotating Elements */}
-                  {[...Array(3)].map((_, i) => (
-                    <motion.div
-                      key={i}
-                      className="absolute rounded-lg"
-                      style={{
-                        width: `${100 - i * 20}%`,
-                        height: `${100 - i * 20}%`,
-                        border: `4px solid ${i === 0 ? '#059669' : i === 1 ? '#10b981' : '#34d399'}`,
-                        top: `${i * 10}%`,
-                        left: `${i * 10}%`,
-                        transform: `rotate(${i * 30}deg)`,
-                      }}
-                      animate={{
-                        rotate: [0, 180, 360],
-                        scale: [1, 1.1, 1]
-                      }}
-                      transition={{
-                        duration: 8 - i * 2,
-                        repeat: Infinity,
-                        ease: "easeInOut"
-                      }}
-                    />
-                  ))}
-                  
-                  {/* Center Book Icon */}
+                {/* Dynamic Book Animation */}
+                <div className="relative">
+                  {/* Background Circle */}
                   <motion.div
-                    className="absolute top-1/2 left-1/2 w-16 h-16 -ml-8 -mt-8 flex items-center justify-center bg-emerald-600 rounded-lg"
+                    className="absolute -inset-8 rounded-full bg-gradient-to-r from-emerald-600 to-teal-500"
                     animate={{
-                      rotate: [0, 90, 180, 270, 360],
-                      scale: [1, 1.2, 1]
+                      rotate: 360,
+                      scale: [1, 1.1, 1],
                     }}
                     transition={{
-                      duration: 5,
+                      rotate: {
+                        duration: 10,
+                        repeat: Infinity,
+                        ease: "linear"
+                      },
+                      scale: {
+                        duration: 2,
+                        repeat: Infinity,
+                        ease: "easeInOut"
+                      }
+                    }}
+                  />
+
+                  {/* Main Book Container */}
+                  <motion.div
+                    className="relative w-32 h-40 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-xl flex items-center justify-center perspective-1000"
+                    animate={{
+                      rotateY: [0, 180, 360],
+                    }}
+                    transition={{
+                      duration: 6,
                       repeat: Infinity,
                       ease: "easeInOut"
                     }}
+                    style={{
+                      transformStyle: "preserve-3d",
+                    }}
                   >
-                    <svg 
-                      className="w-8 h-8 text-white" 
+                    {/* Front Cover */}
+                    <motion.div
+                      className="absolute inset-0 rounded-xl bg-gradient-to-br from-emerald-400 to-teal-500 shadow-lg"
+                      animate={{
+                        scale: [1, 1.05, 1],
+                      }}
+                      transition={{
+                        duration: 2,
+                        repeat: Infinity,
+                        ease: "easeInOut"
+                      }}
+                    >
+                      {/* Decorative Lines */}
+                      <div className="absolute inset-0 p-4 flex flex-col justify-between">
+                        <div className="space-y-2">
+                          <div className="h-1 w-3/4 bg-white/20 rounded" />
+                          <div className="h-1 w-1/2 bg-white/20 rounded" />
+                        </div>
+                        <div className="space-y-2">
+                          <div className="h-1 w-2/3 bg-white/20 rounded" />
+                          <div className="h-1 w-1/2 bg-white/20 rounded" />
+                        </div>
+                      </div>
+                    </motion.div>
+
+                    {/* Book Icon */}
+                    <motion.svg 
+                      className="relative w-16 h-16 text-white z-10" 
                       fill="none" 
                       stroke="currentColor" 
                       viewBox="0 0 24 24"
+                      animate={{
+                        scale: [1, 1.2, 1],
+                        rotateY: [0, -180, -360],
+                      }}
+                      transition={{
+                        duration: 6,
+                        repeat: Infinity,
+                        ease: "easeInOut"
+                      }}
                     >
                       <path 
                         strokeLinecap="round" 
                         strokeLinejoin="round" 
-                        strokeWidth={2} 
+                        strokeWidth={1.5} 
                         d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
                       />
-                    </svg>
+                    </motion.svg>
+
+                    {/* Glowing Particles */}
+                    {[...Array(5)].map((_, i) => (
+                      <motion.div
+                        key={i}
+                        className="absolute w-2 h-2 bg-white rounded-full"
+                        animate={{
+                          x: [0, Math.random() * 100 - 50],
+                          y: [0, Math.random() * 100 - 50],
+                          opacity: [0, 1, 0],
+                          scale: [0, 1.5, 0],
+                        }}
+                        transition={{
+                          duration: 2,
+                          repeat: Infinity,
+                          delay: i * 0.4,
+                          ease: "easeInOut",
+                        }}
+                      />
+                    ))}
                   </motion.div>
-                </motion.div>
+                </div>
               </motion.div>
             </div>
 
