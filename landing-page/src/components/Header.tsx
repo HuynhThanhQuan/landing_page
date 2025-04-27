@@ -78,311 +78,335 @@ export const Header = () => {
   }, []);
 
   return (
+    // Header container - fixed position at top of page with padding
     <motion.header 
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      className={`fixed w-full top-0 z-50 transition-all duration-300 ${
-        scrolled ? 'bg-white/90 backdrop-blur-md shadow-md' : 'bg-white/50 backdrop-blur-sm'
-      }`}
+      className="fixed w-full top-0 z-50 p-4"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-24">
-          {/* Logo */}
-          <motion.div 
-            className="flex-shrink-0"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <a href="#hero" className="flex items-center" onClick={(e) => handleScrollToSection(e, '#hero')}>
-              <motion.div
-                whileHover={{ rotate: 10 }}
-                transition={{ duration: 0.3, ease: "easeInOut" }}
+      {/* Max width container to center content */}
+      <div className="max-w-7xl mx-auto">
+        {/* Floating container with rounded corners and glass effect */}
+        <motion.div 
+          className={`w-full transition-all duration-300 ${
+            scrolled 
+              ? 'bg-white/80 backdrop-blur-md shadow-lg rounded-full' // When scrolled: more opaque, stronger shadow
+              : 'bg-white/50 backdrop-blur-sm rounded-full' // Initial state: more transparent, lighter shadow
+          }`}
+          style={{
+            boxShadow: scrolled 
+              ? '0 4px 20px rgba(0, 0, 0, 0.1)' // Stronger shadow when scrolled
+              : '0 2px 10px rgba(0, 0, 0, 0.05)' // Lighter shadow initially
+          }}
+        >
+          {/* Inner container with dynamic height and padding */}
+          <div className={`flex justify-between items-center transition-all duration-300 ${
+            scrolled ? 'h-12 px-6' : 'h-14 px-8' // Smaller height and padding when scrolled
+          }`}>
+            {/* Logo section with hover effects */}
+            <motion.div 
+              className="flex-shrink-0"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <a href="#hero" className="flex items-center" onClick={(e) => handleScrollToSection(e, '#hero')}>
+                <motion.div
+                  whileHover={{ rotate: 10 }}
+                  transition={{ duration: 0.3, ease: "easeInOut" }}
+                >
+                  {/* Dynamic logo size based on scroll state */}
+                  <Image
+                    src="/images/logo.png"
+                    alt="Logo"
+                    width={scrolled ? 32 : 40} // Smaller when scrolled
+                    height={scrolled ? 32 : 40}
+                    className="mr-2 transition-all duration-300"
+                    priority
+                  />
+                </motion.div>
+                {/* Dynamic text size based on scroll state */}
+                <motion.span 
+                  className={`font-bold text-blue-500 transition-all duration-300 ${
+                    scrolled ? 'text-lg' : 'text-xl' // Smaller text when scrolled
+                  }`}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  whileHover={{ color: "#1d4ed8" }}
+                  transition={{ duration: 0.2 }}
+                >
+                  Curious Machine
+                </motion.span>
+              </a>
+            </motion.div>
+
+            {/* Navigation menu with reduced spacing when scrolled */}
+            <nav className="hidden md:flex space-x-6">
+              {navLinks.map((link) => (
+                <motion.a
+                  key={link.href}
+                  href={link.href}
+                  onClick={(e) => handleScrollToSection(e, link.href)}
+                  className={`relative text-[var(--text-color)] hover:text-[var(--secondary-color)] font-[var(--font-heading)] font-medium transition-all ${
+                    scrolled ? 'text-sm' : 'text-base' // Smaller text when scrolled
+                  }`}
+                  style={{
+                    transition: 'all 0.3s ease',
+                    color: activeSection === link.href.replace('#', '') 
+                      ? 'var(--secondary-color)' 
+                      : 'var(--text-color)'
+                  }}
+                  whileHover="hover"
+                >
+                  {t(link.label)}
+                  {/* Underline effect on hover */}
+                  <motion.div
+                    variants={{
+                      hover: {
+                        width: '100%',
+                        transition: { duration: 0.1, ease: 'easeInOut' }
+                      }
+                    }}
+                    className="absolute bottom-[-5px] left-0 h-[2px] w-0"
+                    style={{ 
+                      background: 'var(--gradient-secondary)',
+                      transition: 'width 0.3s ease'
+                    }}
+                  />
+                </motion.a>
+              ))}
+            </nav>
+
+            {/* Language Switcher */}
+            <div className="" style={{
+                  display: 'flex',
+                  background: 'var(--glass-background)', 
+                  border: '1px solid var(--glass-border)',
+                  borderRadius: '12px',
+                  padding: '4px',
+                  gap: '4px',
+                  backdropFilter: 'blur(10px)', 
+                  WebkitBackdropFilter: 'blur(10px)' 
+              }}>
+              <motion.button
+                onClick={() => setLanguage('vi')}
+                className={`p-2 rounded-md transition-all ${
+                  language === 'vi'
+                    ? 'bg-white shadow-sm' 
+                    : 'hover:bg-gray-200'
+                }`}
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '0.5rem',
+                  padding: '0.5rem 1rem',
+                  background: language === 'vi' 
+                    ? 'var(--gradient-primary)' 
+                    : 'transparent',
+                  border: language === 'vi' 
+                    ? '1px solid var(--glass-border)' 
+                    : '1px solid transparent',
+                  boxShadow: language === 'vi' 
+                    ? 'var(--shadow-secondary)' 
+                    : 'none',
+                  backdropFilter: 'blur(8px)',
+                  WebkitBackdropFilter: 'blur(8px)',
+                  transition: 'all 0.3s ease'
+                }}
+                whileHover={{ 
+                  scale: 1.05,
+                  boxShadow: 'var(--shadow-primary)'
+                }}
+                whileTap={{ scale: 0.95 }}
               >
                 <Image
-                  src="/images/logo.png"
-                  alt="Logo"
-                  width={50}
-                  height={50}
-                  className="mr-2"
-                  priority
+                  src={flags.vi}
+                  alt="Tiếng Việt"
+                  width={24}
+                  height={24}
+                  className="rounded-sm transition-all"
                 />
-              </motion.div>
-              <motion.span 
-                className="text-2xl font-bold text-blue-500"
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                whileHover={{ color: "#1d4ed8" }}
-                transition={{ duration: 0.2 }}
-              >
-                Curious Machine
-              </motion.span>
-            </a>
-          </motion.div>
-
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex space-x-8">
-            {navLinks.map((link) => (
-              <motion.a
-                key={link.href}
-                href={link.href}
-                onClick={(e) => handleScrollToSection(e, link.href)}
-                className="relative text-[var(--text-color)] hover:text-[var(--secondary-color)] font-[var(--font-heading)] font-medium transition-all"
+              </motion.button>
+              <motion.button
+                onClick={() => setLanguage('en')}
+                className={`p-2 rounded-md transition-all ${
+                  language === 'en'
+                    ? 'bg-white shadow-sm'
+                    : 'hover:bg-gray-200'
+                }`}
                 style={{
-                  transition: 'all 0.3s ease',
-                  color: activeSection === link.href.replace('#', '') 
-                    ? 'var(--secondary-color)' 
-                    : 'var(--text-color)'
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '0.5rem',
+                  padding: '0.5rem 1rem',
+                  background: language === 'en' 
+                    ? 'var(--gradient-primary)' 
+                    : 'transparent',
+                  border: language === 'en' 
+                    ? '1px solid var(--glass-border)' 
+                    : '1px solid transparent',
+                  boxShadow: language === 'en' 
+                    ? 'var(--shadow-secondary)' 
+                    : 'none',
+                  backdropFilter: 'blur(8px)',
+                  WebkitBackdropFilter: 'blur(8px)',
+                  transition: 'all 0.3s ease'
                 }}
-                whileHover="hover"
+                whileHover={{ 
+                  scale: 1.05,
+                  boxShadow: 'var(--shadow-primary)'
+                }}
+                whileTap={{ scale: 0.95 }}
               >
-                {t(link.label)}
-                <motion.div
-                  variants={{
-                    hover: {
-                      width: '100%',
-                      transition: { duration: 0.1, ease: 'easeInOut' }
-                    }
-                  }}
-                  className="absolute bottom-[-5px] left-0 h-[2px] w-0"
-                  style={{ 
-                    background: 'var(--gradient-secondary)',
-                    transition: 'width 0.3s ease'
-                  }}
+                <Image
+                  src={flags.en}
+                  alt="English"
+                  width={24}
+                  height={24}
+                  className="rounded-sm transition-all"
                 />
-              </motion.a>
-            ))}
-          </nav>
+              </motion.button>
+            </div>
 
-          {/* Language Switcher */}
-          <div className="" style={{
-                display: 'flex',
-                background: 'var(--glass-background)', 
-                border: '1px solid var(--glass-border)',
-                borderRadius: '12px',
-                padding: '4px',
-                gap: '4px',
-                backdropFilter: 'blur(10px)', 
-                WebkitBackdropFilter: 'blur(10px)' 
-            }}>
-            <motion.button
-              onClick={() => setLanguage('vi')}
-              className={`p-2 rounded-md transition-all ${
-                language === 'vi'
-                  ? 'bg-white shadow-sm' 
-                  : 'hover:bg-gray-200'
-              }`}
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: '0.5rem',
-                padding: '0.5rem 1rem',
-                background: language === 'vi' 
-                  ? 'var(--gradient-primary)' 
-                  : 'transparent',
-                border: language === 'vi' 
-                  ? '1px solid var(--glass-border)' 
-                  : '1px solid transparent',
-                boxShadow: language === 'vi' 
-                  ? 'var(--shadow-secondary)' 
-                  : 'none',
-                backdropFilter: 'blur(8px)',
-                WebkitBackdropFilter: 'blur(8px)',
-                transition: 'all 0.3s ease'
-              }}
-              whileHover={{ 
-                scale: 1.05,
-                boxShadow: 'var(--shadow-primary)'
-              }}
-              whileTap={{ scale: 0.95 }}
+            {/* Mobile Menu Button */}
+            <motion.div 
+              className="md:hidden"
+              whileTap={{ scale: 0.9 }}
             >
-              <Image
-                src={flags.vi}
-                alt="Tiếng Việt"
-                width={24}
-                height={24}
-                className="rounded-sm transition-all"
-              />
-            </motion.button>
-            <motion.button
-              onClick={() => setLanguage('en')}
-              className={`p-2 rounded-md transition-all ${
-                language === 'en'
-                  ? 'bg-white shadow-sm'
-                  : 'hover:bg-gray-200'
-              }`}
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: '0.5rem',
-                padding: '0.5rem 1rem',
-                background: language === 'en' 
-                  ? 'var(--gradient-primary)' 
-                  : 'transparent',
-                border: language === 'en' 
-                  ? '1px solid var(--glass-border)' 
-                  : '1px solid transparent',
-                boxShadow: language === 'en' 
-                  ? 'var(--shadow-secondary)' 
-                  : 'none',
-                backdropFilter: 'blur(8px)',
-                WebkitBackdropFilter: 'blur(8px)',
-                transition: 'all 0.3s ease'
-              }}
-              whileHover={{ 
-                scale: 1.05,
-                boxShadow: 'var(--shadow-primary)'
-              }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <Image
-                src={flags.en}
-                alt="English"
-                width={24}
-                height={24}
-                className="rounded-sm transition-all"
-              />
-            </motion.button>
+              <button
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                className="text-gray-600 hover:text-blue-600 p-2"
+              >
+                <AnimatePresence mode="wait">
+                  {isMenuOpen ? (
+                    <motion.div
+                      key="close"
+                      initial={{ rotate: -90, opacity: 0 }}
+                      animate={{ rotate: 0, opacity: 1 }}
+                      exit={{ rotate: 90, opacity: 0 }}
+                    >
+                      <RiCloseLine className="h-6 w-6" />
+                    </motion.div>
+                  ) : (
+                    <motion.div
+                      key="menu"
+                      initial={{ rotate: 90, opacity: 0 }}
+                      animate={{ rotate: 0, opacity: 1 }}
+                      exit={{ rotate: -90, opacity: 0 }}
+                    >
+                      <RiMenu3Line className="h-6 w-6" />
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </button>
+            </motion.div>
           </div>
 
-          {/* Mobile Menu Button */}
-          <motion.div 
-            className="md:hidden"
-            whileTap={{ scale: 0.9 }}
-          >
-            <button
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-gray-600 hover:text-blue-600 p-2"
-            >
-              <AnimatePresence mode="wait">
-                {isMenuOpen ? (
-                  <motion.div
-                    key="close"
-                    initial={{ rotate: -90, opacity: 0 }}
-                    animate={{ rotate: 0, opacity: 1 }}
-                    exit={{ rotate: 90, opacity: 0 }}
-                  >
-                    <RiCloseLine className="h-6 w-6" />
-                  </motion.div>
-                ) : (
-                  <motion.div
-                    key="menu"
-                    initial={{ rotate: 90, opacity: 0 }}
-                    animate={{ rotate: 0, opacity: 1 }}
-                    exit={{ rotate: -90, opacity: 0 }}
-                  >
-                    <RiMenu3Line className="h-6 w-6" />
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </button>
-          </motion.div>
-        </div>
-
-        {/* Mobile Navigation */}
-        <AnimatePresence>
-          {isMenuOpen && (
-            <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: 'auto' }}
-              exit={{ opacity: 0, height: 0 }}
-              className="md:hidden overflow-hidden"
-            >
-              <div className="px-2 pt-2 pb-3 space-y-1">
-                {navLinks.map((link) => (
-                  <motion.a
-                    key={link.href}
-                    href={link.href}
-                    onClick={(e) => handleScrollToSection(e, link.href)}
-                    className={`block px-3 py-2 rounded-md transition-colors ${
-                      activeSection === link.href.replace('#', '')
-                        ? 'bg-blue-50 text-blue-600'
-                        : 'text-gray-600 hover:text-blue-600 hover:bg-gray-50'
-                    }`}
-                    whileHover={{ x: 4 }}
-                    whileTap={{ scale: 0.98 }}
-                  >
-                    {t(link.label)}
-                  </motion.a>
-                ))}
-                {/* Mobile Language Switcher */}
-                <div className="mt-4 px-3">
-                  <div className="flex items-center justify-center space-x-4 bg-gray-100 rounded-lg p-2">
-                    <motion.button
-                      onClick={() => setLanguage('vi')}
-                      className={`p-2 rounded-md transition-all ${
-                        language === 'vi'
-                          ? 'bg-white shadow-sm'
-                          : 'hover:bg-gray-200'
+          {/* Mobile Navigation */}
+          <AnimatePresence>
+            {isMenuOpen && (
+              <motion.div
+                initial={{ opacity: 0, height: 0 }}
+                animate={{ opacity: 1, height: 'auto' }}
+                exit={{ opacity: 0, height: 0 }}
+                className="md:hidden overflow-hidden"
+              >
+                <div className="px-2 pt-2 pb-3 space-y-1">
+                  {navLinks.map((link) => (
+                    <motion.a
+                      key={link.href}
+                      href={link.href}
+                      onClick={(e) => handleScrollToSection(e, link.href)}
+                      className={`block px-3 py-2 rounded-md transition-colors ${
+                        activeSection === link.href.replace('#', '')
+                          ? 'bg-blue-50 text-blue-600'
+                          : 'text-gray-600 hover:text-blue-600 hover:bg-gray-50'
                       }`}
-                      style={{
-                        background: language === 'vi' 
-                          ? 'var(--gradient-primary)' 
-                          : 'transparent',
-                        border: language === 'vi' 
-                          ? '1px solid var(--glass-border)' 
-                          : '1px solid transparent',
-                        boxShadow: language === 'vi' 
-                          ? 'var(--shadow-secondary)' 
-                          : 'none',
-                        backdropFilter: 'blur(8px)',
-                        WebkitBackdropFilter: 'blur(8px)',
-                        transition: 'all 0.3s ease'
-                      }}
-                      whileHover={{ 
-                        scale: 1.05,
-                        boxShadow: 'var(--shadow-primary)'
-                      }}
-                      whileTap={{ scale: 0.95 }}
+                      whileHover={{ x: 4 }}
+                      whileTap={{ scale: 0.98 }}
                     >
-                      <Image
-                        src={flags.vi}
-                        alt="Tiếng Việt"
-                        width={24}
-                        height={24}
-                        className="rounded-sm transition-all"
-                      />
-                    </motion.button>
-                    <motion.button
-                      onClick={() => setLanguage('en')}
-                      className={`p-2 rounded-md transition-all ${
-                        language === 'en'
-                          ? 'bg-white shadow-sm'
-                          : 'hover:bg-gray-200'
-                      }`}
-                      style={{
-                        background: language === 'en' 
-                          ? 'var(--gradient-primary)' 
-                          : 'transparent',
-                        border: language === 'en' 
-                          ? '1px solid var(--glass-border)' 
-                          : '1px solid transparent',
-                        boxShadow: language === 'en' 
-                          ? 'var(--shadow-secondary)' 
-                          : 'none',
-                        backdropFilter: 'blur(8px)',
-                        WebkitBackdropFilter: 'blur(8px)',
-                        transition: 'all 0.3s ease'
-                      }}
-                      whileHover={{ 
-                        scale: 1.05,
-                        boxShadow: 'var(--shadow-primary)'
-                      }}
-                      whileTap={{ scale: 0.95 }}
-                    >
-                      <Image
-                        src={flags.en}
-                        alt="English"
-                        width={24}
-                        height={24}
-                        className="rounded-sm transition-all"
-                      />
-                    </motion.button>
+                      {t(link.label)}
+                    </motion.a>
+                  ))}
+                  {/* Mobile Language Switcher */}
+                  <div className="mt-4 px-3">
+                    <div className="flex items-center justify-center space-x-4 bg-gray-100 rounded-lg p-2">
+                      <motion.button
+                        onClick={() => setLanguage('vi')}
+                        className={`p-2 rounded-md transition-all ${
+                          language === 'vi'
+                            ? 'bg-white shadow-sm'
+                            : 'hover:bg-gray-200'
+                        }`}
+                        style={{
+                          background: language === 'vi' 
+                            ? 'var(--gradient-primary)' 
+                            : 'transparent',
+                          border: language === 'vi' 
+                            ? '1px solid var(--glass-border)' 
+                            : '1px solid transparent',
+                          boxShadow: language === 'vi' 
+                            ? 'var(--shadow-secondary)' 
+                            : 'none',
+                          backdropFilter: 'blur(8px)',
+                          WebkitBackdropFilter: 'blur(8px)',
+                          transition: 'all 0.3s ease'
+                        }}
+                        whileHover={{ 
+                          scale: 1.05,
+                          boxShadow: 'var(--shadow-primary)'
+                        }}
+                        whileTap={{ scale: 0.95 }}
+                      >
+                        <Image
+                          src={flags.vi}
+                          alt="Tiếng Việt"
+                          width={24}
+                          height={24}
+                          className="rounded-sm transition-all"
+                        />
+                      </motion.button>
+                      <motion.button
+                        onClick={() => setLanguage('en')}
+                        className={`p-2 rounded-md transition-all ${
+                          language === 'en'
+                            ? 'bg-white shadow-sm'
+                            : 'hover:bg-gray-200'
+                        }`}
+                        style={{
+                          background: language === 'en' 
+                            ? 'var(--gradient-primary)' 
+                            : 'transparent',
+                          border: language === 'en' 
+                            ? '1px solid var(--glass-border)' 
+                            : '1px solid transparent',
+                          boxShadow: language === 'en' 
+                            ? 'var(--shadow-secondary)' 
+                            : 'none',
+                          backdropFilter: 'blur(8px)',
+                          WebkitBackdropFilter: 'blur(8px)',
+                          transition: 'all 0.3s ease'
+                        }}
+                        whileHover={{ 
+                          scale: 1.05,
+                          boxShadow: 'var(--shadow-primary)'
+                        }}
+                        whileTap={{ scale: 0.95 }}
+                      >
+                        <Image
+                          src={flags.en}
+                          alt="English"
+                          width={24}
+                          height={24}
+                          className="rounded-sm transition-all"
+                        />
+                      </motion.button>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </motion.div>
       </div>
     </motion.header>
   );
