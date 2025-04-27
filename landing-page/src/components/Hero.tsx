@@ -7,6 +7,17 @@ import { useLanguage } from '@/contexts/LanguageContext';
 export const Hero = () => {
   const { t } = useLanguage();
 
+  const handleScrollToLearning = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    const learningSection = document.getElementById('learning');
+    if (learningSection) {
+      learningSection.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  };
+
   const statistics = [
     {
       value: "5000+",
@@ -187,11 +198,12 @@ export const Hero = () => {
               ))}
             </motion.div>
 
-            {/* CTA Buttons container */}
-            <div className="flex flex-wrap gap-4 mb-16 w-full">
+            {/* CTA Button container */}
+            <div className="flex justify-center lg:justify-start mb-16 w-full">
               {/* Primary CTA button with hover effect */}
               <motion.a
-                href="#contact"
+                href="#learning"
+                onClick={handleScrollToLearning}
                 className="px-8 py-3 rounded-full text-white font-medium"
                 style={{ background: 'var(--gradient-primary)' }}
                 whileHover={{ 
@@ -201,24 +213,6 @@ export const Hero = () => {
                 whileTap={{ scale: 0.95 }}
               >
                 {t('hero.cta.primary')}
-              </motion.a>
-              
-              {/* Secondary CTA button with glass effect */}
-              <motion.a
-                href="#about"
-                className="px-8 py-3 rounded-full font-medium"
-                style={{ 
-                  background: 'var(--glass-background)',
-                  border: '1px solid var(--glass-border)',
-                  color: 'var(--text-color)'
-                }}
-                whileHover={{ 
-                  scale: 1.05,
-                  boxShadow: 'var(--shadow-secondary)'
-                }}
-                whileTap={{ scale: 0.95 }}
-              >
-                {t('hero.cta.secondary')}
               </motion.a>
             </div>
           </motion.div>

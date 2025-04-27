@@ -10,7 +10,7 @@ export const translations = {
     },
     notification: {
       emoji: '🎉',
-      message: 'We\'re seeking cooperation to build the future of AI together',
+      message: 'We\'re seeking collaborate  to build the future of AI together',
       cta: 'Get in touch'
     },
     hero: {
@@ -19,7 +19,7 @@ export const translations = {
       stats: {
         members: 'Active Members',
         hours: 'Learning Hours',
-        recommendation: 'Recommendation Rate',
+        recommendation: 'Satisfaction',
       },
       cta: {
         primary: 'Get Started',
