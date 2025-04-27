@@ -16,13 +16,13 @@ export const Footer = () => {
             <h3 className="text-xl font-bold" style={{ fontFamily: 'var(--font-heading)' }}>
               {t('footer.company.title')}
             </h3>
-            <p className="text-gray-400">
+            <p className="text-gray-400 whitespace-nowrap">
               {t('footer.company.description')}
             </p>
           </div>
 
           {/* Quick Links */}
-          <div>
+          <div className="ml-8">
             <h4 className="text-lg font-semibold mb-4" style={{ fontFamily: 'var(--font-heading)' }}>
               {t('footer.links.title')}
             </h4>
@@ -63,13 +63,10 @@ export const Footer = () => {
               {t('footer.social.title')}
             </h4>
             <div className="flex space-x-4">
-              <a href="#" className="text-gray-400 hover:text-white transition-colors">
+              <a href="https://www.linkedin.com/company/curiousmachine/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
                 {t('footer.social.linkedin')}
               </a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                {t('footer.social.twitter')}
-              </a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors">
+              <a href="https://www.facebook.com/thecuriousmachine" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
                 {t('footer.social.facebook')}
               </a>
             </div>
