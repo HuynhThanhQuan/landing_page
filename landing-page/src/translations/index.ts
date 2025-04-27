@@ -293,12 +293,12 @@ export const translations = {
       title: 'Hệ sinh thái Tương lai của Chúng tôi',
       subtitle: 'Trao quyền cho thế hệ nhà khoa học dữ liệu tiếp theo thông qua các con đường học tập sáng tạo',
       learning: {
-        title: 'Hệ sinh thái Học tập',
+        title: 'Hệ sinh thái Học tập Năng động',
         description: 'Nền tảng tích hợp kết hợp lộ trình học tập cá nhân hóa bằng AI, nội dung tương tác và công cụ cộng tác thời gian thực.',
         caption: 'Chuyển đổi hành trình học tập của bạn với nền tảng thích ứng được hỗ trợ bởi AI phát triển cùng tiến độ của bạn. Trải nghiệm chương trình học cá nhân hóa, hội thảo tương tác và cố vấn thời gian thực.',
       },
       consultant: {
-        title: 'Doanh nghiệp Tư vấn',
+        title: 'Tư vấn Doanh nghiệp',
         description: 'Dịch vụ tư vấn chuyên nghiệp kết nối kiến thức học thuật với ứng dụng trong ngành thông qua hướng dẫn chuyên gia.',
         caption: 'Kết nối với các chuyên gia trong ngành và nhận hướng dẫn phù hợp cho các sáng kiến khoa học dữ liệu và AI của tổ chức bạn. Nhận được những hiểu biết chiến lược và hỗ trợ triển khai.',
       },

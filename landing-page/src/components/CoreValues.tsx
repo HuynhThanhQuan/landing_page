@@ -74,6 +74,16 @@ export const CoreValues = () => {
     image: `/images/corevalues/placeholder${index + 1}.png`
   }));
 
+  const iconVariants = {
+    hover: {
+      scale: 1.1,
+      transition: {
+        duration: 0.3,
+        yoyo: Infinity
+      }
+    }
+  };
+
   return (
     <section id="core-values" className="relative h-screen w-full flex items-center justify-center bg-gradient-to-b from-blue-50 to-white">
       {/* Content */}
@@ -129,8 +139,168 @@ export const CoreValues = () => {
                       backfaceVisibility: 'hidden'
                     }}
                   >
-                    <Icon className="w-12 h-12 mb-4 text-[var(--tertiary-color)]" />
-                    <h3 className="text-2xl font-bold text-black" style={{ fontFamily: 'var(--font-heading)' }}>
+                    {index === 0 && (
+                      // Curiosity-Driven Excellence
+                      <motion.div 
+                        className="w-16 h-16 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl flex items-center justify-center relative overflow-hidden"
+                        variants={iconVariants}
+                      >
+                        <motion.div
+                          className="absolute inset-0 opacity-30"
+                          animate={{
+                            background: [
+                              "radial-gradient(circle at 50% 50%, rgba(255,255,255,0.2) 0%, transparent 50%)",
+                              "radial-gradient(circle at 50% 50%, rgba(255,255,255,0.2) 100%, transparent 100%)"
+                            ],
+                          }}
+                          transition={{
+                            duration: 2,
+                            repeat: Infinity,
+                            ease: "easeInOut"
+                          }}
+                        />
+                        <motion.svg 
+                          className="w-8 h-8 text-white relative z-10" 
+                          fill="none" 
+                          viewBox="0 0 24 24" 
+                          stroke="currentColor"
+                          animate={{
+                            scale: [1, 1.2, 1],
+                          }}
+                          transition={{
+                            duration: 2,
+                            repeat: Infinity,
+                            ease: "easeInOut"
+                          }}
+                        >
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                        </motion.svg>
+                      </motion.div>
+                    )}
+
+                    {index === 1 && (
+                      // Impact through Intelligence
+                      <motion.div 
+                        className="w-16 h-16 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-xl flex items-center justify-center relative"
+                        variants={iconVariants}
+                      >
+                        <motion.div
+                          className="absolute w-full h-full"
+                          animate={{
+                            background: [
+                              "linear-gradient(0deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.2) 50%, rgba(255,255,255,0) 100%)",
+                              "linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.2) 50%, rgba(255,255,255,0) 100%)",
+                            ],
+                          }}
+                          transition={{
+                            duration: 1.5,
+                            repeat: Infinity,
+                            ease: "linear"
+                          }}
+                        />
+                        <motion.svg 
+                          className="w-8 h-8 text-white relative z-10" 
+                          fill="none" 
+                          viewBox="0 0 24 24" 
+                          stroke="currentColor"
+                        >
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                        </motion.svg>
+                        <motion.div
+                          className="absolute -right-1 -top-1 w-3 h-3 bg-white rounded-full"
+                          animate={{
+                            scale: [1, 1.5, 1],
+                            opacity: [0.5, 1, 0.5],
+                          }}
+                          transition={{
+                            duration: 2,
+                            repeat: Infinity,
+                            ease: "easeInOut"
+                          }}
+                        />
+                      </motion.div>
+                    )}
+
+                    {index === 2 && (
+                      // Community of Growth
+                      <motion.div 
+                        className="w-16 h-16 bg-gradient-to-br from-violet-500 to-purple-600 rounded-xl flex items-center justify-center relative overflow-hidden"
+                        variants={iconVariants}
+                      >
+                        <motion.div
+                          className="absolute inset-0"
+                          animate={{
+                            background: [
+                              "radial-gradient(circle at 30% 30%, rgba(255,255,255,0.2) 0%, transparent 50%)",
+                              "radial-gradient(circle at 70% 70%, rgba(255,255,255,0.2) 0%, transparent 50%)",
+                            ],
+                          }}
+                          transition={{
+                            duration: 3,
+                            repeat: Infinity,
+                            ease: "easeInOut"
+                          }}
+                        />
+                        <motion.svg 
+                          className="w-8 h-8 text-white relative z-10" 
+                          fill="none" 
+                          viewBox="0 0 24 24" 
+                          stroke="currentColor"
+                          animate={{
+                            scale: [1, 1.1, 1],
+                            rotate: [0, 5, -5, 0]
+                          }}
+                          transition={{
+                            duration: 3,
+                            repeat: Infinity,
+                            ease: "easeInOut"
+                          }}
+                        >
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+                        </motion.svg>
+                      </motion.div>
+                    )}
+
+                    {index === 3 && (
+                      // Integrity in Consulting & Learning
+                      <motion.div 
+                        className="w-16 h-16 bg-gradient-to-br from-amber-500 to-orange-600 rounded-xl flex items-center justify-center relative overflow-hidden"
+                        variants={iconVariants}
+                      >
+                        <motion.div
+                          className="absolute inset-0"
+                          animate={{
+                            background: [
+                              "linear-gradient(45deg, rgba(255,255,255,0.2) 0%, transparent 100%)",
+                              "linear-gradient(225deg, rgba(255,255,255,0.2) 0%, transparent 100%)",
+                            ],
+                          }}
+                          transition={{
+                            duration: 2,
+                            repeat: Infinity,
+                            ease: "easeInOut"
+                          }}
+                        />
+                        <motion.svg 
+                          className="w-8 h-8 text-white relative z-10" 
+                          fill="none" 
+                          viewBox="0 0 24 24" 
+                          stroke="currentColor"
+                          animate={{
+                            scale: [1, 1.1, 1],
+                          }}
+                          transition={{
+                            duration: 2,
+                            repeat: Infinity,
+                            ease: "easeInOut"
+                          }}
+                        >
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 11c0 3.517-1.009 6.799-2.753 9.571m-3.44-2.04l.054-.09A13.916 13.916 0 008 11a4 4 0 118 0c0 1.017-.07 2.019-.203 3m-2.118 6.844A21.88 21.88 0 0015.171 17m3.839 1.132c.645-2.266.99-4.659.99-7.132A8 8 0 008 4.07M3 15.364c.64-1.319 1-2.8 1-4.364 0-1.457.39-2.823 1.07-4" />
+                        </motion.svg>
+                      </motion.div>
+                    )}
+
+                    <h3 className="text-2xl font-bold text-black mt-6" style={{ fontFamily: 'var(--font-heading)' }}>
                       {value.title}
                     </h3>
                     <p className="mt-4 text-gray-600" style={{ fontFamily: 'var(--font-body)' }}>

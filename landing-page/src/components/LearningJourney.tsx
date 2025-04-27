@@ -267,10 +267,10 @@ export const LearningJourney = () => {
                   <svg className="absolute inset-0 w-full h-full">
                     {[...Array(6)].map((_, i) => {
                       const nextIndex = (i + 1) % 6;
-                      const x1 = 50 + Math.sin(i * (Math.PI / 3)) * 42;
-                      const y1 = 50 + Math.cos(i * (Math.PI / 3)) * 42;
-                      const x2 = 50 + Math.sin(nextIndex * (Math.PI / 3)) * 42;
-                      const y2 = 50 + Math.cos(nextIndex * (Math.PI / 3)) * 42;
+                      const x1 = (50 + Math.sin(i * (Math.PI / 3)) * 42).toFixed(2);
+                      const y1 = (50 + Math.cos(i * (Math.PI / 3)) * 42).toFixed(2);
+                      const x2 = (50 + Math.sin(nextIndex * (Math.PI / 3)) * 42).toFixed(2);
+                      const y2 = (50 + Math.cos(nextIndex * (Math.PI / 3)) * 42).toFixed(2);
                       
                       return (
                         <motion.line
@@ -296,8 +296,8 @@ export const LearningJourney = () => {
                     })}
                     {/* Center connections */}
                     {[...Array(6)].map((_, i) => {
-                      const x = 50 + Math.sin(i * (Math.PI / 3)) * 42;
-                      const y = 50 + Math.cos(i * (Math.PI / 3)) * 42;
+                      const x = (50 + Math.sin(i * (Math.PI / 3)) * 42).toFixed(2);
+                      const y = (50 + Math.cos(i * (Math.PI / 3)) * 42).toFixed(2);
                       
                       return (
                         <motion.line
@@ -329,8 +329,8 @@ export const LearningJourney = () => {
                       key={i}
                       className="absolute w-5 h-5 -ml-2.5 -mt-2.5 rounded-full bg-violet-600"
                       style={{
-                        top: `${50 + Math.cos(i * (Math.PI / 3)) * 42}%`,
-                        left: `${50 + Math.sin(i * (Math.PI / 3)) * 42}%`,
+                        top: `${(50 + Math.cos(i * (Math.PI / 3)) * 42).toFixed(2)}%`,
+                        left: `${(50 + Math.sin(i * (Math.PI / 3)) * 42).toFixed(2)}%`,
                         opacity: 0.8
                       }}
                       animate={{
