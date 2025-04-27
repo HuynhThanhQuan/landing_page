@@ -248,6 +248,44 @@ export const Hero = () => {
               }}
             />
 
+            {/* Orbiting circle */}
+            <motion.div
+              className="absolute top-1/2 left-1/2 w-16 h-16 rounded-full"
+              style={{ 
+                background: 'linear-gradient(135deg, #ff6b6b 0%, #ff8e8e 50%, #ffb347 100%)',
+                boxShadow: '0 4px 20px rgba(255, 107, 107, 0.3)'
+              }}
+              animate={{ 
+                rotate: [0, 360],
+                x: [-100, 100, -100],
+                y: [-100, 100, -100]
+              }}
+              transition={{ 
+                duration: 10,
+                repeat: Infinity,
+                ease: "linear"
+              }}
+            />
+
+            {/* Second orbiting circle */}
+            <motion.div
+              className="absolute top-1/2 left-1/2 w-10 h-10 rounded-full"
+              style={{ 
+                background: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 50%, #00c6fb 100%)',
+                boxShadow: '0 4px 20px rgba(79, 172, 254, 0.3)'
+              }}
+              animate={{ 
+                rotate: [0, -360],
+                x: [0, 150, 0, -150, 0],
+                y: [0, -150, 0, 150, 0]
+              }}
+              transition={{ 
+                duration: 15,
+                repeat: Infinity,
+                ease: "linear"
+              }}
+            />
+
             {/* Top left square with floating animation */}
             <motion.div
               className="absolute top-0 left-0 w-24 h-24 rounded-2xl"
