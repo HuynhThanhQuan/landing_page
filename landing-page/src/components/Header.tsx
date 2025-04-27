@@ -25,12 +25,20 @@ export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('hero');
+  const [isPastHero, setIsPastHero] = useState(false);
   const { language, setLanguage, t } = useLanguage();
 
   // Handle scroll effect
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
+      
+      // Check if we're past hero section
+      const heroSection = document.getElementById('hero');
+      if (heroSection) {
+        const heroBottom = heroSection.getBoundingClientRect().bottom;
+        setIsPastHero(heroBottom < 0);
+      }
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
@@ -88,26 +96,31 @@ export const Header = () => {
       <div className="max-w-7xl mx-auto">
         {/* Floating container with rounded corners and glass effect */}
         <motion.div 
-          className={`w-full transition-all duration-300 ${
+          className={`transition-all duration-300 ${
             scrolled 
-              ? 'bg-white/80 backdrop-blur-md shadow-lg rounded-full' // When scrolled: more opaque, stronger shadow
-              : 'bg-white/50 backdrop-blur-sm rounded-full' // Initial state: more transparent, lighter shadow
+              ? 'bg-white/80 backdrop-blur-md shadow-lg rounded-full' 
+              : 'bg-white/50 backdrop-blur-sm rounded-full'
           }`}
           style={{
             boxShadow: scrolled 
-              ? '0 4px 20px rgba(0, 0, 0, 0.1)' // Stronger shadow when scrolled
-              : '0 2px 10px rgba(0, 0, 0, 0.05)' // Lighter shadow initially
+              ? '0 4px 20px rgba(0, 0, 0, 0.1)' 
+              : '0 2px 10px rgba(0, 0, 0, 0.05)',
+            width: isPastHero ? '50%' : '100%',
+            margin: isPastHero ? '0 auto' : '0'
           }}
         >
           {/* Inner container with dynamic height and padding */}
           <div className={`flex justify-between items-center transition-all duration-300 ${
-            scrolled ? 'h-12 px-6' : 'h-14 px-8' // Smaller height and padding when scrolled
+            isPastHero ? 'h-12 px-6' : 'h-14 px-8'
           }`}>
-            {/* Logo section with hover effects */}
+            {/* Logo */}
             <motion.div 
               className="flex-shrink-0"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
+              style={{
+                marginLeft: isPastHero ? '5px' : '0'
+              }}
             >
               <a href="#hero" className="flex items-center" onClick={(e) => handleScrollToSection(e, '#hero')}>
                 <motion.div
@@ -118,28 +131,29 @@ export const Header = () => {
                   <Image
                     src="/images/logo.png"
                     alt="Logo"
-                    width={scrolled ? 32 : 40} // Smaller when scrolled
-                    height={scrolled ? 32 : 40}
+                    width={isPastHero ? 32 : 40}
+                    height={isPastHero ? 32 : 40}
                     className="mr-2 transition-all duration-300"
                     priority
                   />
                 </motion.div>
-                {/* Dynamic text size based on scroll state */}
-                <motion.span 
-                  className={`font-bold text-blue-500 transition-all duration-300 ${
-                    scrolled ? 'text-lg' : 'text-xl' // Smaller text when scrolled
-                  }`}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  whileHover={{ color: "#1d4ed8" }}
-                  transition={{ duration: 0.2 }}
-                >
-                  Curious Machine
-                </motion.span>
+                {!isPastHero && (
+                  <motion.span 
+                    className={`font-bold text-blue-500 transition-all duration-300 ${
+                      isPastHero ? 'text-lg' : 'text-xl'
+                    }`}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    whileHover={{ color: "#1d4ed8" }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    Curious Machine
+                  </motion.span>
+                )}
               </a>
             </motion.div>
 
-            {/* Navigation menu with reduced spacing when scrolled */}
+            {/* Desktop Navigation */}
             <nav className="hidden md:flex space-x-6">
               {navLinks.map((link) => (
                 <motion.a
@@ -147,7 +161,7 @@ export const Header = () => {
                   href={link.href}
                   onClick={(e) => handleScrollToSection(e, link.href)}
                   className={`relative text-[var(--text-color)] hover:text-[var(--secondary-color)] font-[var(--font-heading)] font-medium transition-all ${
-                    scrolled ? 'text-sm' : 'text-base' // Smaller text when scrolled
+                    isPastHero ? 'text-sm' : 'text-base'
                   }`}
                   style={{
                     transition: 'all 0.3s ease',
@@ -176,96 +190,98 @@ export const Header = () => {
               ))}
             </nav>
 
-            {/* Language Switcher */}
-            <div className="" style={{
-                  display: 'flex',
-                  background: 'var(--glass-background)', 
-                  border: '1px solid var(--glass-border)',
-                  borderRadius: '12px',
-                  padding: '4px',
-                  gap: '4px',
-                  backdropFilter: 'blur(10px)', 
-                  WebkitBackdropFilter: 'blur(10px)' 
+            {/* Language Switcher - Only show before hero section */}
+            {!isPastHero && (
+              <div className="" style={{
+                display: 'flex',
+                background: 'var(--glass-background)', 
+                border: '1px solid var(--glass-border)',
+                borderRadius: '12px',
+                padding: '4px',
+                gap: '4px',
+                backdropFilter: 'blur(10px)', 
+                WebkitBackdropFilter: 'blur(10px)' 
               }}>
-              <motion.button
-                onClick={() => setLanguage('vi')}
-                className={`p-2 rounded-md transition-all ${
-                  language === 'vi'
-                    ? 'bg-white shadow-sm' 
-                    : 'hover:bg-gray-200'
-                }`}
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '0.5rem',
-                  padding: '0.5rem 1rem',
-                  background: language === 'vi' 
-                    ? 'var(--gradient-primary)' 
-                    : 'transparent',
-                  border: language === 'vi' 
-                    ? '1px solid var(--glass-border)' 
-                    : '1px solid transparent',
-                  boxShadow: language === 'vi' 
-                    ? 'var(--shadow-secondary)' 
-                    : 'none',
-                  backdropFilter: 'blur(8px)',
-                  WebkitBackdropFilter: 'blur(8px)',
-                  transition: 'all 0.3s ease'
-                }}
-                whileHover={{ 
-                  scale: 1.05,
-                  boxShadow: 'var(--shadow-primary)'
-                }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <Image
-                  src={flags.vi}
-                  alt="Tiếng Việt"
-                  width={24}
-                  height={24}
-                  className="rounded-sm transition-all"
-                />
-              </motion.button>
-              <motion.button
-                onClick={() => setLanguage('en')}
-                className={`p-2 rounded-md transition-all ${
-                  language === 'en'
-                    ? 'bg-white shadow-sm'
-                    : 'hover:bg-gray-200'
-                }`}
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '0.5rem',
-                  padding: '0.5rem 1rem',
-                  background: language === 'en' 
-                    ? 'var(--gradient-primary)' 
-                    : 'transparent',
-                  border: language === 'en' 
-                    ? '1px solid var(--glass-border)' 
-                    : '1px solid transparent',
-                  boxShadow: language === 'en' 
-                    ? 'var(--shadow-secondary)' 
-                    : 'none',
-                  backdropFilter: 'blur(8px)',
-                  WebkitBackdropFilter: 'blur(8px)',
-                  transition: 'all 0.3s ease'
-                }}
-                whileHover={{ 
-                  scale: 1.05,
-                  boxShadow: 'var(--shadow-primary)'
-                }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <Image
-                  src={flags.en}
-                  alt="English"
-                  width={24}
-                  height={24}
-                  className="rounded-sm transition-all"
-                />
-              </motion.button>
-            </div>
+                <motion.button
+                  onClick={() => setLanguage('vi')}
+                  className={`p-2 rounded-md transition-all ${
+                    language === 'vi'
+                      ? 'bg-white shadow-sm' 
+                      : 'hover:bg-gray-200'
+                  }`}
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '0.5rem',
+                    padding: '0.5rem 1rem',
+                    background: language === 'vi' 
+                      ? 'var(--gradient-primary)' 
+                      : 'transparent',
+                    border: language === 'vi' 
+                      ? '1px solid var(--glass-border)' 
+                      : '1px solid transparent',
+                    boxShadow: language === 'vi' 
+                      ? 'var(--shadow-secondary)' 
+                      : 'none',
+                    backdropFilter: 'blur(8px)',
+                    WebkitBackdropFilter: 'blur(8px)',
+                    transition: 'all 0.3s ease'
+                  }}
+                  whileHover={{ 
+                    scale: 1.05,
+                    boxShadow: 'var(--shadow-primary)'
+                  }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <Image
+                    src={flags.vi}
+                    alt="Tiếng Việt"
+                    width={24}
+                    height={24}
+                    className="rounded-sm transition-all"
+                  />
+                </motion.button>
+                <motion.button
+                  onClick={() => setLanguage('en')}
+                  className={`p-2 rounded-md transition-all ${
+                    language === 'en'
+                      ? 'bg-white shadow-sm'
+                      : 'hover:bg-gray-200'
+                  }`}
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '0.5rem',
+                    padding: '0.5rem 1rem',
+                    background: language === 'en' 
+                      ? 'var(--gradient-primary)' 
+                      : 'transparent',
+                    border: language === 'en' 
+                      ? '1px solid var(--glass-border)' 
+                      : '1px solid transparent',
+                    boxShadow: language === 'en' 
+                      ? 'var(--shadow-secondary)' 
+                      : 'none',
+                    backdropFilter: 'blur(8px)',
+                    WebkitBackdropFilter: 'blur(8px)',
+                    transition: 'all 0.3s ease'
+                  }}
+                  whileHover={{ 
+                    scale: 1.05,
+                    boxShadow: 'var(--shadow-primary)'
+                  }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <Image
+                    src={flags.en}
+                    alt="English"
+                    width={24}
+                    height={24}
+                    className="rounded-sm transition-all"
+                  />
+                </motion.button>
+              </div>
+            )}
 
             {/* Mobile Menu Button */}
             <motion.div 
