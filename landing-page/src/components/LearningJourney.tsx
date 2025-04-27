@@ -28,7 +28,7 @@ export const LearningJourney = () => {
           transition={{ duration: 0.5 }}
         >
           <motion.h2 
-            className="text-5xl font-bold mb-4"
+            className="text-4xl font-bold mb-4"
             style={{ 
               fontFamily: 'var(--font-heading)',
             }}

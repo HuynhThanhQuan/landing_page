@@ -27,18 +27,18 @@ export const translations = {
       }
     },
     learning: {
-      title: 'Your Learning Journey',
-      subtitle: 'Personalized paths to data science mastery',
+      title: 'Learning Journey',
+      subtitle: 'Personalized your learning paths to data science mastery',
       education: {
         title: 'Education',
-        description: 'Empower your learning journey with comprehensive education and expert guidance.',
+        description: 'We provide comprehensive education and expert guidance on Data Science and AI in Fintech industry.',
         keyword1: 'Data Science',
-        keyword2: 'Machine Learning',
-        keyword3: 'AI Development'
+        keyword2: 'AI Technology',
+        keyword3: 'Fintech Industry'
       },
       community: {
-        title: 'Community Hub',
-        description: 'Connect and collaborate with creative minds in our vibrant community space.',
+        title: 'Community',
+        description: 'Connect and collaborate with creative minds in our dynamic community space.',
         keyword1: 'Peer Learning',
         keyword2: 'Collaboration',
         keyword3: 'Networking'
