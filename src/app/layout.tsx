@@ -8,8 +8,13 @@ import { LanguageProvider } from '@/contexts/LanguageContext';
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Data Science Education",
+  title: "Curious Machine",
   description: "Learn Data Science and AI with others who share your curiosity",
+  icons: {
+    icon: '/images/logo.png',
+    shortcut: '/images/logo.png',
+    apple: '/images/logo.png',
+  },
 };
 
 export default function RootLayout({
