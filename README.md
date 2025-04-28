@@ -1,72 +1,36 @@
-# Curious Machine Landing Page
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-A modern, responsive landing page for Curious Machine, showcasing data science consulting services, courses, and portfolio.
+## Getting Started
 
-## Features
+First, run the development server:
 
-- Responsive design that works on all devices
-- Modern dark blue color scheme
-- Smooth scrolling navigation
-- Dynamic portfolio and blog sections
-- Contact form with validation
-- Social media integration
-- Elegant animations and transitions
-
-## Project Structure
-
-```
-landing_page/
-├── index.html          # Main HTML file
-├── styles.css          # CSS styles
-├── script.js           # JavaScript functionality
-└── images/             # Directory for images
-    ├── portfolio/      # Portfolio images
-    ├── blog/           # Blog post images
-    └── logo.png        # Company logo
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
 ```
 
-## Setup Instructions
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-1. Clone this repository
-2. Create an `images` directory and add your images:
-   - Portfolio images (portfolio1.jpg, portfolio2.jpg, etc.)
-   - Blog post images (blog1.jpg, blog2.jpg, etc.)
-   - Company logo (logo.png)
-3. Update the content in `script.js`:
-   - Replace portfolio data with your actual projects
-   - Update blog post data with your actual blog content
-4. Customize the contact form to point to your backend service
-5. Update social media links in the footer
-6. Replace placeholder text with your actual content
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-## Customization
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-### Colors
-The color scheme can be modified in the `:root` section of `styles.css`:
-```css
-:root {
-    --primary-color: #0A192F;
-    --secondary-color: #64FFDA;
-    --text-color: #CCD6F6;
-    --text-secondary: #8892B0;
-    --background-color: #020C1B;
-    --card-background: #112240;
-}
-```
+## Learn More
 
-### Content
-- Update portfolio items in `script.js`
-- Modify blog posts in `script.js`
-- Edit text content in `index.html`
-- Add your own images to the `images` directory
+To learn more about Next.js, take a look at the following resources:
 
-## Browser Support
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-- Chrome (latest)
-- Firefox (latest)
-- Safari (latest)
-- Edge (latest)
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-## License
+## Deploy on Vercel
 
-This project is licensed under the MIT License - see the LICENSE file for details. 
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
