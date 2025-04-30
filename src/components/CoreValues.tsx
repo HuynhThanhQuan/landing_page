@@ -2,42 +2,16 @@
 
 import { motion } from 'framer-motion';
 import { Brain, Users, Lightbulb, Shield } from 'lucide-react';
-import Image from 'next/image';
 import { useLanguage } from '@/contexts/LanguageContext';
 
-interface CoreValue {
+type IconType = typeof Brain | typeof Users | typeof Lightbulb | typeof Shield;
+
+interface CoreValueItem {
   title: string;
   description: string;
-  icon: React.ComponentType<{ className?: string }>; // Properly type the icon
+  icon: IconType;
   image: string;
 }
-
-const coreValues = [
-  {
-    title: "Curiosity-Driven Excellence",
-    description: "We ignite and nurture an unending spirit of exploration to push boundaries in AI & Data Science, constantly seeking new frontiers of knowledge and innovation.",
-    icon: Brain,
-    image: "/images/corevalues/placeholder1.png"
-  },
-  {
-    title: "Impact through Intelligence",
-    description: "We cultivate professionals who master both technical expertise and business acumen – transforming data into actionable insights that drive real-world value.",
-    icon: Lightbulb,
-    image: "/images/corevalues/placeholder2.png"
-  },
-  {
-    title: "Community of Growth",
-    description: "We foster a sustainable ecosystem of learning, sharing, and development for AI & Data enthusiasts, creating a supportive environment for continuous growth.",
-    icon: Users,
-    image: "/images/corevalues/placeholder3.png"
-  },
-  {
-    title: "Integrity in Consulting & Learning",
-    description: "We uphold the highest standards of transparency, honesty, and responsibility in both education and business consulting, building trust through ethical practices.",
-    icon: Shield,
-    image: "/images/corevalues/placeholder4.png"
-  }
-];
 
 export const CoreValues = () => {
   const { t } = useLanguage();
@@ -68,7 +42,7 @@ export const CoreValues = () => {
     }
   ];
 
-  const coreValuesWithIcons = defaultValues.map((value, index) => ({
+  const coreValuesWithIcons: CoreValueItem[] = defaultValues.map((value, index) => ({
     ...value,
     icon: Object.values(icons)[index],
     image: `/images/corevalues/placeholder${index + 1}.png`
@@ -106,231 +80,233 @@ export const CoreValues = () => {
 
         {/* Core Values Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-          {coreValuesWithIcons.map((value, index) => {
-            const Icon = value.icon;
-            return (
+          {coreValuesWithIcons.map((value, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ 
+                duration: 0.5,
+                delay: index * 0.1
+              }}
+              viewport={{ once: true }}
+              className="aspect-[4/3] perspective-1000"
+            >
               <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                className="relative w-full h-full"
+                whileHover={{ rotateY: 180 }}
                 transition={{ 
-                  duration: 0.5,
-                  delay: index * 0.1
+                  duration: 0.8,
+                  ease: [0.4, 0, 0.2, 1]
                 }}
-                viewport={{ once: true }}
-                className="aspect-[4/3] perspective-1000"
+                style={{ transformStyle: 'preserve-3d' }}
               >
-                <motion.div
-                  className="relative w-full h-full"
-                  whileHover={{ rotateY: 180 }}
-                  transition={{ 
-                    duration: 0.8,
-                    ease: [0.4, 0, 0.2, 1]
+                {/* Mặt trước của card */}
+                <div 
+                  className="absolute w-full h-full backface-hidden rounded-xl p-6 flex flex-col items-center justify-center text-center"
+                  style={{ 
+                    border: '1px solid var(--glass-border)',
+                    background: 'white',
+                    boxShadow: 'var(--shadow-primary)',
+                    backfaceVisibility: 'hidden'
                   }}
-                  style={{ transformStyle: 'preserve-3d' }}
                 >
-                  {/* Mặt trước của card */}
-                  <div 
-                    className="absolute w-full h-full backface-hidden rounded-xl p-6 flex flex-col items-center justify-center text-center"
-                    style={{ 
-                      border: '1px solid var(--glass-border)',
-                      background: 'white',
-                      boxShadow: 'var(--shadow-primary)',
-                      backfaceVisibility: 'hidden'
-                    }}
-                  >
-                    {index === 0 && (
-                      // Curiosity-Driven Excellence
-                      <motion.div 
-                        className="w-16 h-16 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl flex items-center justify-center relative overflow-hidden"
-                        variants={iconVariants}
+                  {index === 0 && (
+                    // Curiosity-Driven Excellence
+                    <motion.div 
+                      className="w-16 h-16 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl flex items-center justify-center relative overflow-hidden"
+                      variants={iconVariants}
+                    >
+                      <motion.div
+                        className="absolute inset-0 opacity-30"
+                        animate={{
+                          background: [
+                            "radial-gradient(circle at 50% 50%, rgba(255,255,255,0.2) 0%, transparent 50%)",
+                            "radial-gradient(circle at 50% 50%, rgba(255,255,255,0.2) 100%, transparent 100%)"
+                          ],
+                        }}
+                        transition={{
+                          duration: 2,
+                          repeat: Infinity,
+                          ease: "easeInOut"
+                        }}
+                      />
+                      <motion.svg 
+                        className="w-8 h-8 text-white relative z-10" 
+                        fill="none" 
+                        viewBox="0 0 24 24" 
+                        stroke="currentColor"
+                        animate={{
+                          scale: [1, 1.2, 1],
+                        }}
+                        transition={{
+                          duration: 2,
+                          repeat: Infinity,
+                          ease: "easeInOut"
+                        }}
                       >
-                        <motion.div
-                          className="absolute inset-0 opacity-30"
-                          animate={{
-                            background: [
-                              "radial-gradient(circle at 50% 50%, rgba(255,255,255,0.2) 0%, transparent 50%)",
-                              "radial-gradient(circle at 50% 50%, rgba(255,255,255,0.2) 100%, transparent 100%)"
-                            ],
-                          }}
-                          transition={{
-                            duration: 2,
-                            repeat: Infinity,
-                            ease: "easeInOut"
-                          }}
-                        />
-                        <motion.svg 
-                          className="w-8 h-8 text-white relative z-10" 
-                          fill="none" 
-                          viewBox="0 0 24 24" 
-                          stroke="currentColor"
-                          animate={{
-                            scale: [1, 1.2, 1],
-                          }}
-                          transition={{
-                            duration: 2,
-                            repeat: Infinity,
-                            ease: "easeInOut"
-                          }}
-                        >
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-                        </motion.svg>
-                      </motion.div>
-                    )}
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                      </motion.svg>
+                    </motion.div>
+                  )}
 
-                    {index === 1 && (
-                      // Impact through Intelligence
-                      <motion.div 
-                        className="w-16 h-16 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-xl flex items-center justify-center relative"
-                        variants={iconVariants}
+                  {index === 1 && (
+                    // Impact through Intelligence
+                    <motion.div 
+                      className="w-16 h-16 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-xl flex items-center justify-center relative"
+                      variants={iconVariants}
+                    >
+                      <motion.div
+                        className="absolute w-full h-full"
+                        animate={{
+                          background: [
+                            "linear-gradient(0deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.2) 50%, rgba(255,255,255,0) 100%)",
+                            "linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.2) 50%, rgba(255,255,255,0) 100%)",
+                          ],
+                        }}
+                        transition={{
+                          duration: 1.5,
+                          repeat: Infinity,
+                          ease: "linear"
+                        }}
+                      />
+                      <motion.svg 
+                        className="w-8 h-8 text-white relative z-10" 
+                        fill="none" 
+                        viewBox="0 0 24 24" 
+                        stroke="currentColor"
                       >
-                        <motion.div
-                          className="absolute w-full h-full"
-                          animate={{
-                            background: [
-                              "linear-gradient(0deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.2) 50%, rgba(255,255,255,0) 100%)",
-                              "linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.2) 50%, rgba(255,255,255,0) 100%)",
-                            ],
-                          }}
-                          transition={{
-                            duration: 1.5,
-                            repeat: Infinity,
-                            ease: "linear"
-                          }}
-                        />
-                        <motion.svg 
-                          className="w-8 h-8 text-white relative z-10" 
-                          fill="none" 
-                          viewBox="0 0 24 24" 
-                          stroke="currentColor"
-                        >
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                        </motion.svg>
-                        <motion.div
-                          className="absolute -right-1 -top-1 w-3 h-3 bg-white rounded-full"
-                          animate={{
-                            scale: [1, 1.5, 1],
-                            opacity: [0.5, 1, 0.5],
-                          }}
-                          transition={{
-                            duration: 2,
-                            repeat: Infinity,
-                            ease: "easeInOut"
-                          }}
-                        />
-                      </motion.div>
-                    )}
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                      </motion.svg>
+                      <motion.div
+                        className="absolute -right-1 -top-1 w-3 h-3 bg-white rounded-full"
+                        animate={{
+                          scale: [1, 1.5, 1],
+                          opacity: [0.5, 1, 0.5],
+                        }}
+                        transition={{
+                          duration: 2,
+                          repeat: Infinity,
+                          ease: "easeInOut"
+                        }}
+                      />
+                    </motion.div>
+                  )}
 
-                    {index === 2 && (
-                      // Community of Growth
-                      <motion.div 
-                        className="w-16 h-16 bg-gradient-to-br from-violet-500 to-purple-600 rounded-xl flex items-center justify-center relative overflow-hidden"
-                        variants={iconVariants}
+                  {index === 2 && (
+                    // Community of Growth
+                    <motion.div 
+                      className="w-16 h-16 bg-gradient-to-br from-violet-500 to-purple-600 rounded-xl flex items-center justify-center relative overflow-hidden"
+                      variants={iconVariants}
+                    >
+                      <motion.div
+                        className="absolute inset-0"
+                        animate={{
+                          background: [
+                            "radial-gradient(circle at 30% 30%, rgba(255,255,255,0.2) 0%, transparent 50%)",
+                            "radial-gradient(circle at 70% 70%, rgba(255,255,255,0.2) 0%, transparent 50%)",
+                          ],
+                        }}
+                        transition={{
+                          duration: 3,
+                          repeat: Infinity,
+                          ease: "easeInOut"
+                        }}
+                      />
+                      <motion.svg 
+                        className="w-8 h-8 text-white relative z-10" 
+                        fill="none" 
+                        viewBox="0 0 24 24" 
+                        stroke="currentColor"
+                        animate={{
+                          scale: [1, 1.1, 1],
+                        }}
+                        transition={{
+                          duration: 2,
+                          repeat: Infinity,
+                          ease: "easeInOut"
+                        }}
                       >
-                        <motion.div
-                          className="absolute inset-0"
-                          animate={{
-                            background: [
-                              "radial-gradient(circle at 30% 30%, rgba(255,255,255,0.2) 0%, transparent 50%)",
-                              "radial-gradient(circle at 70% 70%, rgba(255,255,255,0.2) 0%, transparent 50%)",
-                            ],
-                          }}
-                          transition={{
-                            duration: 3,
-                            repeat: Infinity,
-                            ease: "easeInOut"
-                          }}
-                        />
-                        <motion.svg 
-                          className="w-8 h-8 text-white relative z-10" 
-                          fill="none" 
-                          viewBox="0 0 24 24" 
-                          stroke="currentColor"
-                          animate={{
-                            scale: [1, 1.1, 1],
-                            rotate: [0, 5, -5, 0]
-                          }}
-                          transition={{
-                            duration: 3,
-                            repeat: Infinity,
-                            ease: "easeInOut"
-                          }}
-                        >
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
-                        </motion.svg>
-                      </motion.div>
-                    )}
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                      </motion.svg>
+                    </motion.div>
+                  )}
 
-                    {index === 3 && (
-                      // Integrity in Consulting & Learning
-                      <motion.div 
-                        className="w-16 h-16 bg-gradient-to-br from-amber-500 to-orange-600 rounded-xl flex items-center justify-center relative overflow-hidden"
-                        variants={iconVariants}
+                  {index === 3 && (
+                    // Integrity in Consulting & Learning
+                    <motion.div 
+                      className="w-16 h-16 bg-gradient-to-br from-amber-500 to-orange-600 rounded-xl flex items-center justify-center relative overflow-hidden"
+                      variants={iconVariants}
+                    >
+                      <motion.div
+                        className="absolute inset-0"
+                        animate={{
+                          background: [
+                            "linear-gradient(45deg, rgba(255,255,255,0.1) 0%, transparent 50%)",
+                            "linear-gradient(225deg, rgba(255,255,255,0.1) 0%, transparent 50%)",
+                          ],
+                        }}
+                        transition={{
+                          duration: 2,
+                          repeat: Infinity,
+                          ease: "easeInOut"
+                        }}
+                      />
+                      <motion.svg 
+                        className="w-8 h-8 text-white relative z-10" 
+                        fill="none" 
+                        viewBox="0 0 24 24" 
+                        stroke="currentColor"
+                        animate={{
+                          scale: [1, 1.1, 1],
+                        }}
+                        transition={{
+                          duration: 2,
+                          repeat: Infinity,
+                          ease: "easeInOut"
+                        }}
                       >
-                        <motion.div
-                          className="absolute inset-0"
-                          animate={{
-                            background: [
-                              "linear-gradient(45deg, rgba(255,255,255,0.2) 0%, transparent 100%)",
-                              "linear-gradient(225deg, rgba(255,255,255,0.2) 0%, transparent 100%)",
-                            ],
-                          }}
-                          transition={{
-                            duration: 2,
-                            repeat: Infinity,
-                            ease: "easeInOut"
-                          }}
-                        />
-                        <motion.svg 
-                          className="w-8 h-8 text-white relative z-10" 
-                          fill="none" 
-                          viewBox="0 0 24 24" 
-                          stroke="currentColor"
-                          animate={{
-                            scale: [1, 1.1, 1],
-                          }}
-                          transition={{
-                            duration: 2,
-                            repeat: Infinity,
-                            ease: "easeInOut"
-                          }}
-                        >
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 11c0 3.517-1.009 6.799-2.753 9.571m-3.44-2.04l.054-.09A13.916 13.916 0 008 11a4 4 0 118 0c0 1.017-.07 2.019-.203 3m-2.118 6.844A21.88 21.88 0 0015.171 17m3.839 1.132c.645-2.266.99-4.659.99-7.132A8 8 0 008 4.07M3 15.364c.64-1.319 1-2.8 1-4.364 0-1.457.39-2.823 1.07-4" />
-                        </motion.svg>
-                      </motion.div>
-                    )}
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                      </motion.svg>
+                    </motion.div>
+                  )}
 
-                    <h3 className="text-2xl font-bold text-black mt-6" style={{ fontFamily: 'var(--font-heading)' }}>
-                      {value.title}
-                    </h3>
-                    <p className="mt-4 text-gray-600" style={{ fontFamily: 'var(--font-body)' }}>
-                      {value.description}
-                    </p>
+                  <h3 className="mt-4 text-xl font-semibold" style={{ fontFamily: 'var(--font-heading)' }}>
+                    {value.title}
+                  </h3>
+                  <p className="mt-2 text-gray-600" style={{ fontFamily: 'var(--font-body)' }}>
+                    {value.description}
+                  </p>
+                </div>
+
+                {/* Mặt sau của card */}
+                <div 
+                  className="absolute w-full h-full backface-hidden rounded-xl p-6 flex flex-col items-center justify-center text-center"
+                  style={{ 
+                    border: '1px solid var(--glass-border)',
+                    background: 'white',
+                    boxShadow: 'var(--shadow-primary)',
+                    backfaceVisibility: 'hidden',
+                    transform: 'rotateY(180deg)'
+                  }}
+                >
+                  <div className="relative w-full h-full">
+                    <div className="absolute inset-0 bg-gradient-to-br from-blue-50 to-white rounded-xl" />
+                    <div className="relative z-10">
+                      <h4 className="text-lg font-semibold mb-4" style={{ fontFamily: 'var(--font-heading)' }}>
+                        {t('coreValues.details')}
+                      </h4>
+                      <p className="text-gray-600" style={{ fontFamily: 'var(--font-body)' }}>
+                        {t(`coreValues.values.${index}.details`)}
+                      </p>
+                    </div>
                   </div>
-
-                  {/* Mặt sau của card - Hình ảnh */}
-                  <div 
-                    className="absolute w-full h-full backface-hidden rounded-xl overflow-hidden"
-                    style={{ 
-                      background: 'var(--gradient-secondary)',
-                      boxShadow: 'var(--shadow-secondary)',
-                      backfaceVisibility: 'hidden',
-                      transform: 'rotateY(180deg)'
-                    }}
-                  >
-                    <Image
-                      src={value.image}
-                      alt={value.title}
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                </motion.div>
+                </div>
               </motion.div>
-            );
-          })}
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>
   );
-} 
+}; 

@@ -5,6 +5,8 @@ import { translations } from '@/translations';
 
 type Language = 'vi' | 'en';
 
+type TranslationValue = string | { [key: string]: TranslationValue };
+
 interface LanguageContextType {
   language: Language;
   setLanguage: (lang: Language) => void;
@@ -18,11 +20,11 @@ export const LanguageProvider = ({ children }: { children: ReactNode }) => {
 
   const t = (key: string) => {
     const keys = key.split('.');
-    let value: Record<string, unknown> = translations[language];
+    let value: TranslationValue = translations[language];
     
     for (const k of keys) {
       if (value && typeof value === 'object') {
-        value = value[k] as Record<string, unknown>;
+        value = (value as { [key: string]: TranslationValue })[k];
       } else {
         return key;
       }
