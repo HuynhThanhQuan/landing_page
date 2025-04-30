@@ -5,7 +5,7 @@ import { translations } from '@/translations';
 
 type Language = 'vi' | 'en';
 
-type TranslationValue = string | { [key: string]: TranslationValue };
+type TranslationValue = string | { [key: string]: TranslationValue } | TranslationValue[];
 
 interface LanguageContextType {
   language: Language;
@@ -24,7 +24,16 @@ export const LanguageProvider = ({ children }: { children: ReactNode }) => {
     
     for (const k of keys) {
       if (value && typeof value === 'object') {
-        value = (value as { [key: string]: TranslationValue })[k];
+        if (Array.isArray(value)) {
+          const index = parseInt(k);
+          if (!isNaN(index) && index >= 0 && index < value.length) {
+            value = value[index];
+          } else {
+            return key;
+          }
+        } else {
+          value = (value as { [key: string]: TranslationValue })[k];
+        }
       } else {
         return key;
       }
