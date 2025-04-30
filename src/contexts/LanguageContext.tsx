@@ -18,11 +18,11 @@ export const LanguageProvider = ({ children }: { children: ReactNode }) => {
 
   const t = (key: string) => {
     const keys = key.split('.');
-    let value: any = translations[language];
+    let value: Record<string, unknown> = translations[language];
     
     for (const k of keys) {
       if (value && typeof value === 'object') {
-        value = value[k];
+        value = value[k] as Record<string, unknown>;
       } else {
         return key;
       }

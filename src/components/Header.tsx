@@ -4,7 +4,6 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
 import { RiMenu3Line, RiCloseLine } from 'react-icons/ri';
-import Link from 'next/link';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 const navLinks = [

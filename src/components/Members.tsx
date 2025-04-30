@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { useState } from 'react';
+import Image from 'next/image';
 
 // Placeholder for company data - you can replace with actual data
 type Company = {
@@ -80,9 +81,11 @@ export const Members = () => {
                     transition: { duration: 0.2 }
                   }}
                 >
-                  <img
+                  <Image
                     src={company.iconUrl}
                     alt={`${company.name} logo`}
+                    width={96}
+                    height={64}
                     className="w-full h-full object-contain"
                   />
                 </motion.div>
@@ -116,9 +119,11 @@ export const Members = () => {
                     transition: { duration: 0.2 }
                   }}
                 >
-                  <img
+                  <Image
                     src={company.iconUrl}
                     alt={`${company.name} logo`}
+                    width={96}
+                    height={64}
                     className="w-full h-full object-contain"
                   />
                 </motion.div>

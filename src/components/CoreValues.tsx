@@ -8,7 +8,7 @@ import { useLanguage } from '@/contexts/LanguageContext';
 interface CoreValue {
   title: string;
   description: string;
-  icon: any; // We'll keep the icon type as any since it's a component
+  icon: React.ComponentType<{ className?: string }>; // Properly type the icon
   image: string;
 }
 

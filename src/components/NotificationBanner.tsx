@@ -19,11 +19,6 @@ export const NotificationBanner = () => {
     'mt-24'
   );
 
-  // Alternative using template literals
-  const bannerClassesAlt = `relative ${
-    useSecondaryGradient ? 'banner-gradient-secondary' : 'banner-gradient-primary'
-  } text-white mt-24`;
-
   return (
     <AnimatePresence>
       {isVisible && (

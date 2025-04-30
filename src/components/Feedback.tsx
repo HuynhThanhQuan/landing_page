@@ -7,13 +7,6 @@ import { IoMdClose } from 'react-icons/io';
 import Image from 'next/image';
 import { useLanguage } from '@/contexts/LanguageContext';
 
-// Feedback data type
-type FeedbackItem = {
-  name: string;
-  feedback: string;
-  role: string;
-};
-
 // Placeholder data for feedback images
 const feedbackImages = [
   "/images/feedback/feedback1.PNG",
