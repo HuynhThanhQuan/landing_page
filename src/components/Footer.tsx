@@ -24,7 +24,7 @@ export const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Column 1: Company Info & Social */}
           <div className="space-y-6">
-            <div className="flex items-center space-x-2">
+            <Link href="/" className="flex items-center space-x-2">
               <Image
                 src="/images/logo.png"
                 alt="Logo"
@@ -32,10 +32,10 @@ export const Footer = () => {
                 height={32}
                 className="rounded-lg"
               />
-              <h3 className="text-xl font-bold" style={{ fontFamily: 'var(--font-heading)' }}>
+              <h3 className="text-xl font-bold text-white" style={{ fontFamily: 'var(--font-heading)' }}>
                 {t('footer.company.title')}
               </h3>
-            </div>
+            </Link>
             <p className="text-white/80">
               {t('footer.company.description')}
             </p>
@@ -44,7 +44,7 @@ export const Footer = () => {
                 href="https://www.linkedin.com/company/curiousmachine/" 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="text-white/80 hover:text-white transition-colors"
+                className="text-white/80 hover:text-white transition-colors bg-white/10 p-2 rounded-full hover:bg-white/40"
               >
                 <RiLinkedinFill className="w-6 h-6" />
               </a>
@@ -52,7 +52,7 @@ export const Footer = () => {
                 href="https://www.facebook.com/thecuriousmachine" 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="text-white/80 hover:text-white transition-colors"
+                className="text-white/80 hover:text-white transition-colors bg-white/10 p-2 rounded-full hover:bg-white/40"
               >
                 <RiFacebookFill className="w-6 h-6" />
               </a>

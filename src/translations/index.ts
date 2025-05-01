@@ -432,9 +432,9 @@ export const translations = {
       education: {
         title: 'Chương trình đào tạo',
         programs: {
-          dataScienceFinance: 'Data Science trong Tài chính',
-          machineLearning: 'Cơ bản về Machine Learning',
-          deepLearning: 'Cơ bản về Deep Learning'
+          dataScienceFinance: 'Data Science in Finance',
+          machineLearning: 'Machine Learning Fundementals',
+          deepLearning: 'Deep Learning Fundementals'
         }
       },
       contact: {
