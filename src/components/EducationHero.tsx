@@ -9,30 +9,30 @@ interface Course {
   description: string;
   duration: string;
   level: string;
-  videoUrl: string; // YouTube video URL
+  videoUrl: string;
 }
 
 const courses: Course[] = [
   {
     id: 'data-science-in-finance',
-    title: 'Data Science in Finance',
-    description: 'Learn the basics of Artificial Intelligence and Machine Learning',
+    title: 'education.courses.0.title',
+    description: 'education.courses.0.description',
     duration: '8 weeks',
     level: 'Advanced',
     videoUrl: 'https://www.youtube.com/embed/HTSqRkVpL9E?si=IJkGoyfMdB4rtewj',
   },
   {
-    id: 'data-science',
-    title: 'Data Science Essentials',
-    description: 'Master the core concepts of Data Science and Analytics',
+    id: 'machine-learning-fundamentals',
+    title: 'education.courses.1.title',
+    description: 'education.courses.1.description',
     duration: '10 weeks',
     level: 'Intermediate',
     videoUrl: 'https://www.youtube.com/embed/n6Pnzi6r9NU?si=g3-3SRRCh5P2e6Rn',
   },
   {
-    id: 'deep-learning',
-    title: 'Deep Learning Advanced',
-    description: 'Advanced techniques in Neural Networks and Deep Learning',
+    id: 'deep-learning-fundamentals',
+    title: 'education.courses.2.title',
+    description: 'education.courses.2.description',
     duration: '12 weeks',
     level: 'Advanced',
     videoUrl: 'https://www.youtube.com/embed/vOcwJ-REeFQ?si=COfZnEjeUoLYqaqs',
@@ -104,13 +104,13 @@ export const EducationHero = () => {
                         transition: { duration: 0.3 }
                       }}
                     >
-                      {course.title}
+                      {t(course.title)}
                     </motion.h3>
                     <p 
                       className="text-gray-600 mb-6"
                       style={{ fontFamily: 'var(--font-body)' }}
                     >
-                      {course.description}
+                      {t(course.description)}
                     </p>
                     <div className="flex items-center gap-6">
                       <div className="flex items-center">

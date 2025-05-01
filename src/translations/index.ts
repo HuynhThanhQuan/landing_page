@@ -460,21 +460,21 @@ export const translations = {
       courses: [
         {
           id: 'data-science-in-finance',
-          title: 'Khoa Học Dữ Liệu trong Tài Chính',
+          title: 'Data Science in Finance',
           description: 'Học những kiến thức cơ bản về Trí tuệ Nhân tạo và Học Máy',
           duration: '8 tuần',
           level: 'Nâng cao',
         },
         {
-          id: 'data-science',
-          title: 'Kiến Thức Cơ Bản về Khoa Học Dữ Liệu',
+          id: 'machine-learning-fundamentals',
+          title: 'Machine Learning Fundamentals',
           description: 'Làm chủ các khái niệm cốt lõi về Khoa học Dữ liệu và Phân tích',
           duration: '10 tuần',
           level: 'Trung cấp',
         },
         {
-          id: 'deep-learning',
-          title: 'Học Sâu Nâng Cao',
+          id: 'deep-learning-fundamentals',
+          title: 'Deep Learning Fundamentals',
           description: 'Các kỹ thuật nâng cao về Mạng Neural và Học Sâu',
           duration: '12 tuần',
           level: 'Nâng cao',
