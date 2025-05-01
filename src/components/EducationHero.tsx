@@ -14,11 +14,11 @@ interface Course {
 
 const courses: Course[] = [
   {
-    id: 'ai-fundamentals',
-    title: 'AI Fundamentals',
+    id: 'data-science-in-finance',
+    title: 'Data Science in Finance',
     description: 'Learn the basics of Artificial Intelligence and Machine Learning',
     duration: '8 weeks',
-    level: 'Beginner',
+    level: 'Advanced',
   },
   {
     id: 'data-science',
@@ -40,7 +40,7 @@ export const EducationHero = () => {
   const { t } = useLanguage();
 
   return (
-    <section className="pt-32 pb-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-gray-50 to-white">
+    <section className="pt-40 pb-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-gray-50 to-white">
       <div className="max-w-7xl mx-auto">
         {/* Title */}
         <motion.div
@@ -70,44 +70,66 @@ export const EducationHero = () => {
               key={course.id}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
+              whileHover={{ 
+                scale: 1.01,
+                transition: { duration: 0.3 }
+              }}
               transition={{ duration: 0.5, delay: index * 0.2 }}
-              className="bg-white rounded-2xl shadow-lg overflow-hidden"
+              className="p-4 bg-gradient-to-r from-gray-50/50 to-gray-100/50 rounded-3xl cursor-pointer"
             >
-              <div className="flex flex-col md:flex-row">
-                {/* Course Information */}
-                <div className="flex-1 p-8">
-                  <h3 
-                    className="text-2xl font-bold mb-4"
-                    style={{ fontFamily: 'var(--font-heading)' }}
+              <motion.div 
+                className="bg-white rounded-2xl shadow-lg overflow-hidden"
+                whileHover={{
+                  boxShadow: "0 15px 30px rgba(0,0,0,0.08)",
+                  transition: { duration: 0.3 }
+                }}
+              >
+                <div className="flex flex-col md:flex-row">
+                  {/* Course Information */}
+                  <motion.div 
+                    className="flex-1 p-8"
+                    whileHover={{
+                      backgroundColor: "rgba(249, 250, 251, 0.3)",
+                      transition: { duration: 0.3 }
+                    }}
                   >
-                    {course.title}
-                  </h3>
-                  <p 
-                    className="text-gray-600 mb-6"
-                    style={{ fontFamily: 'var(--font-body)' }}
-                  >
-                    {course.description}
-                  </p>
-                  <div className="flex items-center gap-6">
-                    <div className="flex items-center">
-                      <span className="text-gray-500 mr-2">⏱</span>
-                      <span>{course.duration}</span>
+                    <motion.h3 
+                      className="text-2xl font-bold mb-4"
+                      style={{ fontFamily: 'var(--font-heading)' }}
+                      whileHover={{
+                        x: 3,
+                        transition: { duration: 0.3 }
+                      }}
+                    >
+                      {course.title}
+                    </motion.h3>
+                    <p 
+                      className="text-gray-600 mb-6"
+                      style={{ fontFamily: 'var(--font-body)' }}
+                    >
+                      {course.description}
+                    </p>
+                    <div className="flex items-center gap-6">
+                      <div className="flex items-center">
+                        <span className="text-gray-500 mr-2">⏱</span>
+                        <span>{course.duration}</span>
+                      </div>
+                      <div className="flex items-center">
+                        <span className="text-gray-500 mr-2">📚</span>
+                        <span>{course.level}</span>
+                      </div>
                     </div>
-                    <div className="flex items-center">
-                      <span className="text-gray-500 mr-2">📚</span>
-                      <span>{course.level}</span>
-                    </div>
-                  </div>
-                </div>
+                  </motion.div>
 
-                {/* Video Placeholder */}
-                <div className="flex-1 bg-gray-100 min-h-[300px] flex items-center justify-center">
-                  <div className="text-gray-400 text-center">
-                    <span className="block text-4xl mb-2">🎥</span>
-                    <span>Video coming soon</span>
+                  {/* Video Placeholder */}
+                  <div className="flex-1 bg-gray-100 min-h-[300px] flex items-center justify-center">
+                    <div className="text-gray-400 text-center">
+                      <span className="block text-4xl mb-2">🎥</span>
+                      <span>Video coming soon</span>
+                    </div>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             </motion.div>
           ))}
         </div>
