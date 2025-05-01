@@ -1,4 +1,4 @@
-import { Header } from "@/components/Header";
+import { EducationHeader } from "@/components/EducationHeader";
 import { LanguageProvider } from '@/contexts/LanguageContext';
 
 export default function EducationLayout({
@@ -8,7 +8,7 @@ export default function EducationLayout({
 }) {
   return (
     <LanguageProvider>
-      <Header />
+      <EducationHeader />
       {children}
     </LanguageProvider>
   );
