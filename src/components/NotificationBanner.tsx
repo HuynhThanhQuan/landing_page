@@ -29,7 +29,21 @@ export const NotificationBanner = () => {
               </div>
               <div className="flex items-center space-x-4">
                 <motion.a
-                  href="#contact"
+                  href="/#faq-contact"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    const contactSection = document.getElementById('faq-contact');
+                    if (contactSection) {
+                      const headerOffset = 80;
+                      const elementPosition = contactSection.getBoundingClientRect().top;
+                      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                      window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                      });
+                    }
+                  }}
                   className="text-sm bg-white/90 hover:bg-white/20 text-black px-4 py-1.5 rounded-full transition-colors font-bold align-middle"
                   whileHover={{ 
                     scale: 1.05,
