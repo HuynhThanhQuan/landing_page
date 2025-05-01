@@ -173,11 +173,13 @@ export const translations = {
         title: 'Curious Machine',
         description: "A community to fuel your AI's passion"
       },
-      links: {
-        title: 'Services',
-        about: 'About Us',
-        services: 'Services',
-        contact: 'Contact'
+      education: {
+        title: 'Education Programs',
+        programs: {
+          dataScienceFinance: 'Data Science in Finance',
+          machineLearning: 'Machine Learning Fundamentals',
+          deepLearning: 'Deep Learning Fundamentals'
+        }
       },
       contact: {
         title: 'Contact',
@@ -185,16 +187,15 @@ export const translations = {
         phone: '+84 969 910 254',
         address: 'Ho Chi Minh City, Vietnam'
       },
-      social: {
-        title: 'Follow Us',
-        linkedin: 'LinkedIn',
-        twitter: 'Twitter',
-        facebook: 'Facebook'
+      newsletter: {
+        title: 'Subscribe to Newsletter',
+        placeholder: 'Enter your email',
+        button: 'Subscribe'
       },
       copyright: '© {year} Curious Machine. All rights reserved.',
       legal: {
         privacy: 'Privacy Policy',
-        terms: 'Terms of Service'
+        terms: 'Terms of Use'
       }
     },
     education: {
@@ -428,28 +429,29 @@ export const translations = {
         title: 'Curious Machine',
         description: "Cộng đồng thắp lửa đam mê AI của bạn"
       },
-      links: {
-        title: 'Dịch vụ',
-        about: 'Về chúng tôi',
-        services: 'Dịch vụ',
-        contact: 'Liên hệ'
+      education: {
+        title: 'Chương trình đào tạo',
+        programs: {
+          dataScienceFinance: 'Data Science trong Tài chính',
+          machineLearning: 'Cơ bản về Machine Learning',
+          deepLearning: 'Cơ bản về Deep Learning'
+        }
       },
       contact: {
         title: 'Liên hệ',
         email: 'hthquan28@gmail.com',
         phone: '+84 969 910 254',
-        address: 'Hồ Chí Minh, Việt Nam'
+        address: 'Hồ Chí Minh, Việt Nam'
       },
-      social: {
-        title: 'Theo dõi chúng tôi',
-        linkedin: 'LinkedIn',
-        twitter: 'Twitter',
-        facebook: 'Facebook'
+      newsletter: {
+        title: 'Đăng ký nhận tin',
+        placeholder: 'Nhập email của bạn',
+        button: 'Đăng ký'
       },
       copyright: '© {year} Curious Machine. Bảo lưu mọi quyền.',
       legal: {
         privacy: 'Chính sách bảo mật',
-        terms: 'Điều khoản dịch vụ'
+        terms: 'Điều khoản sử dụng'
       }
     },
     education: {
