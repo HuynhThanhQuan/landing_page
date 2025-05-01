@@ -2,13 +2,14 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { RiLinkedinFill, RiFacebookFill, RiMailFill, RiPhoneFill, RiMapPinFill } from 'react-icons/ri';
 
 export const Footer = () => {
   const { t } = useLanguage();
   const pathname = usePathname();
+  const router = useRouter();
   const isEducationPage = pathname === '/education';
 
   const getLinkHref = (section: string) => {
@@ -16,6 +17,17 @@ export const Footer = () => {
       return `/#${section}`;
     }
     return `#${section}`;
+  };
+
+  const handleLogoClick = () => {
+    if (isEducationPage) {
+      router.push('/');
+    } else {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    }
   };
 
   return (
@@ -28,10 +40,7 @@ export const Footer = () => {
               href="/" 
               onClick={(e) => {
                 e.preventDefault();
-                window.scrollTo({
-                  top: 0,
-                  behavior: 'smooth'
-                });
+                handleLogoClick();
               }}
               className="flex items-center space-x-2"
             >
