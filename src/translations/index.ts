@@ -249,6 +249,7 @@ export const translations = {
       title: 'Chat with us',
       welcome: 'Welcome! How can we help you today?',
       inputPlaceholder: 'Type your message here...',
+      autoResponse: 'Thank you for reaching out! We have received your message and will get back to you as soon as possible.',
     },
   },
   vi: {
@@ -501,6 +502,7 @@ export const translations = {
       title: 'Trò chuyện với chúng tôi',
       welcome: 'Xin chào! Chúng tôi có thể giúp gì cho bạn?',
       inputPlaceholder: 'Nhập tin nhắn của bạn...',
+      autoResponse: 'Cảm ơn bạn đã liên hệ! Chúng tôi đã nhận được tin nhắn của bạn và sẽ phản hồi sớm nhất có thể.',
     },
   }
 }; 

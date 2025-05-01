@@ -6,10 +6,18 @@ import { RiArrowUpFill } from 'react-icons/ri';
 import { BsChatDotsFill, BsSendFill } from 'react-icons/bs';
 import { useLanguage } from '@/contexts/LanguageContext';
 
+interface Message {
+  id: number;
+  text: string;
+  isUser: boolean;
+  timestamp: Date;
+}
+
 export const FloatingButtons = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [isChatOpen, setIsChatOpen] = useState(false);
   const [message, setMessage] = useState('');
+  const [messages, setMessages] = useState<Message[]>([]);
   const { t } = useLanguage();
 
   // Show buttons when scrolling down
@@ -36,9 +44,26 @@ export const FloatingButtons = () => {
   const handleSendMessage = (e: React.FormEvent) => {
     e.preventDefault();
     if (message.trim()) {
-      // TODO: Handle sending message
-      console.log('Sending message:', message);
+      // Add user message
+      const userMessage: Message = {
+        id: Date.now(),
+        text: message.trim(),
+        isUser: true,
+        timestamp: new Date()
+      };
+      setMessages(prev => [...prev, userMessage]);
       setMessage('');
+
+      // Simulate auto-response after 1 second
+      setTimeout(() => {
+        const botMessage: Message = {
+          id: Date.now() + 1,
+          text: t('chat.autoResponse'),
+          isUser: false,
+          timestamp: new Date()
+        };
+        setMessages(prev => [...prev, botMessage]);
+      }, 1000);
     }
   };
 
@@ -86,7 +111,7 @@ export const FloatingButtons = () => {
             className="fixed bottom-24 right-6 w-96 h-[32rem] bg-white rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] z-50 overflow-hidden border border-gray-100 flex flex-col"
           >
             {/* Chat Header */}
-            <div className="bg-gradient-to-r from-[var(--tertiary-color)] to-[var(--secondary-color)] text-white p-4 flex justify-between items-center">
+            <div className="bg-gradient-to-r from-[var(--tertiary-color)] to-[var(--tertiary-color)] text-white p-4 flex justify-between items-center">
               <div className="flex items-center gap-2">
                 <BsChatDotsFill className="w-5 h-5" />
                 <h3 className="font-semibold text-base">{t('chat.title')}</h3>
@@ -101,9 +126,35 @@ export const FloatingButtons = () => {
 
             {/* Chat Content */}
             <div className="flex-1 p-6 overflow-y-auto bg-gray-50">
-              <div className="text-center text-gray-600 bg-white p-4 rounded-xl shadow-sm text-sm">
-                {t('chat.welcome')}
-              </div>
+              {messages.length === 0 ? (
+                <div className="text-center text-gray-600 bg-white p-4 rounded-xl shadow-sm text-sm">
+                  {t('chat.welcome')}
+                </div>
+              ) : (
+                <div className="space-y-4">
+                  {messages.map((msg) => (
+                    <motion.div
+                      key={msg.id}
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      className={`flex ${msg.isUser ? 'justify-end' : 'justify-start'}`}
+                    >
+                      <div
+                        className={`max-w-[80%] p-3 rounded-2xl ${
+                          msg.isUser
+                            ? 'bg-gradient-to-r from-[var(--tertiary-color)] to-[var(--secondary-color)] text-white'
+                            : 'bg-white text-gray-700 shadow-sm'
+                        }`}
+                      >
+                        <p className="text-sm">{msg.text}</p>
+                        <span className="text-xs opacity-70 mt-1 block">
+                          {msg.timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+                        </span>
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
+              )}
             </div>
 
             {/* Chat Input */}
