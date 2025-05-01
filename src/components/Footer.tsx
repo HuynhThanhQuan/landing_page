@@ -117,7 +117,7 @@ export const Footer = () => {
               />
               <button
                 type="submit"
-                className="w-full px-4 py-2 bg-white text-[var(--tertiary-color)] rounded-lg font-semibold hover:bg-gray-100 transition-colors"
+                className="w-full px-4 py-2 bg-white text-[var(--tertiary-color)] rounded-lg font-semibold hover:bg-gray-100 transition-colors cursor-pointer"
               >
                 {t('footer.newsletter.button')}
               </button>
