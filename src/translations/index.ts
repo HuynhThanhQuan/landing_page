@@ -203,25 +203,16 @@ export const translations = {
       subtitle: 'Empowering the next generation of AI & Data Science professionals through comprehensive education and training',
       courses: [
         {
-          id: 'data-science-in-finance',
           title: 'Data Science in Finance',
           description: 'Learn the basics of Artificial Intelligence and Machine Learning',
-          duration: '8 weeks',
-          level: 'Advanced',
         },
         {
-          id: 'data-science',
-          title: 'Data Science Essentials',
+          title: 'Machine Learning Fundamentals',
           description: 'Master the core concepts of Data Science and Analytics',
-          duration: '10 weeks',
-          level: 'Intermediate',
         },
         {
-          id: 'deep-learning',
-          title: 'Deep Learning Advanced',
+          title: 'Deep Learning Fundamentals',
           description: 'Advanced techniques in Neural Networks and Deep Learning',
-          duration: '12 weeks',
-          level: 'Advanced',
         },
       ],
       features: {
@@ -456,28 +447,19 @@ export const translations = {
     },
     education: {
       title: 'Chương Trình Đào Tạo',
-      subtitle: 'Trao quyền cho thế hệ tiếp theo của các chuyên gia AI & Khoa học Dữ liệu thông qua đào tạo toàn diện',
+      subtitle: 'Trao quyền cho thế hệ tiếp theo của các chuyên gia AI & Khoa học Dữ liệu thông qua giáo dục và đào tạo toàn diện',
       courses: [
         {
-          id: 'data-science-in-finance',
-          title: 'Data Science in Finance',
-          description: 'Học những kiến thức cơ bản về Trí tuệ Nhân tạo và Học Máy',
-          duration: '8 tuần',
-          level: 'Nâng cao',
+          title: 'Khoa học Dữ liệu trong Tài chính',
+          description: 'Học những kiến thức cơ bản về Trí tuệ Nhân tạo và Học máy',
         },
         {
-          id: 'machine-learning-fundamentals',
-          title: 'Machine Learning Fundamentals',
-          description: 'Làm chủ các khái niệm cốt lõi về Khoa học Dữ liệu và Phân tích',
-          duration: '10 tuần',
-          level: 'Trung cấp',
+          title: 'Kiến thức Cơ bản về Học máy',
+          description: 'Nắm vững các khái niệm cốt lõi về Khoa học Dữ liệu và Phân tích',
         },
         {
-          id: 'deep-learning-fundamentals',
-          title: 'Deep Learning Fundamentals',
-          description: 'Các kỹ thuật nâng cao về Mạng Neural và Học Sâu',
-          duration: '12 tuần',
-          level: 'Nâng cao',
+          title: 'Kiến thức Cơ bản về Học sâu',
+          description: 'Các kỹ thuật nâng cao về Mạng Neural và Học sâu',
         },
       ],
       features: {
