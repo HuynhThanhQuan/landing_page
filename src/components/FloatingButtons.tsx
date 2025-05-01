@@ -23,7 +23,7 @@ export const FloatingButtons = () => {
   // Show buttons when scrolling down
   useEffect(() => {
     const toggleVisibility = () => {
-      if (window.pageYOffset > 20) {
+      if (window.pageYOffset > 100) {
         setIsVisible(true);
       } else {
         setIsVisible(false);
