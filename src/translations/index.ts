@@ -204,7 +204,7 @@ export const translations = {
       courses: [
         {
           title: 'Data Science in Finance',
-          description: 'Learn the basics of Artificial Intelligence and Machine Learning',
+          description: '• Financial Data Analysis & Visualization\n• Time Series Analysis & Forecasting\n• Risk Management & Portfolio Optimization\n• Machine Learning in Trading\n• Financial Market Prediction\n• Quantitative Trading Strategies',
         },
         {
           title: 'Machine Learning Fundamentals',
@@ -457,7 +457,7 @@ export const translations = {
       courses: [
         {
           title: 'Data Science in Finance',
-          description: 'Học những kiến thức cơ bản về Trí tuệ Nhân tạo và Học máy',
+          description: '• Phân tích Dữ liệu Tài chính & Visualization\n• Phân tích Chuỗi thời gian & Dự báo\n• Quản lý Rủi ro & Tối ưu Hợp đồng\n• Học máy trong Thị trường\n• Dự báo Thị trường Tài chính\n• Chiến lược Quyết định Đầu tư',
         },
         {
           title: 'Machine Learning Fundamentals',

@@ -10,6 +10,7 @@ interface Course {
   duration: string;
   level: string;
   videoUrl: string;
+  link?: string;
 }
 
 const courses: Course[] = [
@@ -20,6 +21,7 @@ const courses: Course[] = [
     duration: '8 weeks',
     level: 'Advanced',
     videoUrl: 'https://www.youtube.com/embed/HTSqRkVpL9E?si=IJkGoyfMdB4rtewj',
+    link: 'https://curiousmachine.vn'
   },
   {
     id: 'machine-learning-fundamentals',
@@ -79,6 +81,7 @@ export const EducationHero = () => {
               }}
               transition={{ duration: 0.5, delay: index * 0.2 }}
               className="p-4 bg-gradient-to-r from-gray-50/50 to-gray-100/50 rounded-3xl cursor-pointer"
+              onClick={() => course.link && window.open(course.link, '_blank')}
             >
               <motion.div 
                 className="bg-white rounded-2xl shadow-lg overflow-hidden"
