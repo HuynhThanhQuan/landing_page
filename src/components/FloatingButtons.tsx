@@ -2,7 +2,8 @@
 
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { RiMessage2Fill, RiArrowUpFill } from 'react-icons/ri';
+import { RiArrowUpFill } from 'react-icons/ri';
+import { BsChatDotsFill } from 'react-icons/bs';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 export const FloatingButtons = () => {
@@ -13,7 +14,7 @@ export const FloatingButtons = () => {
   // Show buttons when scrolling down
   useEffect(() => {
     const toggleVisibility = () => {
-      if (window.pageYOffset > 300) {
+      if (window.pageYOffset > 20) {
         setIsVisible(true);
       } else {
         setIsVisible(false);
@@ -49,7 +50,7 @@ export const FloatingButtons = () => {
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
             >
-              <RiMessage2Fill className="w-6 h-6" />
+              <BsChatDotsFill className="w-6 h-6" />
             </motion.button>
 
             {/* Scroll to Top Button */}
@@ -77,7 +78,7 @@ export const FloatingButtons = () => {
             {/* Chat Header */}
             <div className="bg-gradient-to-r from-[var(--tertiary-color)] to-[var(--secondary-color)] text-white p-4 flex justify-between items-center">
               <div className="flex items-center gap-2">
-                <RiMessage2Fill className="w-5 h-5" />
+                <BsChatDotsFill className="w-5 h-5" />
                 <h3 className="font-semibold text-lg">{t('chat.title')}</h3>
               </div>
               <button
