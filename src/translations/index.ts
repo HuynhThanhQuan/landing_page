@@ -95,18 +95,18 @@ export const translations = {
       subtitle: 'We are shaping a collaborative space where learning and consulting drive business innovation',
       learning: {
         title: 'Learning Ecosystem',
-        description: 'We’re transforming the way you learn Data and AI, blending deep knowledge with a lively and refreshing learning environment',
-        caption: 'We\’re transforming the way you learn Data and AI. By blending deep, practical knowledge with a lively and inspiring environment, we make complex topics easier to grasp. No more dry, overwhelming lessons just real engagement, real impact. Learn, connect, and grow in a space designed for your curiosity and success.',
+        description: "We're transforming the way you learn Data and AI, blending deep knowledge with a lively and refreshing learning environment",
+        caption: "We're transforming the way you learn Data and AI. By blending deep, practical knowledge with a lively and inspiring environment, we make complex topics easier to grasp. No more dry, overwhelming lessons just real engagement, real impact. Learn, connect, and grow in a space designed for your curiosity and success.",
       }, 
       consultant: {
         title: 'Consultant Enterprise',
         description: 'Empowering businesses with data and data science solutions to solve challenges and stay competitive in the digital age.',
-        caption: 'In today’s digital landscape, mastering data is no longer optional. It’s essential for survival and growth. We help businesses tackle data challenges and unlock the power of data science to drive smarter decisions. Our solutions are designed to sharpen your competitive edge and lead you ahead of the curve. Stay ahead, stay data-driven.',
+        caption: "In today's digital landscape, mastering data is no longer optional. It's essential for survival and growth. We help businesses tackle data challenges and unlock the power of data science to drive smarter decisions. Our solutions are designed to sharpen your competitive edge and lead you ahead of the curve. Stay ahead, stay data-driven.",
       },
       innovation: {
         title: 'Innovation Hub',
         description: 'A vibrant collaborative space for researching, experimenting, and building the next generation of AI solutions',
-        caption: 'Our Innovation Hub is where ideas come to life through collaboration and creativity. We bring together researchers, innovators, and engineers to explore and experiment with breakthrough AI technologies. It’s a space designed for bold thinking, rapid prototyping, and building real-world solutions. Together, we’re shaping the next frontier of AI innovation.',
+        caption: "Our Innovation Hub is where ideas come to life through collaboration and creativity. We bring together researchers, innovators, and engineers to explore and experiment with breakthrough AI technologies. It's a space designed for bold thinking, rapid prototyping, and building real-world solutions. Together, we're shaping the next frontier of AI innovation.",
       },
     },
     coreValues: {
@@ -171,7 +171,7 @@ export const translations = {
     footer: {
       company: {
         title: 'Curious Machine',
-        description: 'A community to fuel your AI\'s passion'
+        description: "A community to fuel your AI's passion"
       },
       links: {
         title: 'Services',
@@ -200,22 +200,45 @@ export const translations = {
     education: {
       title: 'Education Programs',
       subtitle: 'Empowering the next generation of AI & Data Science professionals through comprehensive education and training',
+      courses: [
+        {
+          id: 'data-science-in-finance',
+          title: 'Data Science in Finance',
+          description: 'Learn the basics of Artificial Intelligence and Machine Learning',
+          duration: '8 weeks',
+          level: 'Advanced',
+        },
+        {
+          id: 'data-science',
+          title: 'Data Science Essentials',
+          description: 'Master the core concepts of Data Science and Analytics',
+          duration: '10 weeks',
+          level: 'Intermediate',
+        },
+        {
+          id: 'deep-learning',
+          title: 'Deep Learning Advanced',
+          description: 'Advanced techniques in Neural Networks and Deep Learning',
+          duration: '12 weeks',
+          level: 'Advanced',
+        },
+      ],
       features: {
         title: 'Our Programs',
         items: [
           {
             title: 'Comprehensive Curriculum',
-            description: 'Industry-aligned courses covering fundamental to advanced topics in AI & Data Science'
+            description: 'Industry-aligned courses covering fundamental to advanced topics in AI & Data Science',
           },
           {
             title: 'Expert Instructors',
-            description: 'Learn from experienced professionals and industry experts'
+            description: 'Learn from experienced professionals and industry experts',
           },
           {
             title: 'Hands-on Projects',
-            description: 'Apply your knowledge through real-world projects and case studies'
-          }
-        ]
+            description: 'Apply your knowledge through real-world projects and case studies',
+          },
+        ],
       },
       contact: {
         title: 'Get Started',
@@ -226,9 +249,9 @@ export const translations = {
           emailPlaceholder: 'Enter your email address',
           message: 'Message',
           messagePlaceholder: 'Tell us about your learning goals',
-          submit: 'Send Message'
-        }
-      }
+          submit: 'Send Message',
+        },
+      },
     },
   },
   vi: {
@@ -324,21 +347,21 @@ export const translations = {
     },
     ecosystem: {
       title: 'Hệ Sinh Thái Tương Lai',
-      subtitle: 'Chúng tôi đang xây dựng không gian hợp tác nơi học tập và tư vấn thúc đẩy đổi mới kinh doanh cho các doanh nghiệp lớn',
+      subtitle: 'Chúng tôi đang xây dựng không gian hợp tác nơi học tập và tư vấn thúc đẩy đổi mới kinh doanh cho các doanh nghiệp lớn',
       learning: {
         title: 'Hệ Sinh Thái Học Tập',
-        description: 'Chúng tôi đang thay đổi cách bạn học Data và AI, kết hợp kiến thức chuyên sâu với môi trường học tập sinh động và tươi mới',
-        caption: 'Chúng tôi đang thay đổi cách bạn học Data và AI. Bằng cách kết hợp kiến thức thực tế chuyên sâu với môi trường học tập sinh động và truyền cảm hứng, chúng tôi giúp các chủ đề phức tạp trở nên dễ hiểu hơn. Không còn những bài học khô khan và quá tải, chỉ có sự tương tác thực tế và tác động thực tế',
+        description: "Chúng tôi đang thay đổi cách bạn học Data và AI, kết hợp kiến thức chuyên sâu với môi trường học tập sinh động và tươi mới",
+        caption: "Chúng tôi đang thay đổi cách bạn học Data và AI. Bằng cách kết hợp kiến thức thực tế chuyên sâu với môi trường học tập sinh động và truyền cảm hứng, chúng tôi giúp các chủ đề phức tạp trở nên dễ hiểu hơn. Không còn những bài học khô khan và quá tải, chỉ có sự tương tác thực tế và tác động thực tế",
       }, 
       consultant: {
         title: 'Tư Vấn Doanh Nghiệp',
         description: 'Trao quyền cho doanh nghiệp với các giải pháp dữ liệu và khoa học dữ liệu để giải quyết thách thức và duy trì tính cạnh tranh trong kỷ nguyên số.',
-        caption: 'Trong bối cảnh số ngày nay, làm chủ dữ liệu không còn là tùy chọn. Đó là điều cần thiết cho sự tồn tại và phát triển. Chúng tôi giúp doanh nghiệp giải quyết các thách thức về dữ liệu và khai thác sức mạnh của khoa học dữ liệu để đưa ra quyết định thông minh hơn.',
+        caption: "Trong bối cảnh số ngày nay, làm chủ dữ liệu không còn là tùy chọn. Đó là điều cần thiết cho sự tồn tại và phát triển. Chúng tôi giúp doanh nghiệp giải quyết các thách thức về dữ liệu và khai thác sức mạnh của khoa học dữ liệu để đưa ra quyết định thông minh hơn.",
       },
       innovation: {
         title: 'Trung Tâm Đổi Mới',
         description: 'Không gian hợp tác sôi động để nghiên cứu, thử nghiệm và xây dựng thế hệ tiếp theo của các giải pháp AI',
-        caption: 'Trung Tâm Đổi Mới của chúng tôi là nơi ý tưởng được hiện thực hóa thông qua sự hợp tác và sáng tạo. Đây là không gian được thiết kế cho tư duy táo bạo, tạo mẫu nhanh và xây dựng các giải pháp thực tế.',
+        caption: "Trung Tâm Đổi Mới của chúng tôi là nơi ý tưởng được hiện thực hóa thông qua sự hợp tác và sáng tạo. Đây là không gian được thiết kế cho tư duy táo bạo, tạo mẫu nhanh và xây dựng các giải pháp thực tế.",
       },
     },
     coreValues: {
@@ -403,7 +426,7 @@ export const translations = {
     footer: {
       company: {
         title: 'Curious Machine',
-        description: 'Cộng đồng thắp lửa đam mê AI của bạn'
+        description: "Cộng đồng thắp lửa đam mê AI của bạn"
       },
       links: {
         title: 'Dịch vụ',
@@ -430,37 +453,60 @@ export const translations = {
       }
     },
     education: {
-      title: 'Education Programs',
-      subtitle: 'Empowering the next generation of AI & Data Science professionals through comprehensive education and training',
+      title: 'Chương Trình Đào Tạo',
+      subtitle: 'Trao quyền cho thế hệ tiếp theo của các chuyên gia AI & Khoa học Dữ liệu thông qua đào tạo toàn diện',
+      courses: [
+        {
+          id: 'data-science-in-finance',
+          title: 'Khoa Học Dữ Liệu trong Tài Chính',
+          description: 'Học những kiến thức cơ bản về Trí tuệ Nhân tạo và Học Máy',
+          duration: '8 tuần',
+          level: 'Nâng cao',
+        },
+        {
+          id: 'data-science',
+          title: 'Kiến Thức Cơ Bản về Khoa Học Dữ Liệu',
+          description: 'Làm chủ các khái niệm cốt lõi về Khoa học Dữ liệu và Phân tích',
+          duration: '10 tuần',
+          level: 'Trung cấp',
+        },
+        {
+          id: 'deep-learning',
+          title: 'Học Sâu Nâng Cao',
+          description: 'Các kỹ thuật nâng cao về Mạng Neural và Học Sâu',
+          duration: '12 tuần',
+          level: 'Nâng cao',
+        },
+      ],
       features: {
-        title: 'Our Programs',
+        title: 'Chương Trình Của Chúng Tôi',
         items: [
           {
-            title: 'Comprehensive Curriculum',
-            description: 'Industry-aligned courses covering fundamental to advanced topics in AI & Data Science'
+            title: 'Giáo Trình Toàn Diện',
+            description: 'Các khóa học phù hợp với ngành, bao gồm từ kiến thức cơ bản đến nâng cao về AI & Khoa học Dữ liệu',
           },
           {
-            title: 'Expert Instructors',
-            description: 'Learn from experienced professionals and industry experts'
+            title: 'Giảng Viên Chuyên Môn',
+            description: 'Học từ các chuyên gia và chuyên gia trong ngành giàu kinh nghiệm',
           },
           {
-            title: 'Hands-on Projects',
-            description: 'Apply your knowledge through real-world projects and case studies'
-          }
-        ]
+            title: 'Dự Án Thực Tế',
+            description: 'Áp dụng kiến thức của bạn thông qua các dự án và tình huống thực tế',
+          },
+        ],
       },
       contact: {
-        title: 'Get Started',
+        title: 'Bắt Đầu Ngay',
         form: {
-          name: 'Full Name',
-          namePlaceholder: 'Enter your full name',
-          email: 'Email Address',
-          emailPlaceholder: 'Enter your email address',
-          message: 'Message',
-          messagePlaceholder: 'Tell us about your learning goals',
-          submit: 'Send Message'
-        }
-      }
+          name: 'Họ và tên',
+          namePlaceholder: 'Nhập họ và tên của bạn',
+          email: 'Địa chỉ email',
+          emailPlaceholder: 'Nhập địa chỉ email của bạn',
+          message: 'Tin nhắn',
+          messagePlaceholder: 'Cho chúng tôi biết về mục tiêu học tập của bạn',
+          submit: 'Gửi tin nhắn',
+        },
+      },
     },
   }
 }; 
