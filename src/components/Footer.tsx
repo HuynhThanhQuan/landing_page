@@ -1,10 +1,20 @@
 "use client";
 
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 export const Footer = () => {
   const { t } = useLanguage();
+  const pathname = usePathname();
+  const isEducationPage = pathname === '/education';
+
+  const getLinkHref = (section: string) => {
+    if (isEducationPage) {
+      return `/#${section}`;
+    }
+    return `#${section}`;
+  };
 
   return (
     <footer className="bg-gray-900 text-white py-12">
@@ -27,17 +37,17 @@ export const Footer = () => {
             </h4>
             <ul className="space-y-2">
               <li>
-                <Link href="#about" className="text-gray-400 hover:text-white transition-colors">
+                <Link href={getLinkHref('about')} className="text-gray-400 hover:text-white transition-colors">
                   {t('footer.links.about')}
                 </Link>
               </li>
               <li>
-                <Link href="#services" className="text-gray-400 hover:text-white transition-colors">
+                <Link href={getLinkHref('services')} className="text-gray-400 hover:text-white transition-colors">
                   {t('footer.links.services')}
                 </Link>
               </li>
               <li>
-                <Link href="#faq-contact" className="text-gray-400 hover:text-white transition-colors">
+                <Link href={getLinkHref('faq-contact')} className="text-gray-400 hover:text-white transition-colors">
                   {t('footer.links.contact')}
                 </Link>
               </li>

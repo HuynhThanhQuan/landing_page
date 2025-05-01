@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { EducationTimeline } from '../../components/EducationTimeline';
 import { EducationHero } from '../../components/EducationHero';
 import { EducationFeatures } from '../../components/EducationFeatures';
-import { EducationCTA } from '../../components/EducationCTA';
+import { Footer } from '@/components/Footer';
 
 export default function EducationPage() {
   return (
@@ -17,7 +17,7 @@ export default function EducationPage() {
       <EducationHero />
       <EducationTimeline />
       <EducationFeatures />
-      <EducationCTA />
+      <Footer />
     </motion.div>
   );
 } 
