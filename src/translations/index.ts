@@ -450,15 +450,15 @@ export const translations = {
       subtitle: 'Trao quyền cho thế hệ tiếp theo của các chuyên gia AI & Khoa học Dữ liệu thông qua giáo dục và đào tạo toàn diện',
       courses: [
         {
-          title: 'Khoa học Dữ liệu trong Tài chính',
+          title: 'Data Science in Finance',
           description: 'Học những kiến thức cơ bản về Trí tuệ Nhân tạo và Học máy',
         },
         {
-          title: 'Kiến thức Cơ bản về Học máy',
+          title: 'Machine Learning Fundamentals',
           description: 'Nắm vững các khái niệm cốt lõi về Khoa học Dữ liệu và Phân tích',
         },
         {
-          title: 'Kiến thức Cơ bản về Học sâu',
+          title: 'Deep Learning Fundamentals',
           description: 'Các kỹ thuật nâng cao về Mạng Neural và Học sâu',
         },
       ],
