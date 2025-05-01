@@ -4,6 +4,7 @@ import "./globals.css";
 import { Header } from "@/components/Header";
 import { NotificationBannerWrapper } from "@/components/NotificationBannerWrapper";
 import { LanguageProvider } from '@/contexts/LanguageContext';
+import { FloatingButtons } from "@/components/FloatingButtons";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -32,6 +33,7 @@ export default function RootLayout({
           <NotificationBannerWrapper />
           <Header />
           {children}
+          <FloatingButtons />
         </LanguageProvider>
       </body>
     </html>

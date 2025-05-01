@@ -245,6 +245,10 @@ export const translations = {
         },
       },
     },
+    chat: {
+      title: 'Chat with us',
+      welcome: 'Welcome! How can we help you today?',
+    },
   },
   vi: {
     nav: {
@@ -491,6 +495,10 @@ export const translations = {
           submit: 'Gửi tin nhắn',
         },
       },
+    },
+    chat: {
+      title: 'Trò chuyện với chúng tôi',
+      welcome: 'Xin chào! Chúng tôi có thể giúp gì cho bạn?',
     },
   }
 }; 
