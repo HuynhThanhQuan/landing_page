@@ -235,7 +235,7 @@ export const translations = {
     nav: {
       home: 'Trang chủ',
       learning: 'Học tập',
-      feedback: 'Phản hồi', 
+      feedback: 'Đánh giá', 
       ecosystem: 'Hệ sinh thái',
       about: 'Giới thiệu',
       contact: 'Liên hệ',
