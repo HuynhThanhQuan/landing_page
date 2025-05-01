@@ -24,7 +24,17 @@ export const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Column 1: Company Info & Social */}
           <div className="space-y-6">
-            <Link href="/" className="flex items-center space-x-2">
+            <Link 
+              href="/" 
+              onClick={(e) => {
+                e.preventDefault();
+                window.scrollTo({
+                  top: 0,
+                  behavior: 'smooth'
+                });
+              }}
+              className="flex items-center space-x-2"
+            >
               <Image
                 src="/images/logo.png"
                 alt="Logo"
