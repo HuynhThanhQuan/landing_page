@@ -9,7 +9,7 @@ interface Course {
   description: string;
   duration: string;
   level: string;
-  videoId?: string; // YouTube video ID to be added later
+  videoUrl: string; // YouTube video URL
 }
 
 const courses: Course[] = [
@@ -19,6 +19,7 @@ const courses: Course[] = [
     description: 'Learn the basics of Artificial Intelligence and Machine Learning',
     duration: '8 weeks',
     level: 'Advanced',
+    videoUrl: 'https://www.youtube.com/embed/HTSqRkVpL9E?si=IJkGoyfMdB4rtewj',
   },
   {
     id: 'data-science',
@@ -26,6 +27,7 @@ const courses: Course[] = [
     description: 'Master the core concepts of Data Science and Analytics',
     duration: '10 weeks',
     level: 'Intermediate',
+    videoUrl: 'https://www.youtube.com/embed/PLACEHOLDER_2', // Replace with actual YouTube video URL
   },
   {
     id: 'deep-learning',
@@ -33,6 +35,7 @@ const courses: Course[] = [
     description: 'Advanced techniques in Neural Networks and Deep Learning',
     duration: '12 weeks',
     level: 'Advanced',
+    videoUrl: 'https://www.youtube.com/embed/PLACEHOLDER_3', // Replace with actual YouTube video URL
   },
 ];
 
@@ -121,12 +124,29 @@ export const EducationHero = () => {
                     </div>
                   </motion.div>
 
-                  {/* Video Placeholder */}
-                  <div className="flex-1 bg-gray-100 min-h-[300px] flex items-center justify-center">
-                    <div className="text-gray-400 text-center">
-                      <span className="block text-4xl mb-2">🎥</span>
-                      <span>Video coming soon</span>
-                    </div>
+                  {/* Video Container */}
+                  <div className="flex-1 min-h-[315px] bg-gray-100 relative overflow-hidden">
+                    {course.videoUrl ? (
+                      <iframe
+                        width="560"
+                        height="315"
+                        src={course.videoUrl}
+                        title="YouTube video player"
+                        frameBorder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerPolicy="strict-origin-when-cross-origin"
+                        allowFullScreen
+                        className="absolute inset-0 w-full h-full"
+                      />
+                    ) : (
+                      <div className="absolute inset-0 flex items-center justify-center text-gray-400">
+                        <div className="text-center">
+                          <span className="block text-4xl mb-2">🎥</span>
+                          <span>Add YouTube URL</span>
+                          <p className="text-sm mt-2 text-gray-500">Format: https://www.youtube.com/watch?v=HTSqRkVpL9E</p>
+                        </div>
+                      </div>
+                    )}
                   </div>
                 </div>
               </motion.div>
