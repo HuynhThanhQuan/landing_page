@@ -1,23 +1,16 @@
 "use client";
 
 import { motion } from 'framer-motion';
-import { EducationTimeline } from '../../components/EducationTimeline';
-import { EducationHero } from '../../components/EducationHero';
-import { EducationFeatures } from '../../components/EducationFeatures';
+import { EducationHero } from '@/components/EducationHero';
+import { EducationHeader } from '@/components/EducationHeader';
 import { Footer } from '@/components/Footer';
 
 export default function EducationPage() {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -20 }}
-      transition={{ duration: 0.5, ease: "easeInOut" }}
-    >
+    <main>
+      <EducationHeader />
       <EducationHero />
-      <EducationTimeline />
-      <EducationFeatures />
       <Footer />
-    </motion.div>
+    </main>
   );
 } 
