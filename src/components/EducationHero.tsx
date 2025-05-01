@@ -27,7 +27,7 @@ const courses: Course[] = [
     description: 'Master the core concepts of Data Science and Analytics',
     duration: '10 weeks',
     level: 'Intermediate',
-    videoUrl: 'https://www.youtube.com/embed/PLACEHOLDER_2', // Replace with actual YouTube video URL
+    videoUrl: 'https://www.youtube.com/embed/n6Pnzi6r9NU?si=g3-3SRRCh5P2e6Rn',
   },
   {
     id: 'deep-learning',
@@ -35,7 +35,7 @@ const courses: Course[] = [
     description: 'Advanced techniques in Neural Networks and Deep Learning',
     duration: '12 weeks',
     level: 'Advanced',
-    videoUrl: 'https://www.youtube.com/embed/PLACEHOLDER_3', // Replace with actual YouTube video URL
+    videoUrl: 'https://www.youtube.com/embed/vOcwJ-REeFQ?si=COfZnEjeUoLYqaqs',
   },
 ];
 
@@ -143,7 +143,7 @@ export const EducationHero = () => {
                         <div className="text-center">
                           <span className="block text-4xl mb-2">🎥</span>
                           <span>Add YouTube URL</span>
-                          <p className="text-sm mt-2 text-gray-500">Format: https://www.youtube.com/watch?v=HTSqRkVpL9E</p>
+                          <p className="text-sm mt-2 text-gray-500">Format: https://www.youtube.com/embed/VIDEO_ID</p>
                         </div>
                       </div>
                     )}
