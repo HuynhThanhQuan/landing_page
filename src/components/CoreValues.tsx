@@ -90,25 +90,23 @@ export const CoreValues = () => {
                 delay: index * 0.1
               }}
               viewport={{ once: true }}
-              className="aspect-[4/3] perspective-1000"
+              className="aspect-[4/3]"
             >
               <motion.div
                 className="relative w-full h-full"
-                whileHover={{ rotateY: 180 }}
+                whileHover={{ scale: 1.02 }}
                 transition={{ 
-                  duration: 0.8,
+                  duration: 0.3,
                   ease: [0.4, 0, 0.2, 1]
                 }}
-                style={{ transformStyle: 'preserve-3d' }}
               >
                 {/* Mặt trước của card */}
                 <div 
-                  className="absolute w-full h-full backface-hidden rounded-xl p-6 flex flex-col items-center justify-center text-center"
+                  className="w-full h-full rounded-xl p-6 flex flex-col items-center justify-center text-center"
                   style={{ 
                     border: '1px solid var(--glass-border)',
                     background: 'white',
-                    boxShadow: 'var(--shadow-primary)',
-                    backfaceVisibility: 'hidden'
+                    boxShadow: 'var(--shadow-primary)'
                   }}
                 >
                   {index === 0 && (
@@ -277,30 +275,6 @@ export const CoreValues = () => {
                   <p className="mt-2 text-gray-600" style={{ fontFamily: 'var(--font-body)' }}>
                     {value.description}
                   </p>
-                </div>
-
-                {/* Mặt sau của card */}
-                <div 
-                  className="absolute w-full h-full backface-hidden rounded-xl p-6 flex flex-col items-center justify-center text-center"
-                  style={{ 
-                    border: '1px solid var(--glass-border)',
-                    background: 'white',
-                    boxShadow: 'var(--shadow-primary)',
-                    backfaceVisibility: 'hidden',
-                    transform: 'rotateY(180deg)'
-                  }}
-                >
-                  <div className="relative w-full h-full">
-                    <div className="absolute inset-0 bg-gradient-to-br from-blue-50 to-white rounded-xl" />
-                    <div className="relative z-10">
-                      <h4 className="text-lg font-semibold mb-4" style={{ fontFamily: 'var(--font-heading)' }}>
-                        {t('coreValues.details')}
-                      </h4>
-                      <p className="text-gray-600" style={{ fontFamily: 'var(--font-body)' }}>
-                        {t(`coreValues.values.${index}.details`)}
-                      </p>
-                    </div>
-                  </div>
                 </div>
               </motion.div>
             </motion.div>
