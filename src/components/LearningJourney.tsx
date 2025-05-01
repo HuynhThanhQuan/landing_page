@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
+import Link from 'next/link';
 
 export const LearningJourney = () => {
   const [isLearningHovered, setIsLearningHovered] = useState(false);
@@ -46,184 +47,186 @@ export const LearningJourney = () => {
         {/* Cards Grid */}
         <div className="grid md:grid-cols-2 gap-12">
           {/* Design Card */}
-          <motion.div
-            className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-emerald-50 to-teal-50 p-8 cursor-pointer"
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5 }}
-            onMouseEnter={() => setIsLearningHovered(true)}
-            onMouseLeave={() => setIsLearningHovered(false)}
-            style={{
-              boxShadow: isLearningHovered 
-                ? '0 25px 35px -12px rgba(0, 0, 0, 0.2)'
-                : '0 4px 6px -1px rgba(0, 0, 0, 0.1)',
-              transform: isLearningHovered ? 'translateY(-8px)' : 'translateY(0)',
-              transition: 'all 0.5s cubic-bezier(0.4, 0, 0.2, 1)',
-            }}
-          >
-            <div className="relative z-10">
-              <div className="bg-emerald-600 text-white px-6 py-2 rounded-lg inline-block mb-4">
-                <h3 className="text-3xl font-bold">
-                  {t('learning.education.title')}
-                </h3>
+          <Link href="/education">
+            <motion.div
+              className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-emerald-50 to-teal-50 p-8 cursor-pointer"
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5 }}
+              onMouseEnter={() => setIsLearningHovered(true)}
+              onMouseLeave={() => setIsLearningHovered(false)}
+              style={{
+                boxShadow: isLearningHovered 
+                  ? '0 25px 35px -12px rgba(0, 0, 0, 0.2)'
+                  : '0 4px 6px -1px rgba(0, 0, 0, 0.1)',
+                transform: isLearningHovered ? 'translateY(-8px)' : 'translateY(0)',
+                transition: 'all 0.5s cubic-bezier(0.4, 0, 0.2, 1)',
+              }}
+            >
+              <div className="relative z-10">
+                <div className="bg-emerald-600 text-white px-6 py-2 rounded-lg inline-block mb-4">
+                  <h3 className="text-3xl font-bold">
+                    {t('learning.education.title')}
+                  </h3>
+                </div>
+                <p className="text-gray-600 text-lg mb-8">
+                  {t('learning.education.description')}
+                </p>
               </div>
-              <p className="text-gray-600 text-lg mb-8">
-                {t('learning.education.description')}
-              </p>
-            </div>
 
-            {/* Education Animation */}
-            <div className="h-64 relative">
-              <motion.div
-                className="absolute inset-0 flex items-center justify-center"
-                animate={{
-                  scale: isLearningHovered ? 1.05 : 1
-                }}
-                transition={{ duration: 0.5 }}
-              >
-                {/* Dynamic Book Animation */}
-                <div className="relative">
-                  {/* Background Circle */}
-                  <motion.div
-                    className="absolute -inset-8 rounded-full bg-gradient-to-r from-emerald-600 to-teal-500"
-                    animate={{
-                      rotate: 360,
-                      scale: [1, 1.1, 1],
-                    }}
-                    transition={{
-                      rotate: {
-                        duration: 10,
-                        repeat: Infinity,
-                        ease: "linear"
-                      },
-                      scale: {
-                        duration: 2,
-                        repeat: Infinity,
-                        ease: "easeInOut"
-                      }
-                    }}
-                  />
-
-                  {/* Main Book Container */}
-                  <motion.div
-                    className="relative w-32 h-40 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-xl flex items-center justify-center perspective-1000"
-                    animate={{
-                      rotateY: [0, 180, 360],
-                    }}
-                    transition={{
-                      duration: 6,
-                      repeat: Infinity,
-                      ease: "easeInOut"
-                    }}
-                    style={{
-                      transformStyle: "preserve-3d",
-                    }}
-                  >
-                    {/* Front Cover */}
+              {/* Education Animation */}
+              <div className="h-64 relative">
+                <motion.div
+                  className="absolute inset-0 flex items-center justify-center"
+                  animate={{
+                    scale: isLearningHovered ? 1.05 : 1
+                  }}
+                  transition={{ duration: 0.5 }}
+                >
+                  {/* Dynamic Book Animation */}
+                  <div className="relative">
+                    {/* Background Circle */}
                     <motion.div
-                      className="absolute inset-0 rounded-xl bg-gradient-to-br from-emerald-400 to-teal-500 shadow-lg"
+                      className="absolute -inset-8 rounded-full bg-gradient-to-r from-emerald-600 to-teal-500"
                       animate={{
-                        scale: [1, 1.05, 1],
+                        rotate: 360,
+                        scale: [1, 1.1, 1],
                       }}
                       transition={{
-                        duration: 2,
-                        repeat: Infinity,
-                        ease: "easeInOut"
+                        rotate: {
+                          duration: 10,
+                          repeat: Infinity,
+                          ease: "linear"
+                        },
+                        scale: {
+                          duration: 2,
+                          repeat: Infinity,
+                          ease: "easeInOut"
+                        }
                       }}
-                    >
-                      {/* Decorative Lines */}
-                      <div className="absolute inset-0 p-4 flex flex-col justify-between">
-                        <div className="space-y-2">
-                          <div className="h-1 w-3/4 bg-white/20 rounded" />
-                          <div className="h-1 w-1/2 bg-white/20 rounded" />
-                        </div>
-                        <div className="space-y-2">
-                          <div className="h-1 w-2/3 bg-white/20 rounded" />
-                          <div className="h-1 w-1/2 bg-white/20 rounded" />
-                        </div>
-                      </div>
-                    </motion.div>
+                    />
 
-                    {/* Book Icon */}
-                    <motion.svg 
-                      className="relative w-16 h-16 text-white z-10" 
-                      fill="none" 
-                      stroke="currentColor" 
-                      viewBox="0 0 24 24"
+                    {/* Main Book Container */}
+                    <motion.div
+                      className="relative w-32 h-40 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-xl flex items-center justify-center perspective-1000"
                       animate={{
-                        scale: [1, 1.2, 1],
-                        rotateY: [0, -180, -360],
+                        rotateY: [0, 180, 360],
                       }}
                       transition={{
                         duration: 6,
                         repeat: Infinity,
                         ease: "easeInOut"
                       }}
+                      style={{
+                        transformStyle: "preserve-3d",
+                      }}
                     >
-                      <path 
-                        strokeLinecap="round" 
-                        strokeLinejoin="round" 
-                        strokeWidth={1.5} 
-                        d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
-                      />
-                    </motion.svg>
-
-                    {/* Glowing Particles */}
-                    {[...Array(5)].map((_, i) => (
+                      {/* Front Cover */}
                       <motion.div
-                        key={i}
-                        className="absolute w-2 h-2 bg-white rounded-full"
+                        className="absolute inset-0 rounded-xl bg-gradient-to-br from-emerald-400 to-teal-500 shadow-lg"
                         animate={{
-                          x: [0, Math.random() * 100 - 50],
-                          y: [0, Math.random() * 100 - 50],
-                          opacity: [0, 1, 0],
-                          scale: [0, 1.5, 0],
+                          scale: [1, 1.05, 1],
                         }}
                         transition={{
                           duration: 2,
                           repeat: Infinity,
-                          delay: i * 0.4,
-                          ease: "easeInOut",
+                          ease: "easeInOut"
                         }}
-                      />
-                    ))}
-                  </motion.div>
-                </div>
-              </motion.div>
-            </div>
+                      >
+                        {/* Decorative Lines */}
+                        <div className="absolute inset-0 p-4 flex flex-col justify-between">
+                          <div className="space-y-2">
+                            <div className="h-1 w-3/4 bg-white/20 rounded" />
+                            <div className="h-1 w-1/2 bg-white/20 rounded" />
+                          </div>
+                          <div className="space-y-2">
+                            <div className="h-1 w-2/3 bg-white/20 rounded" />
+                            <div className="h-1 w-1/2 bg-white/20 rounded" />
+                          </div>
+                        </div>
+                      </motion.div>
 
-            {/* Keywords */}
-            <div className="flex flex-wrap gap-2 justify-center mt-4">
-              <motion.span 
-                className="px-3 py-1 bg-emerald-100 text-emerald-700 rounded-full text-sm font-medium"
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.1 }}
-              >
-                {t('learning.education.keyword1')}
-              </motion.span>
-              <motion.span 
-                className="px-3 py-1 bg-emerald-100 text-emerald-700 rounded-full text-sm font-medium"
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2 }}
-              >
-                {t('learning.education.keyword2')}
-              </motion.span>
-              <motion.span 
-                className="px-3 py-1 bg-emerald-100 text-emerald-700 rounded-full text-sm font-medium"
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3 }}
-              >
-                {t('learning.education.keyword3')}
-              </motion.span>
-            </div>
+                      {/* Book Icon */}
+                      <motion.svg 
+                        className="relative w-16 h-16 text-white z-10" 
+                        fill="none" 
+                        stroke="currentColor" 
+                        viewBox="0 0 24 24"
+                        animate={{
+                          scale: [1, 1.2, 1],
+                          rotateY: [0, -180, -360],
+                        }}
+                        transition={{
+                          duration: 6,
+                          repeat: Infinity,
+                          ease: "easeInOut"
+                        }}
+                      >
+                        <path 
+                          strokeLinecap="round" 
+                          strokeLinejoin="round" 
+                          strokeWidth={1.5} 
+                          d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
+                        />
+                      </motion.svg>
 
-            {/* Decorative Elements */}
-            <div className="absolute top-0 right-0 -mt-4 -mr-4 w-24 h-24 bg-emerald-200 rounded-full opacity-20" />
-            <div className="absolute bottom-0 left-0 -mb-8 -ml-8 w-32 h-32 bg-teal-200 rounded-full opacity-20" />
-          </motion.div>
+                      {/* Glowing Particles */}
+                      {[...Array(5)].map((_, i) => (
+                        <motion.div
+                          key={i}
+                          className="absolute w-2 h-2 bg-white rounded-full"
+                          animate={{
+                            x: [0, Math.random() * 100 - 50],
+                            y: [0, Math.random() * 100 - 50],
+                            opacity: [0, 1, 0],
+                            scale: [0, 1.5, 0],
+                          }}
+                          transition={{
+                            duration: 2,
+                            repeat: Infinity,
+                            delay: i * 0.4,
+                            ease: "easeInOut",
+                          }}
+                        />
+                      ))}
+                    </motion.div>
+                  </div>
+                </motion.div>
+              </div>
+
+              {/* Keywords */}
+              <div className="flex flex-wrap gap-2 justify-center mt-4">
+                <motion.span 
+                  className="px-3 py-1 bg-emerald-100 text-emerald-700 rounded-full text-sm font-medium"
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.1 }}
+                >
+                  {t('learning.education.keyword1')}
+                </motion.span>
+                <motion.span 
+                  className="px-3 py-1 bg-emerald-100 text-emerald-700 rounded-full text-sm font-medium"
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.2 }}
+                >
+                  {t('learning.education.keyword2')}
+                </motion.span>
+                <motion.span 
+                  className="px-3 py-1 bg-emerald-100 text-emerald-700 rounded-full text-sm font-medium"
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.3 }}
+                >
+                  {t('learning.education.keyword3')}
+                </motion.span>
+              </div>
+
+              {/* Decorative Elements */}
+              <div className="absolute top-0 right-0 -mt-4 -mr-4 w-24 h-24 bg-emerald-200 rounded-full opacity-20" />
+              <div className="absolute bottom-0 left-0 -mb-8 -ml-8 w-32 h-32 bg-teal-200 rounded-full opacity-20" />
+            </motion.div>
+          </Link>
 
           {/* Community Card */}
           <motion.div

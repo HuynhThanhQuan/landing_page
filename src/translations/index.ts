@@ -196,7 +196,40 @@ export const translations = {
         privacy: 'Privacy Policy',
         terms: 'Terms of Service'
       }
-    }
+    },
+    education: {
+      title: 'Education Programs',
+      subtitle: 'Empowering the next generation of AI & Data Science professionals through comprehensive education and training',
+      features: {
+        title: 'Our Programs',
+        items: [
+          {
+            title: 'Comprehensive Curriculum',
+            description: 'Industry-aligned courses covering fundamental to advanced topics in AI & Data Science'
+          },
+          {
+            title: 'Expert Instructors',
+            description: 'Learn from experienced professionals and industry experts'
+          },
+          {
+            title: 'Hands-on Projects',
+            description: 'Apply your knowledge through real-world projects and case studies'
+          }
+        ]
+      },
+      contact: {
+        title: 'Get Started',
+        form: {
+          name: 'Full Name',
+          namePlaceholder: 'Enter your full name',
+          email: 'Email Address',
+          emailPlaceholder: 'Enter your email address',
+          message: 'Message',
+          messagePlaceholder: 'Tell us about your learning goals',
+          submit: 'Send Message'
+        }
+      }
+    },
   },
   vi: {
     nav: {
@@ -395,6 +428,39 @@ export const translations = {
         privacy: 'Chính sách bảo mật',
         terms: 'Điều khoản dịch vụ'
       }
-    }
+    },
+    education: {
+      title: 'Education Programs',
+      subtitle: 'Empowering the next generation of AI & Data Science professionals through comprehensive education and training',
+      features: {
+        title: 'Our Programs',
+        items: [
+          {
+            title: 'Comprehensive Curriculum',
+            description: 'Industry-aligned courses covering fundamental to advanced topics in AI & Data Science'
+          },
+          {
+            title: 'Expert Instructors',
+            description: 'Learn from experienced professionals and industry experts'
+          },
+          {
+            title: 'Hands-on Projects',
+            description: 'Apply your knowledge through real-world projects and case studies'
+          }
+        ]
+      },
+      contact: {
+        title: 'Get Started',
+        form: {
+          name: 'Full Name',
+          namePlaceholder: 'Enter your full name',
+          email: 'Email Address',
+          emailPlaceholder: 'Enter your email address',
+          message: 'Message',
+          messagePlaceholder: 'Tell us about your learning goals',
+          submit: 'Send Message'
+        }
+      }
+    },
   }
 }; 
