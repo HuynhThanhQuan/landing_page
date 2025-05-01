@@ -3,7 +3,6 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
 import { RiCloseLine } from 'react-icons/ri';
-import clsx from 'clsx';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 export const NotificationBanner = () => {
