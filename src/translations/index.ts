@@ -10,12 +10,16 @@ export const translations = {
     },
     notification: {
       emoji: '🎉',
-      message: 'We\'re seeking collaborate  to build the future of AI together',
+      message: 'We\'re seeking to collaborate to build the future of AI together',
       cta: 'Get in touch'
     },
     hero: {
       title: 'Empowering Data Science Education',
       description: 'Join our vibrant community of data enthusiasts and embark on a transformative learning journey.',
+      heading: {
+        line1: 'Learn Together',
+        line2: 'Grow Together',
+      },
       stats: {
         members: 'Active Members',
         hours: 'Learning Hours',
@@ -269,6 +273,10 @@ export const translations = {
     hero: {
       title: 'Nâng tầm Giáo dục Khoa học Dữ liệu',
       description: 'Tham gia cộng đồng năng động của những người đam mê dữ liệu và bắt đầu hành trình học tập đột phá',
+      heading: {
+        line1: 'Học Cùng Nhau',
+        line2: 'Phát Triển Cùng Nhau',
+      },
       stats: {
         members: 'Thành viên tích cực',
         hours: 'Giờ học tập',

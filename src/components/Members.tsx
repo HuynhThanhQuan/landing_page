@@ -12,17 +12,17 @@ type Company = {
 
 const PLACEHOLDER_COMPANIES: Company[] = [
   { name: 'Techcombank', iconUrl: 'https://upload.wikimedia.org/wikipedia/commons/7/7c/Techcombank_logo.png' },
-  { name: 'Company 2', iconUrl: 'https://hrchannels.com/Upload/avatar/20210607/183053882_2x4-OneMount-Wordmark-RGB-Black.png' },
-  { name: 'Company 3', iconUrl: 'https://svglogos.net/wp-content/uploads/katalon.svg' },
-  { name: 'Company 4', iconUrl: 'https://th.bing.com/th/id/R.ffde201fa563b1d6631cd306773de16a?rik=aVUkNGSn109tGw&riu=http%3a%2f%2fdesignday.msu.edu%2fwp-content%2fuploads%2f2016%2f09%2fBosch-Logo1.png&ehk=ooxhGhTsN4DGTZqTLFV56%2fwQDVVxQNkg3HEGy4t%2fC4s%3d&risl=&pid=ImgRaw&r=0' },
-  { name: 'Company 5', iconUrl: 'https://cdn.haitrieu.com/wp-content/uploads/2022/05/Logo-Grab-1024x404.png' },
-  { name: 'Company 5', iconUrl: 'https://www.correlation-one.com/hubfs/Client%20Logos/WorldQuant%2c%20dark.png' },
-  { name: 'Company 5', iconUrl: 'https://solutions.viettel.vn/storage/logo-text.png' },
-  { name: 'Company 5', iconUrl: 'https://vectorseek.com/wp-content/uploads/2023/09/Vietcombank-Logo-Vector.svg-.png' },
-  { name: 'Company 5', iconUrl: 'https://svtech.com.vn/wp-content/uploads/2020/10/ACB_Logo-1-1.png' },
-  { name: 'Company 5', iconUrl: 'https://i1.wp.com/logos-world.net/wp-content/uploads/2021/02/JP-Morgan-Chase-Emblem.png' },
-  { name: 'Company 5', iconUrl: 'https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png' },
-  { name: 'Company 5', iconUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/IBM_logo.svg/1200px-IBM_logo.svg.png' },
+  { name: 'OneMount', iconUrl: 'https://hrchannels.com/Upload/avatar/20210607/183053882_2x4-OneMount-Wordmark-RGB-Black.png' },
+  { name: 'Katalon', iconUrl: 'https://svglogos.net/wp-content/uploads/katalon.svg' },
+  { name: 'Bosch', iconUrl: 'https://th.bing.com/th/id/R.ffde201fa563b1d6631cd306773de16a?rik=aVUkNGSn109tGw&riu=http%3a%2f%2fdesignday.msu.edu%2fwp-content%2fuploads%2f2016%2f09%2fBosch-Logo1.png&ehk=ooxhGhTsN4DGTZqTLFV56%2fwQDVVxQNkg3HEGy4t%2fC4s%3d&risl=&pid=ImgRaw&r=0' },
+  { name: 'Grab', iconUrl: 'https://cdn.haitrieu.com/wp-content/uploads/2022/05/Logo-Grab-1024x404.png' },
+  { name: 'WorldQuant', iconUrl: 'https://www.correlation-one.com/hubfs/Client%20Logos/WorldQuant%2c%20dark.png' },
+  { name: 'Viettel', iconUrl: 'https://solutions.viettel.vn/storage/logo-text.png' },
+  { name: 'Vietcombank', iconUrl: 'https://vectorseek.com/wp-content/uploads/2023/09/Vietcombank-Logo-Vector.svg-.png' },
+  { name: 'ACB', iconUrl: 'https://svtech.com.vn/wp-content/uploads/2020/10/ACB_Logo-1-1.png' },
+  { name: 'JPMorgan Chase', iconUrl: 'https://i1.wp.com/logos-world.net/wp-content/uploads/2021/02/JP-Morgan-Chase-Emblem.png' },
+  { name: 'Google', iconUrl: 'https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png' },
+  { name: 'IBM', iconUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/IBM_logo.svg/1200px-IBM_logo.svg.png' },
 ];
 
 export const Members = () => {

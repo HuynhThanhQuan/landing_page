@@ -80,7 +80,7 @@ export const Hero = () => {
                       transition: { duration: 0.2 }
                     }}
                   >
-                    Learn Together
+                    {t('hero.heading.line1')}
                   </motion.span>
                 </motion.span>
 
@@ -100,7 +100,7 @@ export const Hero = () => {
                       transition: { duration: 0.2 }
                     }}
                   >
-                    Grow Together
+                    {t('hero.heading.line2')}
                   </motion.span>
                 </motion.span>
               </motion.h1>
