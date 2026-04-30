@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
+import Link from 'next/link';
 import { RiMenu3Line, RiCloseLine } from 'react-icons/ri';
 import { useLanguage } from '@/contexts/LanguageContext';
 
@@ -180,13 +181,23 @@ export const Header = () => {
                       }
                     }}
                     className="absolute bottom-[-5px] left-0 h-[2px] w-0"
-                    style={{ 
+                    style={{
                       background: 'var(--gradient-secondary)',
                       transition: 'width 0.3s ease'
                     }}
                   />
                 </motion.a>
               ))}
+              <Link
+                href="/tutorial"
+                className={`relative inline-flex items-center gap-1.5 rounded-full px-4 py-1.5 font-[var(--font-heading)] font-semibold text-white transition-all ${
+                  isPastHero ? 'text-xs' : 'text-sm'
+                }`}
+                style={{ background: 'var(--gradient-primary)', boxShadow: 'var(--shadow-secondary)' }}
+              >
+                Tutorials
+                <span aria-hidden>↗</span>
+              </Link>
             </nav>
 
             {/* Language Switcher - Only show before hero section */}
