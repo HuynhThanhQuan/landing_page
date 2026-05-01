@@ -1,508 +1,573 @@
 export const translations = {
   en: {
     nav: {
-      home: 'Home',
-      learning: 'Learning',
-      feedback: 'Feedback',
-      ecosystem: 'Ecosystem',
-      about: 'About',
-      contact: 'Contact',
+      home: "Home",
+      who: "Who",
+      courses: "Courses",
+      community: "Community",
+      services: "Services",
+      faq: "FAQ",
+      contact: "Contact",
+      cta: "Get in touch",
     },
-    notification: {
-      emoji: '🎉',
-      message: 'We\'re seeking collaborate  to build the future of AI together',
-      cta: 'Get in touch'
-    },
+
     hero: {
-      title: 'Empowering Data Science Education',
-      description: 'Join our vibrant community of data enthusiasts and embark on a transformative learning journey.',
+      tagline: "EDUCATION × COMMUNITY × AI",
+      line1: "Learn",
+      line2: "Data & AI",
+      line3: "with people who stay",
+      line4: "curious.",
+      description:
+        "Curious Machine is an education and community platform for anyone serious about Data Science and AI. Join 1,500+ learners, builders, and practitioners on the path from first notebook to production system.",
+      cta: { primary: "Explore courses", secondary: "Join the community" },
+      trust: "Trusted by learners from Techcombank, CBBank, MoMo, Viettel Digital",
       stats: {
-        members: 'Active Members',
-        hours: 'Learning Hours',
-        recommendation: 'Satisfaction',
+        members: "Active members",
+        hours: "Learning hours",
+        satisfaction: "Satisfaction",
+        courses: "Live courses",
       },
-      cta: {
-        primary: 'Get Started',
-        secondary: 'Learn More'
-      }
     },
-    learning: {
-      title: 'Learning Journey',
-      subtitle: 'Personalized your learning paths to data science mastery',
-      education: {
-        title: 'Education',
-        description: 'We provide comprehensive education and expert guidance on Data Science and AI in Fintech industry.',
-        keyword1: 'Data Science',
-        keyword2: 'AI Technology',
-        keyword3: 'Fintech Industry'
+
+    who: {
+      eyebrow: "WHO ARE WE",
+      title: { 1: "Builders teaching", 2: "what they ship." },
+      body: "We are practitioners first, educators second. Every course, tutorial, and case study comes from work shipped in production at fintechs, banks, and digital-native companies — not slides recycled from MOOCs. We teach what we use on Monday morning.",
+      mission: {
+        headline:
+          "Our mission: make Data Science and AI education feel less like academia and more like a craft.",
+        body: "We believe knowledge compounds in community. So we build a place where curious people from every background — analysts, engineers, designers, students — can grow together: clear lessons, real projects, honest feedback, and the kind of professional network that opens doors.",
       },
-      community: {
-        title: 'Community',
-        description: 'Connect and collaborate with creative minds in our dynamic community space.',
-        keyword1: 'Peer Learning',
-        keyword2: 'Collaboration',
-        keyword3: 'Networking'
-      }
+      "why.1": {
+        title: "Practitioner-led",
+        body: "Every instructor is currently shipping. No retired lecturers, no theory-only.",
+      },
+      "why.2": {
+        title: "Project-first",
+        body: "You leave each course with a portfolio piece you'd be proud to show in an interview.",
+      },
+      "why.3": {
+        title: "Community-powered",
+        body: "Discord, study groups, weekly events, and mentor office hours — included with every course.",
+      },
     },
+
+    courses: {
+      eyebrow: "COURSES",
+      title: { 1: "Cohort-based", 2: "deep dives." },
+      subtitle:
+        "Live, instructor-led courses run in 6 to 12-week cohorts. Small groups, real projects, weekly office hours. Every cohort is capped to keep feedback personal.",
+      filter: {
+        all: "All",
+        fintech: "Fintech",
+        ai: "AI / ML",
+        analytics: "Analytics",
+        engineering: "Engineering",
+      },
+      level: {
+        beginner: "BEGINNER",
+        intermediate: "INTERMEDIATE",
+        advanced: "ADVANCED",
+      },
+      enroll: "Enroll",
+      "credit-risk": {
+        title: "Modern Credit Risk Scoring",
+        body: "Build a production-grade credit scoring system end-to-end: data pipeline, feature store, model, governance, deployment.",
+        tag1: "PYTHON",
+        tag2: "XGBOOST",
+        tag3: "GOVERNANCE",
+      },
+      personalization: {
+        title: "Customer Personalization at Scale",
+        body: "Recommendation systems and segmentation that actually move metrics. Hands-on with Two-Tower, contextual bandits, and uplift.",
+        tag1: "TENSORFLOW",
+        tag2: "VECTOR DB",
+        tag3: "AB TESTING",
+      },
+      causal: {
+        title: "Causal Inference for Decisions",
+        body: "From observational data to causal answers. DoWhy, EconML, and how to defend a result in front of a skeptical exec.",
+        tag1: "ECONML",
+        tag2: "EXPERIMENTS",
+        tag3: "DECISIONS",
+      },
+      mlops: {
+        title: "MLOps Foundations",
+        body: "Versioning, CI/CD for ML, monitoring, drift, retraining. Build the system that lets one ML engineer run ten models.",
+        tag1: "DOCKER",
+        tag2: "MLFLOW",
+        tag3: "MONITORING",
+      },
+      foundation: {
+        title: "Data Science Foundations",
+        body: "Python, SQL, statistics, and your first end-to-end project. Designed for total beginners who want a real start.",
+        tag1: "PYTHON",
+        tag2: "SQL",
+        tag3: "PROJECTS",
+      },
+      agentic: {
+        title: "Agentic AI Engineering",
+        body: "LLMs, tools, RAG, evaluation, and shipping agents that don't embarrass you. With the latest 2026 patterns.",
+        tag1: "LLM",
+        tag2: "RAG",
+        tag3: "AGENTS",
+      },
+      cohort: {
+        title: "Next cohort starts every 4 weeks.",
+        body: "Get notified when enrollment opens for your track — no spam, just one email.",
+        cta: "Join the waitlist",
+      },
+    },
+
+    community: {
+      eyebrow: "COMMUNITY × CONTENT",
+      title: { 1: "Where curious people", 2: "meet ship." },
+      subtitle:
+        "Free content, peer-to-peer learning, and a Discord that is actually active. Browse blogs, watch tutorials, study real cases.",
+      viewAll: "View all",
+      discord: {
+        title: "Join the Discord",
+        body: "Daily threads on what we're building, weekly office hours, paper club on Saturdays, mock interviews on demand. Join 1,500+ peers.",
+        cta: "Join Discord",
+      },
+      events: { cta: "See upcoming events" },
+      tutorials: { title: "Free video tutorials." },
+      "tut1.title": "Build a credit scoring model in 45 minutes",
+      "tut2.title": "RAG from scratch with citations",
+      "tut3.title": "Causal inference 101 with DoWhy",
+      "tut4.title": "Production MLOps on a $5 droplet",
+      "blog1.title": "Why 90% of ML projects never reach production — and the 10 that do",
+      "blog2.title": "A reading list for serious data practitioners in 2026",
+      "blog3.title": "Stop teaching scikit-learn first. Here is what to teach instead.",
+      stat: { members: "Members", events: "Events / yr", active: "Active weekly" },
+      case: { impact1: "Conversion lift", impact2: "Default rate cut" },
+      "case1.title": "Personalization for a digital bank",
+      "case1.body":
+        "Replaced a static segmentation with a contextual recommender. +38% click-through, ₫4.2B incremental in 90 days.",
+      "case2.title": "Credit risk for a microfinance lender",
+      "case2.body":
+        "Rebuilt the scoring model and the data pipeline. Default rate down 42% on new originations.",
+    },
+
     feedback: {
-      title: 'Every Story Shapes Our Learning Community',
-      subtitle: 'Transforming diverse backgrounds into data science expertise through personalized learning paths',
-      feedbacks: [
-        {
-          name: 'Ngọc Giao',
-          feedback: 'Em rất thích các video và bài viết của anh, các bài viết đều rất chi tiết và dễ hiểu. Rất phù hợp với các bạn mới bắt đầu học Data',
-          role: 'Student',
-        },
-        {
-          name: 'Đỗ Hoàng Nam',
-          feedback: 'Em vừa biết kết quả phỏng vấn lần 2 cho vị trí DA tại CBBank ạ. Em đã pass rồi anh Quan, em cám ơn anh nhiều lắm ạ. Họ hỏi em toàn Domain Knowledge, em đã được đưa ra 1 số câu hỏi về Domain Knowledge trong banking thôi ạ, rồi là thực trạng lãi suất hiện nay, chứ không hỏi model hay tool. Em ôn hết các khai niệm anh giới thiệu, em còn kể ra cho chị GĐ nghe, xong chị cười anh ạ. Mấy câu về thực trạng, em cứ trả lời bập bõm. Nhưng cuối cùng em vẫn pass. Em cám ơn anh rất nhiều luôn ạ.',
-          role: 'Data Analyst tại CBBank',
-        },
-        {
-          name: 'Hà Văn Huy',
-          feedback: 'Cám ơn, Curious Machine đã mang lại cho những mentor chất lượng. Cám ơn anh Quan đã mang lại những kiến thức bổ ích trong 3 buổi vừa qua. Chúc team và anh dần có thêm những học viên chất lượng trong tương lai',
-          role: 'Student',
-        },
-        {
-          name: 'Nguyễn Hà Trang',
-          feedback: 'Em viết email này để gửi lời cám ơn đến anh về khóa học giá trị mà anh đã thực hiện cũng như kiến thức bổ ích mà em đã học được. Em cũng muôn tìm hiểu thêm những thông tin về các khóa học khác mà anh có tham gia giảng dạy trong tương lai. Em cám ơn anh rất nhiều ạ.',
-          role: 'Student',
-        },
-        {
-          name: 'Ngọc Tiên',
-          feedback: 'Nhờ anh mà em đã qua được kỳ thi rất gắt gao này. Huhu, cám ơn anh nhiều lắm ạ.',
-          role: 'Student',
-        },
-        {
-          name: 'Đạt',
-          feedback: 'The flexible learning paths allowed me to balance my studies with work. The interactive workshops were particularly helpful.',
-          role: 'Business Analyst',
-        },
-        {
-          name: 'Minh Tiến',
-          feedback: 'Em cám ơn anh nhiều nha. Khóa Modern Credit Risk Scoring của anh siêu dễ hiểu luôn, sát thực tế với thị trường. Kiểu anh dạy ko chỉ mỗi mô hình mà còn là các tình huống ngoài đời, giúp em hiểu rõ hơn. Chúc anh luôn giữ được phong độ và có nhiều khóa học chất lượng khác',
-          role: 'Data Scientist',
-        },
-        {
-          name: 'Huỳnh Quang',
-          feedback: 'Anh ơi, cám ơn anh nhìu vì khóa Customer Personalization vừa rồi. a giảng rất là chi tiết và thực tế. Thanks a đã chia sẻ và truyền động lực cho em theo đuổi sự nghiệp này',
-          role: '',
-        },
-      ],
+      eyebrow: "WHAT LEARNERS SAY",
+      title: { 1: "Real outcomes,", 2: "honest words." },
+      fb1: "Em vừa biết kết quả phỏng vấn lần 2 cho vị trí DA tại CBBank. Em đã pass rồi anh Quan, em cám ơn anh nhiều lắm. Họ hỏi em toàn Domain Knowledge.",
+      fb2: "Em cám ơn anh nhiều nha. Khóa Modern Credit Risk Scoring của anh siêu dễ hiểu luôn, sát thực tế với thị trường. Anh dạy không chỉ mỗi mô hình mà còn các tình huống ngoài đời.",
+      fb3: "Cám ơn Curious Machine đã mang lại những mentor chất lượng. Cám ơn anh Quan đã mang lại kiến thức bổ ích trong 3 buổi vừa qua.",
+      fb4: "Anh ơi, cám ơn anh nhiều vì khóa Customer Personalization vừa rồi. Anh giảng rất chi tiết và thực tế. Thanks anh đã chia sẻ và truyền động lực cho em.",
+      fb5: "Em viết email này để gửi lời cám ơn đến anh về khóa học giá trị mà anh đã thực hiện cũng như kiến thức bổ ích mà em đã học được.",
     },
-    ecosystem: {
-      title: 'Our Future Ecosystem',
-      subtitle: 'We are shaping a collaborative space where learning and consulting drive business innovation',
-      learning: {
-        title: 'Learning Ecosystem',
-        description: "We're transforming the way you learn Data and AI, blending deep knowledge with a lively and refreshing learning environment",
-        caption: "We're transforming the way you learn Data and AI. By blending deep, practical knowledge with a lively and inspiring environment, we make complex topics easier to grasp. No more dry, overwhelming lessons just real engagement, real impact. Learn, connect, and grow in a space designed for your curiosity and success.",
-      }, 
-      consultant: {
-        title: 'Consultant Enterprise',
-        description: 'Empowering businesses with data and data science solutions to solve challenges and stay competitive in the digital age.',
-        caption: "In today's digital landscape, mastering data is no longer optional. It's essential for survival and growth. We help businesses tackle data challenges and unlock the power of data science to drive smarter decisions. Our solutions are designed to sharpen your competitive edge and lead you ahead of the curve. Stay ahead, stay data-driven.",
+
+    services: {
+      eyebrow: "PROFESSIONAL SERVICES",
+      title: { 1: "Engagements that", 2: "ship the system." },
+      subtitle:
+        "When training alone is not enough, we step in as your team. Strategy, builds, training, and advisory — small senior team, deep ownership.",
+      learnMore: "Learn more",
+      trusted: "TRUSTED BY",
+      consulting: {
+        title: "Strategy & Consulting",
+        body: "Data and AI strategy that survives contact with the executive team. Roadmaps, capability audits, build-vs-buy.",
+        point1: "Data & AI maturity audit",
+        point2: "Build-vs-buy decisions",
+        point3: "Roadmap & operating model",
       },
-      innovation: {
-        title: 'Innovation Hub',
-        description: 'A vibrant collaborative space for researching, experimenting, and building the next generation of AI solutions',
-        caption: "Our Innovation Hub is where ideas come to life through collaboration and creativity. We bring together researchers, innovators, and engineers to explore and experiment with breakthrough AI technologies. It's a space designed for bold thinking, rapid prototyping, and building real-world solutions. Together, we're shaping the next frontier of AI innovation.",
+      implementation: {
+        title: "Implementation",
+        body: "We build the production system alongside your team — credit risk, recommenders, MLOps platforms.",
+        point1: "End-to-end ML systems",
+        point2: "Data platforms & pipelines",
+        point3: "Production MLOps",
+      },
+      training: {
+        title: "Corporate Training",
+        body: "Bring our cohort courses in-house, customized to your stack and your data. 8 to 16-week programs.",
+        point1: "Customized curriculum",
+        point2: "Onsite or remote",
+        point3: "Capstone on real data",
+      },
+      advisory: {
+        title: "Fractional Advisory",
+        body: "Senior advisors on retainer for your data leadership team. Architecture reviews, hiring, escalation.",
+        point1: "Architecture reviews",
+        point2: "Hiring & calibration",
+        point3: "Monthly office hours",
       },
     },
-    coreValues: {
-      title: 'Our Core Values',
-      subtitle: 'Principles define our community and drive every step of our mission',
-      values: [
-        {
-          title: 'Curiosity-Driven Excellence',
-          description: 'We ignite and nurture an unending spirit of exploration to push boundaries in AI & Data Science, constantly seeking new frontiers of knowledge and innovation.',
-        },
-        {
-          title: 'Impact through Intelligence',
-          description: 'We cultivate professionals who master both technical expertise and business acumen – transforming data into actionable insights that drive real-world value.',
-        },
-        {
-          title: 'Community of Growth',
-          description: 'We foster a sustainable ecosystem of learning, sharing, and development for AI & Data enthusiasts, creating a supportive environment for continuous growth.',
-        },
-        {
-          title: 'Integrity in Consulting & Learning',
-          description: 'We uphold the highest standards of transparency, honesty, and responsibility in both education and business consulting, building trust through ethical practices.',
-        },
-      ],
-    },
+
     faq: {
-      title: 'Frequently Asked Questions',
-      questions: [
-        {
-          question: 'What makes your learning approach unique?',
-          answer: 'We provide a personalized learning path that is tailored to your needs and interests. We also provide a community of support to help you through the learning process.',
-        },
-        {
-          question: 'How do you ensure the quality of education?',
-          answer: 'We have a team of experienced educators who are dedicated to providing high-quality education. We also have a community of support to help you through the learning process.',
-        },
-        {
-          question: 'Can I learn at my own pace?',
-          answer: 'Yes, your learning path is designed for flexible learning. We have recorded videos and articles that you can access anytime and progress at a pace that suits your schedule.',
-        },
-        {
-          question: 'Do you offer job placement support?',
-          answer: 'We provide career guidance, portfolio development support, and connections to industry partners to help you achieve your career goals.',
-        },
-      ],
+      eyebrow: "FAQ",
+      title: { 1: "Everything you might", 2: "want to know." },
+      subtitle:
+        "Most common questions about courses, the community, professional services, and payment. Don't see yours? Ping us in the contact form.",
+      cat: { all: "All", courses: "Courses", community: "Community", services: "Services", payment: "Payment" },
+      help: {
+        label: "STILL UNSURE?",
+        body: "Send us a message. We respond within 24 hours, usually faster.",
+        cta: "Contact us",
+      },
+      "q1.q": "Are courses live or pre-recorded?",
+      "q1.a":
+        "Live cohort-based. Each course runs in a 6 to 12-week cohort with weekly live sessions, office hours, and a Discord channel for the cohort. Recordings are provided after each session for review.",
+      "q2.q": "What level is each course aimed at?",
+      "q2.a":
+        "Each course is tagged BEGINNER, INTERMEDIATE, or ADVANCED. Beginner courses assume nothing. Intermediate courses assume Python + basic SQL. Advanced courses assume you've shipped at least one ML project.",
+      "q3.q": "What language is the course taught in?",
+      "q3.a":
+        "Vietnamese for live sessions, with English course materials, slides, and code. We pick this combination because it makes learning feel natural while keeping you fluent in industry-standard terminology.",
+      "q4.q": "Do I get a certificate?",
+      "q4.a":
+        "Yes. On completion of the capstone project, you receive a verifiable certificate and a project review you can share. The certificate is recognized by hiring managers in our network — but the portfolio project is what actually gets you interviews.",
+      "q5.q": "How active is the Discord community?",
+      "q5.a":
+        "Very. Daily discussion threads, weekly office hours, Saturday paper club, and mock-interview pairing on demand. About 30% of our 1,500+ members are active in any given week.",
+      "q6.q": "Is the community free?",
+      "q6.a":
+        "Yes — the Discord is free to join. Course alumni get access to private alumni-only channels and event invites. Some specialty events (workshops, hackathons) have a small fee to keep them serious.",
+      "q7.q": "How do I get a mentor?",
+      "q7.a":
+        "Every cohort student is paired with a senior mentor for the duration of the course. Mentor matching is based on your goals, current role, and the area you're trying to grow in. Outside of cohorts, the Discord has open mentorship threads.",
+      "q8.q": "What does a typical consulting engagement look like?",
+      "q8.a":
+        "Most engagements run 8 to 16 weeks and have a clear deliverable: a system in production, an audit report with a roadmap, or a trained team that can run without us. We don't do open-ended retainers without a defined outcome.",
+      "q9.q": "Do you take equity / startup-friendly arrangements?",
+      "q9.a":
+        "On a case-by-case basis for early-stage startups in fintech and AI. We need to believe in the team and the problem. Start a conversation in the contact form — we'll be honest about fit.",
+      "q10.q": "How do I pay for a course?",
+      "q10.a":
+        "Bank transfer (VND), MoMo, or international card. Corporate purchase orders accepted. Payment plans (2 or 3 instalments) available for individuals — just ask.",
+      "q11.q": "What's the refund policy?",
+      "q11.a":
+        "Full refund up to 7 days after the cohort starts, no questions. After that, partial refund prorated by remaining sessions. We've never had to argue about a refund — and we don't intend to start.",
+      "q12.q": "Do you offer scholarships?",
+      "q12.a":
+        "Yes. Each cohort holds 2 scholarship seats for students or career-changers with a financial barrier. The application is one paragraph: tell us where you are and where you want to go. We respond within a week.",
     },
+
     contact: {
-      title: 'Contact Us',
-      name: {
-        label: 'Your Name',
-        placeholder: 'Enter your name',
+      eyebrow: "CONTACT",
+      title: { 1: "Tell us what", 2: "you're working on." },
+      subtitle:
+        "Whether you want to enroll, hire us, partner up, or just say hi — we read every message and reply within 24 hours.",
+      channel: { email: "Email", linkedin: "LinkedIn", discord: "Discord", facebook: "Facebook" },
+      topic: { courses: "Courses", community: "Community", services: "Hire us", other: "Other" },
+      form: {
+        topic: "What is this about?",
+        name: "Your name",
+        email: "Email",
+        subject: "Subject",
+        message: "Message",
+        "message.placeholder": "A few sentences about what you'd like to talk about...",
+        submit: "Send message",
+        replyTime: "REPLY WITHIN 24 HOURS",
       },
-      email: {
-        label: 'Email Address',
-        placeholder: 'Enter your email',
-      },
-      message: {
-        label: 'Message',
-        placeholder: 'Enter your message',
-      },
-      submit: 'Send Message',
+      success: { title: "Message received.", body: "We'll be in touch within 24 hours." },
     },
+
     footer: {
-      company: {
-        title: 'Curious Machine',
-        description: "A community to fuel your AI's passion"
-      },
-      education: {
-        title: 'Education Programs',
-        programs: {
-          dataScienceFinance: 'Data Science in Finance',
-          machineLearning: 'Machine Learning Fundamentals',
-          deepLearning: 'Deep Learning Fundamentals'
-        }
-      },
-      contact: {
-        title: 'Contact',
-        email: 'hthquan28@gmail.com',
-        phone: '+84 969 910 254',
-        address: 'Ho Chi Minh City, Vietnam'
+      tagline:
+        "An education and community platform for anyone serious about Data Science and AI. Built by practitioners, for practitioners.",
+      col: { learn: "Learn", connect: "Connect", work: "Work with us" },
+      link: {
+        courses: "Courses",
+        tutorials: "Tutorials",
+        blogs: "Blogs",
+        cases: "Case studies",
+        discord: "Discord",
+        events: "Events",
+        newsletter: "Newsletter",
+        consulting: "Consulting",
+        training: "Corporate training",
+        contact: "Contact",
       },
       newsletter: {
-        title: 'Subscribe to Newsletter',
-        placeholder: 'Enter your email',
-        button: 'Subscribe'
+        label: "MONTHLY DIGEST",
+        title: "One email a month. Worth opening.",
+        placeholder: "you@email.com",
       },
-      copyright: '© {year} Curious Machine. All rights reserved.',
-      legal: {
-        privacy: 'Privacy Policy',
-        terms: 'Terms of Use'
-      }
-    },
-    education: {
-      title: 'Education Programs',
-      subtitle: 'Empowering the next generation of AI & Data Science professionals through comprehensive education and training',
-      courses: [
-        {
-          title: 'Data Science in Finance',
-          description: '• Financial Data Analysis & Visualization\n• Time Series Analysis & Forecasting\n• Risk Management & Portfolio Optimization\n• Machine Learning in Trading\n• Financial Market Prediction\n• Quantitative Trading Strategies',
-        },
-        {
-          title: 'Machine Learning Fundamentals',
-          description: 'Master the core concepts of Data Science and Analytics',
-        },
-        {
-          title: 'Deep Learning Fundamentals',
-          description: 'Advanced techniques in Neural Networks and Deep Learning',
-        },
-      ],
-      features: {
-        title: 'Our Programs',
-        items: [
-          {
-            title: 'Comprehensive Curriculum',
-            description: 'Industry-aligned courses covering fundamental to advanced topics in AI & Data Science',
-          },
-          {
-            title: 'Expert Instructors',
-            description: 'Learn from experienced professionals and industry experts',
-          },
-          {
-            title: 'Hands-on Projects',
-            description: 'Apply your knowledge through real-world projects and case studies',
-          },
-        ],
-      },
-      contact: {
-        title: 'Get Started',
-        form: {
-          name: 'Full Name',
-          namePlaceholder: 'Enter your full name',
-          email: 'Email Address',
-          emailPlaceholder: 'Enter your email address',
-          message: 'Message',
-          messagePlaceholder: 'Tell us about your learning goals',
-          submit: 'Send Message',
-        },
-      },
-    },
-    chat: {
-      title: 'Chat with us',
-      welcome: 'Welcome! How can we help you today?',
-      inputPlaceholder: 'Type your message here...',
-      autoResponse: 'Thank you for reaching out! We have received your message and will get back to you as soon as possible.',
+      rights: "All rights reserved",
+      status: "All systems operational",
     },
   },
+
   vi: {
     nav: {
-      home: 'Trang chủ',
-      learning: 'Học tập',
-      feedback: 'Đánh giá', 
-      ecosystem: 'Hệ sinh thái',
-      about: 'Giới thiệu',
-      contact: 'Liên hệ',
+      home: "Trang chủ",
+      who: "Về chúng tôi",
+      courses: "Khóa học",
+      community: "Cộng đồng",
+      services: "Dịch vụ",
+      faq: "FAQ",
+      contact: "Liên hệ",
+      cta: "Liên hệ",
     },
-    notification: {
-      emoji: '🎉',
-      message: 'Chúng tôi đang tìm kiếm đối tác để cùng xây dựng tương lai của AI',
-      cta: 'Liên hệ ngay'
-    },
+
     hero: {
-      title: 'Nâng tầm Giáo dục Khoa học Dữ liệu',
-      description: 'Tham gia cộng đồng năng động của những người đam mê dữ liệu và bắt đầu hành trình học tập đột phá',
+      tagline: "GIÁO DỤC × CỘNG ĐỒNG × AI",
+      line1: "Học",
+      line2: "Data & AI",
+      line3: "cùng những người luôn",
+      line4: "tò mò.",
+      description:
+        "Curious Machine là nền tảng giáo dục và cộng đồng dành cho những ai nghiêm túc với Data Science và AI. Tham gia cùng hơn 1.500 học viên, builder và practitioner trên hành trình từ notebook đầu tiên đến hệ thống production.",
+      cta: { primary: "Xem khóa học", secondary: "Tham gia cộng đồng" },
+      trust: "Được tin dùng bởi học viên từ Techcombank, CBBank, MoMo, Viettel Digital",
       stats: {
-        members: 'Thành viên tích cực',
-        hours: 'Giờ học tập',
-        recommendation: 'Hài lòng',
+        members: "Thành viên hoạt động",
+        hours: "Giờ học",
+        satisfaction: "Hài lòng",
+        courses: "Khóa học live",
       },
-      cta: {
-        primary: 'Bắt đầu ngay',
-        secondary: 'Tìm hiểu thêm'
-      }
     },
-    learning: {
-      title: 'Hành Trình Học Tập',
-      subtitle: 'Lộ trình cá nhân hóa để thành thạo khoa học dữ liệu',
-      education: {
-        title: 'Giáo Dục',
-        description: 'Chúng tôi cung cấp chương trình giáo dục toàn diện về Khoa học Dữ liệu và AI trong ngành Fintech.',
-        keyword1: 'Data Science',
-        keyword2: 'AI Technology',
-        keyword3: 'Fintech Industry'
+
+    who: {
+      eyebrow: "CHÚNG TÔI LÀ AI",
+      title: { 1: "Người làm thật,", 2: "dạy thật." },
+      body: "Chúng tôi là practitioner trước, giảng viên sau. Mỗi khóa học, tutorial và case study đều đến từ những thứ chúng tôi đã thực sự build trên production tại các fintech, ngân hàng và công ty digital — không phải slide cũ tái sử dụng từ MOOC. Chúng tôi dạy đúng những gì chúng tôi dùng vào thứ Hai sáng.",
+      mission: {
+        headline:
+          "Sứ mệnh: biến giáo dục Data Science & AI thành một nghề thủ công, ít hàn lâm hơn.",
+        body: "Chúng tôi tin kiến thức nhân lên trong cộng đồng. Vì vậy chúng tôi xây một nơi mà người tò mò từ mọi nền tảng — analyst, kỹ sư, designer, sinh viên — có thể cùng phát triển: bài học rõ, dự án thật, feedback thẳng, và mạng lưới professional mở ra cơ hội thật.",
       },
-      community: {
-        title: 'Cộng Đồng',
-        description: 'Kết nối và hợp tác với những bộ óc sáng tạo trong không gian cộng đồng năng động của chúng tôi.',
-        keyword1: 'Peer Learning',
-        keyword2: 'Collaboration',
-        keyword3: 'Networking'
-      }
+      "why.1": {
+        title: "Practitioner dẫn dắt",
+        body: "Mọi giảng viên đang trực tiếp build sản phẩm. Không có giáo sư về hưu, không có lý thuyết suông.",
+      },
+      "why.2": {
+        title: "Dự án thật",
+        body: "Kết thúc mỗi khóa, bạn có một sản phẩm portfolio đủ tốt để mang đi phỏng vấn.",
+      },
+      "why.3": {
+        title: "Sức mạnh cộng đồng",
+        body: "Discord, nhóm học, sự kiện hàng tuần, mentor office hours — đi kèm mọi khóa học.",
+      },
     },
+
+    courses: {
+      eyebrow: "KHÓA HỌC",
+      title: { 1: "Cohort-based,", 2: "đào sâu thật sự." },
+      subtitle:
+        "Khóa học live, có giảng viên, theo cohort 6-12 tuần. Nhóm nhỏ, dự án thật, office hours hàng tuần. Mỗi cohort được giới hạn để feedback luôn cá nhân hóa.",
+      filter: {
+        all: "Tất cả",
+        fintech: "Fintech",
+        ai: "AI / ML",
+        analytics: "Phân tích",
+        engineering: "Kỹ thuật",
+      },
+      level: {
+        beginner: "CƠ BẢN",
+        intermediate: "TRUNG CẤP",
+        advanced: "NÂNG CAO",
+      },
+      enroll: "Đăng ký",
+      "credit-risk": {
+        title: "Modern Credit Risk Scoring",
+        body: "Xây hệ thống credit scoring production hoàn chỉnh: data pipeline, feature store, model, governance, deployment.",
+        tag1: "PYTHON", tag2: "XGBOOST", tag3: "GOVERNANCE",
+      },
+      personalization: {
+        title: "Customer Personalization at Scale",
+        body: "Recommendation system và segmentation thật sự đẩy được KPI. Hands-on với Two-Tower, contextual bandits, uplift.",
+        tag1: "TENSORFLOW", tag2: "VECTOR DB", tag3: "AB TESTING",
+      },
+      causal: {
+        title: "Causal Inference for Decisions",
+        body: "Từ dữ liệu quan sát đến câu trả lời nhân quả. DoWhy, EconML, và cách bảo vệ kết quả trước CEO khó tính.",
+        tag1: "ECONML", tag2: "EXPERIMENTS", tag3: "DECISIONS",
+      },
+      mlops: {
+        title: "MLOps Foundations",
+        body: "Versioning, CI/CD cho ML, monitoring, drift, retraining. Build hệ thống cho phép 1 ML engineer vận hành 10 model.",
+        tag1: "DOCKER", tag2: "MLFLOW", tag3: "MONITORING",
+      },
+      foundation: {
+        title: "Data Science Foundations",
+        body: "Python, SQL, thống kê, và dự án end-to-end đầu tiên. Dành cho người mới hoàn toàn muốn có khởi đầu nghiêm túc.",
+        tag1: "PYTHON", tag2: "SQL", tag3: "PROJECTS",
+      },
+      agentic: {
+        title: "Agentic AI Engineering",
+        body: "LLM, tools, RAG, evaluation, và cách deploy agent không gây xấu hổ. Cập nhật pattern mới nhất 2026.",
+        tag1: "LLM", tag2: "RAG", tag3: "AGENTS",
+      },
+      cohort: {
+        title: "Cohort tiếp theo mở mỗi 4 tuần.",
+        body: "Để lại email để được thông báo khi cohort track của bạn mở — không spam, chỉ một email duy nhất.",
+        cta: "Tham gia waitlist",
+      },
+    },
+
+    community: {
+      eyebrow: "CỘNG ĐỒNG × NỘI DUNG",
+      title: { 1: "Nơi người tò mò", 2: "gặp người làm thật." },
+      subtitle:
+        "Nội dung free, học peer-to-peer, và Discord thực sự active. Đọc blog, xem tutorial, học case thật.",
+      viewAll: "Xem tất cả",
+      discord: {
+        title: "Tham gia Discord",
+        body: "Thread hàng ngày về thứ chúng tôi đang build, office hours hàng tuần, paper club thứ Bảy, mock interview theo yêu cầu. 1.500+ thành viên đang đợi bạn.",
+        cta: "Vào Discord",
+      },
+      events: { cta: "Xem sự kiện sắp tới" },
+      tutorials: { title: "Video tutorial miễn phí." },
+      "tut1.title": "Build credit scoring model trong 45 phút",
+      "tut2.title": "RAG từ con số 0 với citation",
+      "tut3.title": "Causal inference 101 với DoWhy",
+      "tut4.title": "MLOps production trên VPS $5",
+      "blog1.title": "Vì sao 90% project ML không bao giờ lên prod — và 10% còn lại làm gì khác",
+      "blog2.title": "Reading list cho data practitioner nghiêm túc năm 2026",
+      "blog3.title": "Đừng dạy scikit-learn trước. Đây là thứ nên dạy trước.",
+      stat: { members: "Thành viên", events: "Sự kiện / năm", active: "Active hàng tuần" },
+      case: { impact1: "Tăng conversion", impact2: "Giảm tỷ lệ default" },
+      "case1.title": "Personalization cho ngân hàng số",
+      "case1.body":
+        "Thay segmentation tĩnh bằng contextual recommender. +38% click-through, ₫4.2 tỷ doanh thu tăng thêm trong 90 ngày.",
+      "case2.title": "Credit risk cho công ty microfinance",
+      "case2.body":
+        "Build lại model scoring và data pipeline. Tỷ lệ default giảm 42% trên các khoản vay mới.",
+    },
+
     feedback: {
-      title: 'Mỗi câu chuyện góp phần xây dựng cộng đồng học tập của chúng tôi',
-      subtitle: 'Chuyển đổi từ nhiều nền tảng khác nhau thành chuyên gia khoa học dữ liệu thông qua lộ trình học tập cá nhân hóa',
-      feedbacks: [
-        {
-          name: 'Ngọc Giao',
-          feedback: 'Em rất thích các video và bài viết của anh, các bài viết đều rất chi tiết và dễ hiểu. Rất phù hợp với các bạn mới bắt đầu học Data',
-          role: 'Học viên',
-        },
-        {
-          name: 'Đỗ Hoàng Nam',
-          feedback: 'Em vừa biết kết quả phỏng vấn lần 2 cho vị trí DA tại CBBank ạ. Em đã pass rồi anh Quan, em cám ơn anh nhiều lắm ạ. Họ hỏi em toàn Domain Knowledge, em đã được đưa ra một số câu hỏi về Domain Knowledge trong banking thôi ạ, rồi là thực trạng lãi suất hiện nay, chứ không hỏi model hay tool. Em ôn hết các khái niệm anh giới thiệu, em còn kể ra cho chị GĐ nghe, xong chị cười anh ạ. Mấy câu về thực trạng, em cứ trả lời bập bõm. Nhưng cuối cùng em vẫn pass. Em cám ơn anh rất nhiều luôn ạ.',
-          role: 'Data Analyst tại CBBank',
-        },
-        {
-          name: 'Hà Văn Huy',
-          feedback: 'Cám ơn, Curious Machine đã mang lại cho những mentor chất lượng. Cám ơn anh Quan đã mang lại những kiến thức bổ ích trong 3 buổi vừa qua. Chúc team và anh dần có thêm những học viên chất lượng trong tương lai',
-          role: 'Học viên',
-        },
-        {
-          name: 'Nguyễn Hà Trang',
-          feedback: 'Em viết email này để gửi lời cám ơn đến anh về khóa học giá trị mà anh đã thực hiện cũng như kiến thức bổ ích mà em đã học được. Em cũng muốn tìm hiểu thêm những thông tin về các khóa học khác mà anh có tham gia giảng dạy trong tương lai. Em cám ơn anh rất nhiều ạ.',
-          role: 'Học viên',
-        },
-        {
-          name: 'Ngọc Tiên',
-          feedback: 'Nhờ anh mà em đã qua được kỳ thi rất gắt gao này. Huhu, cám ơn anh nhiều lắm ạ.',
-          role: 'Học viên',
-        },
-        {
-          name: 'Đạt',
-          feedback: 'Lộ trình học tập linh hoạt cho phép tôi cân bằng giữa việc học và làm. Các buổi workshop tương tác đặc biệt hữu ích.',
-          role: 'Business Analyst',
-        },
-        {
-          name: 'Minh Tiến',
-          feedback: 'Em cám ơn anh nhiều nhé. Khóa Modern Credit Risk Scoring của anh siêu dễ hiểu luôn, sát thực tế với thị trường. Kiểu anh dạy không chỉ mỗi mô hình mà còn là các tình huống ngoài đời, giúp em hiểu rõ hơn. Chúc anh luôn giữ được phong độ và có nhiều khóa học chất lượng khác',
-          role: 'Data Scientist',
-        },
-        {
-          name: 'Huỳnh Quang',
-          feedback: 'Anh ơi, cám ơn anh nhiều vì khóa Customer Personalization vừa rồi. Anh giảng rất là chi tiết và thực tế. Thanks anh đã chia sẻ và truyền động lực cho em theo đuổi sự nghiệp này',
-          role: 'Học viên',
-        },
-      ],
+      eyebrow: "HỌC VIÊN NÓI GÌ",
+      title: { 1: "Kết quả thật,", 2: "lời nói thật." },
+      fb1: "Em vừa biết kết quả phỏng vấn lần 2 cho vị trí DA tại CBBank. Em đã pass rồi anh Quan, em cám ơn anh nhiều lắm. Họ hỏi em toàn Domain Knowledge.",
+      fb2: "Em cám ơn anh nhiều nha. Khóa Modern Credit Risk Scoring của anh siêu dễ hiểu luôn, sát thực tế với thị trường.",
+      fb3: "Cám ơn Curious Machine đã mang lại những mentor chất lượng. Cám ơn anh Quan đã mang lại kiến thức bổ ích trong 3 buổi vừa qua.",
+      fb4: "Anh ơi, cám ơn anh nhiều vì khóa Customer Personalization vừa rồi. Anh giảng rất chi tiết và thực tế.",
+      fb5: "Em viết email này để gửi lời cám ơn đến anh về khóa học giá trị mà anh đã thực hiện cũng như kiến thức bổ ích mà em đã học được.",
     },
-    ecosystem: {
-      title: 'Hệ Sinh Thái Tương Lai',
-      subtitle: 'Chúng tôi đang xây dựng không gian hợp tác nơi học tập và tư vấn thúc đẩy đổi mới kinh doanh cho các doanh nghiệp lớn',
-      learning: {
-        title: 'Hệ Sinh Thái Học Tập',
-        description: "Chúng tôi đang thay đổi cách bạn học Data và AI, kết hợp kiến thức chuyên sâu với môi trường học tập sinh động và tươi mới",
-        caption: "Chúng tôi đang thay đổi cách bạn học Data và AI. Bằng cách kết hợp kiến thức thực tế chuyên sâu với môi trường học tập sinh động và truyền cảm hứng, chúng tôi giúp các chủ đề phức tạp trở nên dễ hiểu hơn. Không còn những bài học khô khan và quá tải, chỉ có sự tương tác thực tế và tác động thực tế",
-      }, 
-      consultant: {
-        title: 'Tư Vấn Doanh Nghiệp',
-        description: 'Trao quyền cho doanh nghiệp với các giải pháp dữ liệu và khoa học dữ liệu để giải quyết thách thức và duy trì tính cạnh tranh trong kỷ nguyên số.',
-        caption: "Trong bối cảnh số ngày nay, làm chủ dữ liệu không còn là tùy chọn. Đó là điều cần thiết cho sự tồn tại và phát triển. Chúng tôi giúp doanh nghiệp giải quyết các thách thức về dữ liệu và khai thác sức mạnh của khoa học dữ liệu để đưa ra quyết định thông minh hơn.",
+
+    services: {
+      eyebrow: "DỊCH VỤ CHUYÊN NGHIỆP",
+      title: { 1: "Engagement", 2: "đưa hệ thống lên prod." },
+      subtitle:
+        "Khi đào tạo là chưa đủ, chúng tôi vào cùng team bạn. Chiến lược, build, training, advisory — team senior nhỏ, ownership sâu.",
+      learnMore: "Tìm hiểu",
+      trusted: "ĐƯỢC TIN DÙNG BỞI",
+      consulting: {
+        title: "Chiến lược & Tư vấn",
+        body: "Chiến lược Data và AI sống sót khi gặp ban điều hành. Roadmap, capability audit, build-vs-buy.",
+        point1: "Audit độ trưởng thành Data & AI",
+        point2: "Quyết định build-vs-buy",
+        point3: "Roadmap & operating model",
       },
-      innovation: {
-        title: 'Trung Tâm Đổi Mới',
-        description: 'Không gian hợp tác sôi động để nghiên cứu, thử nghiệm và xây dựng thế hệ tiếp theo của các giải pháp AI',
-        caption: "Trung Tâm Đổi Mới của chúng tôi là nơi ý tưởng được hiện thực hóa thông qua sự hợp tác và sáng tạo. Đây là không gian được thiết kế cho tư duy táo bạo, tạo mẫu nhanh và xây dựng các giải pháp thực tế.",
+      implementation: {
+        title: "Triển khai",
+        body: "Chúng tôi build hệ thống production cùng team bạn — credit risk, recommender, MLOps platform.",
+        point1: "Hệ thống ML end-to-end",
+        point2: "Data platform & pipeline",
+        point3: "MLOps production",
+      },
+      training: {
+        title: "Đào tạo doanh nghiệp",
+        body: "Mang khóa cohort vào in-house, customize theo stack và data của bạn. Chương trình 8-16 tuần.",
+        point1: "Curriculum tùy chỉnh",
+        point2: "Onsite hoặc remote",
+        point3: "Capstone trên data thật",
+      },
+      advisory: {
+        title: "Cố vấn fractional",
+        body: "Cố vấn senior theo retainer cho team data leadership. Architecture review, hiring, escalation.",
+        point1: "Architecture review",
+        point2: "Hiring & calibration",
+        point3: "Office hours hàng tháng",
       },
     },
-    coreValues: {
-      title: 'Giá Trị Cốt Lõi',
-      subtitle: 'Những nguyên tắc định nghĩa cộng đồng và thúc đẩy mọi bước đi trong sứ mệnh của chúng tôi',
-      values: [
-        {
-          title: 'Xuất Sắc từ Khám Phá',
-          description: 'Chúng tôi khơi dậy và nuôi dưỡng tinh thần khám phá không ngừng để vượt qua ranh giới trong AI & Khoa học Dữ liệu, không ngừng tìm kiếm những biên giới mới của kiến thức và đổi mới.',
-        },
-        {
-          title: 'Am Hiểu và Tác Động',
-          description: 'Chúng tôi đào tạo những chuyên gia vừa nắm vững chuyên môn kỹ thuật vừa am hiểu kinh doanh – chuyển đổi dữ liệu thành những hiểu biết có thể hành động để tạo ra giá trị thực tế.',
-        },
-        {
-          title: 'Cộng Đồng Phát Triển',
-          description: 'Chúng tôi xây dựng hệ sinh thái bền vững cho việc học tập, chia sẻ và phát triển dành cho những người đam mê AI & Dữ liệu, tạo ra môi trường hỗ trợ cho sự phát triển liên tục.',
-        },
-        {
-          title: 'Chính Trực và Minh Bạch',
-          description: 'Chúng tôi duy trì các tiêu chuẩn cao nhất về tính minh bạch, trung thực và trách nhiệm trong cả giáo dục và tư vấn kinh doanh, xây dựng niềm tin thông qua các hoạt động đạo đức.',
-        },
-      ],
-    },
+
     faq: {
-      title: 'Câu Hỏi Thường Gặp',
-      questions: [
-        {
-          question: 'Điều gì làm cho phương pháp học tập của bạn trở nên độc đáo?',
-          answer: 'Chúng tôi cung cấp lộ trình học tập cá nhân hóa phù hợp với nhu cầu và sở thích của bạn. Chúng tôi cũng có cộng đồng hỗ trợ để giúp bạn trong quá trình học tập.',
-        },
-        {
-          question: 'Làm thế nào để đảm bảo chất lượng giáo dục?',
-          answer: 'Chúng tôi có đội ngũ giảng viên giàu kinh nghiệm, tận tâm cung cấp giáo dục chất lượng cao. Chúng tôi cũng có cộng đồng hỗ trợ để giúp bạn trong quá trình học tập.',
-        },
-        {
-          question: 'Tôi có thể học theo tốc độ của riêng mình không?',
-          answer: 'Có, lộ trình học tập của bạn được thiết kế cho việc học linh hoạt. Chúng tôi có video và bài viết được ghi lại mà bạn có thể truy cập bất cứ lúc nào và tiến bộ theo tốc độ phù hợp với lịch trình của bạn.',
-        },
-        {
-          question: 'Bạn có hỗ trợ việc làm không?',
-          answer: 'Chúng tôi cung cấp hướng dẫn nghề nghiệp, hỗ trợ phát triển portfolio và kết nối với các đối tác trong ngành để giúp bạn đạt được mục tiêu nghề nghiệp.',
-        },
-      ],
+      eyebrow: "FAQ",
+      title: { 1: "Tất cả những gì bạn", 2: "có thể muốn biết." },
+      subtitle:
+        "Câu hỏi thường gặp về khóa học, cộng đồng, dịch vụ và thanh toán. Không thấy câu của bạn? Nhắn ở phần liên hệ.",
+      cat: { all: "Tất cả", courses: "Khóa học", community: "Cộng đồng", services: "Dịch vụ", payment: "Thanh toán" },
+      help: {
+        label: "VẪN CHƯA RÕ?",
+        body: "Gửi tin nhắn cho chúng tôi. Phản hồi trong 24 giờ, thường nhanh hơn.",
+        cta: "Liên hệ",
+      },
+      "q1.q": "Khóa học là live hay quay sẵn?",
+      "q1.a":
+        "Live cohort-based. Mỗi khóa chạy theo cohort 6-12 tuần với buổi live hàng tuần, office hours, và Discord channel cho cohort. Có recording sau mỗi buổi để xem lại.",
+      "q2.q": "Mỗi khóa dành cho trình độ nào?",
+      "q2.a":
+        "Mỗi khóa được đánh dấu CƠ BẢN, TRUNG CẤP, hoặc NÂNG CAO. Khóa cơ bản không yêu cầu gì. Trung cấp yêu cầu Python + SQL cơ bản. Nâng cao yêu cầu bạn đã ship ít nhất một dự án ML.",
+      "q3.q": "Khóa học dạy bằng tiếng gì?",
+      "q3.a":
+        "Tiếng Việt cho buổi live, tài liệu/slide/code bằng tiếng Anh. Combo này giúp học cảm giác tự nhiên nhưng vẫn quen thuộc với thuật ngữ industry-standard.",
+      "q4.q": "Có chứng chỉ không?",
+      "q4.a":
+        "Có. Hoàn thành capstone, bạn nhận chứng chỉ verifiable + bản review dự án để chia sẻ. Chứng chỉ được công nhận trong network của chúng tôi — nhưng dự án portfolio mới là thứ thật sự đưa bạn vào phỏng vấn.",
+      "q5.q": "Discord cộng đồng có active không?",
+      "q5.a":
+        "Rất active. Thread thảo luận hàng ngày, office hours hàng tuần, paper club thứ Bảy, mock-interview theo yêu cầu. Khoảng 30% trong 1.500+ thành viên active mỗi tuần.",
+      "q6.q": "Tham gia cộng đồng có free không?",
+      "q6.a":
+        "Có — Discord miễn phí. Học viên cũ được vào channel alumni-only và nhận lời mời sự kiện riêng. Một số sự kiện chuyên đề (workshop, hackathon) có phí nhỏ để giữ chất lượng.",
+      "q7.q": "Làm sao để có mentor?",
+      "q7.a":
+        "Mỗi học viên cohort được ghép với mentor senior trong suốt khóa. Việc ghép dựa trên mục tiêu, vai trò hiện tại và lĩnh vực bạn muốn phát triển. Ngoài cohort, Discord có thread mentorship mở.",
+      "q8.q": "Một engagement consulting điển hình thế nào?",
+      "q8.a":
+        "Hầu hết engagement chạy 8-16 tuần với deliverable rõ: hệ thống lên production, audit report kèm roadmap, hoặc team được đào tạo chạy được không cần chúng tôi. Không retainer mở mà không có outcome cụ thể.",
+      "q9.q": "Có nhận equity / sắp xếp friendly cho startup?",
+      "q9.a":
+        "Cân nhắc theo từng case cho startup early-stage trong fintech và AI. Chúng tôi cần tin vào team và bài toán. Bắt đầu trao đổi qua form liên hệ.",
+      "q10.q": "Thanh toán khóa học thế nào?",
+      "q10.a":
+        "Chuyển khoản (VND), MoMo, hoặc thẻ quốc tế. Nhận PO doanh nghiệp. Trả góp 2-3 đợt cho cá nhân — chỉ cần hỏi.",
+      "q11.q": "Chính sách hoàn tiền?",
+      "q11.a":
+        "Hoàn 100% trong 7 ngày đầu cohort, không cần lý do. Sau đó hoàn một phần theo số buổi còn lại. Chúng tôi chưa từng phải tranh cãi về refund.",
+      "q12.q": "Có học bổng không?",
+      "q12.a":
+        "Có. Mỗi cohort giữ 2 suất học bổng cho sinh viên hoặc người chuyển nghề có rào cản tài chính. Đơn xin chỉ một đoạn: bạn đang ở đâu và muốn đi đâu. Phản hồi trong 1 tuần.",
     },
+
     contact: {
-      title: 'Liên Hệ',
-      name: {
-        label: 'Họ và tên',
-        placeholder: 'Nhập họ và tên của bạn',
+      eyebrow: "LIÊN HỆ",
+      title: { 1: "Cho chúng tôi biết", 2: "bạn đang làm gì." },
+      subtitle:
+        "Dù bạn muốn đăng ký, thuê chúng tôi, hợp tác hay chỉ chào hỏi — chúng tôi đọc mọi tin nhắn và trả lời trong 24 giờ.",
+      channel: { email: "Email", linkedin: "LinkedIn", discord: "Discord", facebook: "Facebook" },
+      topic: { courses: "Khóa học", community: "Cộng đồng", services: "Thuê chúng tôi", other: "Khác" },
+      form: {
+        topic: "Bạn muốn nói về điều gì?",
+        name: "Tên của bạn",
+        email: "Email",
+        subject: "Tiêu đề",
+        message: "Nội dung",
+        "message.placeholder": "Vài câu về thứ bạn muốn trao đổi...",
+        submit: "Gửi tin nhắn",
+        replyTime: "PHẢN HỒI TRONG 24 GIỜ",
       },
-      email: {
-        label: 'Địa chỉ email',
-        placeholder: 'Nhập địa chỉ email của bạn',
-      },
-      message: {
-        label: 'Tin nhắn',
-        placeholder: 'Nhập tin nhắn của bạn',
-      },
-      submit: 'Gửi tin nhắn',
+      success: { title: "Đã nhận tin nhắn.", body: "Chúng tôi sẽ liên hệ trong 24 giờ." },
     },
+
     footer: {
-      company: {
-        title: 'Curious Machine',
-        description: "Cộng đồng thắp lửa đam mê AI của bạn"
-      },
-      education: {
-        title: 'Chương trình đào tạo',
-        programs: {
-          dataScienceFinance: 'Data Science in Finance',
-          machineLearning: 'Machine Learning Fundementals',
-          deepLearning: 'Deep Learning Fundementals'
-        }
-      },
-      contact: {
-        title: 'Liên hệ',
-        email: 'hthquan28@gmail.com',
-        phone: '+84 969 910 254',
-        address: 'Hồ Chí Minh, Việt Nam'
+      tagline:
+        "Nền tảng giáo dục và cộng đồng cho những ai nghiêm túc với Data Science và AI. Build bởi practitioner, cho practitioner.",
+      col: { learn: "Học", connect: "Kết nối", work: "Làm việc cùng" },
+      link: {
+        courses: "Khóa học",
+        tutorials: "Tutorials",
+        blogs: "Blogs",
+        cases: "Case studies",
+        discord: "Discord",
+        events: "Sự kiện",
+        newsletter: "Newsletter",
+        consulting: "Tư vấn",
+        training: "Đào tạo doanh nghiệp",
+        contact: "Liên hệ",
       },
       newsletter: {
-        title: 'Đăng ký nhận tin',
-        placeholder: 'Nhập email của bạn',
-        button: 'Đăng ký'
+        label: "BẢN TIN HÀNG THÁNG",
+        title: "Một email mỗi tháng. Đáng để mở.",
+        placeholder: "you@email.com",
       },
-      copyright: '© {year} Curious Machine. Bảo lưu mọi quyền.',
-      legal: {
-        privacy: 'Chính sách bảo mật',
-        terms: 'Điều khoản sử dụng'
-      }
+      rights: "Mọi quyền được bảo lưu",
+      status: "Tất cả hệ thống bình thường",
     },
-    education: {
-      title: 'Chương Trình Đào Tạo',
-      subtitle: 'Trao quyền cho thế hệ tiếp theo của các chuyên gia AI & Khoa học Dữ liệu thông qua giáo dục và đào tạo toàn diện',
-      courses: [
-        {
-          title: 'Data Science in Finance',
-          description: '• Phân tích Dữ liệu Tài chính & Visualization\n• Phân tích Chuỗi thời gian & Dự báo\n• Quản lý Rủi ro & Tối ưu Hợp đồng\n• Học máy trong Thị trường\n• Dự báo Thị trường Tài chính\n• Chiến lược Quyết định Đầu tư',
-        },
-        {
-          title: 'Machine Learning Fundamentals',
-          description: 'Nắm vững các khái niệm cốt lõi về Khoa học Dữ liệu và Phân tích',
-        },
-        {
-          title: 'Deep Learning Fundamentals',
-          description: 'Các kỹ thuật nâng cao về Mạng Neural và Học sâu',
-        },
-      ],
-      features: {
-        title: 'Chương Trình Của Chúng Tôi',
-        items: [
-          {
-            title: 'Giáo Trình Toàn Diện',
-            description: 'Các khóa học phù hợp với ngành, bao gồm từ kiến thức cơ bản đến nâng cao về AI & Khoa học Dữ liệu',
-          },
-          {
-            title: 'Giảng Viên Chuyên Môn',
-            description: 'Học từ các chuyên gia và chuyên gia trong ngành giàu kinh nghiệm',
-          },
-          {
-            title: 'Dự Án Thực Tế',
-            description: 'Áp dụng kiến thức của bạn thông qua các dự án và tình huống thực tế',
-          },
-        ],
-      },
-      contact: {
-        title: 'Bắt Đầu Ngay',
-        form: {
-          name: 'Họ và tên',
-          namePlaceholder: 'Nhập họ và tên của bạn',
-          email: 'Địa chỉ email',
-          emailPlaceholder: 'Nhập địa chỉ email của bạn',
-          message: 'Tin nhắn',
-          messagePlaceholder: 'Cho chúng tôi biết về mục tiêu học tập của bạn',
-          submit: 'Gửi tin nhắn',
-        },
-      },
-    },
-    chat: {
-      title: 'Trò chuyện với chúng tôi',
-      welcome: 'Xin chào! Chúng tôi có thể giúp gì cho bạn?',
-      inputPlaceholder: 'Nhập tin nhắn của bạn...',
-      autoResponse: 'Cảm ơn bạn đã liên hệ! Chúng tôi đã nhận được tin nhắn của bạn và sẽ phản hồi sớm nhất có thể.',
-    },
-  }
-}; 
+  },
+};
