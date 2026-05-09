@@ -42,7 +42,7 @@ export const FeedbackV2 = () => {
           }}
         />
         <div className="relative max-w-3xl mx-auto text-center">
-          <div className="cm-display text-5xl text-[var(--accent)]/40 leading-none">"</div>
+          <div className="cm-display text-5xl text-[var(--accent)]/40 leading-none">&ldquo;</div>
           <AnimatePresence mode="wait">
             <motion.blockquote
               key={FEEDBACKS[active].id}
