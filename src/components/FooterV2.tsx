@@ -1,5 +1,6 @@
 "use client";
 
+import { ArrowRight } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const COLS = [
@@ -36,10 +37,11 @@ export const FooterV2 = () => {
   return (
     <footer className="relative border-t border-[var(--line)] mt-20">
       <div
+        aria-hidden
         className="absolute inset-0 pointer-events-none opacity-50"
         style={{
           background:
-            "radial-gradient(800px 300px at 50% 100%, rgba(122,231,255,0.08), transparent 60%)",
+            "radial-gradient(800px 300px at 50% 100%, rgba(0,153,194,0.08), transparent 60%)",
         }}
       />
 
@@ -48,8 +50,8 @@ export const FooterV2 = () => {
           <div className="col-span-12 lg:col-span-5">
             <div className="flex items-center gap-3">
               <span className="relative w-10 h-10 grid place-items-center rounded-lg overflow-hidden">
-                <span className="absolute inset-0 bg-[var(--grad-button)]" />
-                <span className="absolute inset-[2px] bg-[var(--bg-0)] rounded-md" />
+                <span className="absolute inset-0 bg-[var(--grad-button)]" aria-hidden />
+                <span className="absolute inset-[2px] bg-[var(--bg-0)] rounded-md" aria-hidden />
                 <span className="relative cm-display text-base cm-text-grad">CM</span>
               </span>
               <span className="cm-display text-xl">Curious Machine</span>
@@ -65,14 +67,28 @@ export const FooterV2 = () => {
               <div className="cm-display text-base mt-1">
                 {t("footer.newsletter.title")}
               </div>
-              <form className="mt-4 flex gap-2">
+              <form
+                className="mt-4 flex gap-2"
+                onSubmit={(e) => e.preventDefault()}
+                aria-label={t("footer.newsletter.label")}
+              >
+                <label htmlFor="footer-newsletter" className="cm-sr-only">
+                  {t("footer.newsletter.placeholder")}
+                </label>
                 <input
+                  id="footer-newsletter"
                   type="email"
+                  required
+                  autoComplete="email"
                   placeholder={t("footer.newsletter.placeholder")}
-                  className="flex-1 bg-white/[0.03] border border-[var(--line)] rounded-full px-4 py-2 text-sm focus:border-[var(--accent)] outline-none"
+                  className="flex-1 cm-input rounded-full"
                 />
-                <button type="submit" className="cm-btn cm-btn-primary text-xs h-9">
-                  →
+                <button
+                  type="submit"
+                  aria-label={t("footer.newsletter.title")}
+                  className="cm-btn cm-btn-primary text-xs h-11 w-11 px-0 grid place-items-center"
+                >
+                  <ArrowRight size={16} aria-hidden />
                 </button>
               </form>
             </div>
@@ -106,7 +122,7 @@ export const FooterV2 = () => {
             © {new Date().getFullYear()} Curious Machine · {t("footer.rights")}
           </div>
           <div className="flex items-center gap-3 cm-mono text-[10px] uppercase tracking-widest text-[var(--ink-4)]">
-            <span className="cm-dot" />
+            <span className="cm-dot" aria-hidden />
             {t("footer.status")}
           </div>
         </div>

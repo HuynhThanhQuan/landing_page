@@ -70,6 +70,10 @@ export const translations = {
         advanced: "ADVANCED",
       },
       enroll: "Enroll",
+      empty: {
+        title: "No courses in this track yet",
+        body: "Try a different track, or join the waitlist and we'll let you know when a new cohort opens.",
+      },
       "credit-risk": {
         title: "Modern Credit Risk Scoring",
         body: "Build a production-grade credit scoring system end-to-end: data pipeline, feature store, model, governance, deployment.",
@@ -263,6 +267,11 @@ export const translations = {
         replyTime: "REPLY WITHIN 24 HOURS",
       },
       success: { title: "Message received.", body: "We'll be in touch within 24 hours." },
+      error: {
+        required: "This field is required.",
+        email: "Please enter a valid email address.",
+        minMessage: "Tell us a bit more — at least 10 characters.",
+      },
     },
 
     footer: {
@@ -362,6 +371,10 @@ export const translations = {
         advanced: "NÂNG CAO",
       },
       enroll: "Đăng ký",
+      empty: {
+        title: "Chưa có khóa nào ở mảng này",
+        body: "Thử mảng khác, hoặc tham gia waitlist để được báo khi có cohort mới.",
+      },
       "credit-risk": {
         title: "Modern Credit Risk Scoring",
         body: "Xây hệ thống credit scoring production hoàn chỉnh: data pipeline, feature store, model, governance, deployment.",
@@ -543,6 +556,11 @@ export const translations = {
         replyTime: "PHẢN HỒI TRONG 24 GIỜ",
       },
       success: { title: "Đã nhận tin nhắn.", body: "Chúng tôi sẽ liên hệ trong 24 giờ." },
+      error: {
+        required: "Trường này bắt buộc.",
+        email: "Email không hợp lệ.",
+        minMessage: "Viết thêm chút nữa — tối thiểu 10 ký tự.",
+      },
     },
 
     footer: {

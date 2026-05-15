@@ -1,8 +1,9 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
+import { Menu, X, ArrowUpRight, Globe } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const NAV = [
@@ -19,12 +20,13 @@ export const NavBar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState("hero");
+  const menuRef = useRef<HTMLDivElement>(null);
+  const toggleRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     const onScroll = () => {
       setScrolled(window.scrollY > 24);
 
-      // Find current section in viewport.
       const ids = ["hero", "who", "courses", "community", "services", "faq", "contact"];
       let current = "hero";
       for (const id of ids) {
@@ -42,6 +44,29 @@ export const NavBar = () => {
     onScroll();
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  // Lock body scroll, trap focus, and handle Escape while the mobile menu is open.
+  useEffect(() => {
+    if (!open) return;
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setOpen(false);
+        toggleRef.current?.focus();
+      }
+    };
+    document.addEventListener("keydown", onKey);
+
+    const firstLink = menuRef.current?.querySelector<HTMLElement>("a, button");
+    firstLink?.focus();
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      document.removeEventListener("keydown", onKey);
+    };
+  }, [open]);
 
   const click = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
@@ -64,7 +89,7 @@ export const NavBar = () => {
         <div
           className={`max-w-[1400px] mx-auto transition-all duration-500 ${
             scrolled
-              ? "bg-[rgba(10,12,22,0.78)] backdrop-blur-2xl border border-[var(--line)] rounded-2xl"
+              ? "bg-[rgba(255,255,255,0.78)] backdrop-blur-2xl border border-[var(--line)] rounded-2xl shadow-[0_8px_30px_-12px_rgba(15,18,40,0.10)]"
               : "bg-transparent border border-transparent rounded-2xl"
           }`}
         >
@@ -72,6 +97,7 @@ export const NavBar = () => {
             <Link
               href="#hero"
               onClick={(e) => click(e, "#hero")}
+              aria-label="Curious Machine — home"
               className="flex items-center gap-2 group"
             >
               <span className="relative w-8 h-8 grid place-items-center rounded-lg overflow-hidden">
@@ -84,7 +110,7 @@ export const NavBar = () => {
               </span>
             </Link>
 
-            <nav className="hidden lg:flex items-center gap-1">
+            <nav aria-label="Primary" className="hidden lg:flex items-center gap-1">
               {NAV.map((n) => {
                 const id = n.href.replace("#", "");
                 const on = active === id;
@@ -93,6 +119,7 @@ export const NavBar = () => {
                     key={n.href}
                     href={n.href}
                     onClick={(e) => click(e, n.href)}
+                    aria-current={on ? "true" : undefined}
                     className={`relative px-4 py-2 text-sm rounded-full transition ${
                       on ? "text-[var(--ink-1)]" : "text-[var(--ink-3)] hover:text-[var(--ink-1)]"
                     }`}
@@ -100,8 +127,9 @@ export const NavBar = () => {
                     {on && (
                       <motion.span
                         layoutId="navpill"
-                        className="absolute inset-0 rounded-full bg-white/[0.06] border border-[var(--line)]"
+                        className="absolute inset-0 rounded-full bg-[var(--tint-2)] border border-[var(--line)]"
                         transition={{ type: "spring", stiffness: 350, damping: 30 }}
+                        aria-hidden
                       />
                     )}
                     <span className="relative">{t(n.key)}</span>
@@ -113,8 +141,10 @@ export const NavBar = () => {
             <div className="flex items-center gap-2">
               <button
                 onClick={() => setLanguage(language === "vi" ? "en" : "vi")}
-                className="cm-mono text-[11px] tracking-widest uppercase text-[var(--ink-3)] hover:text-[var(--ink-1)] transition px-3 py-1.5 rounded-full border border-[var(--line)] hover:border-[var(--line-strong)]"
+                aria-label={`Switch language to ${language === "vi" ? "English" : "Vietnamese"}`}
+                className="inline-flex items-center gap-1.5 cm-mono text-[11px] tracking-widest uppercase text-[var(--ink-3)] hover:text-[var(--ink-1)] transition px-3 h-9 rounded-full border border-[var(--line)] hover:border-[var(--line-strong)]"
               >
+                <Globe size={12} aria-hidden />
                 {language === "vi" ? "EN" : "VI"}
               </button>
               <a
@@ -123,25 +153,17 @@ export const NavBar = () => {
                 className="hidden md:inline-flex cm-btn cm-btn-primary text-xs h-9"
               >
                 {t("nav.cta")}
+                <ArrowUpRight size={14} aria-hidden />
               </a>
               <button
-                aria-label="menu"
-                className="lg:hidden w-9 h-9 grid place-items-center rounded-lg border border-[var(--line)]"
+                ref={toggleRef}
+                aria-label={open ? "Close menu" : "Open menu"}
+                aria-expanded={open}
+                aria-controls="mobile-menu"
+                className="lg:hidden w-11 h-11 grid place-items-center rounded-xl border border-[var(--line)] hover:border-[var(--line-strong)] transition"
                 onClick={() => setOpen((s) => !s)}
               >
-                <span className="block w-4 h-[1.5px] bg-[var(--ink-1)] relative">
-                  <span
-                    className="absolute -top-[5px] left-0 w-4 h-[1.5px] bg-[var(--ink-1)] transition"
-                    style={{ transform: open ? "translateY(5px) rotate(45deg)" : "" }}
-                  />
-                  <span
-                    className="absolute -bottom-[5px] left-0 w-4 h-[1.5px] bg-[var(--ink-1)] transition"
-                    style={{
-                      transform: open ? "translateY(-5px) rotate(-45deg)" : "",
-                      opacity: open ? 1 : 1,
-                    }}
-                  />
-                </span>
+                {open ? <X size={18} aria-hidden /> : <Menu size={18} aria-hidden />}
               </button>
             </div>
           </div>
@@ -151,12 +173,17 @@ export const NavBar = () => {
       <AnimatePresence>
         {open && (
           <motion.div
+            id="mobile-menu"
+            ref={menuRef}
+            role="dialog"
+            aria-modal="true"
+            aria-label="Mobile menu"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-40 lg:hidden bg-[rgba(5,6,11,0.96)] backdrop-blur-xl pt-24"
+            className="fixed inset-0 z-40 lg:hidden bg-[rgba(247,248,252,0.97)] backdrop-blur-xl pt-24"
           >
-            <div className="flex flex-col px-8 gap-2">
+            <nav aria-label="Mobile primary" className="flex flex-col px-8 gap-2">
               {NAV.map((n, i) => (
                 <motion.a
                   key={n.href}
@@ -174,9 +201,10 @@ export const NavBar = () => {
                 onClick={(e) => click(e, "#contact")}
                 className="cm-btn cm-btn-primary mt-6 self-start"
               >
-                {t("nav.cta")} →
+                {t("nav.cta")}
+                <ArrowUpRight size={16} aria-hidden />
               </a>
-            </div>
+            </nav>
           </motion.div>
         )}
       </AnimatePresence>

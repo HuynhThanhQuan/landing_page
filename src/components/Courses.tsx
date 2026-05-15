@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Clock, ArrowRight, ArrowUpRight, Search } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 
@@ -82,14 +83,20 @@ export const Courses = () => {
           <p className="text-[var(--ink-2)] mt-4 max-w-2xl">{t("courses.subtitle")}</p>
         </div>
 
-        <div className="flex flex-wrap gap-2">
+        <div
+          role="tablist"
+          aria-label={t("courses.eyebrow")}
+          className="flex flex-wrap gap-2"
+        >
           {FILTERS.map((f) => (
             <button
               key={f}
+              role="tab"
+              aria-selected={filter === f}
               onClick={() => setFilter(f)}
-              className={`cm-mono text-[11px] uppercase tracking-widest px-4 py-2 rounded-full border transition ${
+              className={`cm-mono text-[11px] uppercase tracking-widest px-4 h-9 inline-flex items-center rounded-full border transition ${
                 filter === f
-                  ? "bg-white/[0.06] border-[var(--accent)] text-[var(--ink-1)]"
+                  ? "bg-[var(--accent)]/10 border-[var(--accent)] text-[var(--ink-1)]"
                   : "border-[var(--line)] text-[var(--ink-3)] hover:text-[var(--ink-1)] hover:border-[var(--line-strong)]"
               }`}
             >
@@ -99,68 +106,93 @@ export const Courses = () => {
         </div>
       </div>
 
-      <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <AnimatePresence>
-          {filtered.map((c, i) => (
-            <motion.article
-              key={c.id}
-              layout
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.95 }}
-              transition={{ duration: 0.5, delay: i * 0.05 }}
-              className="cm-card cm-lift relative overflow-hidden group"
-            >
-              <div
-                className={`absolute inset-0 bg-gradient-to-br ${c.accent} opacity-0 group-hover:opacity-100 transition-opacity duration-500`}
-              />
+      {filtered.length > 0 ? (
+        <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <AnimatePresence>
+            {filtered.map((c, i) => (
+              <motion.article
+                key={c.id}
+                layout
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, scale: 0.95 }}
+                transition={{ duration: 0.5, delay: i * 0.05 }}
+                className="cm-card cm-lift relative overflow-hidden group"
+              >
+                <div
+                  aria-hidden
+                  className={`absolute inset-0 bg-gradient-to-br ${c.accent} opacity-0 group-hover:opacity-100 transition-opacity duration-500`}
+                />
 
-              <div className="relative cm-card-pad flex flex-col h-full">
-                <div className="flex items-center justify-between">
-                  <span className="cm-chip">{c.track}</span>
-                  <span className="cm-mono text-[10px] tracking-widest text-[var(--ink-3)]">
-                    {c.duration}
-                  </span>
-                </div>
-
-                <h3 className="cm-display text-xl md:text-2xl mt-6 leading-tight">
-                  {t(`courses.${c.id}.title`)}
-                </h3>
-                <p className="text-sm text-[var(--ink-3)] mt-3 leading-relaxed">
-                  {t(`courses.${c.id}.body`)}
-                </p>
-
-                <div className="flex flex-wrap gap-1.5 mt-5">
-                  {[1, 2, 3].map((n) => {
-                    const tag = t(`courses.${c.id}.tag${n}`);
-                    if (tag.startsWith("courses.")) return null;
-                    return (
-                      <span key={n} className="text-[10px] cm-mono uppercase px-2 py-1 rounded-md bg-white/[0.04] border border-[var(--line)] text-[var(--ink-2)]">
-                        {tag}
-                      </span>
-                    );
-                  })}
-                </div>
-
-                <div className="border-t border-[var(--line)] mt-auto pt-4 flex items-center justify-between">
-                  <div>
-                    <div className="cm-mono text-[10px] uppercase tracking-widest text-[var(--ink-4)]">
-                      {t(c.levelKey)}
-                    </div>
-                    <div className="cm-display text-lg cm-text-grad mt-1">{c.price}</div>
+                <div className="relative cm-card-pad flex flex-col h-full">
+                  <div className="flex items-center justify-between">
+                    <span className="cm-chip">{c.track}</span>
+                    <span className="cm-mono text-[10px] tracking-widest text-[var(--ink-3)] inline-flex items-center gap-1.5">
+                      <Clock size={12} aria-hidden />
+                      {c.duration}
+                    </span>
                   </div>
-                  <a
-                    href="#contact"
-                    className="cm-mono text-xs uppercase tracking-widest text-[var(--accent)] flex items-center gap-1 group-hover:gap-2 transition-all"
-                  >
-                    {t("courses.enroll")} <span>→</span>
-                  </a>
+
+                  <h3 className="cm-display text-xl md:text-2xl mt-6 leading-tight">
+                    {t(`courses.${c.id}.title`)}
+                  </h3>
+                  <p className="text-sm text-[var(--ink-3)] mt-3 leading-relaxed">
+                    {t(`courses.${c.id}.body`)}
+                  </p>
+
+                  <div className="flex flex-wrap gap-1.5 mt-5">
+                    {[1, 2, 3].map((n) => {
+                      const tag = t(`courses.${c.id}.tag${n}`);
+                      if (tag.startsWith("courses.")) return null;
+                      return (
+                        <span
+                          key={n}
+                          className="text-[10px] cm-mono uppercase px-2 py-1 rounded-md bg-[var(--tint-1)] border border-[var(--line)] text-[var(--ink-2)]"
+                        >
+                          {tag}
+                        </span>
+                      );
+                    })}
+                  </div>
+
+                  <div className="border-t border-[var(--line)] mt-auto pt-4 flex items-center justify-between">
+                    <div>
+                      <div className="cm-mono text-[10px] uppercase tracking-widest text-[var(--ink-4)]">
+                        {t(c.levelKey)}
+                      </div>
+                      <div className="cm-display text-lg cm-text-grad mt-1 tabular-nums">
+                        {c.price}
+                      </div>
+                    </div>
+                    <a
+                      href="#contact"
+                      aria-label={`${t("courses.enroll")} — ${t(`courses.${c.id}.title`)}`}
+                      className="cm-mono text-xs uppercase tracking-widest text-[var(--accent)] inline-flex items-center gap-1 group-hover:gap-2 transition-all"
+                    >
+                      {t("courses.enroll")}
+                      <ArrowRight size={14} aria-hidden />
+                    </a>
+                  </div>
                 </div>
-              </div>
-            </motion.article>
-          ))}
-        </AnimatePresence>
-      </motion.div>
+              </motion.article>
+            ))}
+          </AnimatePresence>
+        </motion.div>
+      ) : (
+        <div className="cm-card cm-card-pad flex flex-col items-center text-center py-16">
+          <Search size={28} className="text-[var(--ink-3)]" aria-hidden />
+          <div className="cm-display text-lg mt-4">{t("courses.empty.title")}</div>
+          <p className="text-sm text-[var(--ink-3)] mt-2 max-w-sm">
+            {t("courses.empty.body")}
+          </p>
+          <button
+            onClick={() => setFilter("all")}
+            className="cm-btn cm-btn-ghost text-xs h-9 mt-6"
+          >
+            {t("courses.filter.all")}
+          </button>
+        </div>
+      )}
 
       <div className="mt-16 cm-card cm-card-pad flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
         <div>
@@ -168,7 +200,8 @@ export const Courses = () => {
           <p className="text-sm text-[var(--ink-3)] mt-2">{t("courses.cohort.body")}</p>
         </div>
         <a href="#contact" className="cm-btn cm-btn-primary">
-          {t("courses.cohort.cta")} →
+          {t("courses.cohort.cta")}
+          <ArrowUpRight size={16} aria-hidden />
         </a>
       </div>
     </section>

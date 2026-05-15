@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { Target } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 
@@ -14,7 +15,8 @@ export const WhoMission = () => {
         <div className="col-span-12 lg:col-span-5">
           <motion.span
             initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.6 }}
             className="cm-eyebrow"
           >
@@ -22,7 +24,8 @@ export const WhoMission = () => {
           </motion.span>
           <motion.h2
             initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.7, delay: 0.05 }}
             className="cm-display text-[clamp(2.2rem,4.5vw,3.8rem)] leading-[1.05] mt-6"
           >
@@ -31,7 +34,8 @@ export const WhoMission = () => {
           </motion.h2>
           <motion.p
             initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.7, delay: 0.15 }}
             className="text-[var(--ink-2)] text-base md:text-lg mt-6 leading-relaxed"
           >
@@ -43,20 +47,26 @@ export const WhoMission = () => {
         <div className="col-span-12 lg:col-span-7">
           <motion.div
             initial={{ y: 30, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.8, delay: 0.2 }}
             className="cm-card cm-card-pad relative overflow-hidden h-full"
           >
             <div
+              aria-hidden
               className="absolute inset-0 opacity-40 pointer-events-none"
               style={{
                 background:
-                  "radial-gradient(600px 300px at 80% 0%, rgba(122,231,255,0.18), transparent 60%)",
+                  "radial-gradient(600px 300px at 80% 0%, rgba(0,153,194,0.10), transparent 60%)",
               }}
             />
             <div className="relative">
               <div className="flex items-center gap-3 mb-6">
-                <span className="cm-chip"><span className="cm-dot" />MISSION_2026</span>
+                <span className="cm-chip">
+                  <span className="cm-dot" aria-hidden />
+                  <Target size={12} aria-hidden />
+                  MISSION_2026
+                </span>
               </div>
               <h3 className="cm-display text-2xl md:text-3xl leading-snug">
                 {t("who.mission.headline")}
@@ -70,7 +80,8 @@ export const WhoMission = () => {
                   <motion.div
                     key={k}
                     initial={{ y: 20, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
+                    whileInView={{ y: 0, opacity: 1 }}
+                    viewport={{ once: true, margin: "-80px" }}
                     transition={{ duration: 0.6, delay: 0.4 + i * 0.1 }}
                     className="border-t border-[var(--line)] pt-4"
                   >

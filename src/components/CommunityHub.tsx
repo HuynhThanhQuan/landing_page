@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { Users, PlayCircle, ArrowRight, ArrowUpRight, MessageSquare, Calendar } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 
@@ -40,19 +41,25 @@ export const CommunityHub = () => {
         {/* Community card — wide */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.6 }}
           className="col-span-12 lg:col-span-7 cm-card cm-card-pad relative overflow-hidden min-h-[320px]"
         >
           <div
+            aria-hidden
             className="absolute inset-0 opacity-50 pointer-events-none"
             style={{
               background:
-                "radial-gradient(500px 300px at 0% 100%, rgba(176,145,255,0.18), transparent 60%)",
+                "radial-gradient(500px 300px at 0% 100%, rgba(111,77,239,0.10), transparent 60%)",
             }}
           />
           <div className="relative h-full flex flex-col">
-            <span className="cm-chip"><span className="cm-dot" />COMMUNITY</span>
+            <span className="cm-chip">
+              <span className="cm-dot" aria-hidden />
+              <Users size={12} aria-hidden />
+              COMMUNITY
+            </span>
             <h3 className="cm-display text-2xl md:text-3xl mt-5">
               {t("community.discord.title")}
             </h3>
@@ -67,7 +74,7 @@ export const CommunityHub = () => {
                 { v: "98%", l: "community.stat.active" },
               ].map((s) => (
                 <div key={s.l}>
-                  <div className="cm-display text-2xl cm-text-grad">{s.v}</div>
+                  <div className="cm-display text-2xl cm-text-grad tabular-nums">{s.v}</div>
                   <div className="cm-mono text-[10px] tracking-widest uppercase text-[var(--ink-3)] mt-1">
                     {t(s.l)}
                   </div>
@@ -77,9 +84,12 @@ export const CommunityHub = () => {
 
             <div className="mt-auto pt-8 flex flex-wrap gap-3">
               <a href="#contact" className="cm-btn cm-btn-primary text-xs h-10">
-                {t("community.discord.cta")} →
+                <MessageSquare size={14} aria-hidden />
+                {t("community.discord.cta")}
+                <ArrowRight size={14} aria-hidden />
               </a>
               <a href="#contact" className="cm-btn cm-btn-ghost text-xs h-10">
+                <Calendar size={14} aria-hidden />
                 {t("community.events.cta")}
               </a>
             </div>
@@ -89,39 +99,52 @@ export const CommunityHub = () => {
         {/* Tutorials card — column */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.6, delay: 0.1 }}
           className="col-span-12 lg:col-span-5 cm-card cm-card-pad min-h-[320px] flex flex-col"
         >
           <div className="flex items-center justify-between">
-            <span className="cm-chip">TUTORIALS</span>
-            <a href="#" className="cm-mono text-[11px] uppercase tracking-widest text-[var(--accent)]">
-              {t("community.viewAll")} →
+            <span className="cm-chip">
+              <PlayCircle size={12} aria-hidden />
+              TUTORIALS
+            </span>
+            <a href="#" className="cm-mono text-[11px] uppercase tracking-widest text-[var(--accent)] inline-flex items-center gap-1">
+              {t("community.viewAll")}
+              <ArrowRight size={12} aria-hidden />
             </a>
           </div>
           <h3 className="cm-display text-xl md:text-2xl mt-5">
             {t("community.tutorials.title")}
           </h3>
-          <div className="mt-6 space-y-3 flex-1">
+          <ul className="mt-6 space-y-3 flex-1">
             {TUTS.map((tut) => (
-              <a
-                key={tut.id}
-                href="#"
-                className="flex items-center gap-3 group p-3 rounded-xl border border-transparent hover:border-[var(--line)] hover:bg-white/[0.03] transition"
-              >
-                <div className="w-9 h-9 grid place-items-center rounded-lg bg-white/[0.04] border border-[var(--line)] cm-mono text-[10px] text-[var(--accent)]">
-                  ▶
-                </div>
-                <div className="flex-1 min-w-0">
-                  <div className="text-sm cm-display truncate">{t(`community.${tut.id}.title`)}</div>
-                  <div className="cm-mono text-[10px] uppercase tracking-widest text-[var(--ink-3)] mt-0.5">
-                    {tut.duration} · {tut.level}
+              <li key={tut.id}>
+                <a
+                  href="#"
+                  className="flex items-center gap-3 group p-3 rounded-xl border border-transparent hover:border-[var(--line)] hover:bg-[var(--tint-1)] transition"
+                >
+                  <span
+                    aria-hidden
+                    className="w-9 h-9 grid place-items-center rounded-lg bg-[var(--tint-1)] border border-[var(--line)] text-[var(--accent)] shrink-0"
+                  >
+                    <PlayCircle size={16} />
+                  </span>
+                  <div className="flex-1 min-w-0">
+                    <div className="text-sm cm-display truncate">{t(`community.${tut.id}.title`)}</div>
+                    <div className="cm-mono text-[10px] uppercase tracking-widest text-[var(--ink-3)] mt-0.5">
+                      {tut.duration} · {tut.level}
+                    </div>
                   </div>
-                </div>
-                <span className="text-[var(--ink-3)] group-hover:text-[var(--accent)] transition">→</span>
-              </a>
+                  <ArrowRight
+                    size={14}
+                    className="text-[var(--ink-3)] group-hover:text-[var(--accent)] group-hover:translate-x-0.5 transition shrink-0"
+                    aria-hidden
+                  />
+                </a>
+              </li>
             ))}
-          </div>
+          </ul>
         </motion.div>
 
         {/* Blogs */}
@@ -131,7 +154,8 @@ export const CommunityHub = () => {
               key={b.id}
               href="#"
               initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-80px" }}
               transition={{ duration: 0.6, delay: 0.15 + i * 0.05 }}
               className="cm-card cm-card-pad cm-lift flex flex-col group"
             >
@@ -148,7 +172,11 @@ export const CommunityHub = () => {
                 <span className="cm-mono text-[10px] uppercase tracking-widest text-[var(--ink-3)]">
                   {b.read}
                 </span>
-                <span className="text-[var(--accent)] group-hover:translate-x-1 transition">→</span>
+                <ArrowUpRight
+                  size={14}
+                  className="text-[var(--accent)] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition"
+                  aria-hidden
+                />
               </div>
             </motion.a>
           ))}
@@ -161,12 +189,13 @@ export const CommunityHub = () => {
               key={c.id}
               href="#"
               initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-80px" }}
               transition={{ duration: 0.6, delay: 0.25 + i * 0.05 }}
               className="cm-card cm-card-pad cm-lift relative overflow-hidden group"
             >
               <span className="cm-chip text-[10px]">CASE&nbsp;STUDY</span>
-              <div className="cm-display text-3xl md:text-4xl cm-text-grad mt-6">{c.impact}</div>
+              <div className="cm-display text-3xl md:text-4xl cm-text-grad mt-6 tabular-nums">{c.impact}</div>
               <div className="cm-mono text-[10px] uppercase tracking-widest text-[var(--ink-3)] mt-1">
                 {t(c.impactLabelKey)}
               </div>

@@ -2,52 +2,63 @@
 
 /* ============================================================
    Design system — Curious Machine 2026
-   Dark-first, electric accents, dense glass + grain.
+   Light theme, electric accents on white, soft glass + grain.
    ============================================================ */
 
 :root {
   /* Surfaces */
-  --bg-0: #05060B;            /* page base */
-  --bg-1: #0A0C16;            /* card lift */
-  --bg-2: #11142A;            /* card lift 2 */
-  --line: rgba(255,255,255,0.08);
-  --line-strong: rgba(255,255,255,0.16);
+  --bg-0: #F7F8FC;            /* page base — soft cool off-white */
+  --bg-1: #FFFFFF;            /* card lift */
+  --bg-2: #EFF1F8;            /* lifted 2 */
+  --line: rgba(15,18,40,0.08);
+  --line-strong: rgba(15,18,40,0.16);
+
+  /* Surface tints — used in place of bg-white/[…] on light. */
+  --tint-1: rgba(15,18,40,0.03);
+  --tint-2: rgba(15,18,40,0.05);
+  --tint-3: rgba(15,18,40,0.08);
 
   /* Ink */
-  --ink-1: #F4F6FF;
-  --ink-2: #B8BFE0;
-  --ink-3: #7A82A8;
-  --ink-4: #4A4F70;
+  --ink-1: #0A0E25;           /* heading-dark */
+  --ink-2: #3A4163;           /* body */
+  --ink-3: #6B7299;           /* meta */
+  --ink-4: #8A92B8;           /* faint meta */
 
-  /* Brand */
-  --accent: #7AE7FF;          /* electric cyan */
-  --accent-2: #B091FF;        /* violet */
-  --accent-3: #FFB05C;        /* amber for highlights */
-  --accent-glow: rgba(122,231,255,0.45);
+  /* Brand — deepened so they pass AA on white. */
+  --accent: #0099C2;          /* electric cyan, deepened */
+  --accent-2: #6F4DEF;        /* violet, deepened */
+  --accent-3: #E0871A;        /* amber */
+  --accent-glow: rgba(0,153,194,0.30);
 
   /* Gradients */
-  --grad-hero: radial-gradient(1200px 700px at 12% -10%, rgba(122,231,255,0.18), transparent 60%),
-               radial-gradient(900px 600px at 88% 10%, rgba(176,145,255,0.18), transparent 55%),
-               radial-gradient(800px 600px at 50% 110%, rgba(255,176,92,0.10), transparent 60%);
-  --grad-text: linear-gradient(135deg, #F4F6FF 0%, #B091FF 40%, #7AE7FF 100%);
-  --grad-button: linear-gradient(135deg, #7AE7FF 0%, #B091FF 100%);
-  --grad-card: linear-gradient(160deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.01) 100%);
-  --grad-line: linear-gradient(90deg, transparent, rgba(122,231,255,0.5), transparent);
+  --grad-hero: radial-gradient(1200px 700px at 12% -10%, rgba(0,153,194,0.10), transparent 60%),
+               radial-gradient(900px 600px at 88% 10%, rgba(111,77,239,0.10), transparent 55%),
+               radial-gradient(800px 600px at 50% 110%, rgba(224,135,26,0.07), transparent 60%);
+  --grad-text: linear-gradient(135deg, #0A0E25 0%, #6F4DEF 45%, #0099C2 100%);
+  --grad-button: linear-gradient(135deg, #0099C2 0%, #6F4DEF 100%);
+  --grad-card: linear-gradient(160deg, rgba(255,255,255,0.92) 0%, rgba(255,255,255,0.72) 100%);
+  --grad-line: linear-gradient(90deg, transparent, rgba(0,153,194,0.5), transparent);
 
   /* Shadows */
-  --shadow-glow: 0 0 40px rgba(122,231,255,0.15);
-  --shadow-card: 0 20px 60px -20px rgba(0,0,0,0.6), 0 1px 0 rgba(255,255,255,0.04) inset;
+  --shadow-glow: 0 12px 50px -16px rgba(0,153,194,0.30);
+  --shadow-card:
+    0 18px 48px -22px rgba(15,18,40,0.18),
+    0 2px 8px -4px rgba(15,18,40,0.06),
+    0 0 0 1px rgba(15,18,40,0.02) inset;
 
-  /* Type */
-  --font-display: 'Space Grotesk', 'Inter', system-ui, sans-serif;
-  --font-body: 'Inter', system-ui, sans-serif;
-  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+  /* Type — values are injected by next/font on the <html> element.
+     Fallbacks here keep things working if the font variables are unset. */
+  --font-display-fallback: system-ui, sans-serif;
+  --font-body-fallback: system-ui, sans-serif;
+  --font-mono-fallback: ui-monospace, monospace;
 
   /* Radii */
   --r-sm: 10px;
   --r-md: 16px;
   --r-lg: 24px;
   --r-xl: 32px;
+
+  color-scheme: light;
 }
 
 @theme inline {
@@ -60,33 +71,44 @@
 html, body {
   background: var(--bg-0);
   color: var(--ink-1);
-  font-family: var(--font-body);
+  font-family: var(--font-body), var(--font-body-fallback);
   font-feature-settings: "ss01", "cv11";
   -webkit-font-smoothing: antialiased;
   scroll-behavior: smooth;
 }
 
-/* Page background — soft ambient gradients with grain. */
+@media (prefers-reduced-motion: reduce) {
+  html, body { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Page background — soft ambient cyan/violet washes on cool off-white. */
 body {
   background-image:
-    radial-gradient(1000px 700px at 0% 0%, rgba(122,231,255,0.07), transparent 60%),
-    radial-gradient(900px 600px at 100% 0%, rgba(176,145,255,0.07), transparent 55%),
-    linear-gradient(180deg, var(--bg-0) 0%, #03040A 100%);
+    radial-gradient(1000px 700px at 0% 0%, rgba(0,153,194,0.07), transparent 60%),
+    radial-gradient(900px 600px at 100% 0%, rgba(111,77,239,0.07), transparent 55%),
+    linear-gradient(180deg, #FAFBFE 0%, #EFF1F8 100%);
   background-attachment: fixed;
   position: relative;
   min-height: 100vh;
   overflow-x: hidden;
 }
 
+/* Subtle dark grain on light surface (multiply blend so it lands as faint texture). */
 body::before {
   content: '';
   position: fixed;
   inset: 0;
   pointer-events: none;
   z-index: 1;
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.06 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
-  opacity: 0.5;
-  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.05 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  opacity: 0.6;
+  mix-blend-mode: multiply;
 }
 
 /* Re-position body content above grain. */
@@ -97,15 +119,15 @@ main { position: relative; z-index: 2; }
    ============================================================ */
 
 .cm-display {
-  font-family: var(--font-display);
+  font-family: var(--font-display), var(--font-display-fallback);
   letter-spacing: -0.02em;
   font-weight: 600;
 }
 
-.cm-mono { font-family: var(--font-mono); }
+.cm-mono { font-family: var(--font-mono), var(--font-mono-fallback); }
 
 .cm-eyebrow {
-  font-family: var(--font-mono);
+  font-family: var(--font-mono), var(--font-mono-fallback);
   font-size: 11px;
   letter-spacing: 0.28em;
   text-transform: uppercase;
@@ -142,7 +164,7 @@ main { position: relative; z-index: 2; }
 }
 
 .cm-card:hover {
-  border-color: rgba(122,231,255,0.35);
+  border-color: rgba(0,153,194,0.35);
   box-shadow: var(--shadow-card), var(--shadow-glow);
 }
 
@@ -155,8 +177,8 @@ main { position: relative; z-index: 2; }
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+    linear-gradient(rgba(15,18,40,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(15,18,40,0.05) 1px, transparent 1px);
   background-size: 56px 56px;
   mask-image: radial-gradient(circle at 50% 30%, #000 30%, transparent 80%);
   pointer-events: none;
@@ -167,7 +189,7 @@ main { position: relative; z-index: 2; }
   position: absolute;
   border-radius: 9999px;
   filter: blur(80px);
-  opacity: 0.6;
+  opacity: 0.35;
   pointer-events: none;
 }
 
@@ -187,17 +209,17 @@ main { position: relative; z-index: 2; }
 
 .cm-btn-primary {
   background: var(--grad-button);
-  color: #08091A;
-  box-shadow: 0 8px 30px -10px var(--accent-glow);
+  color: #FFFFFF;
+  box-shadow: 0 10px 28px -10px var(--accent-glow);
 }
-.cm-btn-primary:hover { transform: translateY(-1px); box-shadow: 0 14px 40px -10px var(--accent-glow); }
+.cm-btn-primary:hover { transform: translateY(-1px); box-shadow: 0 16px 38px -10px var(--accent-glow); }
 
 .cm-btn-ghost {
-  background: rgba(255,255,255,0.04);
+  background: #FFFFFF;
   border: 1px solid var(--line-strong);
   color: var(--ink-1);
 }
-.cm-btn-ghost:hover { background: rgba(122,231,255,0.08); border-color: rgba(122,231,255,0.4); }
+.cm-btn-ghost:hover { background: rgba(0,153,194,0.06); border-color: rgba(0,153,194,0.45); }
 
 /* Pill chip. */
 .cm-chip {
@@ -206,11 +228,11 @@ main { position: relative; z-index: 2; }
   gap: 6px;
   padding: 6px 12px;
   border-radius: 999px;
-  background: rgba(255,255,255,0.04);
+  background: #FFFFFF;
   border: 1px solid var(--line);
   font-size: 12px;
   color: var(--ink-2);
-  font-family: var(--font-mono);
+  font-family: var(--font-mono), var(--font-mono-fallback);
   letter-spacing: 0.05em;
 }
 
@@ -220,6 +242,26 @@ main { position: relative; z-index: 2; }
   padding: clamp(56px, 6vw, 96px) clamp(20px, 4vw, 64px);
   max-width: 1320px;
   margin: 0 auto;
+}
+
+/* Visually hidden but available to screen readers. */
+.cm-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Larger hit area without changing visual layout — for small targets. */
+.cm-hit::after {
+  content: '';
+  position: absolute;
+  inset: -10px;
 }
 
 /* Headline divider. */
@@ -252,17 +294,23 @@ main { position: relative; z-index: 2; }
 ::-webkit-scrollbar { width: 10px; height: 10px; }
 ::-webkit-scrollbar-track { background: var(--bg-0); }
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, rgba(122,231,255,0.25), rgba(176,145,255,0.25));
+  background: linear-gradient(180deg, rgba(0,153,194,0.35), rgba(111,77,239,0.35));
   border-radius: 999px;
   border: 2px solid var(--bg-0);
 }
 ::-webkit-scrollbar-thumb:hover { background: linear-gradient(180deg, var(--accent), var(--accent-2)); }
 
 /* Selection. */
-::selection { background: rgba(122,231,255,0.3); color: var(--ink-1); }
+::selection { background: rgba(0,153,194,0.25); color: var(--ink-1); }
 
-/* Focus ring. */
-:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 8px; }
+/* Focus ring — 2px + 2px offset, on-brand cyan. */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 10px;
+}
+/* Remove default outline only when our :focus-visible is in effect. */
+:focus:not(:focus-visible) { outline: none; }
 
 /* Animations. */
 @keyframes float {
@@ -285,11 +333,58 @@ main { position: relative; z-index: 2; }
   background: linear-gradient(
     90deg,
     transparent 0%,
-    rgba(122,231,255,0.15) 50%,
+    rgba(0,153,194,0.15) 50%,
     transparent 100%
   );
   background-size: 200% 100%;
   animation: shimmer 3s ease-in-out infinite;
+}
+
+/* Form fields — reusable input style. */
+.cm-input {
+  width: 100%;
+  background: #FFFFFF;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 12px 16px;
+  font-size: 14px;
+  color: var(--ink-1);
+  transition: border-color .25s ease, background .25s ease, box-shadow .25s ease;
+  min-height: 44px;
+}
+.cm-input::placeholder { color: var(--ink-4); }
+.cm-input:focus {
+  outline: none;
+  border-color: var(--accent);
+  background: #FFFFFF;
+  box-shadow: 0 0 0 4px rgba(0,153,194,0.14);
+}
+.cm-input[aria-invalid="true"] {
+  border-color: #D9243C;
+  box-shadow: 0 0 0 4px rgba(217,36,60,0.12);
+}
+.cm-label {
+  font-family: var(--font-mono), var(--font-mono-fallback);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  display: block;
+  margin-bottom: 8px;
+}
+.cm-helper {
+  font-size: 11px;
+  color: var(--ink-3);
+  margin-top: 6px;
+  line-height: 1.5;
+}
+.cm-error {
+  font-size: 11px;
+  color: #B5172E;
+  margin-top: 6px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
 
 /* Card hover lift. */
@@ -312,6 +407,6 @@ main { position: relative; z-index: 2; }
   height: 6px;
   border-radius: 999px;
   background: var(--accent);
-  box-shadow: 0 0 12px var(--accent);
+  box-shadow: 0 0 12px rgba(0,153,194,0.6);
   animation: pulse-glow 2s ease-in-out infinite;
 }

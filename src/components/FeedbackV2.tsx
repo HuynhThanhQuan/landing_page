@@ -1,7 +1,8 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
+import { Quote, ChevronLeft, ChevronRight } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const FEEDBACKS = [
@@ -15,14 +16,21 @@ const FEEDBACKS = [
 export const FeedbackV2 = () => {
   const { t } = useLanguage();
   const [active, setActive] = useState(0);
+  const [paused, setPaused] = useState(false);
   const timer = useRef<ReturnType<typeof setInterval> | null>(null);
+  const prefersReducedMotion = useReducedMotion();
 
   useEffect(() => {
+    if (paused || prefersReducedMotion) return;
     timer.current = setInterval(() => setActive((i) => (i + 1) % FEEDBACKS.length), 6000);
     return () => {
       if (timer.current) clearInterval(timer.current);
     };
-  }, []);
+  }, [paused, prefersReducedMotion]);
+
+  const goto = (delta: number) => {
+    setActive((i) => (i + delta + FEEDBACKS.length) % FEEDBACKS.length);
+  };
 
   return (
     <section className="cm-section">
@@ -33,16 +41,31 @@ export const FeedbackV2 = () => {
         </h2>
       </div>
 
-      <div className="cm-card cm-card-pad relative overflow-hidden min-h-[260px]">
+      <div
+        className="cm-card cm-card-pad relative overflow-hidden min-h-[260px]"
+        onMouseEnter={() => setPaused(true)}
+        onMouseLeave={() => setPaused(false)}
+        onFocus={() => setPaused(true)}
+        onBlur={() => setPaused(false)}
+        role="region"
+        aria-roledescription="carousel"
+        aria-label={t("feedback.eyebrow")}
+      >
         <div
+          aria-hidden
           className="absolute inset-0 opacity-50 pointer-events-none"
           style={{
             background:
-              "radial-gradient(600px 200px at 50% 0%, rgba(176,145,255,0.15), transparent 60%)",
+              "radial-gradient(600px 200px at 50% 0%, rgba(111,77,239,0.10), transparent 60%)",
           }}
         />
         <div className="relative max-w-3xl mx-auto text-center">
-          <div className="cm-display text-5xl text-[var(--accent)]/40 leading-none">&ldquo;</div>
+          <Quote
+            size={36}
+            className="text-[var(--accent)]/40 mx-auto"
+            aria-hidden
+            strokeWidth={1.5}
+          />
           <AnimatePresence mode="wait">
             <motion.blockquote
               key={FEEDBACKS[active].id}
@@ -50,29 +73,59 @@ export const FeedbackV2 = () => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.5 }}
-              className="text-base md:text-xl text-[var(--ink-1)] leading-relaxed mt-2"
+              className="text-base md:text-xl text-[var(--ink-1)] leading-relaxed mt-4"
+              aria-live="polite"
             >
               {t(`feedback.${FEEDBACKS[active].id}`)}
+              <footer className="mt-6 not-italic">
+                <div className="cm-display text-base">{FEEDBACKS[active].name}</div>
+                <div className="cm-mono text-[10px] uppercase tracking-widest text-[var(--ink-3)] mt-1">
+                  {FEEDBACKS[active].role}
+                </div>
+              </footer>
             </motion.blockquote>
           </AnimatePresence>
-          <div className="mt-6">
-            <div className="cm-display text-base">{FEEDBACKS[active].name}</div>
-            <div className="cm-mono text-[10px] uppercase tracking-widest text-[var(--ink-3)] mt-1">
-              {FEEDBACKS[active].role}
-            </div>
-          </div>
         </div>
 
-        <div className="relative flex justify-center gap-2 mt-8">
-          {FEEDBACKS.map((_, i) => (
-            <button
-              key={i}
-              onClick={() => setActive(i)}
-              className={`h-1 rounded-full transition-all ${
-                i === active ? "w-8 bg-[var(--accent)]" : "w-3 bg-white/20 hover:bg-white/40"
-              }`}
-            />
-          ))}
+        {/* Controls. */}
+        <div className="relative flex items-center justify-between gap-4 mt-8">
+          <button
+            onClick={() => goto(-1)}
+            aria-label="Previous testimonial"
+            className="w-11 h-11 grid place-items-center rounded-full border border-[var(--line)] hover:border-[var(--line-strong)] text-[var(--ink-2)] hover:text-[var(--ink-1)] transition"
+          >
+            <ChevronLeft size={18} aria-hidden />
+          </button>
+
+          <div role="tablist" aria-label="Choose testimonial" className="flex justify-center gap-1">
+            {FEEDBACKS.map((f, i) => (
+              <button
+                key={f.id}
+                role="tab"
+                aria-selected={i === active}
+                aria-label={`Testimonial ${i + 1} of ${FEEDBACKS.length} — ${f.name}`}
+                onClick={() => setActive(i)}
+                className="relative h-11 px-1.5 inline-flex items-center group"
+              >
+                <span
+                  aria-hidden
+                  className={`block h-1 rounded-full transition-all ${
+                    i === active
+                      ? "w-8 bg-[var(--accent)]"
+                      : "w-3 bg-white/20 group-hover:bg-white/40"
+                  }`}
+                />
+              </button>
+            ))}
+          </div>
+
+          <button
+            onClick={() => goto(1)}
+            aria-label="Next testimonial"
+            className="w-11 h-11 grid place-items-center rounded-full border border-[var(--line)] hover:border-[var(--line-strong)] text-[var(--ink-2)] hover:text-[var(--ink-1)] transition"
+          >
+            <ChevronRight size={18} aria-hidden />
+          </button>
         </div>
       </div>
     </section>

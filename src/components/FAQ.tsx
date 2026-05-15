@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Plus, ArrowRight } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const CATEGORIES = ["all", "courses", "community", "services", "payment"];
@@ -39,12 +40,18 @@ export const FAQ = () => {
           </h2>
           <p className="text-[var(--ink-2)] mt-5">{t("faq.subtitle")}</p>
 
-          <div className="flex flex-wrap gap-2 mt-8">
+          <div
+            role="tablist"
+            aria-label={t("faq.eyebrow")}
+            className="flex flex-wrap gap-2 mt-8"
+          >
             {CATEGORIES.map((c) => (
               <button
                 key={c}
+                role="tab"
+                aria-selected={filter === c}
                 onClick={() => setFilter(c)}
-                className={`cm-mono text-[10px] uppercase tracking-widest px-3 py-1.5 rounded-full border transition ${
+                className={`cm-mono text-[10px] uppercase tracking-widest px-3 h-8 inline-flex items-center rounded-full border transition ${
                   filter === c
                     ? "bg-[var(--accent)]/10 border-[var(--accent)] text-[var(--ink-1)]"
                     : "border-[var(--line)] text-[var(--ink-3)] hover:text-[var(--ink-1)] hover:border-[var(--line-strong)]"
@@ -61,48 +68,63 @@ export const FAQ = () => {
             </div>
             <p className="text-sm text-[var(--ink-2)] mt-2">{t("faq.help.body")}</p>
             <a href="#contact" className="cm-btn cm-btn-ghost text-xs mt-5 h-9">
-              {t("faq.help.cta")} →
+              {t("faq.help.cta")}
+              <ArrowRight size={14} aria-hidden />
             </a>
           </div>
         </div>
 
         <div className="col-span-12 lg:col-span-8">
-          <div className="space-y-3">
+          <ul className="space-y-3">
             {filtered.map((q, i) => {
               const isOpen = open === q.id;
+              const panelId = `faq-panel-${q.id}`;
+              const headerId = `faq-header-${q.id}`;
               return (
-                <motion.div
+                <motion.li
                   key={q.id}
                   layout
                   initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-80px" }}
                   transition={{ duration: 0.4, delay: i * 0.04 }}
-                  className={`cm-card overflow-hidden ${isOpen ? "border-[rgba(122,231,255,0.4)]" : ""}`}
+                  className={`cm-card overflow-hidden ${
+                    isOpen ? "border-[rgba(0,153,194,0.45)]" : ""
+                  }`}
                 >
-                  <button
-                    onClick={() => setOpen(isOpen ? null : q.id)}
-                    className="w-full text-left flex items-center gap-4 p-5 md:p-6"
-                  >
-                    <span className="cm-mono text-[11px] tracking-widest text-[var(--accent)] shrink-0">
-                      {String(i + 1).padStart(2, "0")}
-                    </span>
-                    <span className="cm-display text-base md:text-lg flex-1 leading-snug">
-                      {t(`faq.${q.id}.q`)}
-                    </span>
-                    <span
-                      className={`shrink-0 w-9 h-9 grid place-items-center rounded-full border transition-all ${
-                        isOpen
-                          ? "border-[var(--accent)] bg-[var(--accent)]/10 rotate-45"
-                          : "border-[var(--line)]"
-                      }`}
+                  <h3 className="m-0">
+                    <button
+                      id={headerId}
+                      onClick={() => setOpen(isOpen ? null : q.id)}
+                      aria-expanded={isOpen}
+                      aria-controls={panelId}
+                      className="w-full text-left flex items-center gap-4 p-5 md:p-6"
                     >
-                      <span className="text-lg leading-none">+</span>
-                    </span>
-                  </button>
+                      <span className="cm-mono text-[11px] tracking-widest text-[var(--accent)] shrink-0">
+                        {String(i + 1).padStart(2, "0")}
+                      </span>
+                      <span className="cm-display text-base md:text-lg flex-1 leading-snug">
+                        {t(`faq.${q.id}.q`)}
+                      </span>
+                      <span
+                        aria-hidden
+                        className={`shrink-0 w-9 h-9 grid place-items-center rounded-full border transition-all ${
+                          isOpen
+                            ? "border-[var(--accent)] bg-[var(--accent)]/10 rotate-45"
+                            : "border-[var(--line)]"
+                        }`}
+                      >
+                        <Plus size={16} strokeWidth={2} />
+                      </span>
+                    </button>
+                  </h3>
                   <AnimatePresence initial={false}>
                     {isOpen && (
                       <motion.div
                         key="body"
+                        id={panelId}
+                        role="region"
+                        aria-labelledby={headerId}
                         initial={{ height: 0, opacity: 0 }}
                         animate={{ height: "auto", opacity: 1 }}
                         exit={{ height: 0, opacity: 0 }}
@@ -116,10 +138,10 @@ export const FAQ = () => {
                       </motion.div>
                     )}
                   </AnimatePresence>
-                </motion.div>
+                </motion.li>
               );
             })}
-          </div>
+          </ul>
         </div>
       </div>
     </section>
