@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import "../styles/lab.css";
 import { LanguageProvider } from "@/contexts/LanguageContext";
+import { ThemeProvider } from "@/contexts/ThemeContext";
+import { THEME_SCRIPT } from "@/lib/theme";
 
 
 export const metadata: Metadata = {
@@ -20,7 +23,10 @@ export const metadata: Metadata = {
 };
 
 export const viewport = {
-  themeColor: "#F7F8FC",
+  themeColor: [
+    { media: "(prefers-color-scheme: dark)", color: "#070A18" },
+    { media: "(prefers-color-scheme: light)", color: "#F7F8FC" },
+  ],
   width: "device-width",
   initialScale: 1,
 };
@@ -31,12 +37,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html
-      lang="en"
-      suppressHydrationWarning
-    >
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: THEME_SCRIPT }} />
+        <noscript>
+          <style>{`[data-reveal]{opacity:1!important;transform:none!important}`}</style>
+        </noscript>
+      </head>
       <body>
-        <LanguageProvider>{children}</LanguageProvider>
+        <ThemeProvider>
+          <LanguageProvider>{children}</LanguageProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

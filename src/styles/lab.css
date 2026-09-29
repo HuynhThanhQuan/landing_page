@@ -1,0 +1,2 @@
+/* src/styles/lab.css — imported after globals.css so it wins on equal specificity. */
+@import "./lab/base.css";
