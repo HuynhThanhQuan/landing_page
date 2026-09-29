@@ -78,7 +78,7 @@ export default function HeroField({ theme, onFail }: { theme: Theme; onFail: () 
     }
 
     const compact = window.innerWidth < 700 || (navigator.hardwareConcurrency || 8) <= 4;
-    const COUNT = compact ? 2500 : 5200;
+    const COUNT = compact ? 1600 : 5200;
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(55, 1, 0.1, 100);
     camera.position.z = 7;
@@ -138,7 +138,7 @@ export default function HeroField({ theme, onFail }: { theme: Theme; onFail: () 
       const w = canvas.clientWidth;
       const h = canvas.clientHeight;
       if (!w || !h) return;
-      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      const dpr = compact ? 1 : Math.min(window.devicePixelRatio || 1, 2);
       renderer.setPixelRatio(dpr);
       renderer.setSize(w, h, false);
       camera.aspect = w / h;
@@ -152,8 +152,10 @@ export default function HeroField({ theme, onFail }: { theme: Theme; onFail: () 
     let raf = 0;
     let visible = true;
     let last = performance.now();
+    const minFrame = compact ? 33 : 0; // 30 fps cap on weaker devices
     const frame = (now: number) => {
       raf = requestAnimationFrame(frame);
+      if (now - last < minFrame) return;
       uniforms.uTime.value += (now - last) / 1000;
       last = now;
       uniforms.uPointer.value.lerp(target, 0.08);
