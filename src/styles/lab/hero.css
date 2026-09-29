@@ -1,0 +1,45 @@
+/* src/styles/lab/hero.css */
+.lab-hero { position: relative; min-height: 100svh; display: flex; align-items: center; padding: 120px 0 90px; overflow: hidden; }
+.lab-hero-bg { position: absolute; inset: 0; z-index: 0; }
+.lab-hero-bg::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: radial-gradient(ellipse at 28% 50%, color-mix(in srgb, var(--bg) 72%, transparent), transparent 70%);
+}
+.lab-static { position: absolute; inset: 0; }
+.lab-static svg { display: block; }
+.lab-hero-canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; opacity: 0; transition: opacity 1.2s var(--ease); }
+.lab-hero-canvas.is-ready { opacity: 1; }
+.lab-hero-inner { display: grid; grid-template-columns: 1.3fr 1fr; gap: 6%; align-items: center; width: 100%; }
+
+.lab-word { display: inline-block; overflow: hidden; vertical-align: top; padding-bottom: 0.14em; margin-bottom: -0.14em; }
+.lab-word-in { display: inline-block; transform-origin: 0 100%; animation: labRise 0.95s var(--ease) both; }
+@keyframes labRise { from { transform: translateY(112%) rotate(4deg); } to { transform: none; } }
+.lab-fade { animation: labFade 0.9s var(--ease) both; animation-delay: var(--d, 0ms); }
+@keyframes labFade { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+
+.lab-actions { display: flex; gap: 24px; align-items: center; flex-wrap: wrap; margin: 32px 0 6px; }
+.lab-magnetic { display: inline-block; }
+
+.lab-loop { padding: 28px; border-radius: 24px; animation: labFade 0.9s var(--ease) both, labFloat 7s ease-in-out 1.2s infinite alternate; animation-delay: var(--d, 0ms), 1.2s; }
+@keyframes labFloat { from { translate: 0 0; } to { translate: 0 -10px; } }
+.lab-orbit { height: 150px; display: flex; align-items: center; justify-content: space-around; margin: 16px 0; background: radial-gradient(ellipse, color-mix(in srgb, var(--violet) 26%, transparent), transparent 68%); }
+.lab-orbit strong { display: grid; place-items: center; width: 84px; height: 84px; border-radius: 50%; background: var(--bg-2); box-shadow: 0 0 0 18px color-mix(in srgb, var(--cyan) 10%, transparent), 0 0 0 40px color-mix(in srgb, var(--violet) 8%, transparent); font-size: 26px; letter-spacing: -3px; animation: labPulse 4s ease-in-out infinite; }
+@keyframes labPulse { 50% { box-shadow: 0 0 0 26px color-mix(in srgb, var(--cyan) 14%, transparent), 0 0 0 56px color-mix(in srgb, var(--violet) 8%, transparent); } }
+.lab-orbit > span { border: 1px solid var(--line-2); border-radius: 50%; width: 34px; height: 34px; text-align: center; line-height: 32px; color: var(--violet); }
+.lab-loop li { display: flex; justify-content: space-between; padding: 13px 0; border-top: 1px solid var(--line); font-size: 14px; color: var(--ink-2); }
+.lab-loop li span { color: var(--ink-3); font: 11px var(--font-mono), monospace; }
+.lab-loop > p { font-size: 12px; color: var(--ink-3); margin-top: 18px; }
+
+.lab-scroll-cue { position: absolute; left: 50%; bottom: 26px; z-index: 2; width: 26px; height: 42px; margin-left: -13px; border: 1.5px solid var(--line-2); border-radius: 14px; }
+.lab-scroll-cue span { position: absolute; left: 50%; top: 8px; width: 3px; height: 8px; margin-left: -1.5px; border-radius: 3px; background: var(--ink-2); animation: labCue 1.8s var(--ease) infinite; }
+@keyframes labCue { 0% { opacity: 0; transform: translateY(0); } 30% { opacity: 1; } 100% { opacity: 0; transform: translateY(14px); } }
+
+@media (max-width: 900px) {
+  .lab-hero-inner { grid-template-columns: 1fr; gap: 40px; }
+  .lab-hero { padding-top: 110px; }
+  .lab-loop { animation: labFade 0.9s var(--ease) both; animation-delay: var(--d, 0ms); }
+  .lab-scroll-cue { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .lab-loop, .lab-orbit strong, .lab-scroll-cue span { animation: none !important; }
+}
