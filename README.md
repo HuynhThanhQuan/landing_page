@@ -14,10 +14,11 @@ python3 -m http.server 3031 --bind 127.0.0.1 --directory out
 ```
 
 Open [localhost:3031](http://127.0.0.1:3031/). For editing use `npm run dev`.
+Run `npm run smoke` after `npm run build` to check the export.
 
 ## Edit content
 
-- Home: `src/components/PublicHome.tsx`; notes: `src/lib/notes.ts`.
+- Home sections: `src/components/home/`; shared copy: `src/lib/content.ts`; notes: `src/lib/notes.ts`. Styles: `src/styles/lab/`. Motion primitives: `src/components/motion/`.
 - Fonts are system fonts; no remote font request at build or runtime.
 - From the umbrella root, `node scripts/publish-labs.mjs` refreshes the public lab
   packages in both sites. Rebuild afterward. No Studio data is included.
@@ -27,4 +28,4 @@ Open [localhost:3031](http://127.0.0.1:3031/). For editing use `npm run dev`.
 Only `out/` should be served publicly. The existing `deploy.sh` publishes to the VPS;
 run it only when the release is approved. This local release did not deploy anything.
 
-CI checks lint, build and types. It has no deployment step and needs no secrets.
+CI checks lint, build, types and the smoke script. It has no deployment step and needs no secrets.
