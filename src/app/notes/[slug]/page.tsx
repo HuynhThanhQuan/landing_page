@@ -1,0 +1,51 @@
+import Link from "next/link";
+import { notFound } from "next/navigation";
+import { notes } from "@/lib/notes";
+export const dynamicParams = false;
+export function generateStaticParams() {
+  return notes.map(({ slug }) => ({ slug }));
+}
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
+  const note = notes.find((n) => n.slug === slug);
+  return {
+    title: note?.title,
+    description: note?.summary,
+    alternates: { canonical: `/notes/${slug}/` },
+  };
+}
+export default async function Note({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
+  const note = notes.find((n) => n.slug === slug);
+  if (!note) notFound();
+  return (
+    <main className="public-site">
+      <header className="public-nav">
+        <Link href="/notes/">← All field notes</Link>
+        <Link href="/">Curious Machine</Link>
+      </header>
+      <article className="public-article" lang="en">
+        <p className="public-kicker">FIELD NOTE · 28 SEPTEMBER 2026</p>
+        <h1>{note.title}</h1>
+        <p>{note.summary}</p>
+        {note.sections.map(([heading, body]) => (
+          <section key={heading}>
+            <h2>{heading}</h2>
+            <p>{body}</p>
+          </section>
+        ))}
+        <a className="public-primary" href={`/showcase/${note.lab}/index.html`}>
+          Explore the experiment ↗
+        </a>
+      </article>
+    </main>
+  );
+}

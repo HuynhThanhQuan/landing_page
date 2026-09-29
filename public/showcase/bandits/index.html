@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The cost of learning — Curious Machine</title>
+  <meta name="description" content="A reproducible experiment comparing Thompson sampling, UCB1, epsilon-greedy and random allocation across four synthetic campaign scenarios.">
+  <meta property="og:title" content="The cost of learning — a bandit benchmark">
+  <meta property="og:description" content="Explore the trade-off between learning and earning. Four algorithms, four scenarios, reproducible evidence.">
+  <meta property="og:type" content="article">
+  <link rel="stylesheet" href="style.css">
+  <script src="results.js" defer></script><script src="view.js" defer></script>
+</head>
+<body>
+<nav aria-label="Return to library" style="padding:12px 5%;font:14px system-ui"><a href="/experiments.html">← All experiments</a></nav>
+<header><a href="#" class="brand">CM<span>CURIOUS MACHINE / FIELD NOTES</span></a><a href="#method">Read the methodology ↗</a></header>
+<main>
+  <section class="hero"><div class="eyebrow">EXPERIMENT 01 · DECISION SCIENCE</div>
+    <h1>The cost<br>of <em>learning.</em></h1>
+    <p class="intro">Which campaign should get the next visitor?<br>Four allocation rules. The same uncertain world.</p>
+    <p class="byline">A lab by Quan · Synthetic data · No tracking</p>
+  </section>
+  <section class="workspace" aria-label="Benchmark explorer">
+    <aside><div class="eyebrow">01 / SET THE SCENE</div><h2>Different worlds.<br>Different trade-offs.</h2>
+      <label for="scenario">Scenario</label><select id="scenario"></select>
+      <p id="description"></p><div id="arms"></div>
+      <label for="round">Inspect visitor <output id="round-label"></output></label><input id="round" type="range" min="1" value="150">
+      <p class="fine">Controls explore a completed benchmark. They do not start a new simulation.</p>
+      <label class="check"><input id="bands" type="checkbox" checked> Show uncertainty bands</label>
+    </aside>
+    <div class="canvas"><div class="chart-head"><div><div class="eyebrow">02 / WATCH THE OPPORTUNITY COST</div><h2>Learning leaves a trace.</h2></div><span class="pill">Lower is better</span></div>
+      <div id="legend"></div>
+      <svg id="chart" viewBox="0 0 760 330" role="img" aria-label="Mean cumulative pseudo-regret by visitor count"></svg>
+      <p class="fine">Y: cumulative expected conversions forgone · X: visitors allocated. Shading: pointwise approximate 95% confidence intervals for the mean.</p>
+      <p id="insight" aria-live="polite"></p>
+    </div>
+  </section>
+  <section class="results"><div class="eyebrow">03 / READ THE EVIDENCE</div><h2>Allocation is a business decision.</h2>
+    <p id="experiment"></p>
+    <div class="table-scroll"><table><caption>Metrics at the selected visitor count; conversions and allocation use the full run.</caption><thead><tr><th scope="col">Policy</th><th scope="col">Regret at selection</th><th scope="col">Full-run conversions</th><th scope="col">Full-run allocation A / B / C</th></tr></thead><tbody id="metrics"></tbody></table></div>
+    <a id="download" class="download" href="results.json" download="bandit-benchmark.json">Download reproducible results ↓</a>
+  </section>
+  <section class="notes" id="method"><article><div class="eyebrow">WHY IT MATTERS</div><h2>Earn while you learn.</h2><p>In a campaign, every exploratory visit is a chance to discover a better variant — and a chance to miss a conversion. Bandits make that trade-off explicit.</p><p>Uniform random never learns. ε-greedy explores on 10% of visits. UCB1 adds an uncertainty bonus to each observed mean. Thompson sampling draws a plausible conversion rate from each arm’s Beta posterior, then chooses the largest.</p><p>This is an educational comparison, not evidence of uplift for an actual client. A business rollout also needs delayed-outcome handling, audience constraints and monitoring.</p></article>
+    <article><div class="eyebrow">HOW TO READ THIS</div><h2>Evidence, with boundaries.</h2><p>Every run generates one Bernoulli outcome table indexed by visitor and variant. All policies face that same table but only observe the outcome of their chosen variant. Separate seeded random streams drive each policy.</p><p>Pseudo-regret sums the gap between the best true conversion rate and the chosen rate. It is non-negative and measured in expected conversions. It is not realised revenue loss. Conversion counts are actual simulated successes.</p><p>The interval is mean ± 1.96 standard errors across independent runs, clipped at zero for regret. It describes uncertainty in the mean, not the range of individual campaign outcomes. Overlapping bands alone do not establish a tie.</p><p>Rates are fixed, feedback is immediate, and parameters are not tuned. Equal-rate arms should produce exactly zero pseudo-regret. No algorithm wins in every environment.</p><p><a href="https://arxiv.org/abs/1707.02038">Russo et al., A Tutorial on Thompson Sampling ↗</a> · <a href="https://banditalgs.com/">Bandit Algorithms ↗</a></p></article>
+  </section>
+</main><footer>QUAN / CURIOUS MACHINE<span>Reproducible by design. Built to be questioned.</span></footer>
+<noscript><p>Enable JavaScript to explore the benchmark. The methodology above remains available.</p></noscript>
+</body></html>

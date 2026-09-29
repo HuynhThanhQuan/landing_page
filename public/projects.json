@@ -1,0 +1,68 @@
+[
+  {
+    "id": "bandits",
+    "title": "The cost of learning",
+    "category": "Decision science",
+    "description": "Compare four allocation policies across four synthetic campaign scenarios."
+  },
+  {
+    "id": "online-learning",
+    "title": "Learning in motion",
+    "category": "Machine learning",
+    "description": "Follow an online model as the stream changes halfway through."
+  },
+  {
+    "id": "dynamic-pricing",
+    "title": "The price of a decision",
+    "category": "Decision science",
+    "description": "Explore price, demand and revenue in a controlled synthetic market."
+  },
+  {
+    "id": "reinforcement-learning",
+    "title": "A longer game",
+    "category": "Decision science",
+    "description": "Compare short-term rewards with a policy that plans ahead."
+  },
+  {
+    "id": "recsys",
+    "title": "Beyond the popular",
+    "category": "Machine learning",
+    "description": "Inspect recommendation quality, coverage and popularity trade-offs."
+  },
+  {
+    "id": "statistical-testing",
+    "title": "When is a win a win?",
+    "category": "Measurement",
+    "description": "Explore power, false positives and the cost of peeking."
+  },
+  {
+    "id": "causal-inference",
+    "title": "The wrong comparison",
+    "category": "Measurement",
+    "description": "See how hidden confounding changes naive, OLS and IPW estimates."
+  },
+  {
+    "id": "marketing-mix",
+    "title": "After the ad",
+    "category": "Measurement",
+    "description": "Explore carryover, saturation and allocation with known response curves."
+  },
+  {
+    "id": "agentic-ai",
+    "title": "Trust needs a boundary",
+    "category": "Engineering",
+    "description": "Inspect a deterministic tool router and its safety boundaries. Not an LLM benchmark."
+  },
+  {
+    "id": "mlops",
+    "title": "When a model goes quiet",
+    "category": "Engineering",
+    "description": "Explore drift signals and threshold trade-offs on synthetic data."
+  },
+  {
+    "id": "ai-dlc",
+    "title": "Ready means what?",
+    "category": "Engineering",
+    "description": "Inspect deterministic release gates and the evidence behind readiness."
+  }
+]

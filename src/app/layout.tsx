@@ -1,37 +1,18 @@
 import type { Metadata } from "next";
-import { Inter, Space_Grotesk, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 
-const inter = Inter({
-  subsets: ["latin", "vietnamese"],
-  weight: ["300", "400", "500", "600", "700"],
-  display: "swap",
-  variable: "--font-body",
-});
-
-const spaceGrotesk = Space_Grotesk({
-  subsets: ["latin", "vietnamese"],
-  weight: ["400", "500", "600", "700"],
-  display: "swap",
-  variable: "--font-display",
-});
-
-const jetbrainsMono = JetBrains_Mono({
-  subsets: ["latin"],
-  weight: ["400", "500"],
-  display: "swap",
-  variable: "--font-mono",
-});
 
 export const metadata: Metadata = {
-  title: "Curious Machine — Data Science & AI Education for Curious Minds",
+  metadataBase: new URL("https://curiousmachine.152-42-201-32.sslip.io"),
+  title: { default: "Curious Machine — Applied Data & AI", template: "%s | Curious Machine" },
   description:
-    "An education and community platform for Data Science and AI. Courses, tutorials, blogs, case studies, and professional services — built for curious minds.",
+    "Interactive data science experiments, field notes and focused advisory by Huỳnh Thanh Quan. Built in Vietnam, open to curious minds everywhere.",
+  openGraph: { type: "website", siteName: "Curious Machine", title: "Curious Machine — Applied Data & AI", description: "Stay curious. Build the evidence.", images: [{url: "/share.png", width:1200, height:630}] },
+  twitter: { card: "summary_large_image", images: ["/share.png"] },
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "any" },
-      { url: "/images/favicon.ico", sizes: "any" },
     ],
     shortcut: "/favicon.ico",
     apple: "/favicon.ico",
@@ -53,7 +34,6 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${inter.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable}`}
     >
       <body>
         <LanguageProvider>{children}</LanguageProvider>

@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Experiment library — Curious Machine</title>
+    <meta
+      name="description"
+      content="Eleven reproducible data science experiments. Explore decisions, measurement and engineering through interactive synthetic demonstrations."
+    />
+    <link rel="canonical" href="https://curiousmachine.152-42-201-32.sslip.io/experiments.html" />
+    <style>
+      :root {
+        color-scheme: light;
+        font-family: system-ui, sans-serif;
+        color: #202621;
+        background: #f7f6ef;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+      }
+      a {
+        color: inherit;
+        text-underline-offset: 5px;
+      }
+      nav,
+      main,
+      footer {
+        max-width: 1200px;
+        margin: auto;
+        padding: 28px;
+      }
+      nav {
+        display: flex;
+        justify-content: space-between;
+        border-bottom: 1px solid #d9ddd3;
+        gap: 20px;
+      }
+      nav a {
+        text-decoration: none;
+      }
+      header {
+        padding: 70px 0 34px;
+        max-width: 820px;
+      }
+      .eyebrow {
+        font:
+          11px ui-monospace,
+          monospace;
+        text-transform: uppercase;
+        letter-spacing: 0.13em;
+        color: #52664b;
+      }
+      h1 {
+        font-size: clamp(42px, 7vw, 84px);
+        line-height: 1.04;
+        font-weight: 550;
+        letter-spacing: -0.055em;
+        margin: 22px 0;
+      }
+      h1 em {
+        font-family: Georgia, serif;
+        font-weight: 400;
+        color: #426137;
+      }
+      header > p:last-child {
+        font-size: 19px;
+        line-height: 1.7;
+        max-width: 680px;
+        color: #586051;
+      }
+      .filters {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin: 25px 0 30px;
+      }
+      input,
+      select {
+        font: inherit;
+        padding: 13px;
+        border: 1px solid #b8c1b0;
+        background: white;
+        border-radius: 8px;
+        max-width: 100%;
+      }
+      input {
+        flex: 1;
+        min-width: 190px;
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 18px;
+      }
+      .card {
+        padding: 27px;
+        border: 1px solid #d7ddcf;
+        border-radius: 14px;
+        background: #fff;
+        display: flex;
+        flex-direction: column;
+        min-height: 270px;
+      }
+      .card[hidden] {
+        display: none;
+      }
+      h2 {
+        font-size: 25px;
+        line-height: 1.2;
+        letter-spacing: -0.03em;
+      }
+      h2 a {
+        text-decoration: none;
+      }
+      h2 a:hover {
+        text-decoration: underline;
+      }
+      .card > p:not(.eyebrow) {
+        color: #586051;
+        line-height: 1.7;
+        font-size: 15px;
+      }
+      .result {
+        margin-top: auto;
+        padding-top: 15px;
+        font-size: 13px;
+        color: #385c32;
+      }
+      .note {
+        padding: 28px;
+        border-left: 3px solid #6c885a;
+        background: #e9eee3;
+        line-height: 1.7;
+        margin-top: 38px;
+      }
+      footer {
+        font-size: 13px;
+        color: #586051;
+        padding-block: 40px;
+      }
+      a:focus-visible,
+      input:focus-visible,
+      select:focus-visible {
+        outline: 3px solid #426137;
+        outline-offset: 5px;
+      }
+      @media (max-width: 850px) {
+        .grid {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+      @media (max-width: 560px) {
+        .grid {
+          grid-template-columns: 1fr;
+        }
+        nav,
+        main,
+        footer {
+          padding: 22px;
+        }
+        header {
+          padding-top: 40px;
+        }
+        nav {
+          font-size: 13px;
+        }
+      }
+      .filter-field {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        flex: 1;
+        min-width: 200px;
+      }
+      .filter-field:first-child {
+        flex: 2;
+      }
+      .filter-field input,
+      .filter-field select {
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <nav aria-label="Main">
+      <a href="/">← Curious Machine</a
+      ><a href="mailto:hthquan28@gmail.com">Discuss a project ↗</a>
+    </nav>
+    <main>
+      <header>
+        <p class="eyebrow">Curious Machine / Open notebook / 2026</p>
+        <h1>Ideas you can<br /><em>interrogate.</em></h1>
+        <p>
+          Eleven small experiments about decisions, measurement and systems.
+          Change a scenario. Read the assumptions. Take the evidence with you.
+        </p>
+      </header>
+      <div class="filters">
+        <div class="filter-field">
+          <label for="search" class="eyebrow">Find a lab</label
+          ><input
+            type="search"
+            id="search"
+            placeholder="Search topic or experiment"
+          />
+        </div>
+        <div class="filter-field">
+          <label for="category" class="eyebrow">Topic</label
+          ><select id="category">
+            <option>All topics</option>
+            <option>Decision science</option>
+            <option>Machine learning</option>
+            <option>Measurement</option>
+            <option>Engineering</option>
+          </select>
+        </div>
+      </div>
+      <p id="count" role="status">11 experiments</p>
+      <div class="grid"><article class="card" data-category="Decision science" data-keywords="bandits"><p class="eyebrow">Decision science</p><h2><a href="showcase/bandits/index.html">The cost of learning <span aria-hidden="true">↗</span></a></h2><p>Compare four allocation policies across four synthetic campaign scenarios.</p><a class="result" href="showcase/bandits/results.json" download>Download evidence ↓</a></article>
+<article class="card" data-category="Machine learning" data-keywords="online-learning"><p class="eyebrow">Machine learning</p><h2><a href="showcase/online-learning/index.html">Learning in motion <span aria-hidden="true">↗</span></a></h2><p>Follow an online model as the stream changes halfway through.</p><a class="result" href="showcase/online-learning/results.json" download>Download evidence ↓</a></article>
+<article class="card" data-category="Decision science" data-keywords="dynamic-pricing"><p class="eyebrow">Decision science</p><h2><a href="showcase/dynamic-pricing/index.html">The price of a decision <span aria-hidden="true">↗</span></a></h2><p>Explore price, demand and revenue in a controlled synthetic market.</p><a class="result" href="showcase/dynamic-pricing/results.json" download>Download evidence ↓</a></article>
+<article class="card" data-category="Decision science" data-keywords="reinforcement-learning"><p class="eyebrow">Decision science</p><h2><a href="showcase/reinforcement-learning/index.html">A longer game <span aria-hidden="true">↗</span></a></h2><p>Compare short-term rewards with a policy that plans ahead.</p><a class="result" href="showcase/reinforcement-learning/results.json" download>Download evidence ↓</a></article>
+<article class="card" data-category="Machine learning" data-keywords="recsys"><p class="eyebrow">Machine learning</p><h2><a href="showcase/recsys/index.html">Beyond the popular <span aria-hidden="true">↗</span></a></h2><p>Inspect recommendation quality, coverage and popularity trade-offs.</p><a class="result" href="showcase/recsys/results.json" download>Download evidence ↓</a></article>
+<article class="card" data-category="Measurement" data-keywords="statistical-testing"><p class="eyebrow">Measurement</p><h2><a href="showcase/statistical-testing/index.html">When is a win a win? <span aria-hidden="true">↗</span></a></h2><p>Explore power, false positives and the cost of peeking.</p><a class="result" href="showcase/statistical-testing/results.json" download>Download evidence ↓</a></article>
+<article class="card" data-category="Measurement" data-keywords="causal-inference"><p class="eyebrow">Measurement</p><h2><a href="showcase/causal-inference/index.html">The wrong comparison <span aria-hidden="true">↗</span></a></h2><p>See how hidden confounding changes naive, OLS and IPW estimates.</p><a class="result" href="showcase/causal-inference/results.json" download>Download evidence ↓</a></article>
+<article class="card" data-category="Measurement" data-keywords="marketing-mix"><p class="eyebrow">Measurement</p><h2><a href="showcase/marketing-mix/index.html">After the ad <span aria-hidden="true">↗</span></a></h2><p>Explore carryover, saturation and allocation with known response curves.</p><a class="result" href="showcase/marketing-mix/results.json" download>Download evidence ↓</a></article>
+<article class="card" data-category="Engineering" data-keywords="agentic-ai"><p class="eyebrow">Engineering</p><h2><a href="showcase/agentic-ai/index.html">Trust needs a boundary <span aria-hidden="true">↗</span></a></h2><p>Inspect a deterministic tool router and its safety boundaries. Not an LLM benchmark.</p><a class="result" href="showcase/agentic-ai/results.json" download>Download evidence ↓</a></article>
+<article class="card" data-category="Engineering" data-keywords="mlops"><p class="eyebrow">Engineering</p><h2><a href="showcase/mlops/index.html">When a model goes quiet <span aria-hidden="true">↗</span></a></h2><p>Explore drift signals and threshold trade-offs on synthetic data.</p><a class="result" href="showcase/mlops/results.json" download>Download evidence ↓</a></article>
+<article class="card" data-category="Engineering" data-keywords="ai-dlc"><p class="eyebrow">Engineering</p><h2><a href="showcase/ai-dlc/index.html">Ready means what? <span aria-hidden="true">↗</span></a></h2><p>Inspect deterministic release gates and the evidence behind readiness.</p><a class="result" href="showcase/ai-dlc/results.json" download>Download evidence ↓</a></article></div>
+      <p id="empty" hidden>
+        No matches. Try another keyword or choose All topics.
+      </p>
+      <aside class="note">
+        <strong>Evidence, with boundaries.</strong> These are educational
+        demonstrations using synthetic data or deterministic fixtures, not
+        client results or production performance claims. Each lab explains its
+        methods and limitations. Controls explore precomputed runs; they do not
+        train models in your browser. No sign-in, tracking or API key required.
+      </aside>
+    </main>
+    <footer>
+      Built by Quan · Curious Machine ·
+      <a href="https://github.com/HuynhThanhQuan/curious-machine"
+        >Source workspace ↗</a
+      >
+    </footer>
+    <script>
+      const search = document.querySelector("#search"),
+        category = document.querySelector("#category"),
+        cards = [...document.querySelectorAll(".card")];
+      function filter() {
+        let visible = 0;
+        for (const card of cards) {
+          card.hidden = !(
+            (card.textContent + " " + card.dataset.keywords)
+              .toLowerCase()
+              .includes(search.value.toLowerCase().trim()) &&
+            (category.value === "All topics" ||
+              card.dataset.category === category.value)
+          );
+          if (!card.hidden) visible++;
+        }
+        document.querySelector("#count").textContent =
+          visible + " experiment" + (visible === 1 ? "" : "s");
+        document.querySelector("#empty").hidden = visible > 0;
+      }
+      search.addEventListener("input", filter);
+      category.addEventListener("change", filter);
+    </script>
+  </body>
+</html>
