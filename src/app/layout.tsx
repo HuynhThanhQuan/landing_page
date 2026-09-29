@@ -3,6 +3,7 @@ import "./globals.css";
 import "../styles/lab.css";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 import { ThemeProvider } from "@/contexts/ThemeContext";
+import { SiteChrome } from "@/components/ui/SiteChrome";
 import { THEME_SCRIPT } from "@/lib/theme";
 
 
@@ -46,7 +47,10 @@ export default function RootLayout({
       </head>
       <body>
         <ThemeProvider>
-          <LanguageProvider>{children}</LanguageProvider>
+          <LanguageProvider>
+            <SiteChrome />
+            {children}
+          </LanguageProvider>
         </ThemeProvider>
       </body>
     </html>

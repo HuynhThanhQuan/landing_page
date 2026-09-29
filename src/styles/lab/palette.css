@@ -1,0 +1,12 @@
+/* src/styles/lab/palette.css */
+.lab-pal-backdrop { position: fixed; inset: 0; z-index: 100; display: grid; place-items: start center; padding: 14vh 16px 16px; background: rgba(4, 6, 16, 0.55); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); animation: labFade 0.2s both; }
+.lab-pal { width: min(620px, 100%); border-radius: 20px; overflow: hidden; background: color-mix(in srgb, var(--bg-2) 94%, transparent); border: 1px solid var(--line-2); box-shadow: 0 40px 120px -30px rgba(0, 0, 0, 0.6); animation: labFade 0.28s var(--ease) both; }
+.lab-pal-input { width: 100%; padding: 20px 22px; font-size: 17px; background: transparent; color: var(--ink); border: 0; border-bottom: 1px solid var(--line); outline: none; }
+.lab-pal-input:focus-visible { outline: none; box-shadow: inset 0 -2px 0 var(--violet); }
+.lab-pal-input::placeholder { color: var(--ink-3); }
+.lab-pal-list { max-height: min(52vh, 420px); overflow: auto; padding: 8px; margin: 0; list-style: none; }
+.lab-pal-list li { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 12px 14px; border-radius: 12px; font-size: 15px; color: var(--ink); cursor: pointer; }
+.lab-pal-list li small { color: var(--ink-3); font: 11px var(--font-mono), monospace; letter-spacing: 0.08em; text-transform: uppercase; }
+.lab-pal-list li.is-active { background: color-mix(in srgb, var(--violet) 22%, transparent); }
+.lab-pal-empty { padding: 20px 22px; color: var(--ink-3); font-size: 14px; }
+.lab-pal-foot { display: flex; gap: 18px; padding: 12px 20px; border-top: 1px solid var(--line); font-size: 12px; color: var(--ink-3); }
