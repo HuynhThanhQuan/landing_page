@@ -63,7 +63,9 @@ when JavaScript is disabled (search/filter requires JavaScript).
 ## Known limits / verification
 
 - Lighthouse mobile performance measured 83-84 on the local static export under simulated
-  throttling with software WebGL (LCP ~4.6 s; TBT 20-50 ms).
+  throttling with software WebGL (LCP ~4.6 s; TBT 20-50 ms; one run hit TBT 310 ms / 77).
+  Without simulated throttling the same page scores 100 (FCP/LCP 0.1 s), so the gap comes
+  from the 4x CPU / slow-4G simulation, not from a slow first paint.
 - The reduced-motion and WebGL-off paths are implemented but were not exercised in an
   automated browser test.
 
