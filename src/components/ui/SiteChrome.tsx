@@ -38,11 +38,9 @@ export function SiteChrome() {
       <Cursor />
       <SiteNav onOpenPalette={() => setPalOpen(true)} />
       <CommandPalette open={palOpen} onClose={() => setPalOpen(false)} onToast={setToast} />
-      {toast && (
-        <div className="lab-toast lab-glass" role="status">
-          {toast}
-        </div>
-      )}
+      <div className={`lab-toast lab-glass${toast ? "" : " is-empty"}`} role="status" aria-live="polite">
+        {toast}
+      </div>
     </>
   );
 }

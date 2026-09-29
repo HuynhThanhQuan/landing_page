@@ -195,6 +195,7 @@ export default function HeroField({ theme, onFail }: { theme: Theme; onFail: () 
       applyTheme.current = null;
       geometry.dispose();
       material.dispose();
+      renderer.forceContextLoss();
       renderer.dispose();
     };
   }, []);

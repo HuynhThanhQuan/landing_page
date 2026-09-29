@@ -109,7 +109,7 @@ export function SiteNav({ onOpenPalette }: { onOpenPalette: () => void }) {
               type="button"
               className="lab-tool lab-burger"
               aria-expanded={open}
-              aria-controls="lab-menu"
+              aria-controls={open ? "lab-menu" : undefined}
               aria-label={open ? (vi ? "Đóng menu" : "Close menu") : vi ? "Mở menu" : "Open menu"}
               onClick={() => setOpen((o) => !o)}
             >

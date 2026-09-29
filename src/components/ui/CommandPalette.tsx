@@ -27,8 +27,13 @@ function PaletteDialog({ onClose, onToast }: Omit<Props, "open">) {
 
   useEffect(() => {
     const previous = document.activeElement as HTMLElement | null;
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
     inputRef.current?.focus();
-    return () => previous?.focus();
+    return () => {
+      document.body.style.overflow = prevOverflow;
+      previous?.focus();
+    };
   }, []);
 
   useEffect(() => {
@@ -53,6 +58,7 @@ function PaletteDialog({ onClose, onToast }: Omit<Props, "open">) {
   };
 
   const onKeyDown = (e: React.KeyboardEvent) => {
+    if (e.nativeEvent.isComposing || e.key === "Process") return;
     if (e.key === "Escape") {
       e.preventDefault();
       onClose();

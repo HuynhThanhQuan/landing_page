@@ -67,7 +67,8 @@ export function LabsSection() {
   const vi = language === "vi";
   const wide = useMediaQuery("(min-width: 900px)");
   const { reduced } = useMotionPrefs();
-  const pinned = wide && !reduced;
+  const tall = useMediaQuery("(min-height: 720px)");
+  const pinned = wide && tall && !reduced;
   const ref = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end end"] });
   return (
