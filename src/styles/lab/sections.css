@@ -1,0 +1,30 @@
+/* src/styles/lab/sections.css */
+.lab-head-row { display: flex; justify-content: space-between; align-items: end; gap: 24px; flex-wrap: wrap; }
+.lab-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; }
+
+/* Labs */
+.lab-labs { padding: 100px 0; scroll-margin-top: 20px; }
+.lab-labs.is-pinned { height: 250vh; padding: 0; }
+.lab-labs.is-pinned .lab-labs-stick { position: sticky; top: 0; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; padding-top: 96px; padding-bottom: 32px; }
+.lab-tilt { height: 100%; }
+.lab-card { position: relative; height: 100%; overflow: hidden; padding: 26px; border-radius: 20px; transition: border-color 0.3s, box-shadow 0.3s; }
+.lab-card:hover { border-color: var(--line-2); box-shadow: 0 30px 80px -40px var(--glow); }
+.lab-spot { position: absolute; inset: 0; pointer-events: none; opacity: 0; transition: opacity 0.3s; background: radial-gradient(260px circle at var(--mx, 50%) var(--my, 50%), color-mix(in srgb, var(--cyan) 20%, transparent), transparent 70%); }
+.lab-card:hover .lab-spot { opacity: 1; }
+.lab-card-top { display: flex; justify-content: space-between; font: 10px var(--font-mono), monospace; letter-spacing: 0.12em; color: var(--ink-3); }
+.lab-bars { height: 110px; display: flex; align-items: flex-end; gap: 12px; padding: 0 12px; margin-top: 26px; border-bottom: 1px solid var(--line-2); }
+.lab-bar { flex: 1; height: var(--h); border-radius: 4px 4px 0 0; background: linear-gradient(180deg, var(--cyan), color-mix(in srgb, var(--cyan) 30%, transparent)); transform-origin: bottom; }
+.lab-bar:nth-child(2n) { background: linear-gradient(180deg, var(--violet), color-mix(in srgb, var(--violet) 30%, transparent)); }
+.lab-card.is-armed:not(.is-in) .lab-bar { transform: scaleY(0); }
+.lab-card.is-in .lab-bar { animation: labGrow 0.8s var(--ease) both; animation-delay: calc(var(--i, 0) * 70ms); }
+/* A different keyframe name restarts the animation each time the card is hovered. */
+.lab-card.is-in:hover .lab-bar { animation-name: labGrow2; }
+@keyframes labGrow { from { transform: scaleY(0); } to { transform: scaleY(1); } }
+@keyframes labGrow2 { from { transform: scaleY(0.15); } to { transform: scaleY(1); } }
+.lab-card h3 a { text-decoration: none; }
+.lab-card h3 a::after { content: ""; position: absolute; inset: 0; } /* whole card is clickable */
+.lab-card h3 a:hover { text-decoration: underline; }
+.lab-card-body { font-size: 14px; line-height: 1.8; color: var(--ink-2); }
+
+@media (max-width: 899px) { .lab-grid { grid-template-columns: 1fr; } }
+@media (prefers-reduced-motion: reduce) { .lab-card.is-armed:not(.is-in) .lab-bar { transform: none; } }
