@@ -8,16 +8,10 @@ export const metadata = {
 };
 export default function Notes() {
   return (
-    <main className="public-site">
-      <header className="public-nav">
-        <Link href="/" className="public-brand">
-          ← Curious Machine
-        </Link>
-        <a href="/experiments.html">Experiments ↗</a>
-      </header>
-      <article className="public-article" lang="en">
-        <p className="public-kicker">THE OPEN NOTEBOOK · ENGLISH</p>
-        <h1>
+    <main id="content" className="lab-page">
+      <article className="lab-article" lang="en">
+        <p className="lab-kicker">THE OPEN NOTEBOOK · ENGLISH</p>
+        <h1 className="lab-h1 lab-h1-sm">
           Notes from
           <br />
           the workbench.
@@ -27,7 +21,7 @@ export default function Notes() {
           decisions. Published 28 September 2026.
         </p>
         {notes.map((note) => (
-          <section className="public-note-card" key={note.slug}>
+          <section className="lab-note-card" key={note.slug}>
             <h2>
               <Link href={`/notes/${note.slug}/`}>{note.title} ↗</Link>
             </h2>

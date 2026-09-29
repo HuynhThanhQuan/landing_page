@@ -27,14 +27,13 @@ export default async function Note({
   const note = notes.find((n) => n.slug === slug);
   if (!note) notFound();
   return (
-    <main className="public-site">
-      <header className="public-nav">
-        <Link href="/notes/">← All field notes</Link>
-        <Link href="/">Curious Machine</Link>
-      </header>
-      <article className="public-article" lang="en">
-        <p className="public-kicker">FIELD NOTE · 28 SEPTEMBER 2026</p>
-        <h1>{note.title}</h1>
+    <main id="content" className="lab-page">
+      <article className="lab-article" lang="en">
+        <Link className="lab-back" href="/notes/">
+          ← All field notes
+        </Link>
+        <p className="lab-kicker">FIELD NOTE · 28 SEPTEMBER 2026</p>
+        <h1 className="lab-h1 lab-h1-sm">{note.title}</h1>
         <p>{note.summary}</p>
         {note.sections.map(([heading, body]) => (
           <section key={heading}>
@@ -42,7 +41,7 @@ export default async function Note({
             <p>{body}</p>
           </section>
         ))}
-        <a className="public-primary" href={`/showcase/${note.lab}/index.html`}>
+        <a className="lab-btn" href={`/showcase/${note.lab}/index.html`}>
           Explore the experiment ↗
         </a>
       </article>

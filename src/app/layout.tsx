@@ -4,6 +4,7 @@ import "../styles/lab.css";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 import { ThemeProvider } from "@/contexts/ThemeContext";
 import { SiteChrome } from "@/components/ui/SiteChrome";
+import { SiteFooter } from "@/components/home/SiteFooter";
 import { THEME_SCRIPT } from "@/lib/theme";
 
 
@@ -50,6 +51,7 @@ export default function RootLayout({
           <LanguageProvider>
             <SiteChrome />
             {children}
+            <SiteFooter />
           </LanguageProvider>
         </ThemeProvider>
       </body>
