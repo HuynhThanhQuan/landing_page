@@ -36,7 +36,7 @@ if (full) {
     check(html.includes(`id="${id}"`), `index.html is missing id="${id}"`);
   }
   check(html.includes("cm-theme-v1"), "theme pre-hydration script missing");
-  const external = html.match(/<(?:script|link|img)\b[^>]*\b(?:src|href)="(?:https?:)?\/\/[^"]+"/g) || [];
+  const external = (html.match(/<(?:script|link|img)\b[^>]*\b(?:src|href)="(?:https?:)?\/\/[^"]+"/g) || []).filter((t) => !/rel="(?:canonical|alternate)"/.test(t));
   check(external.length === 0, `third-party asset requests in index.html: ${external.join(" | ")}`);
   check(!bodies.some((b) => b.includes("WebGLRenderer")), "three.js is in the initial bundle (must be lazy)");
   check(BASELINE_GZ > 0, "BASELINE_GZ is not set in scripts/smoke.mjs");
