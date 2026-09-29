@@ -1,7 +1,5 @@
 "use client";
-import { motion } from "framer-motion";
-import type { ReactNode } from "react";
-import { useMotionPrefs } from "./useMotionPrefs";
+import { useEffect, useRef, type CSSProperties, type ReactNode } from "react";
 
 export function Reveal({
   children,
@@ -14,18 +12,26 @@ export function Reveal({
   distance?: number;
   className?: string;
 }) {
-  const { reduced } = useMotionPrefs();
-  if (reduced) return <div className={className}>{children}</div>;
+  const ref = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const io = new IntersectionObserver(
+      ([e]) => {
+        if (e.isIntersecting) {
+          el.classList.add("is-in");
+          io.disconnect();
+        }
+      },
+      { rootMargin: "0px 0px -10% 0px" },
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+  const style = { "--rd": `${delay}s`, "--rdist": `${distance}px` } as CSSProperties;
   return (
-    <motion.div
-      data-reveal
-      className={className}
-      initial={{ opacity: 0, y: distance }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-10% 0px" }}
-      transition={{ duration: 0.7, delay, ease: [0.22, 1, 0.36, 1] }}
-    >
+    <div ref={ref} className={`lab-reveal${className ? ` ${className}` : ""}`} style={style}>
       {children}
-    </motion.div>
+    </div>
   );
 }

@@ -49,6 +49,9 @@ when JavaScript is disabled (search/filter requires JavaScript).
 - Motion is progressive: `prefers-reduced-motion: reduce` removes particle motion, pinning,
   tilt, magnetic effect, custom cursor, marquee and count-ups. Touch devices skip
   cursor, tilt and magnetic effects.
+- Scroll reveals are CSS transitions toggled by an IntersectionObserver and are visible
+  without JavaScript; the route entrance is a CSS animation. Pinning also requires a
+  viewport at least 720 px tall.
 - The hero canvas is fetched and started only after the window load event and an idle
   callback. On narrow or low-core devices it uses fewer particles (1600), DPR 1 and a
   30 fps cap. With WebGL missing, Save-Data, reduced motion or context loss it stays on
